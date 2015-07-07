@@ -1,0 +1,14 @@
+-I/usr/include/qt4
+-I/usr/include/qt4/QtOpenGL
+-I/usr/include/qt4/QtGui
+-I/usr/include/qt4/QtXml
+-I/usr/include/qt4/QtCore
+-D_GRAPHICS_
+-DQT_NO_DEBUG
+-DQT_OPENGL_LIB
+-DQT_GUI_LIB
+-DQT_XML_LIB
+-DQT_CORE_LIB
+-o
+/home/stefan/Documents/EVOSIM_for_students/build/ROB_SENSORS_OBJS/moc_simple_agents.cxx
+/home/stefan/Documents/EVOSIM_for_students/ROB_SENSORS_OBJS/simple_agents.cpp
