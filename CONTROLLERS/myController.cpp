@@ -89,7 +89,7 @@ void MyController::step ( const vector <double> &input, vector <double> &output)
 
     /*add the weights from the hidden-to-outputlayer*/
     for(int i = 0;i < num_output;i++){
-        for(int j = 0;hiddenlayer_size+1;j++){
+        for(int j = 0;j < hiddenlayer_size+1;j++){
             outputlayer[i] +=(hiddenlayer[j] * (weights2[j][i]));
         }
     }
