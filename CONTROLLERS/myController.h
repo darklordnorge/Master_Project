@@ -17,6 +17,7 @@ class MyController : public Controller {
 
   // here is you data members
  public:
+    MyController();
   /* -------------------------------------------------------------------------------------------------- */
   /*                                             VIRTUAL FUNCTIONS                                      */
   /* -------------------------------------------------------------------------------------------------- */
@@ -24,6 +25,9 @@ class MyController : public Controller {
   void step                          ( const vector <double> &input_array, vector <double> &output_array);
   void reset                         ( void );
   void compute_genotype_length       ( void );
+  void read_from_file                ( void );
+  int get_num_input                   (void);
+  int get_num_output                  (void);
   /* -------------------------------------------------------------------------------------------------- */
   /* -------------------------------------------------------------------------------------------------- */
   // and any other functions you might need

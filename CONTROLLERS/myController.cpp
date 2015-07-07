@@ -1,7 +1,7 @@
 #include "myController.h"
 
 /*Contructor*/
-MyController::MyController(){
+MyController::MyController() {
     compute_genotype_length();
 }
 
@@ -107,6 +107,12 @@ void MyController::reset ( void ){
     // reset the state of neurons
 
 }
-
-
 /* -------------------------------------------------------------------------------------- */
+void MyController::read_from_file(void) {
+}
+int MyController::get_num_input ( void ){
+    return num_input;
+}
+int MyController::get_num_output ( void ){
+    return num_output;
+}
