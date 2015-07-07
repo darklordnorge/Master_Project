@@ -59,9 +59,45 @@ void MyController::init ( const vector <chromosome_type> &genes ){
 /* -------------------------------------------------------------------------------------- */
 
 void MyController::step ( const vector <double> &input, vector <double> &output){
+    /*set values for the inputlayer*/
+    for(int i = 0;i < input.size();i++){
+        inputlayer[i] = get_value(input, i);
+    }
 
-    //update the network
+    /*set Bias for the hiddenlayer*/
+    inputlayer[num_input] = 1.0;
 
+    /*reset the outputlayer*/
+    for(int i = 0;i < num_output;i++){
+        outputlayer[i] = 0.0;
+    }
+
+    /*add the weights from input to hiddenlayer*/
+    for(int i = 0;i < hiddenlayer_size;i++){
+        for(int j = 0;j < num_input+1;j++){
+            hiddenlayer[i] +=(inputlayer[j] * (weights1[j][i]));
+        }
+    }
+
+    /*calculate the sigmoid for the hiddenlayer*/
+    for(int i = 0;i < hiddenlayer_size;i++){
+        hiddenlayer[i] = f_sigmoid(hiddenlayer[i]);
+    }
+
+    /*add the bias for the outputlayer*/
+    hiddenlayer[hiddenlayer_size] = 1.0;
+
+    /*add the weights from the hidden-to-outputlayer*/
+    for(int i = 0;i < num_output;i++){
+        for(int j = 0;hiddenlayer_size+1;j++){
+            outputlayer[i] +=(hiddenlayer[j] * (weights2[j][i]));
+        }
+    }
+
+    /*calculate the sigmoid for the outputlayer*/
+    for(int i = 0;i < num_output;i++){
+        output[i] = f_sigmoid(outputlayer[i]);
+    }
 }
 
 /* -------------------------------------------------------------------------------------- */
