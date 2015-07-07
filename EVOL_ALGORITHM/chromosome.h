@@ -169,14 +169,14 @@ class Chromosome {
     resize_chromosome( num_alleles_, num_bases_per_allele_ );
     //cerr << " " << allele.size() << endl; 
     for (unsigned int a = 0; a < allele.size(); a++){
-      if( a >= (allele.size() - 20) )  {
-	allele[a] =  this->base_value.get_new_binary_value( );
+     // if( a >= (allele.size() - 20) )  {
+	//allele[a] =  this->base_value.get_new_binary_value( );
 	//cerr << " Binary allele["<<a<<"] = " << allele[a] << endl;
-      }
-      else {
+      //}
+     // else {
 	allele[a] =  this->base_value.get_new_value( );
 	//cerr << " allele["<<a<<"] = " << allele[a] << endl;
-      }
+      //}
     }
     //getchar();
   }
