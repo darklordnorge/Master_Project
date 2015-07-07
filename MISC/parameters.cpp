@@ -429,11 +429,12 @@ void Parameters::init_agents( void ){
 
 void Parameters::init_controllers( void ){
 
-
+  nets = new MyController*[num_agents];
   if ( !strcmp ( type_of_controller, "perceptron" ) ){
     for(int r=0; r < num_agents; r++) {
         // here you need to create agent's controller (i.e. neural networks) as a number of agents you have
         //   in the world (usually single agent)
+        nets[r] = new MyController();
     }
   }
   else{

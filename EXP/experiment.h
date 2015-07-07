@@ -82,6 +82,9 @@ class EXP_Class : public Engine {
   void compute_fitness ( void );
    void dump_statistics              ( const char *locationOfFileTodump, const char *fileName, int generation );
     /* ----------------------------------------------- */
-  
+
+    //stuff added by stefan
+    double partial_fitness;
+    void compute_fitness_each_step(void);
 };
 #endif

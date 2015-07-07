@@ -8,6 +8,7 @@
 #include "../ROB_SENSORS_OBJS/world_entity.h"
 #include "../ROB_SENSORS_OBJS/simple_agents.h"
 #include "../ROB_SENSORS_OBJS/simple_objects.h"
+#include "../CONTROLLERS/myController.h"
 
 
 
@@ -51,7 +52,7 @@ class Parameters {
   char *run_name;
   
   GA *ga;
-  //Controller **nets;
+  MyController **nets;
   SIMPLE_Agents **agent;
   SIMPLE_Objects **object;
   unsigned long root_seed;

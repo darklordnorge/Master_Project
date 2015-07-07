@@ -46,8 +46,8 @@ void EXP_Class::init_local_variables( void ){
 
  agent_interface.resize( param->num_agents );
  for(int r = 0; r < param->num_agents; r++){
-   agent_interface[r].inputs.assign  ( /*param->nets[r]->get_num_input() you need to uncomment this part after you design you controller*/ 8, 0.0);
-   agent_interface[r].outputs.assign ( /*param->nets[r]->get_num_output() you need to uncomment this part after you design you controller*/ 4, 0.0);
+   agent_interface[r].inputs.assign  (param->nets[r]->get_num_input(), 0.0);
+   agent_interface[r].outputs.assign (param->nets[r]->get_num_output(), 0.0);
  }
 
  this->set_agent_position();
@@ -56,11 +56,10 @@ void EXP_Class::init_local_variables( void ){
 /* ---------------------------------------------------------------------------------------- */
 
 void EXP_Class::init_evolutionary_run( void ){
-
+    for(int r = 0;r < param->num_agents;r++){
         generation = 0; //This is the counter for the generation
-        param->init_ga( /*param->nets[0]->get_genotype_length() you need to uncommet this part after you design you controller*/ 28, 1 );
-
- 
+        param->init_ga(param->nets[r]->get_genotype_length(), 1);
+    }
 }
 
 /* ---------------------------------------------------------------------------------------- */
@@ -125,7 +124,7 @@ void EXP_Class::init_evaluations_loop( ){ // this loop for agents life time for 
 #else
       //This is where we create a network from solution num: genotype
       // you need to uncommet this line after you design you controller
-      //param->nets[r]->init(  param->ga->get_solution( genotype, 0 ) );
+      param->nets[r]->init(  param->ga->get_solution( genotype, 0 ) );
 #endif
     }
   }
@@ -144,7 +143,7 @@ void EXP_Class::init_single_evaluation( void ){
     }
     */
    // printf("\n  eval%d final fitness=%f ",eval,FINAL_FITNESS[0]);
-
+    partial_fitness = 0.0;
 }
 
 /* ---------------------------------------------------------------------------------------- */
@@ -164,7 +163,7 @@ void EXP_Class::from_genome_to_controllers( const char *str_source, const int wh
   
   for(int r=0; r < param->num_agents; r++) {
     // you need to uncommet this line after you design you controller
-    //param->nets[r]->set_genotype_length ( copy_genes.size() );
+    param->nets[r]->set_genotype_length ( copy_genes.size() );
 #ifdef _HETERO_GROUP_SELECTION_
     for(int g = 0; g < copy_genes.size(); g++){
       copy_genes[g] = genes[g+(copy_genes.size()*r)];
@@ -172,7 +171,7 @@ void EXP_Class::from_genome_to_controllers( const char *str_source, const int wh
     param->nets[r]->init(  copy_genes );max_geno_to_eval
 #else
     // you need to uncommet this line after you design you controller
-    //param->nets[r]->init( genes );
+    param->nets[r]->init( genes );
 #endif
   }
 }
@@ -188,8 +187,9 @@ void EXP_Class::adv ( void ){
         update_world();
         param->world->stepSimulation( param->physics_step);
   }
-  //manage_collisions ();
+  manage_collisions ();
   //if(param->agent[0]->get_pos()[2] > 2.00) iter = param->num_iterations;
+  compute_fitness_each_step();
   iter++;
 }
 
@@ -234,14 +234,14 @@ void EXP_Class::update_controllers( void ){
     //When you allocate memory for the input and output vector
   //use the following functions:
   //param->nets[r]->get_num_input()
-   /* for(int r=0; r < param->num_agents; r++){
+    for(int r=0; r < param->num_agents; r++){
           agent_interface[r].outputs.assign(param->nets[0]->get_num_output(),0.0);
-    } */
+    }
 
   //update robot controllers
   for(int r=0; r < param->num_agents; r++){
         // you need to uncommet this line after you design you controller
-        //param->nets[r]->step( agent_interface[r].inputs /* represent the input from robot's infra-red(s) and or camera */ , agent_interface[r].outputs /* represent the output to set robot wheels speed */ );
+        param->nets[r]->step( agent_interface[r].inputs, agent_interface[r].outputs);
 
     }
 
@@ -250,17 +250,9 @@ void EXP_Class::update_controllers( void ){
 /* ---------------------------------------------------------------------------------------- */
 // this function just set the out of neural controller to robot's wheels velocity variable
 void EXP_Class::update_Actuators( void ){
-  vector <double> outputs;
-  outputs.resize(4);
-  outputs[0] = 1.0;
-  outputs[1] = 0.0;
-  outputs[2] = 1.0;
-  outputs[3] = 0.0;
-
-
+    /*update robot wheels velocity*/
   for(int r=0; r < param->num_agents; r++){
-      //update robot wheels velocity
-      param->agent[r]->set_vel(outputs);
+     param->agent[r]->set_vel(agent_interface[r].outputs);
   }
 }
 
@@ -294,13 +286,33 @@ void EXP_Class::manage_collisions (void ){
 
 // This function is what you need to design to guide the evoluation towards the solution
 void EXP_Class::compute_fitness( void ){
-   double f;
-   f = param->agent[0]->get_pos()[2];
-   //printf("\n single fitness = %f",f);
-   FINAL_FITNESS[0] += f;
-
+    FINAL_FITNESS[0] = partial_fitness / (double)(param->num_iterations);
 }
 
+/*------------------------------------------------------------------------------------------*/
+
+/*-------------------------------------------------------------------------------------------------------------*/
+/*fitness = mean(leftSpeed, rightSpeed) * (1 - sqrt(abs(speedLeft) - abs(speedRight))*(1 - highest IR reading )*/
+/*-------------------------------------------------------------------------------------------------------------*/
+void EXP_Class::compute_fitness_each_step( void ){
+
+    int r = 0;
+    //  for(int r=0; r < param->num_agents; r++){
+    double vl = ((param->agent[r]->get_vel()[0]/param->agent[r]->get_max_vel()) + 1) * 0.5;
+    double vr = ((param->agent[r]->get_vel()[1]/param->agent[r]->get_max_vel()) + 1) * 0.5;
+    double comp_1 = (vl + vr)*0.5;
+    double comp_2 = 1.0 - sqrt(fabs(vl-vr));
+    double comp_3  = 0.0;
+    for( int i = 0; i < agent_interface[r].inputs.size(); i++){
+        if( comp_3 < agent_interface[r].inputs[i] )
+            comp_3 = agent_interface[r].inputs[i];
+    }
+
+    comp_3 = (1.0 - comp_3);
+    //}
+    partial_fitness += comp_1 *comp_2 *comp_3 * param->agent[0]->get_pos()[2];
+//    partial_fitness += comp_1 * comp_2 * comp_3;
+}
 
 
 /* ---------------------------------------------------------------------------------------- */
@@ -321,7 +333,7 @@ void EXP_Class::finalise_single_evaluation ( void ){
 
     //here you can call compute_fitness if you need to evaluate agent at the end of every evaluation
 
-    //compute_fitness();
+    compute_fitness();
 
 }
 

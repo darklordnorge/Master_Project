@@ -1,7 +1,7 @@
 #ifdef _GRAPHICS_
-#include "../EXP/RENDERING/viewer.h"
-#include "../EXP/RENDERING/interface.h"
-#include "../EXP/experiment.h"
+#include "EXP/RENDERING/viewer.h"
+#include "EXP/RENDERING/interface.h"
+#include "EXP/experiment.h"
 #endif
 
 bool evolution     = false;

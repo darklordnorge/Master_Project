@@ -12,10 +12,10 @@
 # include <QKeyEvent>
 #endif
 
-#include "../MISC/general.h"
+#include "../../MISC/general.h"
 #include "../experiment.h"
-#include "../ROB_SENSORS_OBJS/simple_agents.h"
-#include "../ROB_SENSORS_OBJS/simple_objects.h"
+#include "../../ROB_SENSORS_OBJS/simple_agents.h"
+#include "../../ROB_SENSORS_OBJS/simple_objects.h"
 
 //#include "video.h"
 #include "sky.h"
