@@ -6,6 +6,14 @@
 class MyController : public Controller {
 
  private:
+    static const int hiddenlayer_size = 3;
+    double weights1[num_input+1][hiddenlayer_size];
+    double weights2[hiddenlayer_size +1][num_output];
+    vector <double> inputlayer;
+    vector <double> outputlayer;
+    vector <double> hiddenlayer;
+    const static double high_bound = 5.0;
+    const static double low_bound  = -5.0;
 
   // here is you data members
  public:

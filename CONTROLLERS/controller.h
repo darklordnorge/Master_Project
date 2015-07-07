@@ -68,8 +68,8 @@ class Controller {
   
  protected:
   double delta_t;
-  int   num_input;
-  int   num_output;
+  static const int   num_input = 8;
+  static const int   num_output = 4;
   int   genotype_length;
   
  public:
