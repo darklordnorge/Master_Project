@@ -125,10 +125,12 @@ int main(int argc, char** argv)
   parse_command_line( argc, argv );
   //This is where you create the experiment
   EXP_Class *exp = new EXP_Class( run_name, evolution, viewing, re_evaluation, root_seed, from_gen, to_gen, num_cores );
-
+    int generation = 0;
   if( evolution ){
     exp->init_evolutionary_run( );
     do{//This is the loop for the generations
+        cout << generation << endl;
+        generation++;
       exp->init_genotype_loop( );
       do{//This is the loop for the population or solutions (genotypes)
 	exp->init_evaluations_loop( );
