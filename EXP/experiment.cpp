@@ -39,15 +39,19 @@ void EXP_Class::init_local_variables( void ){
   param->init_objects( );
   param->init_agents( );
   centre.assign(3,0.0);
- //init and reset the array to store Infra-red sensor readings
- ir_readings.assign( param->agent[0]->num_IR_sensors, 0.0);
- //init and reset the camera array
- camera_sector_readings.assign( param->agent[0]->num_camera_sectors, 0.0);
+  for(int r = 0;r < param->num_agents;r++){
+      //init and reset the array to store Infra-red sensor readings
+      ir_readings.assign( param->agent[r]->num_IR_sensors, 0.0);
+      //init and reset the camera array
+      camera_sector_readings.assign( param->agent[r]->num_camera_sectors, 0.0);
+  }
+
 
  agent_interface.resize( param->num_agents );
  for(int r = 0; r < param->num_agents; r++){
-   agent_interface[r].inputs.assign  (param->nets[r]->get_num_input(), 0.0);
-   agent_interface[r].outputs.assign (param->nets[r]->get_num_output(), 0.0);
+    agent_interface[r].inputs.assign  (param->nets[r]->get_num_input(), 0.0);
+    agent_interface[r].outputs.assign (param->nets[r]->get_num_output(), 0.0);
+    partial_fitness[param->num_agents];
  }
 
  this->set_agent_position();
@@ -143,7 +147,10 @@ void EXP_Class::init_single_evaluation( void ){
     }
     */
    // printf("\n  eval%d final fitness=%f ",eval,FINAL_FITNESS[0]);
-    partial_fitness = 0.0;
+    for(int r = 0;r < param->num_agents;r++){
+        partial_fitness[r] = 0.0;
+    }
+
 }
 
 /* ---------------------------------------------------------------------------------------- */
@@ -235,7 +242,7 @@ void EXP_Class::update_controllers( void ){
   //use the following functions:
   //param->nets[r]->get_num_input()
     for(int r=0; r < param->num_agents; r++){
-          agent_interface[r].outputs.assign(param->nets[0]->get_num_output(),0.0);
+          agent_interface[r].outputs.assign(param->nets[r]->get_num_output(),0.0);
     }
 
   //update robot controllers
@@ -274,10 +281,12 @@ void EXP_Class::update_world( void ){
 // the function is just to capture collision of the robot with another robot or object
 void EXP_Class::manage_collisions (void ){
 
-     if(param->agent[0]->is_crashed()){
-         param->agent[0]->set_crashed(false);
-         iter = param->num_iterations;
-     }
+    for(int r = 0;r < param->num_agents;r++){
+        if(param->agent[0]->is_crashed()){
+            param->agent[0]->set_crashed(false);
+            iter = param->num_iterations;
+        }
+    }
 }
 
 
@@ -286,7 +295,9 @@ void EXP_Class::manage_collisions (void ){
 
 // This function is what you need to design to guide the evoluation towards the solution
 void EXP_Class::compute_fitness( void ){
-    FINAL_FITNESS[0] = partial_fitness / (double)(param->num_iterations);
+    for(int r = 0;r < param->num_agents;r++){
+        FINAL_FITNESS[0] += partial_fitness[r] / (double)(param->num_iterations);
+    }
 }
 
 /*------------------------------------------------------------------------------------------*/
@@ -296,21 +307,22 @@ void EXP_Class::compute_fitness( void ){
 /*-------------------------------------------------------------------------------------------------------------*/
 void EXP_Class::compute_fitness_each_step( void ){
 
-    int r = 0;
-    //  for(int r=0; r < param->num_agents; r++){
-    double vl = ((param->agent[r]->get_vel()[0]/param->agent[r]->get_max_vel()) + 1) * 0.5;
-    double vr = ((param->agent[r]->get_vel()[1]/param->agent[r]->get_max_vel()) + 1) * 0.5;
-    double comp_1 = (vl + vr)*0.5;
-    double comp_2 = 1.0 - sqrt(fabs(vl-vr));
-    double comp_3  = 0.0;
-    for( int i = 0; i < agent_interface[r].inputs.size(); i++){
-        if( comp_3 < agent_interface[r].inputs[i] )
-            comp_3 = agent_interface[r].inputs[i];
+   // int r = 0;
+    for(int r=0; r < param->num_agents; r++){
+        double vl = ((param->agent[r]->get_vel()[0]/param->agent[r]->get_max_vel()) + 1) * 0.5;
+        double vr = ((param->agent[r]->get_vel()[1]/param->agent[r]->get_max_vel()) + 1) * 0.5;
+        double comp_1 = (vl + vr)*0.5;
+        double comp_2 = 1.0 - sqrt(fabs(vl-vr));
+        double comp_3  = 0.0;
+        for( int i = 0; i < agent_interface[r].inputs.size(); i++){
+            if( comp_3 < agent_interface[r].inputs[i] )
+                comp_3 = agent_interface[r].inputs[i];
+        }
+
+        comp_3 = (1.0 - comp_3);
+        partial_fitness[r] += comp_1 *comp_2 *comp_3 * param->agent[0]->get_pos()[2];
     }
 
-    comp_3 = (1.0 - comp_3);
-    //}
-    partial_fitness += comp_1 *comp_2 *comp_3 * param->agent[0]->get_pos()[2];
 //    partial_fitness += comp_1 * comp_2 * comp_3;
 }
 
