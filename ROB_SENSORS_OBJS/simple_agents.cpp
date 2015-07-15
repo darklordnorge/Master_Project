@@ -677,4 +677,50 @@ void SIMPLE_Agents::render( void ){
 
 }
 
+double SIMPLE_Agents::get_randb_reading( vector <double> _to_robot_pos, vector <double> &_reading){
+    randb_from = btVector3(0.0,0.0,0.0);
+    randb_to   = btVector3(0.0,0.0,0.0);
+    this->pos = this->get_pos();
+    // get the distance between your robot and to destination robot "_to_robot_pos"
+    double range = sqrt(((_to_robot_pos[0]-pos[0])*(_to_robot_pos[0]-pos[0]) + (_to_robot_pos[2]-pos[2])*(_to_robot_pos[2]-pos[2])));
+    if(range < work_range){
+        _read[0] = range;
+
+        // get the robot orienation
+        btMatrix3x3 m = btMatrix3x3(body->getWorldTransform().getRotation());
+        double rfPAngle = btAsin(-m[1][2]);
+        if(rfPAngle < SIMD_HALF_PI){
+            if(rfPAngle > -SIMD_HALF_PI) this->rotation = btAtan2(m[0][2],m[2][2]);
+            else this->rotation = -btAtan2(-m[0][1],m[0][0]);
+        }
+        else this->rotation = btAtan2(-m[0][1],m[0][0]);
+        // check the collision accross the distance between your robot and destination robot
+        randb_from = btVector3(_to_robot_pos[0],_to_robot_pos[1]+0.025,_to_robot_pos[2]);
+        randb_to   = btVector3(pos[0], pos[1]+0.025, pos[2]);
+        btCollisionWorld::ClosestRayResultCallback res(randb_from, randb_to);
+        this->world->rayTest(randb_from, randb_to, res);
+        if(res.hasHit()){
+            World_Entity* object = (World_Entity*) res.m_collisionObject->getUserPointer();
+            if(object->get_type_id() == ROBOT && object->get_index() == this->index){
+
+                double bearing,nest_angle,robot_angle;
+                robot_angle =rotation;
+                if(robot_angle<0.0)
+                    robot_angle = TWO_PI + robot_angle;
+                nest_angle = -atan2(_to_robot_pos[2]-pos[2], _to_robot_pos[0]-pos[0]);
+                if(nest_angle <0.0)
+                    nest_angle = TWO_PI + nest_angle;
+                bearing = nest_angle - robot_angle;
+                if(bearing < 0.0)
+                    bearing = TWO_PI + bearing;
+                //if you want to add noise bearing
+                bearing += (gsl_rng_uniform_pos( GSL_randon_generator::r_rand )*0.30 - 0.15);
+                _reading[1] = bearing;
+
+            }
+            randb_to =res.m_hitPointWorld;
+        }
+    }
+}
+
 #endif
