@@ -1,0 +1,73 @@
+This is BibTeX, Version 0.99d (TeX Live 2013/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: dissertation.aux
+A level-1 auxiliary file: cover.aux
+A level-1 auxiliary file: declaration.aux
+A level-1 auxiliary file: acknowledgements.aux
+A level-1 auxiliary file: abstract.aux
+A level-1 auxiliary file: Chapter1/chapter1.aux
+A level-1 auxiliary file: Chapter2/chapter2.aux
+A level-1 auxiliary file: Chapter3/chapter3.aux
+A level-1 auxiliary file: Chapter4/chapter4.aux
+A level-1 auxiliary file: Chapter5/chapter5.aux
+A level-1 auxiliary file: Appendix1/appendix1.aux
+A level-1 auxiliary file: Appendix2/appendix2.aux
+The style file: IEEEannot.bst
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Database file #1: References/stefkla.bib
+Warning--I didn't find a database entry for "apache_poi"
+Warning--I didn't find a database entry for "apache_license"
+Warning--I didn't find a database entry for "NumericalRecipes"
+-- IEEEtranS.bst version 1.11 (2003/04/02) by Michael Shell.
+-- http://www.ctan.org/tex-archive/macros/latex/contrib/supported/IEEEtran/
+-- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
+** Sorting version - not for use with work to be submitted to the IEEE.
+Warning--empty journal in Thrun2001Robust
+
+Done.
+You've used 14 entries,
+            4538 wiz_defined-function locations,
+            1025 strings with 12199 characters,
+and the built_in function-call counts, 15787 in all, are:
+= -- 1374
+> -- 406
+< -- 146
++ -- 202
+- -- 86
+* -- 872
+:= -- 2390
+add.period$ -- 34
+call.type$ -- 14
+change.case$ -- 86
+chr.to.int$ -- 357
+cite$ -- 15
+duplicate$ -- 939
+empty$ -- 1143
+format.name$ -- 99
+if$ -- 3539
+int.to.chr$ -- 0
+int.to.str$ -- 14
+missing$ -- 154
+newline$ -- 104
+num.names$ -- 30
+pop$ -- 384
+preamble$ -- 1
+purify$ -- 70
+quote$ -- 2
+skip$ -- 1140
+stack$ -- 0
+substring$ -- 892
+swap$ -- 821
+text.length$ -- 27
+text.prefix$ -- 0
+top$ -- 6
+type$ -- 126
+warning$ -- 1
+while$ -- 81
+width$ -- 16
+write$ -- 216
+(There were 4 warnings)
