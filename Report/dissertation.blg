@@ -26,48 +26,47 @@ Warning--I didn't find a database entry for "NumericalRecipes"
 -- http://www.ctan.org/tex-archive/macros/latex/contrib/supported/IEEEtran/
 -- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
 ** Sorting version - not for use with work to be submitted to the IEEE.
-Warning--empty journal in Thrun2001Robust
 
 Done.
-You've used 14 entries,
+You've used 8 entries,
             4538 wiz_defined-function locations,
-            1025 strings with 12199 characters,
-and the built_in function-call counts, 15787 in all, are:
-= -- 1374
-> -- 406
-< -- 146
-+ -- 202
-- -- 86
-* -- 872
-:= -- 2390
-add.period$ -- 34
-call.type$ -- 14
-change.case$ -- 86
-chr.to.int$ -- 357
-cite$ -- 15
-duplicate$ -- 939
-empty$ -- 1143
-format.name$ -- 99
-if$ -- 3539
+            973 strings with 10516 characters,
+and the built_in function-call counts, 9329 in all, are:
+= -- 829
+> -- 266
+< -- 84
++ -- 142
+- -- 61
+* -- 525
+:= -- 1408
+add.period$ -- 18
+call.type$ -- 8
+change.case$ -- 55
+chr.to.int$ -- 192
+cite$ -- 8
+duplicate$ -- 557
+empty$ -- 625
+format.name$ -- 69
+if$ -- 2077
 int.to.chr$ -- 0
-int.to.str$ -- 14
-missing$ -- 154
-newline$ -- 104
-num.names$ -- 30
-pop$ -- 384
+int.to.str$ -- 8
+missing$ -- 92
+newline$ -- 64
+num.names$ -- 18
+pop$ -- 212
 preamble$ -- 1
-purify$ -- 70
+purify$ -- 45
 quote$ -- 2
-skip$ -- 1140
+skip$ -- 678
 stack$ -- 0
-substring$ -- 892
-swap$ -- 821
-text.length$ -- 27
+substring$ -- 496
+swap$ -- 506
+text.length$ -- 20
 text.prefix$ -- 0
 top$ -- 6
-type$ -- 126
-warning$ -- 1
-while$ -- 81
-width$ -- 16
-write$ -- 216
-(There were 4 warnings)
+type$ -- 72
+warning$ -- 0
+while$ -- 45
+width$ -- 9
+write$ -- 131
+(There were 3 warnings)

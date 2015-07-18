@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.7.14)  17 JUL 2015 12:05
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.2.24)  18 JUL 2015 12:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -365,16 +365,26 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <20.74> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <24.88> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 24.
+
+Underfull \hbox (badness 10000) in paragraph at lines 25--27
+
+ []
+
 [1
 
 
-]) [2]
+]
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 30.
+ (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1pcr.fd
+File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
+)) [2]
 \openout2 = `Chapter2/chapter2.aux'.
 
- (./Chapter2/chapter2.tex
+
+(./Chapter2/chapter2.tex
 Chapter 2.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 20.
 ) [3
 
 
@@ -436,25 +446,16 @@ Appendix B.
 LaTeX Warning: Citation `NumericalRecipes' on page 10 undefined on input line 5
 .
 
-LaTeX Font Info:    Try loading font information for OT1+pcr on input line 7.
-(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1pcr.fd
-File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
-) [10
+[10
 
 
 
-] [11]) [12]
-(./dissertation.bbl [13
-
-
-]
-Missing character: There is no Â in font ptmri7t!
-Missing character: There is no € in font ptmri7t!
-Missing character: There is no Â in font ptmri7t!
-Missing character: There is no ™ in font ptmri7t!
-) 
+] [11]) [12] (./dissertation.bbl) 
 AED: lastpage setting LastPage
-[14] (./dissertation.aux (./cover.aux) (./declaration.aux)
+[13
+
+
+] (./dissertation.aux (./cover.aux) (./declaration.aux)
 (./acknowledgements.aux) (./abstract.aux) (./Chapter1/chapter1.aux)
 (./Chapter2/chapter2.aux) (./Chapter3/chapter3.aux) (./Chapter4/chapter4.aux)
 (./Chapter5/chapter5.aux) (./Appendix1/appendix1.aux)
@@ -464,11 +465,11 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 3289 strings out of 493304
- 43681 string characters out of 6139871
- 109880 words of memory out of 5000000
- 6575 multiletter control sequences out of 15000+600000
- 27019 words of font info for 59 fonts, out of 8000000 for 9000
+ 3304 strings out of 493304
+ 43733 string characters out of 6139871
+ 108857 words of memory out of 5000000
+ 6580 multiletter control sequences out of 15000+600000
+ 33465 words of font info for 74 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
  38i,10n,45p,562b,403s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
@@ -477,10 +478,10 @@ f-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/
 type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times
 /utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></u
 sr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on dissertation.pdf (21 pages, 109528 bytes).
+Output written on dissertation.pdf (20 pages, 107964 bytes).
 PDF statistics:
- 97 PDF objects out of 1000 (max. 8388607)
- 67 compressed objects within 1 object stream
+ 94 PDF objects out of 1000 (max. 8388607)
+ 65 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
