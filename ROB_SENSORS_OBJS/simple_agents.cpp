@@ -680,11 +680,12 @@ void SIMPLE_Agents::render( void ){
 double SIMPLE_Agents::get_randb_reading( vector <double> _to_robot_pos, vector <double> &_reading){
     randb_from = btVector3(0.0,0.0,0.0);
     randb_to   = btVector3(0.0,0.0,0.0);
+    double work_range = 1.0; //max range for the sensors set to 1 meter
     this->pos = this->get_pos();
     // get the distance between your robot and to destination robot "_to_robot_pos"
     double range = sqrt(((_to_robot_pos[0]-pos[0])*(_to_robot_pos[0]-pos[0]) + (_to_robot_pos[2]-pos[2])*(_to_robot_pos[2]-pos[2])));
     if(range < work_range){
-        _read[0] = range;
+//        _read[0] = range;  //unsure what this does
 
         // get the robot orienation
         btMatrix3x3 m = btMatrix3x3(body->getWorldTransform().getRotation());
@@ -713,7 +714,7 @@ double SIMPLE_Agents::get_randb_reading( vector <double> _to_robot_pos, vector <
                 bearing = nest_angle - robot_angle;
                 if(bearing < 0.0)
                     bearing = TWO_PI + bearing;
-                //if you want to add noise bearing
+                //if you want to add noise to bearing
                 bearing += (gsl_rng_uniform_pos( GSL_randon_generator::r_rand )*0.30 - 0.15);
                 _reading[1] = bearing;
 
