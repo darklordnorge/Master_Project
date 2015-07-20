@@ -38,12 +38,6 @@ C.~Cianci, X.~Raemy, J.~Pugh, and A.~Martinoli, ``{Communication in a Swarm of
 \BIBentrySTDinterwordspacing
 
 
-\bibitem{gutierrez2008open}
-A.~Guti{\'{e}}rrez, A.~Campo, M.~Dorigo, D.~Amor, L.~Magdalena, and
-  F.~Monasterio-Huelin, ``{An open localization and local communication
-  embodied sensor},'' \emph{Sensors}, vol.~8, no.~11, pp. 7545--7563, 2008.
-
-
 \bibitem{Gutierrez}
 \BIBentryALTinterwordspacing
 A.~Guti\'{e}rrez, A.~Campo, M.~Dorigo, D.~Amor, L.~Magdalena, and
@@ -51,6 +45,12 @@ A.~Guti\'{e}rrez, A.~Campo, M.~Dorigo, D.~Amor, L.~Magdalena, and
   Embodied Sensor},'' \emph{Sensors}, vol.~8, no.~11, pp. 7545--7563, Nov.
   2008. [Online]. Available: \url{http://dx.doi.org/10.3390/s8117545}
 \BIBentrySTDinterwordspacing
+
+
+\bibitem{gutierrez2008open}
+A.~Guti{\'{e}}rrez, A.~Campo, M.~Dorigo, D.~Amor, L.~Magdalena, and
+  F.~Monasterio-Huelin, ``{An open localization and local communication
+  embodied sensor},'' \emph{Sensors}, vol.~8, no.~11, pp. 7545--7563, 2008.
 
 
 \bibitem{Kala2011Robotic}
