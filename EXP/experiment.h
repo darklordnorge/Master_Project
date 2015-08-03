@@ -86,5 +86,7 @@ class EXP_Class : public Engine {
     //stuff added by stefan
     double partial_fitness[];
     void compute_fitness_each_step(void);
+
+    void check_bearing();
 };
 #endif

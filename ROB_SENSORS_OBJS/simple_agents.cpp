@@ -685,7 +685,7 @@ double SIMPLE_Agents::get_randb_reading( vector <double> _to_robot_pos, vector <
     // get the distance between your robot and to destination robot "_to_robot_pos"
     double range = sqrt(((_to_robot_pos[0]-pos[0])*(_to_robot_pos[0]-pos[0]) + (_to_robot_pos[2]-pos[2])*(_to_robot_pos[2]-pos[2])));
     if(range < work_range){
-//        _read[0] = range;  //unsure what this does
+        _reading[0] = range;  //unsure what this does
 
         // get the robot orienation
         btMatrix3x3 m = btMatrix3x3(body->getWorldTransform().getRotation());

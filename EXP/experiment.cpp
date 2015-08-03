@@ -195,6 +195,7 @@ void EXP_Class::adv ( void ){
         param->world->stepSimulation( param->physics_step);
   }
   manage_collisions ();
+  //check_bearing();
   //if(param->agent[0]->get_pos()[2] > 2.00) iter = param->num_iterations;
   compute_fitness_each_step();
   iter++;
@@ -282,8 +283,8 @@ void EXP_Class::update_world( void ){
 void EXP_Class::manage_collisions (void ){
 
     for(int r = 0;r < param->num_agents;r++){
-        if(param->agent[0]->is_crashed()){
-            param->agent[0]->set_crashed(false);
+        if(param->agent[r]->is_crashed()){
+            param->agent[r]->set_crashed(false);
             iter = param->num_iterations;
         }
     }
@@ -521,6 +522,13 @@ void EXP_Class::dump_statistics( const char *locationOfFileTodump,
 /* ---------------------------------------------------------------------------------------- */
 /* ---------------------------------------------------------------------------------------- */
 
+void EXP_Class::check_bearing(){
+    vector<double>  bearing;
+    bearing.assign(2, 0.0);
+    param->agent[1]->get_randb_reading(param->agent[0]->get_pos(), bearing);
 
+  //  cout << "Range: " << bearing[0] << " , Bearing:  " << bearing[1] << endl;
+
+}
 
 
