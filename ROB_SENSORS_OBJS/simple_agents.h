@@ -17,7 +17,8 @@ class SIMPLE_Agents : public World_Entity {
   vector <double> long_term;
   vector <double> medium_term;
   double right_out;
-  double left_out;  
+  double left_out;
+  double rotation;
   bool frozen;
   double simulation_time_step;
 
@@ -48,6 +49,8 @@ class SIMPLE_Agents : public World_Entity {
   vector <btVector3> to1;//[8];
   vector <btVector3> from1;//[8];
   vector <btVector3> to2;//[num_camera_sectors*num_camera_rays_per_sectors];
+ btVector3 randb_from;
+ btVector3 randb_to;
   btVector3 from2;
   vector <double> vel;
   btDynamicsWorld* world ;
@@ -71,6 +74,8 @@ class SIMPLE_Agents : public World_Entity {
   void   set_robot_pos_rot( const vector <double> &_pos, const vector <double> &_rot );
   void   set_rot( const vector <double> &_rot );
   void   set_vel( const vector <double> &_vel );
+
+  double get_randb_reading(vector <double> _to_robot_pos, vector <double> &_reading);
   
   const vector <double> get_pos();
   const vector <double> get_rot();
