@@ -305,33 +305,34 @@ void EXP_Class::compute_fitness_each_step( void ){
     vector <double> randB_reading;
     randB_reading.assign(2, 0.0);
     int r = 0;
-    //  for(int r=0; r < param->num_agents; r++){
-    double vl = ((param->agent[r]->get_vel()[0]/param->agent[r]->get_max_vel()) + 1) * 0.5;
-    double vr = ((param->agent[r]->get_vel()[1]/param->agent[r]->get_max_vel()) + 1) * 0.5;
-    double comp_1 = (vl + vr)*0.5;
-    double comp_2 = 1.0 - sqrt(fabs(vl-vr));
-    double comp_3  = 0.0;
-    for( int i = 0; i < agent_interface[r].inputs.size(); i++){
-        if( comp_3 < agent_interface[r].inputs[i] )
-            comp_3 = agent_interface[r].inputs[i];
-    }
-
-    comp_3 = (1.0 - comp_3);
-    double comp_4 = 0.0;
-    if(param->num_agents != 1){
-        if(r = param->num_agents){
-            param->agent[r]->get_randb_reading(param->agent[r-1]->get_pos(), randB_reading);
-            comp_4 = randB_reading[0];
+    for(int r=0; r < param->num_agents; r++) {
+        double vl = ((param->agent[r]->get_vel()[0] / param->agent[r]->get_max_vel()) + 1) * 0.5;
+        double vr = ((param->agent[r]->get_vel()[1] / param->agent[r]->get_max_vel()) + 1) * 0.5;
+        double comp_1 = (vl + vr) * 0.5;
+        double comp_2 = 1.0 - sqrt(fabs(vl - vr));
+        double comp_3 = 0.0;
+        for (int i = 0; i < agent_interface[r].inputs.size(); i++) {
+            if (comp_3 < agent_interface[r].inputs[i])
+                comp_3 = agent_interface[r].inputs[i];
         }
-        else{
-            param->agent[r]->get_randb_reading(param->agent[r+1]->get_pos(), randB_reading);
-            comp_4 = randB_reading[0];
+
+        comp_3 = (1.0 - comp_3);
+        double comp_4 = 0.0;
+        if (param->num_agents != 1) {
+            if (r == param->num_agents) {
+                param->agent[r]->get_randb_reading(param->agent[r - 1]->get_pos(), randB_reading);
+                comp_4 = randB_reading[0];
+            }
+            else {
+                param->agent[r]->get_randb_reading(param->agent[r + 1]->get_pos(), randB_reading);
+                comp_4 = randB_reading[0];
+            }
         }
+
+
+//        cout << "Range" << comp_4 << endl;
+        partial_fitness[r] += comp_1 * comp_2 * comp_3 * comp_4 * param->agent[r]->get_pos()[2];
     }
-
-
-
-    partial_fitness[r] += comp_1 *comp_2 *comp_3 * comp_4;
 //    partial_fitness += comp_1 *comp_2 *comp_3 * param->agent[0]->get_pos()[2];
 //    partial_fitness += comp_1 * comp_2 * comp_3;
 }
