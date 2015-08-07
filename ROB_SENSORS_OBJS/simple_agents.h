@@ -71,6 +71,8 @@ class SIMPLE_Agents : public World_Entity {
   void   set_robot_pos_rot( const vector <double> &_pos, const vector <double> &_rot );
   void   set_rot( const vector <double> &_rot );
   void   set_vel( const vector <double> &_vel );
+
+  double get_randb_reading( vector <double> _to_robot_pos, vector <double> &_reading)
   
   const vector <double> get_pos();
   const vector <double> get_rot();
@@ -96,7 +98,9 @@ class SIMPLE_Agents : public World_Entity {
 #ifdef _GRAPHICS_
   void   render         ( void );
 #endif
-  
+
+
+
 };
 
 #endif
