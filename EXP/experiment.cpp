@@ -46,8 +46,9 @@ void EXP_Class::init_local_variables( void ){
 
  agent_interface.resize( param->num_agents );
  for(int r = 0; r < param->num_agents; r++){
-   agent_interface[r].inputs.assign  (param->nets[r]->get_num_input(), 0.0);
-   agent_interface[r].outputs.assign (param->nets[r]->get_num_output(), 0.0);
+     agent_interface[r].inputs.assign  (param->nets[r]->get_num_input(), 0.0);
+     agent_interface[r].outputs.assign (param->nets[r]->get_num_output(), 0.0);
+     partial_fitness[param->num_agents];
  }
 
  this->set_agent_position();
@@ -143,7 +144,10 @@ void EXP_Class::init_single_evaluation( void ){
     }
     */
    // printf("\n  eval%d final fitness=%f ",eval,FINAL_FITNESS[0]);
-    partial_fitness = 0.0;
+    for(int r = 0;r < param->num_agents;r++){
+        partial_fitness[r] = 0.0;
+    }
+
 }
 
 /* ---------------------------------------------------------------------------------------- */
@@ -286,7 +290,10 @@ void EXP_Class::manage_collisions (void ){
 
 // This function is what you need to design to guide the evoluation towards the solution
 void EXP_Class::compute_fitness( void ){
-    FINAL_FITNESS[0] = partial_fitness / (double)(param->num_iterations);
+    for(int r = 0;r < param->num_agents;r++){
+        FINAL_FITNESS[0] = partial_fitness[r] / (double)(param->num_iterations);
+    }
+
 }
 
 /*------------------------------------------------------------------------------------------*/
@@ -295,7 +302,8 @@ void EXP_Class::compute_fitness( void ){
 /*fitness = mean(leftSpeed, rightSpeed) * (1 - sqrt(abs(speedLeft) - abs(speedRight))*(1 - highest IR reading )*/
 /*-------------------------------------------------------------------------------------------------------------*/
 void EXP_Class::compute_fitness_each_step( void ){
-
+    vector <double> randB_reading;
+    randB_reading.assign(2, 0.0);
     int r = 0;
     //  for(int r=0; r < param->num_agents; r++){
     double vl = ((param->agent[r]->get_vel()[0]/param->agent[r]->get_max_vel()) + 1) * 0.5;
@@ -309,8 +317,22 @@ void EXP_Class::compute_fitness_each_step( void ){
     }
 
     comp_3 = (1.0 - comp_3);
-    //}
-    partial_fitness += comp_1 *comp_2 *comp_3 * param->agent[0]->get_pos()[2];
+    double comp_4 = 0.0;
+    if(param->num_agents != 1){
+        if(r = param->num_agents){
+            param->agent[r]->get_randb_reading(param->agent[r-1]->get_pos(), randB_reading);
+            comp_4 = randB_reading[0];
+        }
+        else{
+            param->agent[r]->get_randb_reading(param->agent[r+1]->get_pos(), randB_reading);
+            comp_4 = randB_reading[0];
+        }
+    }
+
+
+
+    partial_fitness[r] += comp_1 *comp_2 *comp_3 * comp_4;
+//    partial_fitness += comp_1 *comp_2 *comp_3 * param->agent[0]->get_pos()[2];
 //    partial_fitness += comp_1 * comp_2 * comp_3;
 }
 
