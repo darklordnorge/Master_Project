@@ -1,0 +1,90 @@
+\begin{thebibliography}{1}
+\providecommand{\url}[1]{#1}
+\csname url@rmstyle\endcsname
+\providecommand{\newblock}{\relax}
+\providecommand{\bibinfo}[2]{#2}
+\providecommand\BIBentrySTDinterwordspacing{\spaceskip=0pt\relax}
+\providecommand\BIBentryALTinterwordstretchfactor{4}
+\providecommand\BIBentryALTinterwordspacing{\spaceskip=\fontdimen2\font plus
+\BIBentryALTinterwordstretchfactor\fontdimen3\font minus
+  \fontdimen4\font\relax}
+\providecommand\BIBforeignlanguage[2]{{%
+\expandafter\ifx\csname l@#1\endcsname\relax
+\typeout{** WARNING: IEEEtran.bst: No hyphenation pattern has been}%
+\typeout{** loaded for the language `#1'. Using the pattern for}%
+\typeout{** the default language instead.}%
+\else
+\language=\csname l@#1\endcsname
+\fi
+#2}}
+
+\bibitem{Birk2006Merging}
+\BIBentryALTinterwordspacing
+A.~Birk and S.~Carpin, ``{Merging Occupancy Grid Maps From Multiple Robots},''
+  \emph{Proceedings of the IEEE}, vol.~94, no.~7, pp. 1384--1397, July 2006.
+  [Online]. Available: \url{http://dx.doi.org/10.1109/jproc.2006.876965}
+\BIBentrySTDinterwordspacing
+
+
+\bibitem{Cianci2007Communication}
+\BIBentryALTinterwordspacing
+C.~Cianci, X.~Raemy, J.~Pugh, and A.~Martinoli, ``{Communication in a Swarm of
+  Miniature Robots: The e-Puck as an Educational Tool for Swarm Robotics},'' in
+  \emph{Swarm Robotics}, ser. Lecture Notes in Computer Science, E.~\c{S}ahin,
+  W.~Spears, and A.~Winfield, Eds.\hskip 1em plus 0.5em minus 0.4em\relax
+  Berlin, Heidelberg: Springer Berlin Heidelberg, 2007, vol. 4433, ch.~7, pp.
+  103--115. [Online]. Available:
+  \url{http://dx.doi.org/10.1007/978-3-540-71541-2\_7}
+\BIBentrySTDinterwordspacing
+
+
+\bibitem{Gutierrez}
+\BIBentryALTinterwordspacing
+A.~Guti\'{e}rrez, A.~Campo, M.~Dorigo, D.~Amor, L.~Magdalena, and
+  F.~Monasterio-Huelin, ``{An Open Localization and Local Communication
+  Embodied Sensor},'' \emph{Sensors}, vol.~8, no.~11, pp. 7545--7563, Nov.
+  2008. [Online]. Available: \url{http://dx.doi.org/10.3390/s8117545}
+\BIBentrySTDinterwordspacing
+
+
+\bibitem{gutierrez2008open}
+A.~Guti{\'{e}}rrez, A.~Campo, M.~Dorigo, D.~Amor, L.~Magdalena, and
+  F.~Monasterio-Huelin, ``{An open localization and local communication
+  embodied sensor},'' \emph{Sensors}, vol.~8, no.~11, pp. 7545--7563, 2008.
+
+
+\bibitem{Kala2011Robotic}
+\BIBentryALTinterwordspacing
+R.~Kala, A.~Shukla, and R.~Tiwari, ``{Robotic path planning using evolutionary
+  momentum-based exploration},'' \emph{Journal of Experimental \& Theoretical
+  Artificial Intelligence}, vol.~23, no.~4, pp. 469--495, July 2011. [Online].
+  Available: \url{http://dx.doi.org/10.1080/0952813x.2010.490963}
+\BIBentrySTDinterwordspacing
+
+
+\bibitem{Meng2006Active}
+\BIBentryALTinterwordspacing
+Q.~Meng and M.~H. Lee, ``{Active Exploration in Building Hierarchical Neural
+  Networks for Robotics},'' in \emph{Instrumentation and Measurement Technology
+  Conference, 2006. IMTC 2006. Proceedings of the IEEE}.\hskip 1em plus 0.5em
+  minus 0.4em\relax IEEE, Apr. 2006, pp. 2095--2100. [Online]. Available:
+  \url{http://dx.doi.org/10.1109/imtc.2006.328464}
+\BIBentrySTDinterwordspacing
+
+
+\bibitem{Thrun2003Learning}
+\BIBentryALTinterwordspacing
+S.~Thrun, ``{Learning Occupancy Grid Maps with Forward Sensor Models},''
+  \emph{Autonomous Robots}, vol.~15, no.~2, pp. 111--127, Sept. 2003. [Online].
+  Available: \url{http://dx.doi.org/10.1023/a:1025584807625}
+\BIBentrySTDinterwordspacing
+
+
+\bibitem{wurm2010octomap}
+K.~M. Wurm, A.~Hornung, M.~Bennewitz, C.~Stachniss, and W.~Burgard, ``{OctoMap:
+  A probabilistic, flexible, and compact 3D map representation for robotic
+  systems},'' in \emph{Proc. of the ICRA 2010 workshop on best practice in 3D
+  perception and modeling for mobile manipulation}, vol.~2, 2010.
+
+
+\end{thebibliography}
