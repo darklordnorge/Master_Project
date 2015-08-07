@@ -304,10 +304,10 @@ void EXP_Class::compute_fitness( void ){
 /*------------------------------------------------------------------------------------------*/
 
 /*-------------------------------------------------------------------------------------------------------------*/
-/*fitness = mean(leftSpeed, rightSpeed) * (1 - sqrt(abs(speedLeft) - abs(speedRight))*(1 - highest IR reading )*/
+/*fitness = mean(leftSpeed, rightSpeed) * (1 - sqrt(abs(speedLeft) - abs(speedRight))*(1 - highest IR reading ) * min distance to other robot*/
 /*-------------------------------------------------------------------------------------------------------------*/
 void EXP_Class::compute_fitness_each_step( void ){
-
+    vector<double> randB_reading(2, 0.0);
    // int r = 0;
     for(int r=0; r < param->num_agents; r++){
         double vl = ((param->agent[r]->get_vel()[0]/param->agent[r]->get_max_vel()) + 1) * 0.5;
@@ -321,7 +321,21 @@ void EXP_Class::compute_fitness_each_step( void ){
         }
 
         comp_3 = (1.0 - comp_3);
-        partial_fitness[r] += comp_1 *comp_2 *comp_3 * param->agent[0]->get_pos()[2];
+        double comp_4 = 0.0;
+        if(param->num_agents != 1){
+            if(r = param->num_agents){
+                param->agent[r]->get_randb_reading(param->agent[r-1]->get_pos(), randB_reading);
+                comp_4 = randB_reading[0];
+            }
+            else{
+                param->agent[r]->get_randb_reading(param->agent[r+1]->get_pos(), randB_reading);
+                comp_4 = randB_reading[0];
+            }
+        }
+
+
+
+        partial_fitness[r] += comp_1 *comp_2 *comp_3 * comp_4; //* param->agent[0]->get_pos()[2];
     }
 
 //    partial_fitness += comp_1 * comp_2 * comp_3;
@@ -522,14 +536,6 @@ void EXP_Class::dump_statistics( const char *locationOfFileTodump,
 /* ---------------------------------------------------------------------------------------- */
 /* ---------------------------------------------------------------------------------------- */
 
-void EXP_Class::check_bearing(){
-    vector<double>  bearing;
-    bearing.assign(2, 0.0);
-    param->agent[1]->get_randb_reading(param->agent[0]->get_pos(), bearing);
-
-  //  cout << "Range: " << bearing[0] << " , Bearing:  " << bearing[1] << endl;
-
-}
 
 
 
