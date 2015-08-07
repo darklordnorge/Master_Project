@@ -304,7 +304,6 @@ void EXP_Class::compute_fitness( void ){
 void EXP_Class::compute_fitness_each_step( void ){
     vector <double> randB_reading;
     randB_reading.assign(2, 0.0);
-    int r = 0;
     for(int r=0; r < param->num_agents; r++) {
         double vl = ((param->agent[r]->get_vel()[0] / param->agent[r]->get_max_vel()) + 1) * 0.5;
         double vr = ((param->agent[r]->get_vel()[1] / param->agent[r]->get_max_vel()) + 1) * 0.5;
@@ -319,7 +318,7 @@ void EXP_Class::compute_fitness_each_step( void ){
         comp_3 = (1.0 - comp_3);
         double comp_4 = 0.0;
         if (param->num_agents != 1) {
-            if (r == param->num_agents) {
+            if (r == param->num_agents-1) {
                 param->agent[r]->get_randb_reading(param->agent[r - 1]->get_pos(), randB_reading);
                 comp_4 = randB_reading[0];
             }
