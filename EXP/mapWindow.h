@@ -9,19 +9,28 @@
 #include <stdio.h>
 #include <string>
 #include <cmath>
+#include <SDL2/SDL_image.h>
 
-class mapWindow{
-    protected:
-        const int screen_width = 640;
-        const int screen_height = 480;
-        SDL_Texture* load_textture(std::string path);
+class MapWindow {
+    private:
+        static const int screen_width = 640;
+        static const int screen_height = 480;
         SDL_Window* g_window = NULL;
         SDL_Renderer* g_renderer = NULL;
 
 
+
     public:
+        MapWindow();
         bool init();
         bool load_media();
+        void close(void);
+        SDL_Texture* load_texture(std::string path);
+        void clear_screen(void);
+        void draw_rectangle(int x_pos, int y_pos, int width, int height);
+        void update_screen(void);
+        void start(void);
+
 
 };
 
