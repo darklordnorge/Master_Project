@@ -6,17 +6,20 @@
 
 EXP_Class::EXP_Class(const char *run_name, bool _evolution, bool _viewing, bool _re_evaluation, unsigned long _seed, int _from_gen, int _to_gen, int _num_cores ){
   
-  evolution     = _evolution;
-  viewing       = _viewing;
-  re_evaluation = _re_evaluation;
-  from_gen = _from_gen;
-  to_gen   = _to_gen;
-  num_core = _num_cores;
-  param     = new Parameters ( run_name );
-  if( evolution ) param->set_random_root_seed( _seed );
-  param->init_random_generator( );//GSL
+    evolution     = _evolution;
+    viewing       = _viewing;
+    re_evaluation = _re_evaluation;
+    from_gen = _from_gen;
+    to_gen   = _to_gen;
+    num_core = _num_cores;
+    param     = new Parameters ( run_name );
+    if( evolution ) param->set_random_root_seed( _seed );
+    param->init_random_generator( );//GSL
+    map = new MapWindow();
+
 
   init_local_variables();
+
 }
 
 /* ---------------------------------------------------------------------------------------- */
@@ -195,6 +198,7 @@ void EXP_Class::adv ( void ){
   //if(param->agent[0]->get_pos()[2] > 2.00) iter = param->num_iterations;
   compute_fitness_each_step();
   iter++;
+    map->start();
 }
 
 
@@ -330,7 +334,7 @@ void EXP_Class::compute_fitness_each_step( void ){
 
 
 //        cout << "Range" << comp_4 << endl;
-        partial_fitness[r] += comp_1 * comp_2 * comp_3 * comp_4 * param->agent[r]->get_pos()[2];
+        partial_fitness[r] += comp_1 * comp_2 * comp_3 * comp_4; //* param->agent[r]->get_pos()[2];
     }
 //    partial_fitness += comp_1 *comp_2 *comp_3 * param->agent[0]->get_pos()[2];
 //    partial_fitness += comp_1 * comp_2 * comp_3;

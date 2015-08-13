@@ -38,6 +38,7 @@ ADD_EXECUTABLE( ${EXECUTABLE} ${SOURCES} EXP/mapWindow.h EXP/mapWindow.cpp)
 # UNCOMMENT FOR GRAPHICS
 TARGET_LINK_LIBRARIES( ${EXECUTABLE} QGLViewer ${OPENGL_glu_LIBRARY}  ${GLUT_LIBRARIES} -lGL -lGLU  ${QT_LIBRARIES} )#revel xvidcore
 TARGET_LINK_LIBRARIES( ${EXECUTABLE} "-L/sw/lib -lgsl -lgslcblas -lm -L/usr/lib/ -lqwt -lpthread -lBulletSoftBody -lBulletDynamics -lBulletCollision -lLinearMath" ) #qwt-6.1.1-svn/lib -lNewton
+TARGET_LINK_LIBRARIES( ${EXECUTABLE} "-lSDL2 -lSDL2_image") #SDL2
 # UNCOMMENT FOR GRAPHICS
 
 #  UNCOMMENT FOR NO GRAPHICS

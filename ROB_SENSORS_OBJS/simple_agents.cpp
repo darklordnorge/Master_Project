@@ -682,7 +682,7 @@ void SIMPLE_Agents::render( void ){
 /* ----------------------------------------------------------------------- */
 
 double SIMPLE_Agents::get_randb_reading( vector <double> _to_robot_pos, vector <double> &_reading){
-    double work_range = 0.3;
+    double work_range = 0.4;
     randb_from = btVector3(0.0,0.0,0.0);
     randb_to   = btVector3(0.0,0.0,0.0);
     this->pos = this->get_pos();
