@@ -3,13 +3,13 @@
 //
 
 #include "occupancy_map.h"
-
+#define MODE  "a"
 Occupancy_Map::Occupancy_Map(){
 
 }
 
 FILE* Occupancy_Map::open_map(const char* filename){
-    FILE* p_map = fopen(filename, mode);
+    FILE* p_map = fopen(filename, MODE);
 
     if(p_map == NULL){
         perror(" Error");
@@ -20,6 +20,6 @@ FILE* Occupancy_Map::open_map(const char* filename){
 
 void Occupancy_Map::update_map(const char* filename, std::vector <double> coordinates){
     FILE* p_map = open_map(filename);
-    fprintf(p_map, "%s %s %s\n", coordinates[0], coordinates[1], coordinates[2]);
+    fprintf(p_map, "%f %f %f\n", coordinates[0], coordinates[1], coordinates[2]);
     fclose(p_map);
 }

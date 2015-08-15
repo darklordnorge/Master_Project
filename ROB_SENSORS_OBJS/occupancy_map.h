@@ -14,7 +14,7 @@ class Occupancy_Map{
 
 
 private:
-    const char* mode = "a";
+
 public:
     Occupancy_Map();
     FILE* open_map(const char* filename);
