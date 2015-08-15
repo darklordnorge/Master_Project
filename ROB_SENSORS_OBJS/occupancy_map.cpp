@@ -3,3 +3,23 @@
 //
 
 #include "occupancy_map.h"
+
+Occupancy_Map::Occupancy_Map(){
+
+}
+
+FILE* Occupancy_Map::open_map(const std::string& filename){
+    FILE* p_map = fopen(filename, w);
+
+    if(p_map == NULL){
+        perror(" Error");
+    }
+    printf("File opened");
+    return  p_map;
+}
+
+void Occupancy_Map::update_map(const string& filename, vector <double> coordinates){
+    FILE* p_map = open_map(filename);
+    fprintf(p_map, "%s %s %s\n", coordinates[0], coordinates[1], coordinates[2]);
+    fclose(p_map);
+}
