@@ -88,6 +88,6 @@ class EXP_Class : public Engine {
     double partial_fitness[];
     void compute_fitness_each_step(void);
 
-    MapWindow *map;
+    //MapWindow *map;
 };
 #endif

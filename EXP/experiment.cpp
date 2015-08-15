@@ -15,7 +15,7 @@ EXP_Class::EXP_Class(const char *run_name, bool _evolution, bool _viewing, bool 
     param     = new Parameters ( run_name );
     if( evolution ) param->set_random_root_seed( _seed );
     param->init_random_generator( );//GSL
-    map = new MapWindow();
+   // map = new MapWindow[1];
 
 
   init_local_variables();
@@ -198,7 +198,8 @@ void EXP_Class::adv ( void ){
   //if(param->agent[0]->get_pos()[2] > 2.00) iter = param->num_iterations;
   compute_fitness_each_step();
   iter++;
-    map->start();
+//    map->start();
+  //  map->init();
 }
 
 
