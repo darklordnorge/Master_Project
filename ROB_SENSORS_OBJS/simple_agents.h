@@ -63,6 +63,11 @@ class SIMPLE_Agents : public World_Entity {
   btHingeConstraint* right_hinge;
   btHingeConstraint* left_hinge;
 
+ //functions added by stefan
+ void take_occupancy_reading(void);
+
+ //
+
   void addRobotPhysics( const vector <double> &_pos, const vector <double> &_rot );
   void get_IR_reading( vector <double> &_reading);
   void get_camera_reading(vector<double> &_reading);

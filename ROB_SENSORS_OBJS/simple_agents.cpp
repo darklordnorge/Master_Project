@@ -728,4 +728,17 @@ double SIMPLE_Agents::get_randb_reading( vector <double> _to_robot_pos, vector <
     }
 }
 
+//Functions added by stefan below this line
+
+void SIMPLE_Agents::take_occupancy_reading(){
+    vector <double> ir_reading = {3, 0.0};
+    vector <double> coords = {3, 0.0};
+
+    get_IR_reading(ir_reading);
+    coords = get_pos();
+
+
+
+}
+
 #endif
