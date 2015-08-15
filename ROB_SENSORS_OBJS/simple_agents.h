@@ -64,7 +64,7 @@ class SIMPLE_Agents : public World_Entity {
   btHingeConstraint* left_hinge;
 
  //functions added by stefan
- void take_occupancy_reading(void);
+ void take_occupancy_reading(double x_coord, double z_coord);
 
  //
 

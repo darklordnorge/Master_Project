@@ -264,19 +264,20 @@ void SIMPLE_Agents::get_IR_reading( vector <double> &_reading){
         else rotation = btAtan2(-m[0][1],m[0][0]);
 
  //   IR0 reading
-      x = pos[0]+((robot_radius) * cos(-rotation + 0.3));
+      x = pos[0]+((robot_radius) * cos(-rotation + 0.3));   //calc IR sensor X based on robot radius
       z = pos[2]+((robot_radius) * sin(-rotation + 0.3));
-      from1[0] = btVector3(x, y, z);
-      X = x+((IR_range) * cos(-rotation + 0.3 ));
+      from1[0] = btVector3(x, y, z);                        //sensor position based on robot rotation vector to hold btVector
+      X = x+((IR_range) * cos(-rotation + 0.3 ));           //calc IR ray end position based on IR range and placement of sensor on the robot
       Z = z+((IR_range) * sin(-rotation + 0.3 ));
-      to1[0] = btVector3( X, y, Z );
-      btCollisionWorld::ClosestRayResultCallback res0(from1[0], to1[0]);
+      to1[0] = btVector3( X, y, Z );                        //Max reading pos of the IR based on rotation and IR range
+      btCollisionWorld::ClosestRayResultCallback res0(from1[0], to1[0]); //struct for the closest ray callback
       //uncomment below line if you experience any ray pentration problem to the object this might happened with very slow machine
       //res0.m_flags = 0xFFFFFFFF;
-      this->world->rayTest(from1[0], to1[0], res0);
+       this->world->rayTest(from1[0], to1[0], res0);        //check for ray collision between the coords sets
     if(res0.hasHit()){
         _reading[0] = IR_range*res0.m_closestHitFraction ;
-        to1[0]=res0.m_hitPointWorld;
+        to1[0]=res0.m_hitPointWorld;                        //update the vector with the btVector results -> used to render it in openGL
+        take_occupancy_reading(to1[0].getX(), to1[0].getZ());
     }
 
  //   IR7 reading
@@ -293,6 +294,7 @@ void SIMPLE_Agents::get_IR_reading( vector <double> &_reading){
       if(res7.hasHit()){
           _reading[1] = IR_range*res7.m_closestHitFraction;
           to1[1]=res7.m_hitPointWorld;
+          take_occupancy_reading(to1[1].getX(), to1[1].getZ());
       }
 
  //   IR1 reading corrospond to epuck
@@ -309,6 +311,7 @@ void SIMPLE_Agents::get_IR_reading( vector <double> &_reading){
       if(res1.hasHit()){
         _reading[2] = IR_range*res1.m_closestHitFraction;
         to1[2]=res1.m_hitPointWorld;
+          take_occupancy_reading(to1[2].getX(), to1[2].getZ());
       }
 
 
@@ -326,6 +329,7 @@ void SIMPLE_Agents::get_IR_reading( vector <double> &_reading){
       if(res6.hasHit()){
           _reading[3] = IR_range*res6.m_closestHitFraction;
           to1[3]=res6.m_hitPointWorld;
+          take_occupancy_reading(to1[3].getX(), to1[3].getZ());
      }
 
  //   IR2 reading
@@ -342,6 +346,7 @@ void SIMPLE_Agents::get_IR_reading( vector <double> &_reading){
       if(res2.hasHit()){
           _reading[4] = 0.049*(res2.m_closestHitFraction) - 0.009;
           to1[4]=res2.m_hitPointWorld;
+          take_occupancy_reading(to1[4].getX(), to1[4].getZ());
       }
 
  //   IR5 reading
@@ -358,6 +363,7 @@ void SIMPLE_Agents::get_IR_reading( vector <double> &_reading){
       if(res5.hasHit()){
            _reading[5] = 0.049*res5.m_closestHitFraction - 0.009;
            to1[5]=res5.m_hitPointWorld;
+          take_occupancy_reading(to1[5].getX(), to1[5].getZ());
       }
 
 
@@ -375,6 +381,7 @@ void SIMPLE_Agents::get_IR_reading( vector <double> &_reading){
       if(res3.hasHit()){
           _reading[6] = IR_range*res3.m_closestHitFraction;
           to1[6]=res3.m_hitPointWorld;
+          take_occupancy_reading(to1[6].getX(), to1[6].getZ());
       }
 
   //   IR4 reading
@@ -391,6 +398,7 @@ void SIMPLE_Agents::get_IR_reading( vector <double> &_reading){
       if(res4.hasHit()){
           _reading[7] = IR_range*res4.m_closestHitFraction;
           to1[7]=res4.m_hitPointWorld;
+          take_occupancy_reading(to1[7].getX(), to1[7].getZ());
       }
 
 //        for( int i = 0; i < num_IR_sensors; i++){
@@ -730,13 +738,7 @@ double SIMPLE_Agents::get_randb_reading( vector <double> _to_robot_pos, vector <
 
 //Functions added by stefan below this line
 
-void SIMPLE_Agents::take_occupancy_reading(){
-    vector <double> ir_reading = {3, 0.0};
-    vector <double> coords = {3, 0.0};
-
-    get_IR_reading(ir_reading);
-    coords = get_pos();
-
+void SIMPLE_Agents::take_occupancy_reading(double x_coord, double z_coord){
 
 
 }
