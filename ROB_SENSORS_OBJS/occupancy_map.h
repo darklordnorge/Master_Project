@@ -9,15 +9,16 @@
 #include "iostream"
 #include "fstream"
 #include "vector"
+#include "string"
 class Occupancy_Map{
-using namespace std;
+
 
 private:
-
+    const char* mode = "a";
 public:
     Occupancy_Map();
-    FILE* open_map(const std::string& filename);
-    void update_map(const string& filename, vector <double> coordinates);
+    FILE* open_map(const char* filename);
+    void update_map(const char*, std::vector <double> coordinates);
 };
 
 
