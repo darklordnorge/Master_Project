@@ -3,6 +3,7 @@
 // Created by stefan on 12/08/15.
 //
 
+#include <stdio.h>
 #include "mapWindow.h"
 
 MapWindow::MapWindow(){
@@ -28,7 +29,8 @@ void MapWindow::start(){
                         quit = true;
                     }
                 }
-                draw_rectangle(0.2, 0.2, 0.1, 0.1);
+                clear_screen();
+                draw_rectangle(screen_width/4, screen_height/4, screen_width/2, screen_height/2);
             }
         }
     }
@@ -36,45 +38,47 @@ void MapWindow::start(){
 }
 
 bool MapWindow::init(){
-    bool success = true; // initilisation flag
 
-    /*Initilaise SDL*/
-    if(SDL_Init(SDL_INIT_VIDEO) < 0){
-        printf("SDL could not be initialised! SDL error: %s\n", SDL_GetError());
+    //Initialization flag
+    bool success = true;
+
+    //Initialize SDL
+    if( SDL_Init( SDL_INIT_VIDEO ) < 0 ) {
+        printf( "SDL could not initialize! SDL Error: %s\n", SDL_GetError() );
+        success = false;
     }
     else {
         //Set texture filtering to linear
-        if(!SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "1")){
-            printf("Warning linear texture fildering not enabled");
+        if( !SDL_SetHint( SDL_HINT_RENDER_SCALE_QUALITY, "1" ) )
+        {
+            printf( "Warning: Linear texture filtering not enabled!" );
         }
 
-        /*Create Window*/
-        g_window = SDL_CreateWindow("Map", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, screen_width,
-                                    screen_height, SDL_WINDOW_SHOWN);
-        if(g_window == NULL){
-            printf("Window could not be created!SDL error: %s\n", SDL_GetError());
+        //Create window
+        g_window = SDL_CreateWindow( "SDL Tutorial", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, screen_width, screen_height, SDL_WINDOW_SHOWN );
+        if( g_window == NULL ) {
+            printf( "Window could not be created! SDL Error: %s\n", SDL_GetError() );
             success = false;
         }
-        else{
-            /*Create renderer for the window*/
-            g_renderer = SDL_CreateRenderer(g_window, -1, SDL_RENDERER_ACCELERATED);
-            if(g_renderer == NULL){
-                printf("Renderer could not be created! SDL error: %s\n", SDL_GetError());
+        else {
+            //Create renderer for window
+            g_renderer = SDL_CreateRenderer( g_window, -1, SDL_RENDERER_ACCELERATED );
+            if( g_renderer == NULL ) {
+                printf( "Renderer could not be created! SDL Error: %s\n", SDL_GetError() );
                 success = false;
             }
-            else{
-                /*Initialize renderer color*/
-                SDL_SetRenderDrawColor(g_renderer, 0xFF, 0xFF, 0xFF, 0xFF);
+            else {
+                //Initialize renderer color
+                SDL_SetRenderDrawColor( g_renderer, 0xFF, 0xFF, 0xFF, 0xFF );
 
-                /*Initialize PNG image*/
-                int imgFlag = IMG_INIT_PNG;
-                if(!(IMG_Init(imgFlag) & imgFlag)){
-                    printf("SDL_image coult not initialized! SDL error: %s\n", IMG_GetError());
+                //Initialize PNG loading
+                int imgFlags = IMG_INIT_PNG;
+                if( !( IMG_Init( imgFlags ) & imgFlags ) ) {
+                    printf( "SDL_image could not initialize! SDL_image Error: %s\n", IMG_GetError() );
                     success = false;
                 }
             }
         }
-
     }
     return success;
 }
@@ -120,14 +124,16 @@ SDL_Texture* MapWindow::load_texture(std::string path){
 }
 
 void MapWindow::clear_screen() {
-    SDL_SetRenderDrawColor(g_renderer, 0xff, 0xff, 0xff, 0xff);
+    SDL_SetRenderDrawColor(g_renderer, 0xFF, 0xFF, 0xFF, 0xFF);
     SDL_RenderClear(g_renderer);
+    SDL_RenderPresent(g_renderer);
 }
 
 void MapWindow::draw_rectangle(int x_pos, int y_pos, int width, int height) {
     SDL_Rect rect = {x_pos, y_pos, width, height};
-    SDL_SetRenderDrawColor(g_renderer, 0x00, 0xff, 0x00, 0xff); //red colour
+    SDL_SetRenderDrawColor(g_renderer, 0xFF, 0x00, 0x00, 0xFF); //red colour
     SDL_RenderFillRect(g_renderer, &rect);
+    SDL_RenderPresent(g_renderer);
 }
 
 void MapWindow::update_screen(){

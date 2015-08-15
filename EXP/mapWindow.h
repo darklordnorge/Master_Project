@@ -12,6 +12,7 @@
 #include <SDL2/SDL_image.h>
 
 class MapWindow {
+
     private:
         static const int screen_width = 640;
         static const int screen_height = 480;
