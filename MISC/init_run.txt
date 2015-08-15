@@ -34,7 +34,7 @@ Number of properties   = 16
 (you need to have at least 16 properties listed below)
 
 LIST OF PROPERTIES
-1)  x position:                         =0.60    =-0.60   =0.0   =0.0     =-0.2    =0.1    =0.4    =-0.25  
+1)  x position:                         =0.60    =-0.60   =0.0   =0.0     =-0.2    =0.1    =0.4    =-0.25
 2)  y position:                         =0.0     =0.0     =0.0   =0.0     =0.0     =0.0    =0.0    =0.0
 3)  z position:                         =1.0     =1.0     =0.0   =2.0     =0.60    =1.10   =1.6    =1.6
 4)  length:                             =2.0     =2.0     =1.20  =1.2     =0.5     =0.6    =0.14   =0.14
