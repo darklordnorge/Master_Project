@@ -335,7 +335,7 @@ void EXP_Class::compute_fitness_each_step( void ){
 
 
 //        cout << "Range" << comp_4 << endl;
-        partial_fitness[r] += comp_1 * comp_2 * comp_3 * comp_4; //* param->agent[r]->get_pos()[2];
+        partial_fitness[r] += comp_1 * comp_2 * comp_3 * comp_4 * param->agent[r]->get_pos()[2];
     }
 //    partial_fitness += comp_1 *comp_2 *comp_3 * param->agent[0]->get_pos()[2];
 //    partial_fitness += comp_1 * comp_2 * comp_3;
