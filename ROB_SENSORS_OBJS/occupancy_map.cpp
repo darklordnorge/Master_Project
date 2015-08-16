@@ -14,12 +14,12 @@ FILE* Occupancy_Map::open_map(const char* filename){
     if(p_map == NULL){
         perror(" Error");
     }
-    printf("File opened");
+  //  printf("File opened\n");
     return  p_map;
 }
 
-void Occupancy_Map::update_map(const char* filename, std::vector <double> coordinates){
+void Occupancy_Map::update_map(const char* filename, double x_coord, double z_coord){
     FILE* p_map = open_map(filename);
-    fprintf(p_map, "%f %f %f\n", coordinates[0], coordinates[1], coordinates[2]);
+    fprintf(p_map, "%f %f\n", x_coord, z_coord);
     fclose(p_map);
 }

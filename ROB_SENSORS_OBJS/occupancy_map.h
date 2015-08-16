@@ -18,7 +18,7 @@ private:
 public:
     Occupancy_Map();
     FILE* open_map(const char* filename);
-    void update_map(const char*, std::vector <double> coordinates);
+    void update_map(const char* filename, double x_coord, double z_coord);
 };
 
 
