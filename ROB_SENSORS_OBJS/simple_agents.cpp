@@ -25,6 +25,8 @@ SIMPLE_Agents::SIMPLE_Agents(int ind, double _simulation_time_step,  btDynamicsW
 
   world = _world;
   addRobotPhysics(pos,rot);
+
+    map = new Occupancy_Map();
 }
 
 /* ----------------------------------------------------------------------- */
@@ -739,7 +741,7 @@ double SIMPLE_Agents::get_randb_reading( vector <double> _to_robot_pos, vector <
 //Functions added by stefan below this line
 
 void SIMPLE_Agents::take_occupancy_reading(double x_coord, double z_coord){
-
+  //  map->update_map("run.txt", x_coord, z_coord);
 
 }
 

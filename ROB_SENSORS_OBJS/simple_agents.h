@@ -5,6 +5,7 @@
 #include <cmath>
 #include <bullet/btBulletDynamicsCommon.h>
 #include <bullet/btBulletCollisionCommon.h>
+#include "occupancy_map.h"
 #define EPSILON (double)(exp(-3.0))
 
 
@@ -21,6 +22,8 @@ class SIMPLE_Agents : public World_Entity {
   bool frozen;
   double rotation;
   double simulation_time_step;
+
+ Occupancy_Map *map;
 
   static const double wheel_distance      = 0.052;
   static const double half_wheel_distance = 0.026;
