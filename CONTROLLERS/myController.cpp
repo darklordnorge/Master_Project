@@ -14,13 +14,18 @@ void MyController::compute_genotype_length ( void ){
 /* -------------------------------------------------------------------------------------- */
 
 void MyController::init ( const vector <chromosome_type> &genes ){
-    vector <double> new_gene;//vector to hold the scaled gene values
+//    vector <double> new_gene;//vector to hold the scaled gene values
+    double new_gene[genes.size()] = {0.0};
     /*initalize the layers*/
-    inputlayer.assign(num_input+1, 0.0);
-    hiddenlayer.assign(hiddenlayer_size+1, 0.0);
-    outputlayer.assign(num_output, 0.0);
+//    inputlayer.assign(num_input+1, 0.0);
+//    hiddenlayer.assign(hiddenlayer_size+1, 0.0);
+//    outputlayer.assign(num_output, 0.0);
+    inputlayer[num_input+1] = {0.0};
+    hiddenlayer[hiddenlayer_size+1] = {0.0};
+    outputlayer[num_output] = {0.0};
 
-    new_gene.resize(genes.size());
+
+//    new_gene.resize(genes.size());
 
     /*initialise the input-to-hiddenlayer weights*/
     for(int i = 0;i < num_input+1;i++){
