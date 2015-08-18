@@ -12,9 +12,9 @@ class MyController : public Controller {
 //    vector <double> inputlayer;
 //    vector <double> outputlayer;
 //    vector <double> hiddenlayer;
-    double inputlayer[];
-    double outputlayer[];
-    double hiddenlayer[];
+    static double inputlayer[num_input+1];
+    static double outputlayer[hiddenlayer_size+1];
+    static double hiddenlayer[num_output];
     const static double high_bound = 5.0;
     const static double low_bound  = -5.0;
 
@@ -36,5 +36,6 @@ class MyController : public Controller {
   // and any other functions you might need
 
 };
+
 
 #endif
