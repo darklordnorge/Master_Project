@@ -8,6 +8,14 @@ Occupancy_Map::Occupancy_Map(){
 
 }
 
+void Occupancy_Map::init() {
+//    map = {0.0}; //initialise the map to 0.0
+}
+
+void Occupancy_Map::init_matrix() {
+
+}
+
 FILE* Occupancy_Map::open_map(const char* filename){
     FILE* p_map = fopen(filename, MODE);
 
