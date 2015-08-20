@@ -61,26 +61,25 @@ void Occupancy_Map::calc_robot_pos(double x_coord, double y_coord){
 
 void Occupancy_Map::calc_matrix_values(vector<double> &ir_reading, double rotation, int robot_x, int robot_y) {
     double sensor_value;
-    if(rotation == 0){ //facing "north"
-        for(int i = 0;i < ir_reading.size();i++){
-            sensor_value = ir_reading[i];
-            if(sensor_value != -1){
-                if(i == 0 || i == 7){
-                    set_front_cells(0, i, robot_x, robot_y);
-                }
-                else if(i == 6 || i == 1){
+    int heading;
 
-                }
-                else if(i == 5 || i == 2){
-
-                }
-                else if(i == 3 || i == 4){
-
-                }
+    for(int i = 0;i < ir_reading.size();i++){
+        sensor_value = ir_reading[i];
+        if(sensor_value != -1){
+            if(i == 0 || i == 7){
+                set_front_cells(heading, i, robot_x, robot_y);
+            }
+            else if(i == 6 || i == 1){
+                set_front_side_cells(heading, i, robot_x, robot_y);
+            }
+            else if(i == 5 || i == 2){
+                set_side_cells(heading, i, robot_x, robot_y);
+            }
+            else if(i == 3 || i == 4){
+                set_aft_cells(heading, i, robot_x, robot_y);
             }
         }
     }
-
 }
 
 void Occupancy_Map::set_front_cells(int heading, int sensor, int robot_x, int robot_y) {
