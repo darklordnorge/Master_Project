@@ -6,7 +6,7 @@ Define root_seed                      = 871414
 Number of Evolutionary Generations    = 101
 Number of Evaluations                 = 5
 Number of Iterations                  = 800
-Number of Agents per group            = 4
+Number of Agents per group            = 1
 
 Dump statistics every                 = 5
 Dump genome every                     = 5

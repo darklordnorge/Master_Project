@@ -23,6 +23,7 @@ private:
     static const int map_width = 1000;
     static const int map_height = 1000;
     double map [map_width][map_height];
+    int orientation; //0: north, 1:east, 2:south, 3:west
 
 public:
     Occupancy_Map();
@@ -33,6 +34,9 @@ public:
     void update_matrix(int x_pos, int y_pos, int value);
     void calc_robot_pos(double x_coord, double y_coord);
     void calc_matrix_values(vector <double> &ir_reading, double rotation, int robot_x, int robot_y);
+    void set_front_cells(int heading, int sensor, int robot_x, int robot_y);
+    void set_side_cells(int heading, int sensor, int robot_x, int robot_y);
+    void set_aft_cells(int heading, int sensor, int robot_x, int robot_y);
 };
 
 

@@ -425,6 +425,7 @@ void SIMPLE_Agents::get_IR_reading( vector <double> &_reading){
       printf("\n IR%d distance reading= %f ",i,_reading[i]);
   }
 
+
 }
 
 
