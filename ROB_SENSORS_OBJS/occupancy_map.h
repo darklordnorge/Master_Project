@@ -35,8 +35,10 @@ public:
     void calc_robot_pos(double x_coord, double y_coord);
     void calc_matrix_values(vector <double> &ir_reading, double rotation, int robot_x, int robot_y);
     void set_front_cells(int heading, int sensor, int robot_x, int robot_y);
+    void set_front_side_cells(int heading, int sensor, int robot_x, int robot_y);
     void set_side_cells(int heading, int sensor, int robot_x, int robot_y);
     void set_aft_cells(int heading, int sensor, int robot_x, int robot_y);
+    void mark_cell(int x_coord, int y_coord, int mark);
 };
 
 

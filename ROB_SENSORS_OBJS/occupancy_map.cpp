@@ -84,15 +84,99 @@ void Occupancy_Map::calc_matrix_values(vector<double> &ir_reading, double rotati
 }
 
 void Occupancy_Map::set_front_cells(int heading, int sensor, int robot_x, int robot_y) {
+    if(heading == 0){
+        mark_cell(robot_x, robot_y-1, 1);
+    }
+    else if(heading == 1){
+        mark_cell(robot_x+1, robot_y, 1);
+    }
+    else if(heading == 2){
+        mark_cell(robot_x, robot_y+1, 1);
+    }
+    else if(heading == 3){
+        mark_cell(robot_x-1, robot_y, 1);
+    }
+}
 
+void Occupancy_Map::set_front_side_cells(int heading, int sensor, int robot_x, int robot_y) {
+    if(sensor == 1){
+        if(heading == 0){
+            mark_cell(robot_x+1, robot_y-1, 1);
+        }
+        else if(heading == 1){
+            mark_cell(robot_x+1, robot_y+1, 1);
+        }
+        else if(heading == 2){
+            mark_cell(robot_x-1, robot_y+1, 1);
+        }
+        else if(heading == 3){
+            mark_cell(robot_x-1, robot_y-1, 1);
+        }
+    }
+    else if(sensor == 6){
+        if(heading == 0){
+            mark_cell(robot_x-1, robot_y-1, 1);
+        }
+        else if(heading == 1){
+            mark_cell(robot_x+1, robot_y-1, 1);
+        }
+        else if(heading == 2){
+            mark_cell(robot_x+1, robot_y+1, 1);
+        }
+        else if(heading == 3){
+            mark_cell(robot_x-1, robot_y+1, 1);
+        }
+    }
 }
 
 void Occupancy_Map::set_side_cells(int heading, int sensor, int robot_x, int robot_y) {
-
+    if(sensor == 2){
+        if(heading == 0){
+            mark_cell(robot_x+1, robot_y, 1);
+        }
+        else if(heading == 1){
+            mark_cell(robot_x, robot_y+1, 1);
+        }
+        else if(heading == 2){
+            mark_cell(robot_x-1, robot_y, 1);
+        }
+        else if(heading == 3){
+            mark_cell(robot_x, robot_y-1, 1);
+        }
+    }
+    else if(sensor == 5){
+        if(heading == 0){
+            mark_cell(robot_x-1, robot_y, 1);
+        }
+        else if(heading == 1){
+            mark_cell(robot_x, robot_y-1, 1);
+        }
+        else if(heading == 2){
+            mark_cell(robot_x+1, robot_y, 1);
+        }
+        else if(heading == 3){
+            mark_cell(robot_x, robot_y+1, 1);
+        }
+    }
 }
 
 void Occupancy_Map::set_aft_cells(int heading, int sensor, int robot_x, int robot_y) {
+    if(heading == 0){
+        mark_cell(robot_x, robot_y+1, 1);
+    }
+    else if(heading == 1){
+        mark_cell(robot_x-1, robot_y, 1);
+    }
+    else if(heading == 2){
+        mark_cell(robot_x, robot_y-1, 1);
+    }
+    else if(heading == 3){
+        mark_cell(robot_x+1, robot_y, 1);
+    }
+}
 
+void Occupancy_Map::mark_cell(int x_coord, int y_coord, int mark) {
+    map[x_coord][y_coord] = mark;
 }
 
 

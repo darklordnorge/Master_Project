@@ -200,6 +200,9 @@ void EXP_Class::adv ( void ){
   iter++;
 //    map->start();
   //  map->init();
+    double rotx = param->agent[0]->get_rot()[0];
+    double roty = param->agent[0]->get_rot()[2];
+    printf("Rotation x: %f y: %f \n", rotx, roty);
 }
 
 
