@@ -12,13 +12,17 @@
 #include "string"
 #include "map"
 #include "matrix.h"
+#include "math.h"
+
+using namespace std;
 class Occupancy_Map{
+
 
 
 private:
     static const int map_width = 1000;
     static const int map_height = 1000;
-    static double map [map_width][map_height];
+    double map [map_width][map_height];
 
 public:
     Occupancy_Map();
@@ -26,6 +30,9 @@ public:
     void init (void);
     FILE* open_map(const char* filename);
     void update_map(const char* filename, double x_coord, double z_coord);
+    void update_matrix(int x_pos, int y_pos, int value);
+    void calc_robot_pos(double x_coord, double y_coord);
+    void calc_matrix_values(vector <double> &ir_reading, double rotation, int robot_x, int robot_y);
 };
 
 

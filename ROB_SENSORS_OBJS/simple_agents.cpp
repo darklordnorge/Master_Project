@@ -421,9 +421,9 @@ void SIMPLE_Agents::get_IR_reading( vector <double> &_reading){
            _reading[i] = -124200 * _reading[i] + 4095;
 
   }
-//  for( int i = 0; i < num_IR_sensors; i++){
-//      printf("\n IR%d distance reading= %f ",i,_reading[i]);
-//  }
+  for( int i = 0; i < num_IR_sensors; i++){
+      printf("\n IR%d distance reading= %f ",i,_reading[i]);
+  }
 
 }
 
@@ -741,7 +741,7 @@ double SIMPLE_Agents::get_randb_reading( vector <double> _to_robot_pos, vector <
 //Functions added by stefan below this line
 
 void SIMPLE_Agents::take_occupancy_reading(double x_coord, double z_coord){
-  //  map->update_map("run.txt", x_coord, z_coord);
+//    map->update_map("run.txt", x_coord, z_coord);
 
 }
 
