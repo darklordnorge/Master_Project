@@ -39,6 +39,7 @@ public:
     void set_side_cells(int heading, int sensor, int robot_x, int robot_y);
     void set_aft_cells(int heading, int sensor, int robot_x, int robot_y);
     void mark_cell(int x_coord, int y_coord, int mark);
+    void calc_heading(double rotation);
 
 };
 

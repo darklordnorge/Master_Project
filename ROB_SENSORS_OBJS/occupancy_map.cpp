@@ -197,3 +197,7 @@ void Occupancy_Map::update_map(const char* filename, double x_coord, double z_co
     fprintf(p_map, "%f %f\n", x_coord, z_coord);
     fclose(p_map);
 }
+
+void Occupancy_Map::calc_heading(double rotation) {
+
+}
