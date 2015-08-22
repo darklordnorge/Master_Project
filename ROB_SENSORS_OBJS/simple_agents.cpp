@@ -738,6 +738,21 @@ double SIMPLE_Agents::get_randb_reading( vector <double> _to_robot_pos, vector <
         }
     }
 }
+/*Returns the rotation in degrees*/
+double SIMPLE_Agents::get_rotation(){
+    double rotation;
+    btMatrix3x3 m = btMatrix3x3(body->getWorldTransform().getRotation());
+    double rfPAngle = btAsin(-m[1][2]);
+    if ( rfPAngle < SIMD_HALF_PI )   {
+        if ( rfPAngle > -SIMD_HALF_PI ) rotation = btAtan2(m[0][2],m[2][2]);
+        else rotation = -btAtan2(-m[0][1],m[0][0]);
+    }
+    else rotation = btAtan2(-m[0][1],m[0][0]);
+
+    rotation = rotation * 180 / 3.1415926; //convert radians to degrees
+
+    return rotation;
+}
 
 //Functions added by stefan below this line
 

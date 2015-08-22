@@ -68,6 +68,7 @@ class SIMPLE_Agents : public World_Entity {
 
  //functions added by stefan
  void take_occupancy_reading(double x_coord, double z_coord);
+ double get_rotation();
 
  //
 
