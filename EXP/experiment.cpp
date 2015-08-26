@@ -26,7 +26,8 @@ EXP_Class::EXP_Class(const char *run_name, bool _evolution, bool _viewing, bool 
 /* ---------------------------------------------------------------------------------------- */
 
 EXP_Class::~EXP_Class( ){
-  delete param;
+    delete param;
+    delete map;
 }
 
 /* ---------------------------------------------------------------------------------------- */
