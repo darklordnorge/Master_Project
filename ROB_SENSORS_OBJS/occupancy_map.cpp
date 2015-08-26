@@ -73,10 +73,8 @@ int* Occupancy_Map::calc_robot_pos(double x_coord, double y_coord){
     return array;
 }
 
-void Occupancy_Map::calc_matrix_values(vector<double> &ir_reading, double rotation, int robot_x, int robot_y) {
+void Occupancy_Map::calc_matrix_values(vector<double> &ir_reading, int heading, int robot_x, int robot_y) {
     double sensor_value;
-    int heading; //set heading to be == the current rotation
-    heading = calc_heading(rotation);
     for(int i = 0;i < ir_reading.size();i++){
         sensor_value = ir_reading[i];
         if(sensor_value != -1){
