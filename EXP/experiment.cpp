@@ -545,8 +545,20 @@ void EXP_Class::dump_statistics( const char *locationOfFileTodump,
 /* ---------------------------------------------------------------------------------------- */
 /* ---------------------------------------------------------------------------------------- */
 
+/*Takes the occupnacy reading for each robot in the swarm and updates the global map*/
 void EXP_Class::occupancy_reading() {
+    int *robot_pos;
+    int heading;
+    for(int i = 0;i  < param->num_agents;i++){
+        robot_pos = map->calc_robot_pos(param->agent[i]->get_pos()[0], param->agent[i]->get_pos()[2]);
+        heading = map->calc_heading(param->agent[i]->get_rotation());
 
+        for(int j = 0;j < agent_interface[i].inputs.size();j++){
+            if(agent_interface[i].inputs[j] >= 1000){
+                map->calc_matrix_values(agent_interface[i].inputs, heading, robot_pos[0], robot_pos[1]);
+            }
+        }
+    }
 }
 
 
