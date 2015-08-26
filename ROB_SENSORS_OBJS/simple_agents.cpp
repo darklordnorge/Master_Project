@@ -417,7 +417,7 @@ void SIMPLE_Agents::get_IR_reading( vector <double> &_reading){
 //      printf("\n IR%d distance reading= %f ",i,_reading[i]);
 //  }
 
-    take_occupancy_reading(_reading, get_rotation(), get_pos()[0], get_pos()[2] );
+//    take_occupancy_reading(_reading, get_rotation(), get_pos()[0], get_pos()[2] );
 
 
 }
@@ -758,9 +758,9 @@ int SIMPLE_Agents::get_heading() {
 }
 
 void SIMPLE_Agents::take_occupancy_reading(vector <double> &ir_reading, double rotation, double x_coord, double z_coord){
-    int *coords;
-    coords = map->calc_robot_pos(get_pos()[0], get_pos()[2]);
-    map->calc_matrix_values(ir_reading, rotation, coords[0], coords[1]);
+//    int *coords;
+//    coords = map->calc_robot_pos(get_pos()[0], get_pos()[2]);
+//    map->calc_matrix_values(ir_reading, rotation, coords[0], coords[1]);
 
 }
 
