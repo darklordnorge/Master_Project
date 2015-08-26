@@ -24,11 +24,14 @@ void Occupancy_Map::update_matrix(int x_pos, int y_pos, int value){
     map[x_pos][y_pos] = value;
 }
 
-void Occupancy_Map::calc_robot_pos(double x_coord, double y_coord){
-    int matrix_x, matrix_y = 0;
+int* Occupancy_Map::calc_robot_pos(double x_coord, double y_coord){
+    int matrix_x = 0;
+    int matrix_y = 0;
+    int *array = new int[2];
+//    int array[2];
     double integral, fractal ;
 
-    if(x_coord > 0.0){
+    if(x_coord > 0.0 ){
         x_coord = x_coord * 1000;
         fractal = modf(x_coord, &integral);
         if(fractal < 0.5){
@@ -56,13 +59,24 @@ void Occupancy_Map::calc_robot_pos(double x_coord, double y_coord){
         matrix_y = y_coord * 1000;
     }
 
-    map[matrix_x][matrix_y] = 1;
+//    if(matrix_x <= 0){
+//        matrix_x = 0; //boundary checking
+//    }
+//    if(matrix_y <= 0){
+//        matrix_y = 0;
+//    }
+
+//    map[matrix_x][matrix_y] = 2;
+    array[0] = matrix_x;
+    array[1] = matrix_y;
+
+    return array;
 }
 
 void Occupancy_Map::calc_matrix_values(vector<double> &ir_reading, double rotation, int robot_x, int robot_y) {
     double sensor_value;
     int heading; //set heading to be == the current rotation
-
+    heading = calc_heading(rotation);
     for(int i = 0;i < ir_reading.size();i++){
         sensor_value = ir_reading[i];
         if(sensor_value != -1){
@@ -176,6 +190,10 @@ void Occupancy_Map::set_aft_cells(int heading, int sensor, int robot_x, int robo
         mark_cell(robot_x+1, robot_y, 1);
     }
 }
+/*4:northeast, 5:southeast, 6:southwest, 7:northwest*/
+void Occupancy_Map::set_angeld_cells(int heading, int sensor, int robot_x, int robot_y) {
+    if(heading == )
+}
 
 void Occupancy_Map::mark_cell(int x_coord, int y_coord, int mark) {
     map[x_coord][y_coord] = mark;
@@ -198,6 +216,37 @@ void Occupancy_Map::update_map(const char* filename, double x_coord, double z_co
     fclose(p_map);
 }
 
-void Occupancy_Map::calc_heading(double rotation) {
+/*  0: north, 1:east, 2:south, 3:west, 4:northeast, 5:southeast, 6:southwest, 7:northwest */
+int Occupancy_Map::calc_heading(double rotation) {
+    int heading;
+    if(rotation <= 10 && rotation >= -10){
+        heading = 1;
+    }
+    else if(rotation <= 100 && rotation >= 80){
+        heading = 0;
+    }
+    else if(rotation >= -170 && rotation >= 170){
+        heading = 3;
+    }
+    else if(rotation <= -80 && rotation >= -100){
+        heading = 2;
+    }
+    else{
+        heading  = -1;
+    }
+    return heading;
+}
+
+void Occupancy_Map::save_map() {
+    ofstream out;
+    out.open("map.txt");
+    for(int i = 0;i < map_width;i++){
+        for(int j = 0;j < map_height;j++){
+            out << map[i][j];
+        }
+        out << endl;
+    }
+    out.close();
 
 }
+
