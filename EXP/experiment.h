@@ -89,6 +89,7 @@ class EXP_Class : public Engine {
     double partial_fitness[];
     void compute_fitness_each_step(void);
     Occupancy_Map *map;
+    void occupancy_reading();
 
     //MapWindow *map;
 };

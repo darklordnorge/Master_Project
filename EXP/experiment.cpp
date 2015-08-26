@@ -188,7 +188,8 @@ void EXP_Class::from_genome_to_controllers( const char *str_source, const int wh
 /* ---------------------------------------------------------------------------------------- */
 
 void EXP_Class::adv ( void ){
-  if( viewing ) stop_iterations_loop( );
+
+   if( viewing ) stop_iterations_loop( );
   update_sensors( );
   update_controllers ( );
   update_Actuators();
@@ -199,6 +200,7 @@ void EXP_Class::adv ( void ){
   manage_collisions ();
   //if(param->agent[0]->get_pos()[2] > 2.00) iter = param->num_iterations;
   compute_fitness_each_step();
+
   iter++;
 //    map->start();
 //    map.init();
@@ -543,6 +545,8 @@ void EXP_Class::dump_statistics( const char *locationOfFileTodump,
 /* ---------------------------------------------------------------------------------------- */
 /* ---------------------------------------------------------------------------------------- */
 
+void EXP_Class::occupancy_reading() {
 
+}
 
 
