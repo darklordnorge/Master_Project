@@ -190,19 +190,19 @@ void EXP_Class::from_genome_to_controllers( const char *str_source, const int wh
 
 void EXP_Class::adv ( void ){
 
-   if( viewing ) stop_iterations_loop( );
-  update_sensors( );
-  update_controllers ( );
-  update_Actuators();
-  for(int i=0;i < 6;i++){
+    if( viewing ) stop_iterations_loop( );
+    update_sensors( );
+    update_controllers ( );
+    update_Actuators();
+    for(int i=0;i < 6;i++){
         update_world();
         param->world->stepSimulation( param->physics_step);
-  }
-  manage_collisions ();
-  //if(param->agent[0]->get_pos()[2] > 2.00) iter = param->num_iterations;
-  compute_fitness_each_step();
-
-  iter++;
+    }
+    manage_collisions ();
+    //if(param->agent[0]->get_pos()[2] > 2.00) iter = param->num_iterations;
+    compute_fitness_each_step();
+    occupancy_reading();
+    iter++;
 //    map->start();
 //    map.init();
 //    int head = param->agent[0]->get_heading();
