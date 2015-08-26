@@ -52,6 +52,7 @@ void EXP_Class::init_local_variables( void ){
      agent_interface[r].inputs.assign  (param->nets[r]->get_num_input(), 0.0);
      agent_interface[r].outputs.assign (param->nets[r]->get_num_output(), 0.0);
      partial_fitness[param->num_agents];
+     param->agent[0]->init_map();
  }
 
  this->set_agent_position();
@@ -199,10 +200,10 @@ void EXP_Class::adv ( void ){
   compute_fitness_each_step();
   iter++;
 //    map->start();
-  //  map->init();
-    double rotx = param->agent[0]->get_rot()[0];
-    double roty = param->agent[0]->get_rot()[2];
-    printf("Rotation x: %f y: %f \n", rotx, roty);
+//    map.init_matrix();
+//    int head = param->agent[0]->get_heading();
+//    double rot = param->agent[0]->get_rotation();
+//    printf("Rotation is: %f , heading is: %d\n", rot, head);
 }
 
 
@@ -455,7 +456,9 @@ bool EXP_Class::stop_evaluations_loop( void ){
                 finalise_evaluations_loop( );
             }
             init_single_evaluation( );
+            param->agent[0]->save();
             return true;
+
         }
 
       else if( re_evaluation ){

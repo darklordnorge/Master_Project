@@ -279,7 +279,6 @@ void SIMPLE_Agents::get_IR_reading( vector <double> &_reading){
     if(res0.hasHit()){
         _reading[0] = IR_range*res0.m_closestHitFraction ;
         to1[0]=res0.m_hitPointWorld;                        //update the vector with the btVector results -> used to render it in openGL
-        take_occupancy_reading(to1[0].getX(), to1[0].getZ());
     }
 
  //   IR7 reading
@@ -296,7 +295,6 @@ void SIMPLE_Agents::get_IR_reading( vector <double> &_reading){
       if(res7.hasHit()){
           _reading[1] = IR_range*res7.m_closestHitFraction;
           to1[1]=res7.m_hitPointWorld;
-          take_occupancy_reading(to1[1].getX(), to1[1].getZ());
       }
 
  //   IR1 reading corrospond to epuck
@@ -313,7 +311,6 @@ void SIMPLE_Agents::get_IR_reading( vector <double> &_reading){
       if(res1.hasHit()){
         _reading[2] = IR_range*res1.m_closestHitFraction;
         to1[2]=res1.m_hitPointWorld;
-          take_occupancy_reading(to1[2].getX(), to1[2].getZ());
       }
 
 
@@ -331,7 +328,6 @@ void SIMPLE_Agents::get_IR_reading( vector <double> &_reading){
       if(res6.hasHit()){
           _reading[3] = IR_range*res6.m_closestHitFraction;
           to1[3]=res6.m_hitPointWorld;
-          take_occupancy_reading(to1[3].getX(), to1[3].getZ());
      }
 
  //   IR2 reading
@@ -348,7 +344,6 @@ void SIMPLE_Agents::get_IR_reading( vector <double> &_reading){
       if(res2.hasHit()){
           _reading[4] = 0.049*(res2.m_closestHitFraction) - 0.009;
           to1[4]=res2.m_hitPointWorld;
-          take_occupancy_reading(to1[4].getX(), to1[4].getZ());
       }
 
  //   IR5 reading
@@ -365,7 +360,6 @@ void SIMPLE_Agents::get_IR_reading( vector <double> &_reading){
       if(res5.hasHit()){
            _reading[5] = 0.049*res5.m_closestHitFraction - 0.009;
            to1[5]=res5.m_hitPointWorld;
-          take_occupancy_reading(to1[5].getX(), to1[5].getZ());
       }
 
 
@@ -383,7 +377,6 @@ void SIMPLE_Agents::get_IR_reading( vector <double> &_reading){
       if(res3.hasHit()){
           _reading[6] = IR_range*res3.m_closestHitFraction;
           to1[6]=res3.m_hitPointWorld;
-          take_occupancy_reading(to1[6].getX(), to1[6].getZ());
       }
 
   //   IR4 reading
@@ -400,7 +393,6 @@ void SIMPLE_Agents::get_IR_reading( vector <double> &_reading){
       if(res4.hasHit()){
           _reading[7] = IR_range*res4.m_closestHitFraction;
           to1[7]=res4.m_hitPointWorld;
-          take_occupancy_reading(to1[7].getX(), to1[7].getZ());
       }
 
 //        for( int i = 0; i < num_IR_sensors; i++){
@@ -421,9 +413,11 @@ void SIMPLE_Agents::get_IR_reading( vector <double> &_reading){
            _reading[i] = -124200 * _reading[i] + 4095;
 
   }
-  for( int i = 0; i < num_IR_sensors; i++){
-      printf("\n IR%d distance reading= %f ",i,_reading[i]);
-  }
+//  for( int i = 0; i < num_IR_sensors; i++){
+//      printf("\n IR%d distance reading= %f ",i,_reading[i]);
+//  }
+
+    take_occupancy_reading(_reading, get_rotation(), get_pos()[0], get_pos()[2] );
 
 
 }
@@ -756,9 +750,26 @@ double SIMPLE_Agents::get_rotation(){
 
 //Functions added by stefan below this line
 
-void SIMPLE_Agents::take_occupancy_reading(double x_coord, double z_coord){
-//    map->update_map("run.txt", x_coord, z_coord);
+int SIMPLE_Agents::get_heading() {
+    int rotation;
+    double rot = get_rotation();
+    rotation = map->calc_heading(rot);
+    return rotation;
+}
 
+void SIMPLE_Agents::take_occupancy_reading(vector <double> &ir_reading, double rotation, double x_coord, double z_coord){
+    int *coords;
+    coords = map->calc_robot_pos(get_pos()[0], get_pos()[2]);
+    map->calc_matrix_values(ir_reading, rotation, coords[0], coords[1]);
+
+}
+
+void SIMPLE_Agents::save() {
+    map->save_map();
+}
+
+void SIMPLE_Agents::init_map() {
+    map->init_matrix();
 }
 
 #endif
