@@ -5,14 +5,14 @@
 #include "occupancy_map.h"
 #define MODE  "a"
 Occupancy_Map::Occupancy_Map(){
+    init();
+}
+
+Occupancy_Map::~Occupancy_Map() {
 
 }
 
 void Occupancy_Map::init() {
-//    map = {0.0}; //initialise the map to 0.0
-}
-
-void Occupancy_Map::init_matrix() {
     for(int i = 0;i < map_height;i++){
         for(int j = 0;j < map_width;j++){
             map[i][j] = 0;

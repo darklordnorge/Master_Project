@@ -769,7 +769,7 @@ void SIMPLE_Agents::save() {
 }
 
 void SIMPLE_Agents::init_map() {
-    map->init_matrix();
+    map->init();
 }
 
 #endif

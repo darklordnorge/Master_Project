@@ -26,8 +26,8 @@ private:
 
 public:
     Occupancy_Map();
-    void init_matrix(void);
-    void init (void);
+    ~Occupancy_Map();
+    void init(void);
     FILE* open_map(const char* filename);
     void update_map(const char* filename, double x_coord, double z_coord);
     void update_matrix(int x_pos, int y_pos, int value);
