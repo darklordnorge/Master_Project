@@ -19,8 +19,8 @@ class Occupancy_Map{
 
 
 private:
-    static const int map_width = 4000;
-    static const int map_height = 4000;
+    static const int map_width = 2500;
+    static const int map_height = 2500;
     double map [map_width][map_height];
     int orientation; //0: north, 1:east, 2:south, 3:west
 
