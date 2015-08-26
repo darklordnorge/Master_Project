@@ -15,7 +15,8 @@ EXP_Class::EXP_Class(const char *run_name, bool _evolution, bool _viewing, bool 
     param     = new Parameters ( run_name );
     if( evolution ) param->set_random_root_seed( _seed );
     param->init_random_generator( );//GSL
-   // map = new MapWindow[1];
+
+    map = new Occupancy_Map(); //init map
 
 
   init_local_variables();
@@ -200,7 +201,7 @@ void EXP_Class::adv ( void ){
   compute_fitness_each_step();
   iter++;
 //    map->start();
-//    map.init_matrix();
+//    map.init();
 //    int head = param->agent[0]->get_heading();
 //    double rot = param->agent[0]->get_rotation();
 //    printf("Rotation is: %f , heading is: %d\n", rot, head);

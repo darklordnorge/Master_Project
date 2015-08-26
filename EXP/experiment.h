@@ -6,6 +6,7 @@
 #ifdef _GRAPHICS_
 #include "../EXP/RENDERING/engine.h"
 #include "mapWindow.h"
+#include "../ROB_SENSORS_OBJS/occupancy_map.h"
 
 class EXP_Class : public Engine {
 #endif
@@ -87,6 +88,7 @@ class EXP_Class : public Engine {
     //stuff added by stefan
     double partial_fitness[];
     void compute_fitness_each_step(void);
+    Occupancy_Map *map;
 
     //MapWindow *map;
 };
