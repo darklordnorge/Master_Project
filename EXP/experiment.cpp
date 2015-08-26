@@ -54,7 +54,7 @@ void EXP_Class::init_local_variables( void ){
      agent_interface[r].inputs.assign  (param->nets[r]->get_num_input(), 0.0);
      agent_interface[r].outputs.assign (param->nets[r]->get_num_output(), 0.0);
      partial_fitness[param->num_agents];
-     param->agent[0]->init_map();
+//     param->agent[0]->init_map();
  }
 
  this->set_agent_position();
@@ -460,7 +460,8 @@ bool EXP_Class::stop_evaluations_loop( void ){
                 finalise_evaluations_loop( );
             }
             init_single_evaluation( );
-            param->agent[0]->save();
+//            param->agent[0]->save();
+            map->save_map();
             return true;
 
         }
