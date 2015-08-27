@@ -4,20 +4,48 @@
 
 #include "occupancy_map.h"
 #define MODE  "a"
+
+
 Occupancy_Map::Occupancy_Map(){
+
+
     init();
+
 }
 
 Occupancy_Map::~Occupancy_Map() {
-
+//    vector<vector <int> >().swap(map);
+//    for(size_t i = map_width; i > 0;){
+//        delete(map[--i]);
+//    }
+//    delete[] map;
 }
 
 void Occupancy_Map::init() {
+//    map.resize(2500, vector<int>(2500, 0)); //initilaize and resize the vector. Fill the vector with 0
+//    for(int i = 0;i < map_height;i++){
+//        vector <int> row;                   //create empty vector
+//        row.assign(map_width, 0);           // assign length and set all elements to 0
+//        map.push_back(row);                 //push to the main vector
+//    }
+
+//    map = new int[map_height][map_width];
+
+
+
+    map = new int*[map_height];
+    for(int i = 0;i < map_height;i++){
+        map[i] = new int[map_width];
+    }
+
     for(int i = 0;i < map_height;i++){
         for(int j = 0;j < map_width;j++){
             map[i][j] = 0;
         }
     }
+//
+
+//    printf("Vector size: %lu", map.size());
 }
 
 void Occupancy_Map::update_matrix(int x_pos, int y_pos, int value){
@@ -330,15 +358,36 @@ int Occupancy_Map::calc_heading(double rotation) {
 }
 
 void Occupancy_Map::save_map() {
-    ofstream out;
-    out.open("map.txt");
-    for(int i = 0;i < map_width;i++){
-        for(int j = 0;j < map_height;j++){
-            out << map[i][j];
-        }
-        out << endl;
-    }
-    out.close();
+//    ofstream out;
+//
+//    out.open("map.txt", ios::out);
+//    for(int i = 0;i < map_width;i++){
+//        for(int j = 0;j < map_height;j++){
+//            int x = map[i][j];
+//           out.write((char *)x, sizeof x);
+//        }
+//        out << endl;
+//    }
+//    out.close();
 
+    FILE *fileptr = fopen("map.txt", "w");
+
+    if(fileptr == NULL){
+        perror("File is NULL");
+    }
+
+    printf("%d", map[5][5]);
+    for(int i = 0;i < map_height;i++){
+        for(int j = 0;j < map_width;j++){
+            fprintf(fileptr, "%d", &map[i][j]);
+        }
+    }
+    fclose(fileptr);
+
+//    ofstream output("map1.txt");
+//    ostream_iterator<int> output_iterator(output,"");
+//    for(int i = 0;i < 2500;i++){
+//        copy(map.at(i).begin(), map.at(i).end(), output_iterator);
+//    }
 }
 

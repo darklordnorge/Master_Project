@@ -26,7 +26,7 @@ SIMPLE_Agents::SIMPLE_Agents(int ind, double _simulation_time_step,  btDynamicsW
   world = _world;
   addRobotPhysics(pos,rot);
 
-    map = new Occupancy_Map();
+//    map = new Occupancy_Map();
 }
 
 /* ----------------------------------------------------------------------- */

@@ -13,6 +13,7 @@
 #include "map"
 #include "matrix.h"
 #include "math.h"
+#include "iterator"
 
 using namespace std;
 class Occupancy_Map{
@@ -21,8 +22,10 @@ class Occupancy_Map{
 private:
     static const int map_width = 2500;
     static const int map_height = 2500;
-    double map [map_width][map_height];
-    int orientation; //0: north, 1:east, 2:south, 3:west
+//    int **map = new int*[2500]; //cool way to do it. Not possible since non static
+//       int *map;
+//    vector<vector<int> > map;
+    int** map;
 
 public:
     Occupancy_Map();
