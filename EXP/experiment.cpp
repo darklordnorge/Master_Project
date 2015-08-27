@@ -341,9 +341,14 @@ void EXP_Class::compute_fitness_each_step( void ){
             }
         }
 
-
+        if(comp_4 > 0.6){
+            partial_fitness[r] = 0;
+        }
+        else{
+            partial_fitness[r] += comp_1 * comp_2 * comp_3 * comp_4 * param->agent[r]->get_pos()[2];
+        }
 //        cout << "Range" << comp_4 << endl;
-        partial_fitness[r] += comp_1 * comp_2 * comp_3 * comp_4 * param->agent[r]->get_pos()[2];
+
     }
 //    partial_fitness += comp_1 *comp_2 *comp_3 * param->agent[0]->get_pos()[2];
 //    partial_fitness += comp_1 * comp_2 * comp_3;
@@ -458,10 +463,11 @@ bool EXP_Class::stop_evaluations_loop( void ){
             if( eval >= param->num_evaluations ) {
                 eval = 0;
                 finalise_evaluations_loop( );
+//                map->save_map();
             }
             init_single_evaluation( );
 //            param->agent[0]->save();
-            map->save_map();
+//            map->save_map();
             return true;
 
         }
@@ -551,16 +557,22 @@ void EXP_Class::dump_statistics( const char *locationOfFileTodump,
 void EXP_Class::occupancy_reading() {
     int *robot_pos;
     int heading;
+
     for(int i = 0;i  < param->num_agents;i++){
-        robot_pos = map->calc_robot_pos(param->agent[i]->get_pos()[0], param->agent[i]->get_pos()[2]);
+        robot_pos = map->calc_robot_pos(param->agent[i]->get_pos()[0], param->agent[i]->get_pos()[2]); //aquire heading and positon info
         heading = map->calc_heading(param->agent[i]->get_rotation());
 
+        /*set occupied fields*/
         for(int j = 0;j < agent_interface[i].inputs.size();j++){
             if(agent_interface[i].inputs[j] >= 1000){
                 map->calc_matrix_values(agent_interface[i].inputs, heading, robot_pos[0], robot_pos[1]);
             }
         }
+
+        map->mark_cell(robot_pos[0], robot_pos[1], 2); //set cell as occupied by the robot
     }
+
+
 }
 
 
