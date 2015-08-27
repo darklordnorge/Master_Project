@@ -30,18 +30,18 @@ private:
 public:
     Occupancy_Map();
     ~Occupancy_Map();
-    void init(void);
+    int ** init();
     FILE* open_map(const char* filename);
     void update_map(const char* filename, double x_coord, double z_coord);
     void update_matrix(int x_pos, int y_pos, int value);
     int* calc_robot_pos(double x_coord, double y_coord);
-    void calc_matrix_values(vector <double> &ir_reading, int heading, int robot_x, int robot_y);
-    void set_front_cells(int heading, int sensor, int robot_x, int robot_y);
-    void set_front_side_cells(int heading, int sensor, int robot_x, int robot_y);
-    void set_side_cells(int heading, int sensor, int robot_x, int robot_y);
-    void set_aft_cells(int heading, int sensor, int robot_x, int robot_y);
-    void set_angeld_cells(int heading, int sensor, int robot_x, int robot_y);
-    void mark_cell(int x_coord, int y_coord, int mark);
+    void calc_matrix_values(vector <double> &ir_reading, int heading, int robot_x, int robot_y, int ** matrix);
+    void set_front_cells(int heading, int sensor, int robot_x, int robot_y, int** matrix);
+    void set_front_side_cells(int heading, int sensor, int robot_x, int robot_y, int** matrix);
+    void set_side_cells(int heading, int sensor, int robot_x, int robot_y, int** matrix);
+    void set_aft_cells(int heading, int sensor, int robot_x, int robot_y, int** matrix);
+    void set_angeld_cells(int heading, int sensor, int robot_x, int robot_y, int** matrix);
+    void mark_cell(int x_coord, int y_coord, int mark, int** matrix);
     int calc_heading(double rotation);
     void save_map(void);
 

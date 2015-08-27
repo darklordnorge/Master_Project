@@ -8,9 +8,6 @@
 
 Occupancy_Map::Occupancy_Map(){
 
-
-    init();
-
 }
 
 Occupancy_Map::~Occupancy_Map() {
@@ -21,7 +18,7 @@ Occupancy_Map::~Occupancy_Map() {
 //    delete[] map;
 }
 
-void Occupancy_Map::init() {
+int ** Occupancy_Map::init() {
 //    map.resize(2500, vector<int>(2500, 0)); //initilaize and resize the vector. Fill the vector with 0
 //    for(int i = 0;i < map_height;i++){
 //        vector <int> row;                   //create empty vector
@@ -43,6 +40,7 @@ void Occupancy_Map::init() {
             map[i][j] = 0;
         }
     }
+    return map;
 //
 
 //    printf("Vector size: %lu", map.size());
@@ -101,207 +99,207 @@ int* Occupancy_Map::calc_robot_pos(double x_coord, double y_coord){
     return array;
 }
 
-void Occupancy_Map::calc_matrix_values(vector<double> &ir_reading, int heading, int robot_x, int robot_y) {
+void Occupancy_Map::calc_matrix_values(vector<double> &ir_reading, int heading, int robot_x, int robot_y, int ** matrix) {
     double sensor_value;
     for(int i = 0;i < ir_reading.size();i++){
         sensor_value = ir_reading[i];
         if(sensor_value != -1){
             if(i == 0 || i == 7){
-                set_front_cells(heading, i, robot_x, robot_y);
+                set_front_cells(heading, i, robot_x, robot_y, matrix);
             }
             else if(i == 6 || i == 1){
-                set_front_side_cells(heading, i, robot_x, robot_y);
+                set_front_side_cells(heading, i, robot_x, robot_y, matrix);
             }
             else if(i == 5 || i == 2){
-                set_side_cells(heading, i, robot_x, robot_y);
+                set_side_cells(heading, i, robot_x, robot_y, matrix);
             }
             else if(i == 3 || i == 4){
-                set_aft_cells(heading, i, robot_x, robot_y);
+                set_aft_cells(heading, i, robot_x, robot_y, matrix);
             }
         }
     }
 }
 
 /*Sensors set on a 15 degree angle to the front of the robot. Sensor 7 and 0 on the robot*/
-void Occupancy_Map::set_front_cells(int heading, int sensor, int robot_x, int robot_y) {
+void Occupancy_Map::set_front_cells(int heading, int sensor, int robot_x, int robot_y, int ** matrix) {
     if(heading == 0){
-        mark_cell(robot_x, robot_y-1, 1);
+        mark_cell(robot_x, robot_y-1, 1, matrix);
     }
     else if(heading == 1){
-        mark_cell(robot_x+1, robot_y, 1);
+        mark_cell(robot_x+1, robot_y, 1, matrix);
     }
     else if(heading == 2){
-        mark_cell(robot_x, robot_y+1, 1);
+        mark_cell(robot_x, robot_y+1, 1, matrix);
     }
     else if(heading == 3){
-        mark_cell(robot_x-1, robot_y, 1);
+        mark_cell(robot_x-1, robot_y, 1, matrix);
     }
 }
 
 /*Sensors placed in a 45 degree angle on the front of the robot. sensor 1 and 6 on the robot*/
-void Occupancy_Map::set_front_side_cells(int heading, int sensor, int robot_x, int robot_y) {
+void Occupancy_Map::set_front_side_cells(int heading, int sensor, int robot_x, int robot_y, int ** matrix) {
     if(sensor == 1){
         if(heading == 0){
-            mark_cell(robot_x+1, robot_y-1, 1);
+            mark_cell(robot_x+1, robot_y-1, 1, matrix);
         }
         else if(heading == 1){
-            mark_cell(robot_x+1, robot_y+1, 1);
+            mark_cell(robot_x+1, robot_y+1, 1, matrix);
         }
         else if(heading == 2){
-            mark_cell(robot_x-1, robot_y+1, 1);
+            mark_cell(robot_x-1, robot_y+1, 1, matrix);
         }
         else if(heading == 3){
-            mark_cell(robot_x-1, robot_y-1, 1);
+            mark_cell(robot_x-1, robot_y-1, 1, matrix);
         }
     }
     else if(sensor == 6){
         if(heading == 0){
-            mark_cell(robot_x-1, robot_y-1, 1);
+            mark_cell(robot_x-1, robot_y-1, 1, matrix);
         }
         else if(heading == 1){
-            mark_cell(robot_x+1, robot_y-1, 1);
+            mark_cell(robot_x+1, robot_y-1, 1, matrix);
         }
         else if(heading == 2){
-            mark_cell(robot_x+1, robot_y+1, 1);
+            mark_cell(robot_x+1, robot_y+1, 1, matrix);
         }
         else if(heading == 3){
-            mark_cell(robot_x-1, robot_y+1, 1);
+            mark_cell(robot_x-1, robot_y+1, 1, matrix);
         }
     }
 }
 /*Side sensors placed at a 90 degree angle. 2 and 5 on the epuck  */
-void Occupancy_Map::set_side_cells(int heading, int sensor, int robot_x, int robot_y) {
+void Occupancy_Map::set_side_cells(int heading, int sensor, int robot_x, int robot_y, int ** matrix) {
     if(sensor == 2){
         if(heading == 0){
-            mark_cell(robot_x+1, robot_y, 1);
+            mark_cell(robot_x+1, robot_y, 1, matrix);
         }
         else if(heading == 1){
-            mark_cell(robot_x, robot_y+1, 1);
+            mark_cell(robot_x, robot_y+1, 1, matrix);
         }
         else if(heading == 2){
-            mark_cell(robot_x-1, robot_y, 1);
+            mark_cell(robot_x-1, robot_y, 1, matrix);
         }
         else if(heading == 3){
-            mark_cell(robot_x, robot_y-1, 1);
+            mark_cell(robot_x, robot_y-1, 1, matrix);
         }
     }
     else if(sensor == 5){
         if(heading == 0){
-            mark_cell(robot_x-1, robot_y, 1);
+            mark_cell(robot_x-1, robot_y, 1, matrix);
         }
         else if(heading == 1){
-            mark_cell(robot_x, robot_y-1, 1);
+            mark_cell(robot_x, robot_y-1, 1, matrix);
         }
         else if(heading == 2){
-            mark_cell(robot_x+1, robot_y, 1);
+            mark_cell(robot_x+1, robot_y, 1, matrix);
         }
         else if(heading == 3){
-            mark_cell(robot_x, robot_y+1, 1);
+            mark_cell(robot_x, robot_y+1, 1, matrix);
         }
     }
 }
 
 /*Sensors placed at a 25 degree angle to the back of the robot. Sensors 3 and 4 on the epuck*/
-void Occupancy_Map::set_aft_cells(int heading, int sensor, int robot_x, int robot_y) {
+void Occupancy_Map::set_aft_cells(int heading, int sensor, int robot_x, int robot_y, int ** matrix) {
     if(heading == 0){
-        mark_cell(robot_x, robot_y+1, 1);
+        mark_cell(robot_x, robot_y+1, 1, matrix);
     }
     else if(heading == 1){
-        mark_cell(robot_x-1, robot_y, 1);
+        mark_cell(robot_x-1, robot_y, 1, matrix);
     }
     else if(heading == 2){
-        mark_cell(robot_x, robot_y-1, 1);
+        mark_cell(robot_x, robot_y-1, 1, matrix);
     }
     else if(heading == 3){
-        mark_cell(robot_x+1, robot_y, 1);
+        mark_cell(robot_x+1, robot_y, 1, matrix);
     }
 }
 /*4:northeast, 5:southeast, 6:southwest, 7:northwest*/
-void Occupancy_Map::set_angeld_cells(int heading, int sensor, int robot_x, int robot_y) {
+void Occupancy_Map::set_angeld_cells(int heading, int sensor, int robot_x, int robot_y, int ** matrix) {
     if(heading == 4){
         if(sensor == 7 || sensor == 0){
-            mark_cell(robot_x-1, robot_y-1, 1);
+            mark_cell(robot_x-1, robot_y-1, 1, matrix);
         }
         else if(sensor == 1){
-            mark_cell(robot_x+1, robot_y, 1);
+            mark_cell(robot_x+1, robot_y, 1, matrix);
         }
         else if(sensor == 2){
-            mark_cell(robot_x+1, robot_y+1, 1);
+            mark_cell(robot_x+1, robot_y+1, 1, matrix);
         }
         else if(sensor == 4 || sensor == 3){
-            mark_cell(robot_x-1, robot_y+1, 1);
+            mark_cell(robot_x-1, robot_y+1, 1, matrix);
         }
         else if(sensor == 5){
-            mark_cell(robot_x-1, robot_y-1, 1);
+            mark_cell(robot_x-1, robot_y-1, 1, matrix);
         }
         else if(sensor == 6){
-            mark_cell(robot_x, robot_y-1, 1);
+            mark_cell(robot_x, robot_y-1, 1, matrix);
         }
     }
     else if(heading == 5){
         if(sensor == 7 || sensor == 0){
-            mark_cell(robot_x+1, robot_y+1, 1);
+            mark_cell(robot_x+1, robot_y+1, 1, matrix);
         }
         else if(sensor == 1){
-            mark_cell(robot_x, robot_y+1, 1);
+            mark_cell(robot_x, robot_y+1, 1, matrix);
         }
         else if(sensor == 2){
-            mark_cell(robot_x-1, robot_y+1, 1);
+            mark_cell(robot_x-1, robot_y+1, 1, matrix);
         }
         else if(sensor == 3 || sensor ==4){
-            mark_cell(robot_x-1, robot_y-1, 1);
+            mark_cell(robot_x-1, robot_y-1, 1, matrix);
         }
         else if(sensor == 5){
-            mark_cell(robot_x+1, robot_y-1, 1);
+            mark_cell(robot_x+1, robot_y-1, 1, matrix);
         }
         else if(sensor == 6) {
-            mark_cell(robot_x + 1, robot_y, 1);
+            mark_cell(robot_x + 1, robot_y, 1, matrix);
         }
     }
     else if(heading == 6){
         if(sensor == 7 || sensor == 0){
-            mark_cell(robot_x-1, robot_y+1, 1);
+            mark_cell(robot_x-1, robot_y+1, 1, matrix);
         }
         else if(sensor == 1){
-            mark_cell(robot_x-1, robot_y, 1);
+            mark_cell(robot_x-1, robot_y, 1, matrix);
         }
         else if(sensor == 2){
-            mark_cell(robot_x-1, robot_y-1, 1);
+            mark_cell(robot_x-1, robot_y-1, 1, matrix);
         }
         else if(sensor == 3 || sensor == 4){
-            mark_cell(robot_x+1, robot_y-1, 1);
+            mark_cell(robot_x+1, robot_y-1, 1, matrix);
         }
         else if(sensor == 5){
-            mark_cell(robot_x+1, robot_y+1, 1);
+            mark_cell(robot_x+1, robot_y+1, 1, matrix);
         }
         else if(sensor == 6){
-            mark_cell(robot_x, robot_y+1, 1);
+            mark_cell(robot_x, robot_y+1, 1, matrix);
         }
     }
     else if(heading == 7){
         if(sensor == 7 || sensor == 0){
-            mark_cell(robot_x-1, robot_y-1, 1);
+            mark_cell(robot_x-1, robot_y-1, 1, matrix);
         }
         else if(sensor == 1){
-            mark_cell(robot_x, robot_y-1, 1);
+            mark_cell(robot_x, robot_y-1, 1, matrix);
         }
         else if(sensor == 2){
-            mark_cell(robot_x+1, robot_y-1, 1);
+            mark_cell(robot_x+1, robot_y-1, 1, matrix);
         }
         else if(sensor == 3 || sensor == 4){
-            mark_cell(robot_x+1, robot_y+1, 1);
+            mark_cell(robot_x+1, robot_y+1, 1, matrix);
         }
         else if(sensor == 5){
-            mark_cell(robot_x-1, robot_y+1, 1);
+            mark_cell(robot_x-1, robot_y+1, 1, matrix);
         }
         else if(sensor == 6){
-            mark_cell(robot_x-1, robot_y, 1);
+            mark_cell(robot_x-1, robot_y, 1, matrix);
         }
     }
 }
 
-void Occupancy_Map::mark_cell(int x_coord, int y_coord, int mark) {
-    map[x_coord][y_coord] = mark;
+void Occupancy_Map::mark_cell(int x_coord, int y_coord, int mark, int ** matrix) {
+    matrix[x_coord][y_coord] = mark;
 }
 
 

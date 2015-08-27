@@ -55,6 +55,7 @@ void EXP_Class::init_local_variables( void ){
      agent_interface[r].outputs.assign (param->nets[r]->get_num_output(), 0.0);
      partial_fitness[param->num_agents];
 //     param->agent[0]->init_map();
+     matrix = map->init();
  }
 
  this->set_agent_position();
@@ -565,11 +566,11 @@ void EXP_Class::occupancy_reading() {
         /*set occupied fields*/
         for(int j = 0;j < agent_interface[i].inputs.size();j++){
             if(agent_interface[i].inputs[j] >= 1000){
-                map->calc_matrix_values(agent_interface[i].inputs, heading, robot_pos[0], robot_pos[1]);
+                map->calc_matrix_values(agent_interface[i].inputs, heading, robot_pos[0], robot_pos[1], matrix);
             }
         }
 
-        map->mark_cell(robot_pos[0], robot_pos[1], 2); //set cell as occupied by the robot
+        map->mark_cell(robot_pos[0], robot_pos[1], 2, matrix); //set cell as occupied by the robot
     }
 
 
