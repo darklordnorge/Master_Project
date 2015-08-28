@@ -25,7 +25,7 @@ private:
 //    int **map = new int*[2500]; //cool way to do it. Not possible since non static
 //       int *map;
 //    vector<vector<int> > map;
-    int** map;
+    int **map;
 
 public:
     Occupancy_Map();
@@ -35,7 +35,7 @@ public:
     void update_map(const char* filename, double x_coord, double z_coord);
     void update_matrix(int x_pos, int y_pos, int value);
     int* calc_robot_pos(double x_coord, double y_coord);
-    void calc_matrix_values(vector <double> &ir_reading, int heading, int robot_x, int robot_y, int ** matrix);
+    void calc_matrix_values(vector <double> &ir_reading, int heading, int robot_x, int robot_y, int** matrix);
     void set_front_cells(int heading, int sensor, int robot_x, int robot_y, int** matrix);
     void set_front_side_cells(int heading, int sensor, int robot_x, int robot_y, int** matrix);
     void set_side_cells(int heading, int sensor, int robot_x, int robot_y, int** matrix);
