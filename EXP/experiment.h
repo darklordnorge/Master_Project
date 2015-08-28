@@ -38,6 +38,8 @@ class EXP_Class : public Engine {
   
     double AGGREGATE_FITNESS;
     double fitnesses_mult;
+
+    int** matrix;
     /* --------------------------------------------- */
 
   vector <double> ir_readings;
@@ -89,7 +91,7 @@ class EXP_Class : public Engine {
     double partial_fitness[];
     void compute_fitness_each_step(void);
     Occupancy_Map *map;
-    int** matrix;
+
     void occupancy_reading();
 
     //MapWindow *map;

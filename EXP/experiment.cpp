@@ -17,6 +17,7 @@ EXP_Class::EXP_Class(const char *run_name, bool _evolution, bool _viewing, bool 
     param->init_random_generator( );//GSL
 
     map = new Occupancy_Map(); //init map
+    matrix = map->init();
 
 
   init_local_variables();
@@ -55,8 +56,8 @@ void EXP_Class::init_local_variables( void ){
      agent_interface[r].outputs.assign (param->nets[r]->get_num_output(), 0.0);
      partial_fitness[param->num_agents];
 //     param->agent[0]->init_map();
-     matrix = map->init();
  }
+//    matrix = map->init();
 
  this->set_agent_position();
 }
@@ -468,7 +469,7 @@ bool EXP_Class::stop_evaluations_loop( void ){
             }
             init_single_evaluation( );
 //            param->agent[0]->save();
-//            map->save_map();
+            map->save_map(matrix);
             return true;
 
         }
@@ -558,16 +559,22 @@ void EXP_Class::dump_statistics( const char *locationOfFileTodump,
 void EXP_Class::occupancy_reading() {
     int *robot_pos;
     int heading;
+    vector<double> reading;
+
 
     for(int i = 0;i  < param->num_agents;i++){
         robot_pos = map->calc_robot_pos(param->agent[i]->get_pos()[0], param->agent[i]->get_pos()[2]); //aquire heading and positon info
         heading = map->calc_heading(param->agent[i]->get_rotation());
+        reading.assign(param->nets[i]->get_num_input(), 0.0); //resize reading variable
+
+         param->agent[i]->get_IR_reading(reading);     //aquire IR readings
 
         /*set occupied fields*/
-        for(int j = 0;j < agent_interface[i].inputs.size();j++){
-            if(agent_interface[i].inputs[j] >= 1000){
+        for(int j = 0;j < reading.size();j++){
+            if(reading[j] >= 1000){
                 map->calc_matrix_values(agent_interface[i].inputs, heading, robot_pos[0], robot_pos[1], matrix);
             }
+
         }
 
         map->mark_cell(robot_pos[0], robot_pos[1], 2, matrix); //set cell as occupied by the robot
