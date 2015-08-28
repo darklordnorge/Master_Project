@@ -357,7 +357,7 @@ int Occupancy_Map::calc_heading(double rotation) {
     return heading;
 }
 
-void Occupancy_Map::save_map() {
+void Occupancy_Map::save_map(int** matrix) {
 //    ofstream out;
 //
 //    out.open("map.txt", ios::out);
@@ -376,11 +376,12 @@ void Occupancy_Map::save_map() {
         perror("File is NULL");
     }
 
-    printf("%d", map[5][5]);
+//    printf("%d", map[5][5]);
     for(int i = 0;i < map_height;i++){
         for(int j = 0;j < map_width;j++){
-            fprintf(fileptr, "%d", &map[i][j]);
+            fprintf(fileptr, "%d", matrix[i][j]);
         }
+        fprintf(fileptr, "\n");
     }
     fclose(fileptr);
 

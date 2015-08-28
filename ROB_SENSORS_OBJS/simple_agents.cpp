@@ -765,11 +765,11 @@ void SIMPLE_Agents::take_occupancy_reading(vector <double> &ir_reading, double r
 }
 
 void SIMPLE_Agents::save() {
-    map->save_map();
+//    map->save_map();
 }
 
 void SIMPLE_Agents::init_map() {
-    map->init();
+//    map->init();
 }
 
 #endif
