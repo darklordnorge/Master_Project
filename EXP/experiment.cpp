@@ -87,26 +87,30 @@ void EXP_Class::init_genotype_loop( ){ // this loop for each population
 
  void EXP_Class::set_agent_position(){
 
-  vector <double> pos;
-  vector <double> rot;
+    vector <double> pos;
+    vector <double> rot;
 
-  rot.assign(3,0.0);
-  pos.assign(3,0.0);
+    rot.assign(3,0.0);
+    pos.assign(3,0.0);
 
-  param->resetPhysicsState();
-  for(int obj=0;obj<param->num_objects;obj++){
+    param->resetPhysicsState();
+    for(int obj=0;obj<param->num_objects;obj++){
       if(param->object[obj]->get_mass() != 0.0){
             param->object[obj]->reset_pos();
             param->object[obj]->body->clearForces();
             param->object[obj]->body->setLinearVelocity(btVector3(0.0,0.0,0.0));
             param->object[obj]->body->setAngularVelocity(btVector3(0.0,0.0,0.0));
       }
-   }
+    }
 
- pos[0] = 0.0;
- pos[2] = 0.20;
- rot[1] = -0.48 * PI + gsl_rng_uniform_pos( GSL_randon_generator::r_rand )*PI/2 - (PI/4);
- param->agent[0]->set_robot_pos_rot( pos, rot );
+     for(int r = 0;r < param->num_agents;r++){
+//         pos[2] = 0.20;   //orig. position
+         pos[0] = 0.0;
+         pos[2] = 0.02 + gsl_rng_uniform_pos( GSL_randon_generator::r_rand ); //0.2
+         rot[1] = -0.48 * PI + gsl_rng_uniform_pos( GSL_randon_generator::r_rand )*PI/2 - (PI/4);
+         param->agent[r]->set_robot_pos_rot( pos, rot );
+     }
+
 }
 
 /* ---------------------------------------------------------------------------------------- */
@@ -469,7 +473,7 @@ bool EXP_Class::stop_evaluations_loop( void ){
             }
             init_single_evaluation( );
 //            param->agent[0]->save();
-            map->save_map(matrix);
+//            map->save_map(matrix);
             return true;
 
         }
@@ -571,7 +575,7 @@ void EXP_Class::occupancy_reading() {
 
         /*set occupied fields*/
         for(int j = 0;j < reading.size();j++){
-            if(reading[j] >= 1000){
+            if(reading[j] >= 3000){
                 map->calc_matrix_values(agent_interface[i].inputs, heading, robot_pos[0], robot_pos[1], matrix);
             }
 
