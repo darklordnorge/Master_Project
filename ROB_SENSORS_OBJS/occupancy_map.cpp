@@ -81,6 +81,7 @@ int* Occupancy_Map::calc_robot_pos(double x_coord, double y_coord){
             x_coord = integral + 1;
         }
 
+
         matrix_x = (map_width/2) - x_coord;
         matrix_y = y_coord * 1000;
     }
@@ -104,17 +105,21 @@ void Occupancy_Map::calc_matrix_values(vector <double> &ir_reading, int heading,
     for(int i = 0;i < ir_reading.size();i++){
         sensor_value = ir_reading[i];
         if(sensor_value != -1){
-            if(i == 0 || i == 7){
-                set_front_cells(heading, i, robot_x, robot_y, matrix);
-            }
-            else if(i == 6 || i == 1){
-                set_front_side_cells(heading, i, robot_x, robot_y, matrix);
-            }
-            else if(i == 5 || i == 2){
-                set_side_cells(heading, i, robot_x, robot_y, matrix);
-            }
-            else if(i == 3 || i == 4){
-                set_aft_cells(heading, i, robot_x, robot_y, matrix);
+            if(heading == 0 || heading == 1 || heading == 2 || heading == 3){
+                if(i == 0 || i == 7){
+                    set_front_cells(heading, i, robot_x, robot_y, matrix);
+                }
+                else if(i == 6 || i == 1){
+                    set_front_side_cells(heading, i, robot_x, robot_y, matrix);
+                }
+                else if(i == 5 || i == 2){
+                    set_side_cells(heading, i, robot_x, robot_y, matrix);
+                }
+                else if(i == 3 || i == 4){
+                    set_aft_cells(heading, i, robot_x, robot_y, matrix);
+                }
+            }else if(heading == 4 || heading == 5 || heading == 6 || heading == 7){
+                set_angeld_cells(heading, i, robot_x, robot_y, matrix);
             }
         }
     }
@@ -168,9 +173,9 @@ void Occupancy_Map::set_front_side_cells(int heading, int sensor, int robot_x, i
     }
 }
 /*Side sensors placed at a 90 degree angle. 2 and 5 on the epuck  */
-void Occupancy_Map::set_side_cells(int heading, int sensor, int robot_x, int robot_y, int **matrix) {
-    if(sensor == 2){
-        if(heading == 0){
+void Occupancy_Map:: set_side_cells(int heading, int sensor, int robot_x, int robot_y, int **matrix) {
+      if(sensor == 2){
+         if(heading == 0){
             mark_cell(robot_x+1, robot_y, 1, matrix);
         }
         else if(heading == 1){
@@ -370,7 +375,7 @@ void Occupancy_Map::save_map(int** matrix) {
 //    }
 //    out.close();
 
-    FILE *fileptr = fopen("map.txt", "w");
+    FILE *fileptr = fopen("map2.txt", "w");
 
     if(fileptr == NULL){
         perror("File is NULL");
@@ -379,7 +384,7 @@ void Occupancy_Map::save_map(int** matrix) {
 //    printf("%d", map[5][5]);
     for(int i = 0;i < map_height;i++){
         for(int j = 0;j < map_width;j++){
-            fprintf(fileptr, "%d", matrix[i][j]);
+            fprintf(fileptr, "%d,", matrix[i][j]);
         }
         fprintf(fileptr, "\n");
     }

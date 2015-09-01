@@ -106,7 +106,7 @@ void EXP_Class::init_genotype_loop( ){ // this loop for each population
      for(int r = 0;r < param->num_agents;r++){
 //         pos[2] = 0.20;   //orig. position
          pos[0] = 0.0;
-         pos[2] = 0.02 + gsl_rng_uniform_pos( GSL_randon_generator::r_rand ); //0.2
+         pos[2] = 0.02  + gsl_rng_uniform_pos( GSL_randon_generator::r_rand ); //0.2
          rot[1] = -0.48 * PI + gsl_rng_uniform_pos( GSL_randon_generator::r_rand )*PI/2 - (PI/4);
          param->agent[r]->set_robot_pos_rot( pos, rot );
      }
@@ -323,6 +323,7 @@ void EXP_Class::compute_fitness( void ){
 void EXP_Class::compute_fitness_each_step( void ){
     vector <double> randB_reading;
     randB_reading.assign(2, 0.0);
+    int* robot_pos;
     for(int r=0; r < param->num_agents; r++) {
         double vl = ((param->agent[r]->get_vel()[0] / param->agent[r]->get_max_vel()) + 1) * 0.5;
         double vr = ((param->agent[r]->get_vel()[1] / param->agent[r]->get_max_vel()) + 1) * 0.5;
