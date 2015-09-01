@@ -100,26 +100,59 @@ int* Occupancy_Map::calc_robot_pos(double x_coord, double y_coord){
     return array;
 }
 
+int Occupancy_Map::calc_sensor(int array_num) {
+    int sensor_num;
+
+    if(array_num == 0){
+        sensor_num = 0;
+    }
+    else if(array_num == 1){
+        sensor_num == 7;
+    }
+    else if(array_num == 2){
+        sensor_num == 1;
+    }
+    else if(array_num == 3){
+        sensor_num == 6;
+    }
+    else if(array_num == 4){
+        sensor_num == 2;
+    }
+    else if(array_num == 5){
+        sensor_num == 5;
+    }
+    else if(array_num == 6){
+        sensor_num == 3;
+    }
+    else if(array_num == 7){
+        sensor_num == 4;
+    }
+
+    return sensor_num;
+}
+
 void Occupancy_Map::calc_matrix_values(vector <double> &ir_reading, int heading, int robot_x, int robot_y, int **matrix){
     double sensor_value;
+    int sensor_num;
     for(int i = 0;i < ir_reading.size();i++){
         sensor_value = ir_reading[i];
         if(sensor_value != -1){
+            sensor_num = calc_sensor(i);
             if(heading == 0 || heading == 1 || heading == 2 || heading == 3){
                 if(i == 0 || i == 7){
-                    set_front_cells(heading, i, robot_x, robot_y, matrix);
+                    set_front_cells(heading, sensor_num, robot_x, robot_y, matrix);
                 }
                 else if(i == 6 || i == 1){
-                    set_front_side_cells(heading, i, robot_x, robot_y, matrix);
+                    set_front_side_cells(heading, sensor_num, robot_x, robot_y, matrix);
                 }
                 else if(i == 5 || i == 2){
-                    set_side_cells(heading, i, robot_x, robot_y, matrix);
+                    set_side_cells(heading, sensor_num, robot_x, robot_y, matrix);
                 }
                 else if(i == 3 || i == 4){
-                    set_aft_cells(heading, i, robot_x, robot_y, matrix);
+                    set_aft_cells(heading, sensor_num, robot_x, robot_y, matrix);
                 }
             }else if(heading == 4 || heading == 5 || heading == 6 || heading == 7){
-                set_angeld_cells(heading, i, robot_x, robot_y, matrix);
+                set_angeld_cells(heading, sensor_num, robot_x, robot_y, matrix);
             }
         }
     }
@@ -385,7 +418,7 @@ void Occupancy_Map::save_map(int** matrix) {
     for(int i = 0;i < map_height;i++){
         for(int j = 0;j < map_width;j++){
             if(matrix[i][j] == 1){
-                fprintf(fileptr, "%d %d %d\n", i, j, matrix[i][j]);
+                fprintf(fileptr, "%d %d\n", i, j);
             }
 //            fprintf(fileptr, "%d,", matrix[i][j]);
         }

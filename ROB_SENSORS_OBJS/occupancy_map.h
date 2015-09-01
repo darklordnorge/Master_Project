@@ -42,6 +42,7 @@ public:
     void set_aft_cells(int heading, int sensor, int robot_x, int robot_y, int** matrix);
     void set_angeld_cells(int heading, int sensor, int robot_x, int robot_y, int** matrix);
     void mark_cell(int x_coord, int y_coord, int mark, int** matrix);
+    int calc_sensor(int array_num);
     int calc_heading(double rotation);
     void save_map(int** matrix);
 
