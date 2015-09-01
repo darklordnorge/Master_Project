@@ -384,9 +384,12 @@ void Occupancy_Map::save_map(int** matrix) {
 //    printf("%d", map[5][5]);
     for(int i = 0;i < map_height;i++){
         for(int j = 0;j < map_width;j++){
-            fprintf(fileptr, "%d,", matrix[i][j]);
+            if(matrix[i][j] == 1){
+                fprintf(fileptr, "%d %d %d\n", i, j, matrix[i][j]);
+            }
+//            fprintf(fileptr, "%d,", matrix[i][j]);
         }
-        fprintf(fileptr, "\n");
+//        fprintf(fileptr, "\n");
     }
     fclose(fileptr);
 
