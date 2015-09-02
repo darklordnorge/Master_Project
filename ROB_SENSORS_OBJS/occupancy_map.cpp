@@ -139,16 +139,16 @@ void Occupancy_Map::calc_matrix_values(vector <double> &ir_reading, int heading,
         if(sensor_value != -1){
             sensor_num = calc_sensor(i);
             if(heading == 0 || heading == 1 || heading == 2 || heading == 3){
-                if(i == 0 || i == 7){
+                if(sensor_num == 0 || sensor_num == 7){
                     set_front_cells(heading, sensor_num, robot_x, robot_y, matrix);
                 }
-                else if(i == 6 || i == 1){
+                else if(sensor_num == 6 || sensor_num == 1){
                     set_front_side_cells(heading, sensor_num, robot_x, robot_y, matrix);
                 }
-                else if(i == 5 || i == 2){
+                else if(sensor_num == 5 || sensor_num == 2){
                     set_side_cells(heading, sensor_num, robot_x, robot_y, matrix);
                 }
-                else if(i == 3 || i == 4){
+                else if(sensor_num == 3 || sensor_num == 4){
                     set_aft_cells(heading, sensor_num, robot_x, robot_y, matrix);
                 }
             }else if(heading == 4 || heading == 5 || heading == 6 || heading == 7){

@@ -474,7 +474,7 @@ bool EXP_Class::stop_evaluations_loop( void ){
             }
             init_single_evaluation( );
 //            param->agent[0]->save();
-            map->save_map(matrix);
+//            map->save_map(matrix);
             return true;
 
         }
