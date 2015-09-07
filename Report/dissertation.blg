@@ -28,45 +28,45 @@ Warning--I didn't find a database entry for "NumericalRecipes"
 ** Sorting version - not for use with work to be submitted to the IEEE.
 
 Done.
-You've used 8 entries,
+You've used 9 entries,
             4538 wiz_defined-function locations,
-            973 strings with 10516 characters,
-and the built_in function-call counts, 9329 in all, are:
-= -- 829
-> -- 266
-< -- 84
-+ -- 142
-- -- 61
-* -- 525
-:= -- 1408
-add.period$ -- 18
-call.type$ -- 8
-change.case$ -- 55
-chr.to.int$ -- 192
-cite$ -- 8
-duplicate$ -- 557
-empty$ -- 625
-format.name$ -- 69
-if$ -- 2077
+            981 strings with 10619 characters,
+and the built_in function-call counts, 10105 in all, are:
+= -- 904
+> -- 277
+< -- 91
++ -- 148
+- -- 63
+* -- 563
+:= -- 1540
+add.period$ -- 20
+call.type$ -- 9
+change.case$ -- 59
+chr.to.int$ -- 204
+cite$ -- 9
+duplicate$ -- 611
+empty$ -- 681
+format.name$ -- 71
+if$ -- 2251
 int.to.chr$ -- 0
-int.to.str$ -- 8
-missing$ -- 92
-newline$ -- 64
-num.names$ -- 18
-pop$ -- 212
+int.to.str$ -- 9
+missing$ -- 100
+newline$ -- 68
+num.names$ -- 20
+pop$ -- 223
 preamble$ -- 1
-purify$ -- 45
+purify$ -- 48
 quote$ -- 2
-skip$ -- 678
+skip$ -- 739
 stack$ -- 0
-substring$ -- 496
-swap$ -- 506
-text.length$ -- 20
+substring$ -- 529
+swap$ -- 552
+text.length$ -- 23
 text.prefix$ -- 0
 top$ -- 6
-type$ -- 72
+type$ -- 81
 warning$ -- 0
-while$ -- 45
-width$ -- 9
-write$ -- 131
+while$ -- 50
+width$ -- 10
+write$ -- 143
 (There were 3 warnings)

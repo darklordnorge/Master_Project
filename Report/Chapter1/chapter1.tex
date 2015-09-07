@@ -36,6 +36,21 @@ The range and bearing board is an extension board for the E-Puck which allows fo
 The board is powered by its own processor and consists of 12 sets of IR emission/reception modules. 
 The board was first designed and build by Guiêrrez \textit{et al.}\cite{Gutierrez}. 
 
+\subsection{Control Algorithm}
+The control algorithm for this project is an artificial neural network assisted by an genetic algorithm.\\
+The background and use of those will be explain in further detail in this section.
+
+\subsubsection{Artificial Neural Network}
+The control algorithm used for this project is an artificial neural network(ANN).
+Artificial neural networks are inspired by the brain. \\
+A biological brain functions by passing electrical signals through nodes, so called neurons. Neurons of the brain can be compared to simple Input/Output connectors which transmit pulse coded analogue information. The relation between a the inputs and outputs can be displayed a simple sigmoid function\cite{Hopfield}.\\
+To a neuron not all inputs are the same however, different inputs(i.e. outputs from other neurons) have stronger influence on it than others, in neuroscience this is defined as synaptic weights. \\
+This influence can be trained, in the course of a life a neuron \textit{learns} to trust some inputs more than others, the same training is done in an artificial neural network. The synaptic weights are represented by the \textit{weight} value each link between 2 nodes holds. This weight value is calculated and evolved using a genetic algorithm. 
+
+\subsubsection{Genetic Algorithm}
+
+
+
 \section{Process}
 You need to describe briefly the life cycle model or research method that you used. You do not need to write about all of the different process models that you are aware of. Focus on the process model that you have used. It is possible that you needed to adapt an existing process model to suit your project; clearly identify what you used and how you adapted it for your needs.\\
 

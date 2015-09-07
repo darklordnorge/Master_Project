@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.7.14)  20 JUL 2015 17:29
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.2.24)  5 SEP 2015 19:46
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -381,26 +381,26 @@ LaTeX Font Info:    Try loading font information for OT1+pcr on input line 30.
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
 Missing character: There is no Ã in font ptmr7t!
-
-Underfull \hbox (badness 10000) in paragraph at lines 40--41
+ [2]
+Underfull \hbox (badness 10000) in paragraph at lines 55--56
 
  []
 
-) [2]
+) [3]
 \openout2 = `Chapter2/chapter2.aux'.
 
  (./Chapter2/chapter2.tex
 Chapter 2.
-) [3
+[4
 
 
 
-] [4]
+]) [5]
 \openout2 = `Chapter3/chapter3.aux'.
 
  (./Chapter3/chapter3.tex
 Chapter 3.
-) [5
+) [6
 
 
 
@@ -411,7 +411,7 @@ Chapter 3.
 Chapter 4.
 Missing character: There is no Õ in font ptmr7t!
 Missing character: There is no Õ in font ptmr7t!
-) [6
+) [7
 
 
 
@@ -420,11 +420,11 @@ Missing character: There is no Õ in font ptmr7t!
 
  (./Chapter5/chapter5.tex
 Chapter 5.
-) [7
+) [8
 
 
 
-] [8
+] [9
 
 
 ]
@@ -435,12 +435,13 @@ Appendix A.
 Missing character: There is no Ð in font ptmr7t!
 Missing character: There is no Õ in font ptmr7t!
 
-LaTeX Warning: Citation `apache_poi' on page 9 undefined on input line 12.
+LaTeX Warning: Citation `apache_poi' on page 10 undefined on input line 12.
 
 
-LaTeX Warning: Citation `apache_license' on page 9 undefined on input line 13.
+LaTeX Warning: Citation `apache_license' on page 10 undefined on input line 13.
 
-) [9
+
+) [10
 
 
 ]
@@ -449,16 +450,16 @@ LaTeX Warning: Citation `apache_license' on page 9 undefined on input line 13.
  (./Appendix2/appendix2.tex
 Appendix B.
 
-LaTeX Warning: Citation `NumericalRecipes' on page 10 undefined on input line 5
+LaTeX Warning: Citation `NumericalRecipes' on page 11 undefined on input line 5
 .
 
-[10
+[11
 
 
 
-] [11]) [12] (./dissertation.bbl) 
+] [12]) [13] (./dissertation.bbl) 
 AED: lastpage setting LastPage
-[13
+[14
 
 
 ] (./dissertation.aux (./cover.aux) (./declaration.aux)
@@ -471,10 +472,10 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 3304 strings out of 493304
- 43733 string characters out of 6139871
- 108857 words of memory out of 5000000
- 6580 multiletter control sequences out of 15000+600000
+ 3305 strings out of 493304
+ 43743 string characters out of 6139871
+ 108860 words of memory out of 5000000
+ 6581 multiletter control sequences out of 15000+600000
  33465 words of font info for 74 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
  38i,10n,45p,562b,403s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -484,10 +485,10 @@ f-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/
 type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times
 /utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></u
 sr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on dissertation.pdf (20 pages, 108324 bytes).
+Output written on dissertation.pdf (21 pages, 110777 bytes).
 PDF statistics:
- 94 PDF objects out of 1000 (max. 8388607)
- 65 compressed objects within 1 object stream
+ 97 PDF objects out of 1000 (max. 8388607)
+ 67 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
