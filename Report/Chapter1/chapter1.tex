@@ -1,25 +1,26 @@
 \chapter{Background \& Objectives}
 
-This section should discuss your preparation for the project, including background reading, your analysis of the problem and the process or method you have followed to help structure your work.  It is likely that you will reuse part of your outline project specification, but at this point in the project you should have more to talk about. 
+\section{Aim of this project}
+The goal of this project is to create a program that controls a swarm of E-Puck robots in order to map an environment. \\
+The E-Pucks always need to stay in communication, as they share a global map. \\
+The control algorithm is an Artificial Neural Network, a evolutionary algorithm. \\
+The neural network is trained so that it will learn to develop a solution on its own.
+The benefit of neural networks are that they are extremely versatile. A trained neural network will perform very good even in an different environment. Neural networks also allow for quick reactions of robots with very little processing time once they are fully evolved.  
 
-\textbf{Note}: 
+\section{Information about the project}
+\subsection{Choice of development environment and programming language}
+Since the control algorithm for the robots is an artificial neural network its needs to be trained before it can be tested. Therefore a simulator is needed.
+The simulator chosen for this project has been created by Elio Tuci(elt7@aber.ac.uk) and Muhanad Hayder Mohammed(mhm4@aber.ac.uk) at Aberystwyth University. \\
+The other candidate was Cyberbotics Webots\footnote{\url{http://goo.gl/BrPK98}}. \\
+The simulator by Elio Tuci was chosen since I worked with it throughout the second semester of this master course and therefore know it well. Other reasons include that simulator is build for the creation of evolutionary algorithms and already posses an implemented genetic algorithm. \\
+At the beginning of the project it was deemed ambitious to create a working genetic algorithm as well as artificial neural network and train it to perform the tasks explained in this chapter. \\
+The programming language chosen for this project is C++ as the simulator is written in it. 
 
-\begin{itemize}
-   \item All of the sections and text in this example are for illustration purposes. The main Chapters are a good starting point, but the content and actual sections that you include are likely to be different.
-   
-   \item Look at the document on the Structure of the Final Report for additional guidance. 
-   
-\end {itemize}
+\subsection{Choice of robot}
 
-\section{Background}
-What was your background preparation for the project? What similar systems did you assess? What was your motivation and interest in this project? 
+\subsection{Choice of environment design}
 
 \section{Analysis}
-Taking into account the problem and what you learned from the background work, what was your analysis of the problem? How did your analysis help to decompose the problem into the main tasks that you would undertake? Were there alternative approaches? Why did you choose one approach compared to the alternatives? 
-
-There should be a clear statement of the objectives of the work, which you will evaluate at the end of the work. 
-
-In most cases, the agreed objectives or requirements will be the result of a compromise between what would ideally have been produced and what was felt to be possible in the time available. A discussion of the process of arriving at the final list is usually appropriate.
 
 \subsection{Communications}
 The Communication capabilities of the E-Puck where analysed. The Standard E-Puck comes  with bluetooth communication and posses now WiFi capabilities. \\
@@ -48,11 +49,43 @@ To a neuron not all inputs are the same however, different inputs(i.e. outputs f
 This influence can be trained, in the course of a life a neuron \textit{learns} to trust some inputs more than others, the same training is done in an artificial neural network. The synaptic weights are represented by the \textit{weight} value each link between 2 nodes holds. This weight value is calculated and evolved using a genetic algorithm. 
 
 \subsubsection{Genetic Algorithm}
+Genetic Algorithms(GA) are a evolutionary algorithm inspired by the genetics of living organism. \\
+An GA works by having a population  of genes, which make out an chromosome. The genes in regard to this GA represent the weights used in the neural network. \\
+A chromosome is constructed as followed, the first 1 gene holds a number representing the genotype length, in other words the number of genes in this chromosome and thereby the number of weights in the neural network. This number is calculated when the neural network is created at the start of the program and passed along to the GA.\\
+The following genes represent each a weight for a specific link between 2 nodes in the neural network. The value is a number between 0 and 1. \\
+The last gene in the chromosome holds the fitness assigned to this chromosome, which is calculated using the fitness function.\\
 
+An genetic algorithms modifies the genes using operators which mimic their biological counterpart. \\
 
+The genetic modifier described as \textit{crossover} switches genes in chromosome to vary the genetic pool between generations. \\
+This crossover can be done with either single genes, or groups of genes depending on the implementation, and of course any restrictions based on the nature of the data. \\
+
+The other operator is mutation, which is the possibility that a random gene switches its value to another random value.\\
+Which genes are chosen for crossover is based on the selection method implemented in the algorithm. \\
+The third major part of an GA is the selection method, the method that is used to choose which chromosomes of the gene pool should carried over into the next generation.\\
+The selection method implemented in this simulator is \textit{Roulette Wheel Selection}. 
+This selection method is part of the \textit{Proportionate Reproduction} scheme this reproduction scheme chooses individuals to be carried over into the next generation based on their objective fitness function \cite{goldberg1991comparative}. 
+
+The basic part of the selection process is that the fittest individuals have the highest change to be carried over. This replicated nature in a way that a fitter individual tends to have a higher change of survival and will go forward to the mating pool of the next generation.\\
+However weaker individuals(chromosomes) are not without a probabilistic change to get selected. 
+It is called roulette wheel selection because its graphical representation is similar to a roulette wheel, as figure \ref{fig:selection} shows\cite{1631619}.
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[scale=0.4]{Chapter1/images/roulette_wheel.png} 
+\caption[Roulette Wheel Selection]{Roulette Wheel Selection\footnotemark}
+\label{fig:selection}
+\end{center}
+\end{figure} 
+
+\footnotetext{Image credit: Newcastle University Engineering and Design Center \url{http://goo.gl/uwMSVB}}
+
+As can be seen in figure \ref{fig:selection} individuals with a higher fitness occupy a large of the overall available area. \\
+
+The number of chromosomes used in this work is 100, of which an elite of 8 is chosen to be taken over into the next generation. 
+As for the genetic operators, crossover has a probability of 0.3 and mutation a probability of 0.05 to occur.
 
 \section{Process}
-You need to describe briefly the life cycle model or research method that you used. You do not need to write about all of the different process models that you are aware of. Focus on the process model that you have used. It is possible that you needed to adapt an existing process model to suit your project; clearly identify what you used and how you adapted it for your needs.\\
-
+%Information about the life cycle choosen for this project
 
 

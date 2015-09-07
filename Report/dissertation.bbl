@@ -1,4 +1,4 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 \providecommand{\url}[1]{#1}
 \csname url@rmstyle\endcsname
 \providecommand{\newblock}{\relax}
@@ -36,6 +36,12 @@ C.~Cianci, X.~Raemy, J.~Pugh, and A.~Martinoli, ``{Communication in a Swarm of
   103--115. [Online]. Available:
   \url{http://dx.doi.org/10.1007/978-3-540-71541-2\_7}
 \BIBentrySTDinterwordspacing
+
+
+\bibitem{goldberg1991comparative}
+D.~E. Goldberg and K.~Deb, ``A comparative analysis of selection schemes used
+  in genetic algorithms,'' \emph{Foundations of genetic algorithms}, vol.~1,
+  pp. 69--93, 1991.
 
 
 \bibitem{Gutierrez}
@@ -90,6 +96,15 @@ K.~M. Wurm, A.~Hornung, M.~Bennewitz, C.~Stachniss, and W.~Burgard, ``{OctoMap:
   A probabilistic, flexible, and compact 3D map representation for robotic
   systems},'' in \emph{Proc. of the ICRA 2010 workshop on best practice in 3D
   perception and modeling for mobile manipulation}, vol.~2, 2010.
+
+
+\bibitem{1631619}
+J.~Zhong, X.~Hu, M.~Gu, and J.~Zhang, ``Comparison of performance between
+  different selection strategies on simple genetic algorithms,'' in
+  \emph{Computational Intelligence for Modelling, Control and Automation, 2005
+  and International Conference on Intelligent Agents, Web Technologies and
+  Internet Commerce, International Conference on}, vol.~2, Nov 2005, pp.
+  1115--1121.
 
 
 \end{thebibliography}

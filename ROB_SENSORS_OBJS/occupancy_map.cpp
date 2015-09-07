@@ -408,7 +408,7 @@ void Occupancy_Map::save_map(int** matrix) {
 //    }
 //    out.close();
 
-    FILE *fileptr = fopen("map2.txt", "w");
+    FILE *fileptr = fopen("map.txt", "w");
 
     if(fileptr == NULL){
         perror("File is NULL");
