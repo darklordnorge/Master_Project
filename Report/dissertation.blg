@@ -25,44 +25,44 @@ Database file #1: References/stefkla.bib
 ** Sorting version - not for use with work to be submitted to the IEEE.
 
 Done.
-You've used 11 entries,
+You've used 13 entries,
             4538 wiz_defined-function locations,
-            990 strings with 11094 characters,
-and the built_in function-call counts, 12190 in all, are:
-= -- 1086
-> -- 332
-< -- 110
-+ -- 179
-- -- 75
-* -- 669
-:= -- 1839
-add.period$ -- 24
-call.type$ -- 11
-change.case$ -- 71
-chr.to.int$ -- 249
-cite$ -- 11
-duplicate$ -- 742
-empty$ -- 834
-format.name$ -- 85
-if$ -- 2728
+            1006 strings with 11707 characters,
+and the built_in function-call counts, 14589 in all, are:
+= -- 1291
+> -- 421
+< -- 129
++ -- 226
+- -- 99
+* -- 803
+:= -- 2185
+add.period$ -- 29
+call.type$ -- 13
+change.case$ -- 89
+chr.to.int$ -- 288
+cite$ -- 13
+duplicate$ -- 887
+empty$ -- 998
+format.name$ -- 111
+if$ -- 3270
 int.to.chr$ -- 0
-int.to.str$ -- 11
-missing$ -- 121
-newline$ -- 76
-num.names$ -- 24
-pop$ -- 276
+int.to.str$ -- 13
+missing$ -- 149
+newline$ -- 84
+num.names$ -- 28
+pop$ -- 347
 preamble$ -- 1
-purify$ -- 58
+purify$ -- 74
 quote$ -- 2
-skip$ -- 895
+skip$ -- 1064
 stack$ -- 0
-substring$ -- 647
-swap$ -- 663
-text.length$ -- 27
+substring$ -- 751
+swap$ -- 792
+text.length$ -- 33
 text.prefix$ -- 0
 top$ -- 6
-type$ -- 99
+type$ -- 117
 warning$ -- 0
-while$ -- 61
-width$ -- 13
-write$ -- 165
+while$ -- 72
+width$ -- 15
+write$ -- 189

@@ -38,6 +38,12 @@ C.~Cianci, X.~Raemy, J.~Pugh, and A.~Martinoli, ``{Communication in a Swarm of
 \BIBentrySTDinterwordspacing
 
 
+\bibitem{499791}
+D.~Floreano and F.~Mondada, ``Evolution of homing navigation in a real mobile
+  robot,'' \emph{Systems, Man, and Cybernetics, Part B: Cybernetics, IEEE
+  Transactions on}, vol.~26, no.~3, pp. 396--407, Jun 1996.
+
+
 \bibitem{goldberg1991comparative}
 D.~E. Goldberg and K.~Deb, ``A comparative analysis of selection schemes used
   in genetic algorithms,'' \emph{Foundations of genetic algorithms}, vol.~1,
@@ -81,6 +87,15 @@ Q.~Meng and M.~H. Lee, ``{Active Exploration in Building Hierarchical Neural
   minus 0.4em\relax IEEE, Apr. 2006, pp. 2095--2100. [Online]. Available:
   \url{http://dx.doi.org/10.1109/imtc.2006.328464}
 \BIBentrySTDinterwordspacing
+
+
+\bibitem{mondada2009puck}
+F.~Mondada, M.~Bonani, X.~Raemy, J.~Pugh, C.~Cianci, A.~Klaptocz, S.~Magnenat,
+  J.-C. Zufferey, D.~Floreano, and A.~Martinoli, ``The e-puck, a robot designed
+  for education in engineering,'' in \emph{Proceedings of the 9th conference on
+  autonomous robot systems and competitions}, vol.~1, no.
+  LIS-CONF-2009-004.\hskip 1em plus 0.5em minus 0.4em\relax IPCB: Instituto
+  Polit{\'e}cnico de Castelo Branco, 2009, pp. 59--65.
 
 
 \bibitem{Thrun2003Learning}

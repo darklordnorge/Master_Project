@@ -17,12 +17,25 @@ At the beginning of the project it was deemed ambitious to create a working gene
 The programming language chosen for this project is C++ as the simulator is written in it. 
 
 \subsection{Choice of robot}
+The E-Puck\footnote{\url{http://www.e-puck.org/index.php}} robot was chosen for this project as it is commercially available and versatile. \\
+The \textit{standard} robot comes with 8 IR proximity sensors placed at different intervals around the robot. It is powered by lithium-ion battery that is easily chargeable. 2 stepper motors allows it too move\cite{mondada2009puck}. \\
+
+Since the project is done in an simulator no direct worries need to be done for battery life, though such could be simulated by calculating battery usage. This is however not done for the sake of this project. \\
+
+The E-Puck is also useful as there is a wide range of extensions boards available to it, and its bus interface makes it possible and easy to design and add extension boards. \\
+For this project the official Range and Bearing Board is used, more info about that can be found in section \ref{chap1:communication}\cite{Gutierrez}.
 
 \subsection{Choice of environment design}
+An environment was designed to train the artificial neural network.\\
+The environment represents a large room through which the robot swarm moves. There are multiple obstacles placed throughout the room to train and test the swarms communication and mapping abilities. A representation of the created environment can be found in Appendix  \ref{appendix2:environment} on page \pageref{appendix2:environment}. \\
+
+
+
 
 \section{Analysis}
 
 \subsection{Communications}
+\label{chap1:communication}
 The Communication capabilities of the E-Puck where analysed. The Standard E-Puck comes  with bluetooth communication and posses now WiFi capabilities. \\
 Bluetooth  communication for this project has been deemed infeasible as Bluetooth communications can take somewhere around 19.5 $\pm$ 4 seconds. A multi robot exploration and mapping project such as this requires almost constant communication, in which case bluetooth connection times of \~19 seconds are too long.\\
 
@@ -85,7 +98,58 @@ As can be seen in figure \ref{fig:selection} individuals with a higher fitness o
 The number of chromosomes used in this work is 100, of which an elite of 8 is chosen to be taken over into the next generation. 
 As for the genetic operators, crossover has a probability of 0.3 and mutation a probability of 0.05 to occur.
 
+\subsection{Fitness Function}
+A fitness function is used to guide the evolution of the neural network and the GA. It is used to rate the performance of a neural network based on a predefined formulae or criterion.\\
+The baseline for the fitness function implemented in this project was proposed by Floreano \textit{et al.}\cite{499791}. \\
+This fitness function is a good baseline as it prevents the robot from stopping, spinning on the spot, and crashing into obstacles, but still being close enough to an obstacle to get a positive return(obstacle found) from at least 1 sensor reading. \\
+This fitness function was expanded upon as new features where implemented to lead to more complex behaviour of the robot.\\
+The final fitness function is shown and explained in Chapter \ref{chap2:fitness_function} on page \pageref{chap2:fitness_function}.
+
+\subsection{Localisation}
+In real life scenarios GPS information is not always available, especially when mapping the insight of buildings. \\
+For the sake of this project the localisation and rotation readings are taken from the simulator. \\
+
+While not realistic a time shortage prevented further development of a localisation algorithm.\\
+Thought went into to question of localisation and there are a couple of approaches which could be taken in future work to incorporate them. \\
+One of the approaches is to use odometry, in which the robots position and location is calculated using the knowledge of how many steps the stepper motors did between readings and the wheel diameter of the robots wheels. Knowing how many \textit{steps} equal a full rotation, in case of the E-Pucks motors this is 20 steps\footnote{e-puck.org webside, accessed 08.11.2015, \url{http://goo.gl/YpQ2nf}}, and the diameter of the robots wheels, around 41mm\footnote{e-puck.org webside, accessed 08.11.2015, \url{http://goo.gl/YpQ2nf}}, allows to calculate what distance the robot has driven in a straight line. \\
+
+The rotation of a robot can be calculated using the same data combined with the knowledge of the robots wheelbase.\\
+However odometry is not a perfect localisation method. Uncertainty about for example the robots wheel diameter, or a wrongly calibrated stepper motor can throw of the location and rotation calculation completely. In real world applications, or simulators which simulate real world properties such as friction between the wheels and the floor, can cause additional problems. \\
+This \textit{error} in the calculation and movement get bigger overtime unless the localisation and rotation values stored in the robots memory are reset at certain intervals. In order to be able to reset it however exact knowledge of the location in the world is needed, not something possible in all environments.\\
+Therefore odometry can be at best be seen as an estimate of the robots location and rotation. 
+
+Another possible approach is to locate a robot using another robots sensor, such as the IR sensors on the range and bearing board. \\
+However without prior knowledge of where the \textit{searching} robot is in the world it is impossible to calculate the location of the \textit{searched after} robot, only it distance and bearing from the \textit{searching} robot. \\
+This knowledge might be enough for some applications, however there are also limits to the localisation possibilities using this approach.
+IR sensors beams widen over distance, meaning the error of an bearings reading increases over distance. Therefore there is a a limit to over how large distances a robots location can be calculated using this. 
+
+Thoughts went also in to combining both the odometry calculations with the range and bearing information of the robot, however a shortage of time let to that no method was implemented in the system. 
+
+
+\subsection{Mapping}
+To map the environment the E-Pucks IR sensors are used. \\
+Using the knowledge of the robots position as well as the sensor read out it is possible to calculate the position of an obstacle in regard to the robot. \\
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[scale=0.4]{Chapter1/images/e_puck_sensor.png}
+\caption{E-Puck sensor placement}
+\label{fig:sensor_placement} 
+\end{center}
+\end{figure}
+
+Figure \ref{fig:sensor_placement} shows the placement of the robots IR sensors, labelled \textit{ps0} through \textit{ps7}.\\
+With the knowledge of where a particular sensor is placed on the robot combined with the knowledge of the robots position, rotation and the return of the IR reading, it is possible to calculate the placement of a obstacle in the environment.\\
+
+The robots all share a single global map, which is updated with the position of all robots, as well as the position of any encountered obstacles, at each iteration. \\
+The map it self a standard occupancy grid map: a 2 dimensional grid where each cell can have 1 of 3 possible values: 0 = unexplored, 1 = obstacle, 2 = robot position.  
+
 \section{Process}
-%Information about the life cycle choosen for this project
+The life cycle model used for this project is "Feature Driven Development" (FDD) as it seems the more appropriate for this project than other models, such as extreme programming or test driven development. \\
+The reason FDD is more appropriate is that this is a single person project, as well as the requirements allowed for easy distinguish in which order features need to be implemented.  \\
+For example: the controller(neural network) needs to be implemented to be able to train it. Once the it is implemented and the robots are able to move based on its control, the communication between the robots can be implemented. Only once this is done and tested the mapping algorithm can be started to be developed, as the features build on each other.\\
+
+The milestones of the project rather small and incremental "upgrades" on each other. For example the fitness function went from "move in certain direction" to "move in a certain direction and avoid obstacles" to much later "move throughout the environment, don't spin at the same spot, avoid crashing into obstacles but be close enough to map them and stay in communication range with other robots". \\
+ 
 
 
