@@ -17,24 +17,27 @@
 \contentsline {section}{\numberline {2.1}Overall Architecture}{8}
 \contentsline {subsection}{\numberline {2.1.1}Control Algorithm}{8}
 \contentsline {subsection}{\numberline {2.1.2}Artificial Neural Network}{8}
-\contentsline {subsection}{\numberline {2.1.3}Fitness Function}{9}
-\contentsline {section}{\numberline {2.2}Some detailed design}{9}
-\contentsline {subsection}{\numberline {2.2.1}Even more detail}{9}
-\contentsline {section}{\numberline {2.3}User Interface}{9}
-\contentsline {section}{\numberline {2.4}Other relevant sections}{9}
-\contentsline {chapter}{\numberline {3}Implementation}{10}
-\contentsline {chapter}{\numberline {4}Testing}{11}
-\contentsline {section}{\numberline {4.1}Overall Approach to Testing}{11}
-\contentsline {section}{\numberline {4.2}Automated Testing}{11}
-\contentsline {subsection}{\numberline {4.2.1}Unit Tests}{11}
-\contentsline {subsection}{\numberline {4.2.2}User Interface Testing}{11}
-\contentsline {subsection}{\numberline {4.2.3}Stress Testing}{11}
-\contentsline {subsection}{\numberline {4.2.4}Other types of testing}{11}
-\contentsline {section}{\numberline {4.3}Integration Testing}{11}
-\contentsline {section}{\numberline {4.4}User Testing}{11}
-\contentsline {chapter}{\numberline {5}Evaluation}{12}
-\contentsline {chapter}{Appendices}{13}
-\contentsline {chapter}{\numberline {A}Third-Party Code and Libraries}{14}
-\contentsline {chapter}{\numberline {B}Code samples}{15}
-\contentsline {section}{\numberline {2.1}Environment Design}{16}
-\contentsline {chapter}{Annotated Bibliography}{17}
+\contentsline {subsubsection}{\numberline {2.1.2.1}Input Layer}{9}
+\contentsline {subsubsection}{\numberline {2.1.2.2}Hidden Layer \& Sigmoid Function}{9}
+\contentsline {subsubsection}{\numberline {2.1.2.3}Output Layer}{10}
+\contentsline {subsection}{\numberline {2.1.3}Fitness Function}{10}
+\contentsline {section}{\numberline {2.2}Some detailed design}{10}
+\contentsline {subsection}{\numberline {2.2.1}Even more detail}{10}
+\contentsline {section}{\numberline {2.3}User Interface}{10}
+\contentsline {section}{\numberline {2.4}Other relevant sections}{10}
+\contentsline {chapter}{\numberline {3}Implementation}{11}
+\contentsline {chapter}{\numberline {4}Testing}{12}
+\contentsline {section}{\numberline {4.1}Overall Approach to Testing}{12}
+\contentsline {section}{\numberline {4.2}Automated Testing}{12}
+\contentsline {subsection}{\numberline {4.2.1}Unit Tests}{12}
+\contentsline {subsection}{\numberline {4.2.2}User Interface Testing}{12}
+\contentsline {subsection}{\numberline {4.2.3}Stress Testing}{12}
+\contentsline {subsection}{\numberline {4.2.4}Other types of testing}{12}
+\contentsline {section}{\numberline {4.3}Integration Testing}{12}
+\contentsline {section}{\numberline {4.4}User Testing}{12}
+\contentsline {chapter}{\numberline {5}Evaluation}{13}
+\contentsline {chapter}{Appendices}{14}
+\contentsline {chapter}{\numberline {A}Third-Party Code and Libraries}{15}
+\contentsline {chapter}{\numberline {B}Code samples}{16}
+\contentsline {section}{\numberline {2.1}Environment Design}{17}
+\contentsline {chapter}{Annotated Bibliography}{18}

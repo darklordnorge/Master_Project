@@ -91,7 +91,7 @@ It is called roulette wheel selection because its graphical representation is si
 \end{center}
 \end{figure} 
 
-\footnotetext{Image credit: Newcastle University Engineering and Design Center \url{http://goo.gl/uwMSVB}}
+\footnotetext{Image credit: Newcastle University Engineering and Design Center, accessed 7th of September 2015 \url{http://goo.gl/uwMSVB}}
 
 As can be seen in figure \ref{fig:selection} individuals with a higher fitness occupy a large of the overall available area. \\
 
@@ -111,7 +111,7 @@ For the sake of this project the localisation and rotation readings are taken fr
 
 While not realistic a time shortage prevented further development of a localisation algorithm.\\
 Thought went into to question of localisation and there are a couple of approaches which could be taken in future work to incorporate them. \\
-One of the approaches is to use odometry, in which the robots position and location is calculated using the knowledge of how many steps the stepper motors did between readings and the wheel diameter of the robots wheels. Knowing how many \textit{steps} equal a full rotation, in case of the E-Pucks motors this is 20 steps\footnote{e-puck.org webside, accessed 08.11.2015, \url{http://goo.gl/YpQ2nf}}, and the diameter of the robots wheels, around 41mm\footnote{e-puck.org webside, accessed 08.11.2015, \url{http://goo.gl/YpQ2nf}}, allows to calculate what distance the robot has driven in a straight line. \\
+One of the approaches is to use odometry, in which the robots position and location is calculated using the knowledge of how many steps the stepper motors did between readings and the wheel diameter of the robots wheels. Knowing how many \textit{steps} equal a full rotation, in case of the E-Pucks motors this is 20 steps\footnote{e-puck.org webside, accessed 8th of September, 2015,, \url{http://goo.gl/YpQ2nf}}, and the diameter of the robots wheels, around 41mm\footnote{e-puck.org webside, accessed 8th of September, 2015, \url{http://goo.gl/YpQ2nf}}, allows to calculate what distance the robot has driven in a straight line. \\
 
 The rotation of a robot can be calculated using the same data combined with the knowledge of the robots wheelbase.\\
 However odometry is not a perfect localisation method. Uncertainty about for example the robots wheel diameter, or a wrongly calibrated stepper motor can throw of the location and rotation calculation completely. In real world applications, or simulators which simulate real world properties such as friction between the wheels and the floor, can cause additional problems. \\
