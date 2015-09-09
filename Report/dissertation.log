@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.3.6)  9 SEP 2015 13:48
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.3.6)  9 SEP 2015 17:05
 entering extended mode
 **dissertation.tex
 (D:\Github\Master_Project\Report\dissertation.tex
@@ -425,7 +425,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 11--16
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 17--22
+Underfull \hbox (badness 10000) in paragraph at lines 17--21
 
  []
 
@@ -433,7 +433,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 17--22
 File: Chapter2/images/bias.png Graphic file (type png)
 
 <use Chapter2/images/bias.png>
-Package pdftex.def Info: Chapter2/images/bias.png used on input line 28.
+Package pdftex.def Info: Chapter2/images/bias.png used on input line 30.
 (pdftex.def)             Requested size: 198.74403pt x 147.25125pt.
 
 
@@ -443,14 +443,14 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 File: Chapter2/images/network.png Graphic file (type png)
 
 <use Chapter2/images/network.png>
-Package pdftex.def Info: Chapter2/images/network.png used on input line 38.
+Package pdftex.def Info: Chapter2/images/network.png used on input line 40.
 (pdftex.def)             Requested size: 118.0419pt x 158.99521pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 46--47
+Underfull \hbox (badness 10000) in paragraph at lines 48--49
 
  []
 
@@ -463,78 +463,103 @@ File: Chapter2/images/Selection_002.png Graphic file (type png)
 
 <use Chapter2/images/Selection_002.png>
 Package pdftex.def Info: Chapter2/images/Selection_002.png used on input line 5
-0.
+2.
 (pdftex.def)             Requested size: 170.13693pt x 117.43965pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 58--59
+Underfull \hbox (badness 10000) in paragraph at lines 60--61
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 62--63
+Underfull \hbox (badness 10000) in paragraph at lines 64--65
 
  []
 
 [9 <D:/Github/Master_Project/Report/Chapter2/images/bias.png> <D:/Github/Master
 _Project/Report/Chapter2/images/network.png (PNG copy)>]
-Underfull \hbox (badness 10000) in paragraph at lines 72--74
+Underfull \hbox (badness 10000) in paragraph at lines 74--76
 
  []
 
+<Chapter2/images/unscaled.png, id=63, 767.2665pt x 172.84575pt>
+File: Chapter2/images/unscaled.png Graphic file (type png)
+
+<use Chapter2/images/unscaled.png>
+Package pdftex.def Info: Chapter2/images/unscaled.png used on input line 82.
+(pdftex.def)             Requested size: 306.90115pt x 69.13705pt.
+
+<Chapter2/images/scaled.png, id=65, 770.88pt x 182.48175pt>
+File: Chapter2/images/scaled.png Graphic file (type png)
+
+<use Chapter2/images/scaled.png>
+Package pdftex.def Info: Chapter2/images/scaled.png used on input line 90.
+(pdftex.def)             Requested size: 308.34654pt x 72.9914pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[10 <D:/Github/Master_Project/Report/Chapter2/images/Selection_002.png> <D:/Git
+hub/Master_Project/Report/Chapter2/images/unscaled.png>]
 Missing character: There is no â in font cmr6!
 Missing character: There is no € in font cmr6!
 Missing character: There is no ¢ in font cmr6!
-) [10 <D:/Github/Master_Project/Report/Chapter2/images/Selection_002.png>]
-[11] (D:\Github\Master_Project\Report\Chapter3/chapter3.tex
+Missing character: There is no â in font cmr6!
+Missing character: There is no € in font cmr6!
+Missing character: There is no ¢ in font cmr6!
+Missing character: There is no â in font cmr6!
+Missing character: There is no € in font cmr6!
+Missing character: There is no ¢ in font cmr6!
+ [11 <D:/Github/Master_Project/Report/Chapter2/images/scaled.png>]) [12]
+(D:\Github\Master_Project\Report\Chapter3/chapter3.tex
 Chapter 3.
-) [12
+) [13
 
 
 
 ] (D:\Github\Master_Project\Report\Chapter4/chapter4.tex
 Chapter 4.
-) [13
+) [14
 
 
 
 ] (D:\Github\Master_Project\Report\Chapter5/chapter5.tex
 Chapter 5.
-) [14
+) [15
 
 
 
-] [15
+] [16
 
 
 ] (D:\Github\Master_Project\Report\Appendix1/appendix1.tex
 Appendix A.
-) [16
+) [17
 
 
 ] (D:\Github\Master_Project\Report\Appendix2/appendix2.tex
 Appendix B.
-[17
+[18
 
 
 
-] <Chapter1/images/environment.png, id=93, 472.76625pt x 716.6775pt>
+] <Chapter1/images/environment.png, id=102, 472.76625pt x 716.6775pt>
 File: Chapter1/images/environment.png Graphic file (type png)
 
 <use Chapter1/images/environment.png>
 Package pdftex.def Info: Chapter1/images/environment.png used on input line 6.
 (pdftex.def)             Requested size: 283.66193pt x 430.00983pt.
-) [18 <D:/Github/Master_Project/Report/Chapter1/images/environment.png>]
-(D:\Github\Master_Project\Report\dissertation.bbl [19
+) [19 <D:/Github/Master_Project/Report/Chapter1/images/environment.png>]
+(D:\Github\Master_Project\Report\dissertation.bbl [20
 
 
 ])
 
 AED: lastpage setting LastPage
-[20] (D:\Github\Master_Project\Report\dissertation.aux
+[21] (D:\Github\Master_Project\Report\dissertation.aux
 (D:\Github\Master_Project\Report\cover.aux)
 (D:\Github\Master_Project\Report\declaration.aux)
 (D:\Github\Master_Project\Report\acknowledgements.aux)
@@ -547,10 +572,10 @@ AED: lastpage setting LastPage
 (D:\Github\Master_Project\Report\Appendix1/appendix1.aux)
 (D:\Github\Master_Project\Report\Appendix2/appendix2.aux)) ) 
 Here is how much of TeX's memory you used:
- 2995 strings out of 493921
- 41447 string characters out of 3144874
- 96246 words of memory out of 3000000
- 6122 multiletter control sequences out of 15000+200000
+ 3009 strings out of 493921
+ 41796 string characters out of 3144874
+ 96300 words of memory out of 3000000
+ 6135 multiletter control sequences out of 15000+200000
  32950 words of font info for 72 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
  34i,10n,45p,700b,354s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -566,9 +591,9 @@ pe1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1
 s/utmb8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pf
 b><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Progr
 am Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on dissertation.pdf (27 pages, 571955 bytes).
+Output written on dissertation.pdf (28 pages, 602962 bytes).
 PDF statistics:
- 142 PDF objects out of 1000 (max. 8388607)
+ 149 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 31 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 41 words of extra memory for PDF output out of 10000 (max. 10000000)
 
