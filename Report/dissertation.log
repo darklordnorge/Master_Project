@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.2.24)  9 SEP 2015 09:13
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.7.14)  9 SEP 2015 12:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -471,27 +471,37 @@ Underfull \hbox (badness 10000) in paragraph at lines 152--153
  (./Chapter2/chapter2.tex
 Chapter 2.
 
-Underfull \hbox (badness 10000) in paragraph at lines 11--18
+Underfull \hbox (badness 10000) in paragraph at lines 11--16
 
  []
 
-<Chapter2/images/bias.png, id=55, 670.505pt x 492.84125pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 17--22
+
+ []
+
+<Chapter2/images/bias.png, id=55, 662.475pt x 490.83376pt>
 File: Chapter2/images/bias.png Graphic file (type png)
 
 <use Chapter2/images/bias.png>
-Package pdftex.def Info: Chapter2/images/bias.png used on input line 24.
-(pdftex.def)             Requested size: 201.15305pt x 147.8535pt.
+Package pdftex.def Info: Chapter2/images/bias.png used on input line 28.
+(pdftex.def)             Requested size: 198.74403pt x 147.25125pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<Chapter2/images/network.png, id=56, 393.47pt x 529.98pt>
+File: Chapter2/images/network.png Graphic file (type png)
+
+<use Chapter2/images/network.png>
+Package pdftex.def Info: Chapter2/images/network.png used on input line 38.
+(pdftex.def)             Requested size: 118.0419pt x 158.99521pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 34--35
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 39--40
+Underfull \hbox (badness 10000) in paragraph at lines 50--51
 
  []
 
@@ -499,29 +509,33 @@ Underfull \hbox (badness 10000) in paragraph at lines 39--40
 
 
 
-] <Chapter2/images/Selection_002.png, id=59, 567.11874pt x 391.4625pt>
+] <Chapter2/images/Selection_002.png, id=60, 567.11874pt x 391.4625pt>
 File: Chapter2/images/Selection_002.png Graphic file (type png)
 
 <use Chapter2/images/Selection_002.png>
-Package pdftex.def Info: Chapter2/images/Selection_002.png used on input line 4
-3.
+Package pdftex.def Info: Chapter2/images/Selection_002.png used on input line 5
+4.
 (pdftex.def)             Requested size: 170.13693pt x 117.43965pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 51--52
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 62--63
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 55--56
+Underfull \hbox (badness 10000) in paragraph at lines 66--67
 
  []
 
-[9 <./Chapter2/images/bias.png> <./Chapter2/images/Selection_002.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 65--67
+[9 <./Chapter2/images/bias.png> <./Chapter2/images/network.png (PNG copy)>]
+Underfull \hbox (badness 10000) in paragraph at lines 76--78
 
  []
 
-) [10]
+) [10 <./Chapter2/images/Selection_002.png>]
 \openout2 = `Chapter3/chapter3.aux'.
 
  (./Chapter3/chapter3.tex
@@ -568,7 +582,7 @@ Appendix B.
 
 
 
-] <Chapter1/images/environment.png, id=89, 472.76625pt x 716.6775pt>
+] <Chapter1/images/environment.png, id=90, 472.76625pt x 716.6775pt>
 File: Chapter1/images/environment.png Graphic file (type png)
 
 <use Chapter1/images/environment.png>
@@ -585,10 +599,10 @@ AED: lastpage setting LastPage
 (./Chapter5/chapter5.aux) (./Appendix1/appendix1.aux)
 (./Appendix2/appendix2.aux)) ) 
 Here is how much of TeX's memory you used:
- 3340 strings out of 493304
- 44706 string characters out of 6139871
- 109956 words of memory out of 5000000
- 6609 multiletter control sequences out of 15000+600000
+ 3346 strings out of 493304
+ 44853 string characters out of 6139871
+ 109967 words of memory out of 5000000
+ 6614 multiletter control sequences out of 15000+600000
  32950 words of font info for 72 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
  38i,10n,45p,700b,354s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -602,10 +616,10 @@ mf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts
 /type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/time
 s/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></
 usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on dissertation.pdf (26 pages, 498678 bytes).
+Output written on dissertation.pdf (26 pages, 545902 bytes).
 PDF statistics:
- 136 PDF objects out of 1000 (max. 8388607)
+ 137 PDF objects out of 1000 (max. 8388607)
  91 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 26 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 31 words of extra memory for PDF output out of 10000 (max. 10000000)
 
