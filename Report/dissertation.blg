@@ -1,6 +1,4 @@
-This is BibTeX, Version 0.99d (TeX Live 2013/Debian)
-Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
-The top-level auxiliary file: dissertation.aux
+This is BibTeX, Version 0.99dThe top-level auxiliary file: dissertation.aux
 A level-1 auxiliary file: cover.aux
 A level-1 auxiliary file: declaration.aux
 A level-1 auxiliary file: acknowledgements.aux
@@ -13,11 +11,6 @@ A level-1 auxiliary file: Chapter5/chapter5.aux
 A level-1 auxiliary file: Appendix1/appendix1.aux
 A level-1 auxiliary file: Appendix2/appendix2.aux
 The style file: IEEEannot.bst
-Reallocated singl_function (elt_size=4) to 100 items from 50.
-Reallocated singl_function (elt_size=4) to 100 items from 50.
-Reallocated singl_function (elt_size=4) to 100 items from 50.
-Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
-Reallocated singl_function (elt_size=4) to 100 items from 50.
 Database file #1: References/stefkla.bib
 -- IEEEtranS.bst version 1.11 (2003/04/02) by Michael Shell.
 -- http://www.ctan.org/tex-archive/macros/latex/contrib/supported/IEEEtran/
@@ -25,44 +18,3 @@ Database file #1: References/stefkla.bib
 ** Sorting version - not for use with work to be submitted to the IEEE.
 
 Done.
-You've used 13 entries,
-            4538 wiz_defined-function locations,
-            1006 strings with 11707 characters,
-and the built_in function-call counts, 14589 in all, are:
-= -- 1291
-> -- 421
-< -- 129
-+ -- 226
-- -- 99
-* -- 803
-:= -- 2185
-add.period$ -- 29
-call.type$ -- 13
-change.case$ -- 89
-chr.to.int$ -- 288
-cite$ -- 13
-duplicate$ -- 887
-empty$ -- 998
-format.name$ -- 111
-if$ -- 3270
-int.to.chr$ -- 0
-int.to.str$ -- 13
-missing$ -- 149
-newline$ -- 84
-num.names$ -- 28
-pop$ -- 347
-preamble$ -- 1
-purify$ -- 74
-quote$ -- 2
-skip$ -- 1064
-stack$ -- 0
-substring$ -- 751
-swap$ -- 792
-text.length$ -- 33
-text.prefix$ -- 0
-top$ -- 6
-type$ -- 117
-warning$ -- 0
-while$ -- 72
-width$ -- 15
-write$ -- 189
