@@ -326,6 +326,14 @@ void EXP_Class::compute_fitness_each_step( void ){
     double max_range = 0.6;
     double min_range = 0.0;
     double diff_range = 0.0;
+
+    bool boolarray[param->num_agents][param->num_agents];
+    for(int x = 0;x < param->num_agents;x++) {
+        for (int z = 0; z < param->num_agents; z++) {
+            boolarray[x][z] = false;
+        }
+    }
+
     int* robot_pos;
     for(int r=0; r < param->num_agents; r++) {
         double vl = ((param->agent[r]->get_vel()[0] / param->agent[r]->get_max_vel()) + 1) * 0.5;
@@ -339,15 +347,37 @@ void EXP_Class::compute_fitness_each_step( void ){
         }
 
         comp_3 = (1.0 - comp_3);
+
+
+
+        int count = 0;
         double comp_4 = 0.0;
+
         if (param->num_agents != 1) {
-            if (r == param->num_agents-1) {
-                param->agent[r]->get_randb_reading(param->agent[r - 1]->get_pos(), randB_reading);
-                comp_4 = randB_reading[0];
+            for(int i = 0;i < param->num_agents-1;i++){
+                if(i == param->num_agents-1){
+                    param->agent[i]->get_randb_reading(param->agent[i - 1]->get_pos(), randB_reading);
+                    if(randB_reading[0] != 0.0){
+                        boolarray[i][i-1] = true;
+                    }
+                }
+                else{
+                    param->agent[i]->get_randb_reading(param->agent[i + 1]->get_pos(), randB_reading);
+                    if(randB_reading[0] != 0.0){
+                        boolarray[i][i+1] = true;
+                    }
+                }
             }
-            else {
-                param->agent[r]->get_randb_reading(param->agent[r + 1]->get_pos(), randB_reading);
-                comp_4 = randB_reading[0];
+
+            for(int x = 0;x < param->num_agents;x++){
+                for(int z = 0;z < param->num_agents;z++){
+                    if(boolarray[x][z] == true){
+                        if (r == param->num_agents-1) {
+                            param->agent[x]->get_randb_reading(param->agent[z]->get_pos(), randB_reading);
+                            comp_4 = randB_reading[0];
+                        }
+                    }
+                }
             }
         }
 
@@ -365,6 +395,7 @@ void EXP_Class::compute_fitness_each_step( void ){
         else{
             comp_4 = comp_4;
         }
+
         partial_fitness[r] += comp_1 * comp_2 * comp_3 * comp_4 * param->agent[r]->get_pos()[2];
 //        cout << "Range" << comp_4 << endl;
 
@@ -596,8 +627,7 @@ void EXP_Class::occupancy_reading() {
 
         map->mark_cell(robot_pos[0], robot_pos[1], 2, matrix); //set cell as occupied by the robot
     }
-
-
 }
+
 
 
