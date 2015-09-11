@@ -369,17 +369,14 @@ void EXP_Class::compute_fitness_each_step( void ){
                 }
             }
 
-            for(int x = 0;x < param->num_agents;x++){
-                for(int z = 0;z < param->num_agents;z++){
-                    if(boolarray[x][z] == true){
-                        if (r == param->num_agents-1) {
-                            param->agent[x]->get_randb_reading(param->agent[z]->get_pos(), randB_reading);
-                            comp_4 = randB_reading[0];
-                        }
-                    }
+
+            for(int z = 0;z < param->num_agents;z++) {
+                if (boolarray[r][z] == true) {
+                        param->agent[r]->get_randb_reading(param->agent[z]->get_pos(), randB_reading);
+                        comp_4 = randB_reading[0];
                 }
             }
-        }
+       }
 
         min_range = max_range/2;
         diff_range = fabs(max_range - min_range) /2; //halved difference between max and min. The rebot
@@ -391,9 +388,6 @@ void EXP_Class::compute_fitness_each_step( void ){
             partial_fitness[r] = 0;
         }else if(comp_4 < diff_range){
             comp_4 += diff_range - comp_4;
-        }
-        else{
-            comp_4 = comp_4;
         }
 
         partial_fitness[r] += comp_1 * comp_2 * comp_3 * comp_4 * param->agent[r]->get_pos()[2];
@@ -517,7 +511,7 @@ bool EXP_Class::stop_evaluations_loop( void ){
             }
             init_single_evaluation( );
 //            param->agent[0]->save();
-            map->save_map(matrix);
+//            map->save_map(matrix);
             return true;
 
         }

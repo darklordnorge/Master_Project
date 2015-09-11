@@ -132,10 +132,33 @@ $1 - \sqrt[•]{|V_l - V_r|}$ motivates the robots to move in a straight line ra
 $1 - S_{ir}$ does reward the robot for not crashing into walls as the normalized function does return 1 when the robot is close to colliding with an obstacle, this would mean this sub-calculation would return 0. \\
 $coms$ represents the the distance between it and another robot. The higher the value the better, this prevents the robots from driving close to each other, and gets them to drive at the full extent of their communication range. If the robots pass a certain distance this value is set to 0. 
 %write about hte last step in the fitness funciton 
-\section{Some detailed design}
 
-\subsection{Even more detail}
+\subsection{Genetic Algorithm}
+The genetic algorithm was not implemented for the sake of this project, it is build into the simulator. Therefore only the parameters used for the GA and their effect on the evolution process will be covered here \\
+The GA parameters used for this:\\
 
-\section{User Interface}
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{l r}
+Number of Chromosomes & 100 \\
+Number of Elite & 20\\
+Probability of Mutation & 5\%\\
+Probability of Crossover & 30\%\\
+\end{tabular}
+\caption{Genetic Algorithm Parameters}
+\end{center}
+\end{table}
+
+The number of chromosomes defines the size of the gene pool. \\
+A number of 100 chromosomes are generated each generation. Of those an elite of 20 chromosomes with the best assigned fitness function is chosen using the roulette wheel selection method to be taken to the next generation.\\
+A gene has a 30\% change to be selected to be part of a crossover operation.
+All genes have also a 5\% change to be mutated. 
+
+\section{Program set up}
+The user specifies the user environment and other simulator parameters, such as how many robots to use, how many generations to evolve, iteration length per generation, where and how often to save genomes. \\
+
+
+
+\section{Mapping algorithm}
 
 \section{Other relevant sections}

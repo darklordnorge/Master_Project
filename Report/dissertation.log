@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.2.24)  10 SEP 2015 00:35
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.2.24)  10 SEP 2015 22:20
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -366,18 +366,18 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <20.74> not available
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <24.88> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 11.
-LaTeX Font Info:    Try loading font information for OT1+pcr on input line 14.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 13.
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 16.
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
-Overfull \hbox (1.1857pt too wide) in paragraph at lines 12--18
+Overfull \hbox (1.1857pt too wide) in paragraph at lines 14--20
 \OT1/ptm/m/n/10.95 been cre-ated by Elio Tuci(elt7@aber.ac.uk) and Muhanad Hay-
 der Mo-hammed(mhm4@aber.ac.uk)
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 20--22
+Underfull \hbox (badness 10000) in paragraph at lines 22--24
 
  []
 
@@ -385,34 +385,34 @@ Underfull \hbox (badness 10000) in paragraph at lines 20--22
 
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 23--24
+Underfull \hbox (badness 10000) in paragraph at lines 25--26
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 29--31
+Underfull \hbox (badness 10000) in paragraph at lines 31--33
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 39--41
+Underfull \hbox (badness 10000) in paragraph at lines 41--43
 
  []
 
 [2]
 Missing character: There is no Ã in font ptmr7t!
 
-Underfull \hbox (badness 10000) in paragraph at lines 65--70
+Underfull \hbox (badness 10000) in paragraph at lines 67--72
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 71--72
+Underfull \hbox (badness 10000) in paragraph at lines 73--74
 
  []
 
 [3]
-Underfull \hbox (badness 10000) in paragraph at lines 73--75
+Underfull \hbox (badness 10000) in paragraph at lines 75--77
 
  []
 
@@ -421,25 +421,25 @@ File: Chapter1/images/roulette_wheel.png Graphic file (type png)
 
 <use Chapter1/images/roulette_wheel.png>
 Package pdftex.def Info: Chapter1/images/roulette_wheel.png used on input line 
-88.
+90.
 (pdftex.def)             Requested size: 229.25243pt x 184.28523pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 96--97
+Underfull \hbox (badness 10000) in paragraph at lines 98--99
 
  []
 
 [4 <./Chapter1/images/roulette_wheel.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 109--111
+Underfull \hbox (badness 10000) in paragraph at lines 108--110
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 112--115
+Underfull \hbox (badness 10000) in paragraph at lines 111--114
 
  []
 
 [5]
-Underfull \hbox (badness 10000) in paragraph at lines 130--132
+Underfull \hbox (badness 10000) in paragraph at lines 129--131
 
  []
 
@@ -448,20 +448,20 @@ File: Chapter1/images/e_puck_sensor.png Graphic file (type png)
 
 <use Chapter1/images/e_puck_sensor.png>
 Package pdftex.def Info: Chapter1/images/e_puck_sensor.png used on input line 1
-35.
+34.
 (pdftex.def)             Requested size: 273.41666pt x 239.69125pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 141--143
+Underfull \hbox (badness 10000) in paragraph at lines 140--142
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 147--150
 
  []
 
 [6 <./Chapter1/images/e_puck_sensor.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 148--151
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 152--153
+Underfull \hbox (badness 10000) in paragraph at lines 151--152
 
  []
 
@@ -563,7 +563,17 @@ Missing character: There is no â in font cmr6!
 Missing character: There is no € in font cmr6!
 Missing character: There is no ¢ in font cmr6!
 
-[11 <./Chapter2/images/scaled.PNG>]) [12]
+[11 <./Chapter2/images/scaled.PNG>]
+Underfull \hbox (badness 10000) in paragraph at lines 137--139
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 158--159
+
+ []
+
+) [12]
 \openout2 = `Chapter3/chapter3.aux'.
 
  (./Chapter3/chapter3.tex
@@ -627,10 +637,10 @@ AED: lastpage setting LastPage
 (./Chapter5/chapter5.aux) (./Appendix1/appendix1.aux)
 (./Appendix2/appendix2.aux)) ) 
 Here is how much of TeX's memory you used:
- 3361 strings out of 493304
- 45206 string characters out of 6139871
+ 3362 strings out of 493304
+ 45220 string characters out of 6139871
  110021 words of memory out of 5000000
- 6627 multiletter control sequences out of 15000+600000
+ 6628 multiletter control sequences out of 15000+600000
  32950 words of font info for 72 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
  38i,10n,45p,700b,354s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -645,7 +655,7 @@ t/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1
 /urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr
 8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/sh
 are/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on dissertation.pdf (28 pages, 587446 bytes).
+Output written on dissertation.pdf (28 pages, 588667 bytes).
 PDF statistics:
  151 PDF objects out of 1000 (max. 8388607)
  98 compressed objects within 1 object stream
