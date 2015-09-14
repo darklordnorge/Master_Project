@@ -200,14 +200,14 @@ void EXP_Class::adv ( void ){
     update_sensors( );
     update_controllers ( );
     update_Actuators();
-    for(int i=0;i < 6;i++){
+    for(int i=0;i < param->num_agents;i++){
         update_world();
         param->world->stepSimulation( param->physics_step);
     }
     manage_collisions ();
     //if(param->agent[0]->get_pos()[2] > 2.00) iter = param->num_iterations;
     compute_fitness_each_step();
-    occupancy_reading();
+//    occupancy_reading();
     iter++;
 //    map->start();
 //    map.init();
@@ -258,14 +258,15 @@ void EXP_Class::update_controllers( void ){
   //use the following functions:
   //param->nets[r]->get_num_input()
     for(int r=0; r < param->num_agents; r++){
-          agent_interface[r].outputs.assign(param->nets[0]->get_num_output(),0.0);
+          agent_interface[r].outputs.assign(param->nets[r]->get_num_output(),0.0);
     }
 
   //update robot controllers
   for(int r=0; r < param->num_agents; r++){
         // you need to uncommet this line after you design you controller
         param->nets[r]->step( agent_interface[r].inputs, agent_interface[r].outputs);
-
+//        cout << "Robot: " << r << " " << agent_interface[r].outputs[0] << " " <<  agent_interface[r].outputs[1] << " " <<
+//                agent_interface[r].outputs[2] << " " << agent_interface[r].outputs[3] << endl;
     }
 
 }
@@ -300,6 +301,7 @@ void EXP_Class::manage_collisions (void ){
      if(param->agent[0]->is_crashed()){
          param->agent[0]->set_crashed(false);
          iter = param->num_iterations;
+//         cout << "has crashed" << endl;
      }
 }
 
@@ -323,18 +325,7 @@ void EXP_Class::compute_fitness( void ){
 void EXP_Class::compute_fitness_each_step( void ){
     vector <double> randB_reading;
     randB_reading.assign(2, 0.0);
-    double max_range = 0.6;
-    double min_range = 0.0;
-    double diff_range = 0.0;
-
-    bool boolarray[param->num_agents][param->num_agents];
-    for(int x = 0;x < param->num_agents;x++) {
-        for (int z = 0; z < param->num_agents; z++) {
-            boolarray[x][z] = false;
-        }
-    }
-
-    int* robot_pos;
+    int r = 0;
     for(int r=0; r < param->num_agents; r++) {
         double vl = ((param->agent[r]->get_vel()[0] / param->agent[r]->get_max_vel()) + 1) * 0.5;
         double vr = ((param->agent[r]->get_vel()[1] / param->agent[r]->get_max_vel()) + 1) * 0.5;
@@ -347,52 +338,24 @@ void EXP_Class::compute_fitness_each_step( void ){
         }
 
         comp_3 = (1.0 - comp_3);
+//        double comp_4 = 0.0;
+//        if (param->num_agents != 1) {
+//            if (r == param->num_agents-1) {
+//                param->agent[r]->get_randb_reading(param->agent[r - 1]->get_pos(), randB_reading);
+//                comp_4 = randB_reading[0];
+//            }
+//            else {
+//                param->agent[r]->get_randb_reading(param->agent[r + 1]->get_pos(), randB_reading);
+//                comp_4 = randB_reading[0];
+//            }
+//        }
+//
+//
 
 
-
-        int count = 0;
-        double comp_4 = 0.0;
-
-        if (param->num_agents != 1) {
-            for(int i = 0;i < param->num_agents-1;i++){
-                if(i == param->num_agents-1){
-                    param->agent[i]->get_randb_reading(param->agent[i - 1]->get_pos(), randB_reading);
-                    if(randB_reading[0] != 0.0){
-                        boolarray[i][i-1] = true;
-                    }
-                }
-                else{
-                    param->agent[i]->get_randb_reading(param->agent[i + 1]->get_pos(), randB_reading);
-                    if(randB_reading[0] != 0.0){
-                        boolarray[i][i+1] = true;
-                    }
-                }
-            }
-
-
-            for(int z = 0;z < param->num_agents;z++) {
-                if (boolarray[r][z] == true) {
-                        param->agent[r]->get_randb_reading(param->agent[z]->get_pos(), randB_reading);
-                        comp_4 = randB_reading[0];
-                }
-            }
-       }
-
-        min_range = max_range/2;
-        diff_range = fabs(max_range - min_range) /2; //halved difference between max and min. The rebot
-                                                    // is rewarded for being in this range
-
-        if(comp_4 > max_range){
-            partial_fitness[r] = 0;
-        }else if(comp_4 < min_range){
-            partial_fitness[r] = 0;
-        }else if(comp_4 < diff_range){
-            comp_4 += diff_range - comp_4;
-        }
-
-        partial_fitness[r] += comp_1 * comp_2 * comp_3 * comp_4 * param->agent[r]->get_pos()[2];
-//        cout << "Range" << comp_4 << endl;
-
+//        cout << "Range for robot " << r << comp_4 << endl;
+//        partial_fitness[r] += comp_1 * comp_2 * comp_3 * comp_4 * param->agent[r]->get_pos()[2];
+            partial_fitness[r] += comp_1 * comp_2 *comp_3 * param->agent[r]->get_pos()[2];
     }
 //    partial_fitness += comp_1 *comp_2 *comp_3 * param->agent[0]->get_pos()[2];
 //    partial_fitness += comp_1 * comp_2 * comp_3;
@@ -507,10 +470,8 @@ bool EXP_Class::stop_evaluations_loop( void ){
             if( eval >= param->num_evaluations ) {
                 eval = 0;
                 finalise_evaluations_loop( );
-//                map->save_map();
             }
             init_single_evaluation( );
-//            param->agent[0]->save();
 //            map->save_map(matrix);
             return true;
 
