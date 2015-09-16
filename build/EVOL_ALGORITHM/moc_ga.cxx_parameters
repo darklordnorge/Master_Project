@@ -10,5 +10,5 @@
 -DQT_XML_LIB
 -DQT_CORE_LIB
 -o
-/home/stefan/Documents/EVOSIM_for_students/build/EVOL_ALGORITHM/moc_ga.cxx
-/home/stefan/Documents/EVOSIM_for_students/EVOL_ALGORITHM/ga.h
+/home/stefan/ClionProjects/Master_Project/build/EVOL_ALGORITHM/moc_ga.cxx
+/home/stefan/ClionProjects/Master_Project/EVOL_ALGORITHM/ga.h

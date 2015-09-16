@@ -10,5 +10,5 @@
 -DQT_XML_LIB
 -DQT_CORE_LIB
 -o
-/home/stefan/Documents/EVOSIM_for_students/build/EXP/moc_experiment.cxx
-/home/stefan/Documents/EVOSIM_for_students/EXP/experiment.h
+/home/stefan/ClionProjects/Master_Project/build/EXP/moc_experiment.cxx
+/home/stefan/ClionProjects/Master_Project/EXP/experiment.h

@@ -3,7 +3,7 @@ INIT RUN parameters
 
 Define root_seed                      = 871414
 
-Number of Evolutionary Generations    = 41
+Number of Evolutionary Generations    = 61
 Number of Evaluations                 = 5
 Number of Iterations                  = 1000
 Number of Agents per group            = 2

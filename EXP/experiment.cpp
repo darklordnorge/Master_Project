@@ -16,13 +16,19 @@ EXP_Class::EXP_Class(const char *run_name, bool _evolution, bool _viewing, bool 
     if( evolution ) param->set_random_root_seed( _seed );
     param->init_random_generator( );//GSL
 
+    map = new Occupancy_Map(); //init map
+    matrix = map->init();
+
+
     init_local_variables();
+
 }
 
 /* ---------------------------------------------------------------------------------------- */
 
 EXP_Class::~EXP_Class( ){
     delete param;
+    delete map;
 }
 
 /* ---------------------------------------------------------------------------------------- */
@@ -39,7 +45,7 @@ void EXP_Class::init_local_variables( void ){
     param->init_objects( );
     param->init_agents( );
     centre.assign(3,0.0);
-    for(int r = 0;r < param->num_agents;r++){
+    for(int r = 0; r < param->num_agents;r++){
         //init and reset the array to store Infra-red sensor readings
         ir_readings.assign( param->agent[r]->num_IR_sensors, 0.0);
         //init and reset the camera array
@@ -52,7 +58,9 @@ void EXP_Class::init_local_variables( void ){
         agent_interface[r].inputs.assign  (param->nets[r]->get_num_input(), 0.0);
         agent_interface[r].outputs.assign (param->nets[r]->get_num_output(), 0.0);
         partial_fitness[param->num_agents];
+//     param->agent[0]->init_map();
     }
+//    matrix = map->init();
 
     this->set_agent_position();
 }
@@ -60,10 +68,10 @@ void EXP_Class::init_local_variables( void ){
 /* ---------------------------------------------------------------------------------------- */
 
 void EXP_Class::init_evolutionary_run( void ){
-    for(int r = 0;r < param->num_agents;r++){
+   // for(int r = 0;r < param->num_agents;r++){
         generation = 0; //This is the counter for the generation
-        param->init_ga(param->nets[r]->get_genotype_length(), 1);
-    }
+        param->init_ga(param->nets[0]->get_genotype_length(), 1);
+  //  }
 }
 
 /* ---------------------------------------------------------------------------------------- */
@@ -98,10 +106,14 @@ void EXP_Class::set_agent_position(){
         }
     }
 
-    pos[0] = 0.0;
-    pos[2] = 0.20;
-    rot[1] = -0.48 * PI + gsl_rng_uniform_pos( GSL_randon_generator::r_rand )*PI/2 - (PI/4);
-    param->agent[0]->set_robot_pos_rot( pos, rot );
+    for(int r = 0;r < param->num_agents;r++){
+//         pos[2] = 0.20;   //orig. position
+        pos[0] = 0.0;
+        pos[2] = 0.02  + gsl_rng_uniform_pos( GSL_randon_generator::r_rand ); //0.2
+        rot[1] = -0.48 * PI + gsl_rng_uniform_pos( GSL_randon_generator::r_rand )*PI/2 - (PI/4);
+        param->agent[r]->set_robot_pos_rot( pos, rot );
+    }
+
 }
 
 /* ---------------------------------------------------------------------------------------- */
@@ -186,6 +198,7 @@ void EXP_Class::from_genome_to_controllers( const char *str_source, const int wh
 /* ---------------------------------------------------------------------------------------- */
 
 void EXP_Class::adv ( void ){
+
     if( viewing ) stop_iterations_loop( );
     update_sensors( );
     update_controllers ( );
@@ -197,7 +210,13 @@ void EXP_Class::adv ( void ){
     manage_collisions ();
     //if(param->agent[0]->get_pos()[2] > 2.00) iter = param->num_iterations;
     compute_fitness_each_step();
+    occupancy_reading();
     iter++;
+//    map->start();
+//    map.init();
+//    int head = param->agent[0]->get_heading();
+//    double rot = param->agent[0]->get_rotation();
+//    printf("Rotation is: %f , heading is: %d\n", rot, head);
 }
 
 
@@ -242,7 +261,7 @@ void EXP_Class::update_controllers( void ){
     //use the following functions:
     //param->nets[r]->get_num_input()
     for(int r=0; r < param->num_agents; r++){
-        agent_interface[r].outputs.assign(param->nets[r]->get_num_output(),0.0);
+        agent_interface[r].outputs.assign(param->nets[0]->get_num_output(),0.0);
     }
 
     //update robot controllers
@@ -281,11 +300,9 @@ void EXP_Class::update_world( void ){
 // the function is just to capture collision of the robot with another robot or object
 void EXP_Class::manage_collisions (void ){
 
-    for(int r = 0;r < param->num_agents;r++){
-        if(param->agent[0]->is_crashed()){
-            param->agent[0]->set_crashed(false);
-            iter = param->num_iterations;
-        }
+    if(param->agent[0]->is_crashed()){
+        param->agent[0]->set_crashed(false);
+        iter = param->num_iterations;
     }
 }
 
@@ -296,8 +313,9 @@ void EXP_Class::manage_collisions (void ){
 // This function is what you need to design to guide the evoluation towards the solution
 void EXP_Class::compute_fitness( void ){
     for(int r = 0;r < param->num_agents;r++){
-        FINAL_FITNESS[0] += partial_fitness[r] / (double)(param->num_iterations);
+        FINAL_FITNESS[0] = partial_fitness[r] / (double)(param->num_iterations);
     }
+
 }
 
 /*------------------------------------------------------------------------------------------*/
@@ -306,23 +324,80 @@ void EXP_Class::compute_fitness( void ){
 /*fitness = mean(leftSpeed, rightSpeed) * (1 - sqrt(abs(speedLeft) - abs(speedRight))*(1 - highest IR reading )*/
 /*-------------------------------------------------------------------------------------------------------------*/
 void EXP_Class::compute_fitness_each_step( void ){
+    vector <double> randB_reading;
+    randB_reading.assign(2, 0.0);
+    double max_range = 0.6;
+    double min_range = 0.0;
+    double diff_range = 0.0;
 
-    // int r = 0;
-    for(int r=0; r < param->num_agents; r++){
-        double vl = ((param->agent[r]->get_vel()[0]/param->agent[r]->get_max_vel()) + 1) * 0.5;
-        double vr = ((param->agent[r]->get_vel()[1]/param->agent[r]->get_max_vel()) + 1) * 0.5;
-        double comp_1 = (vl + vr)*0.5;
-        double comp_2 = 1.0 - sqrt(fabs(vl-vr));
-        double comp_3  = 0.0;
-        for( int i = 0; i < agent_interface[r].inputs.size(); i++){
-            if( comp_3 < agent_interface[r].inputs[i] )
+    bool boolarray[param->num_agents][param->num_agents];
+    for(int x = 0;x < param->num_agents;x++) {
+        for (int z = 0; z < param->num_agents; z++) {
+            boolarray[x][z] = false;
+        }
+    }
+
+    int* robot_pos;
+    for(int r=0; r < param->num_agents; r++) {
+        double vl = ((param->agent[r]->get_vel()[0] / param->agent[r]->get_max_vel()) + 1) * 0.5;
+        double vr = ((param->agent[r]->get_vel()[1] / param->agent[r]->get_max_vel()) + 1) * 0.5;
+        double comp_1 = (vl + vr) * 0.5;
+        double comp_2 = 1.0 - sqrt(fabs(vl - vr));
+        double comp_3 = 0.0;
+        for (int i = 0; i < agent_interface[r].inputs.size(); i++) {
+            if (comp_3 < agent_interface[r].inputs[i])
                 comp_3 = agent_interface[r].inputs[i];
         }
 
         comp_3 = (1.0 - comp_3);
-        partial_fitness[r] += comp_1 *comp_2 *comp_3 * param->agent[0]->get_pos()[2];
-    }
 
+
+
+        int count = 0;
+        double comp_4 = 0.0;
+
+        if (param->num_agents != 1) {
+            for(int i = 0;i < param->num_agents-1;i++){
+                if(i == param->num_agents-1){
+                    param->agent[i]->get_randb_reading(param->agent[i - 1]->get_pos(), randB_reading);
+                    if(randB_reading[0] != 0.0){
+                        boolarray[i][i-1] = true;
+                    }
+                }
+                else{
+                    param->agent[i]->get_randb_reading(param->agent[i + 1]->get_pos(), randB_reading);
+                    if(randB_reading[0] != 0.0){
+                        boolarray[i][i+1] = true;
+                    }
+                }
+            }
+
+
+            for(int z = 0;z < param->num_agents;z++) {
+                if (boolarray[r][z] == true) {
+                    param->agent[r]->get_randb_reading(param->agent[z]->get_pos(), randB_reading);
+                    comp_4 = randB_reading[0];
+                }
+            }
+        }
+
+        min_range = max_range/2;
+        diff_range = fabs(max_range - min_range) /2; //halved difference between max and min. The rebot
+        // is rewarded for being in this range
+
+        if(comp_4 > max_range){
+            partial_fitness[r] = 0;
+        }else if(comp_4 < min_range){
+            partial_fitness[r] = 0;
+        }else if(comp_4 < diff_range){
+            comp_4 += diff_range - comp_4;
+        }
+
+        partial_fitness[r] += comp_1 * comp_2 * comp_3 * comp_4 * param->agent[r]->get_pos()[2];
+//        cout << "Range" << comp_4 << endl;
+
+    }
+//    partial_fitness += comp_1 *comp_2 *comp_3 * param->agent[0]->get_pos()[2];
 //    partial_fitness += comp_1 * comp_2 * comp_3;
 }
 
@@ -435,9 +510,13 @@ bool EXP_Class::stop_evaluations_loop( void ){
             if( eval >= param->num_evaluations ) {
                 eval = 0;
                 finalise_evaluations_loop( );
+//                map->save_map();
             }
             init_single_evaluation( );
+//            param->agent[0]->save();
+//            map->save_map(matrix);
             return true;
+
         }
 
         else if( re_evaluation ){
@@ -521,6 +600,31 @@ void EXP_Class::dump_statistics( const char *locationOfFileTodump,
 /* ---------------------------------------------------------------------------------------- */
 /* ---------------------------------------------------------------------------------------- */
 
+/*Takes the occupnacy reading for each robot in the swarm and updates the global map*/
+void EXP_Class::occupancy_reading() {
+    int *robot_pos;
+    int heading;
+    vector<double> reading;
+
+
+    for(int i = 0;i  < param->num_agents;i++){
+        robot_pos = map->calc_robot_pos(param->agent[i]->get_pos()[0], param->agent[i]->get_pos()[2]); //aquire heading and positon info
+        heading = map->calc_heading(param->agent[i]->get_rotation());
+        reading.assign(param->nets[i]->get_num_input(), 0.0); //resize reading variable
+
+        param->agent[i]->get_IR_reading(reading);     //aquire IR readings
+
+        /*set occupied fields*/
+        for(int j = 0;j < reading.size();j++){
+            if(reading[j] >= 3000){
+                map->calc_matrix_values(agent_interface[i].inputs, heading, robot_pos[0], robot_pos[1], matrix);
+            }
+
+        }
+
+        map->mark_cell(robot_pos[0], robot_pos[1], 2, matrix); //set cell as occupied by the robot
+    }
+}
 
 
 

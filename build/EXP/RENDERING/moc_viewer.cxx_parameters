@@ -10,5 +10,5 @@
 -DQT_XML_LIB
 -DQT_CORE_LIB
 -o
-/home/stefan/Documents/EVOSIM_for_students/build/EXP/RENDERING/moc_viewer.cxx
-/home/stefan/Documents/EVOSIM_for_students/EXP/RENDERING/viewer.h
+/home/stefan/ClionProjects/Master_Project/build/EXP/RENDERING/moc_viewer.cxx
+/home/stefan/ClionProjects/Master_Project/EXP/RENDERING/viewer.h

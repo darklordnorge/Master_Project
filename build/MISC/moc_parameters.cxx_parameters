@@ -10,5 +10,5 @@
 -DQT_XML_LIB
 -DQT_CORE_LIB
 -o
-/home/stefan/Documents/EVOSIM_for_students/build/MISC/moc_parameters.cxx
-/home/stefan/Documents/EVOSIM_for_students/MISC/parameters.h
+/home/stefan/ClionProjects/Master_Project/build/MISC/moc_parameters.cxx
+/home/stefan/ClionProjects/Master_Project/MISC/parameters.h

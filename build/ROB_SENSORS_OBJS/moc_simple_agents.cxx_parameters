@@ -10,5 +10,5 @@
 -DQT_XML_LIB
 -DQT_CORE_LIB
 -o
-/home/stefan/Documents/EVOSIM_for_students/build/ROB_SENSORS_OBJS/moc_simple_agents.cxx
-/home/stefan/Documents/EVOSIM_for_students/ROB_SENSORS_OBJS/simple_agents.cpp
+/home/stefan/ClionProjects/Master_Project/build/ROB_SENSORS_OBJS/moc_simple_agents.cxx
+/home/stefan/ClionProjects/Master_Project/ROB_SENSORS_OBJS/simple_agents.cpp

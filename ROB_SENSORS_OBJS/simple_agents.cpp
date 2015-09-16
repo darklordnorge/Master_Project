@@ -222,11 +222,11 @@ void SIMPLE_Agents::set_vel( const vector <double> &outputs ){
   right_out = (outputs[0]-outputs[1]);
   left_out  = (outputs[2]-outputs[3]);
   //printf("\n right out = %f left out = %f",right_out,left_out);
-  
+
  vel[0] = (right_out*max_vel);// + (((2.0*gsl_rng_uniform_pos (GSL_randon_generator::r_rand)*vel_noise) - vel_noise)  * NOISE_LEVEL );
   if( vel[0] > max_vel ) vel[0] = max_vel;
   else if( vel[0] < min_vel ) vel[0] = min_vel;
-  
+
   vel[1] = (left_out*max_vel);// + (((2.0*gsl_rng_uniform_pos (GSL_randon_generator::r_rand)*vel_noise) - vel_noise)  * NOISE_LEVEL );
   if( vel[1] > max_vel ) vel[1] = max_vel;
   else if( vel[1] < min_vel ) vel[1] = min_vel;
@@ -532,16 +532,16 @@ void SIMPLE_Agents::get_camera_reading( vector <double> &_reading){
 /*                                PINK NOISE                               */
 /* ----------------------------------------------------------------------- */
 double SIMPLE_Agents::pinkq( int index ){
-  if(medium_term[index] == 0.0 ) 
+  if(medium_term[index] == 0.0 )
     medium_term[index] = gsl_rng_uniform_pos(GSL_randon_generator::r_rand);
   else if( gsl_rng_uniform_pos(GSL_randon_generator::r_rand) < prob_medium_term_change )
     medium_term[index] = gsl_rng_uniform_pos(GSL_randon_generator::r_rand);
-  
-  if(long_term[index] == 0.0 ) 
+
+  if(long_term[index] == 0.0 )
     long_term[index] = gsl_rng_uniform_pos(GSL_randon_generator::r_rand);
   else if( gsl_rng_uniform_pos(GSL_randon_generator::r_rand) < prob_long_term_change )
     long_term[index] = gsl_rng_uniform_pos(GSL_randon_generator::r_rand);
-  
+
   return (long_term[index] + medium_term[index] + gsl_rng_uniform_pos(GSL_randon_generator::r_rand) )/3.0;
 }
 

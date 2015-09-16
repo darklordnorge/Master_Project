@@ -10,5 +10,5 @@
 -DQT_XML_LIB
 -DQT_CORE_LIB
 -o
-/home/stefan/Documents/EVOSIM_for_students/build/EXP/RENDERING/moc_interface.cxx
-/home/stefan/Documents/EVOSIM_for_students/EXP/RENDERING/interface.h
+/home/stefan/ClionProjects/Master_Project/build/EXP/RENDERING/moc_interface.cxx
+/home/stefan/ClionProjects/Master_Project/EXP/RENDERING/interface.h

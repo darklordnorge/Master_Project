@@ -10,5 +10,5 @@
 -DQT_XML_LIB
 -DQT_CORE_LIB
 -o
-/home/stefan/Documents/EVOSIM_for_students/build/CONTROLLERS/moc_myController.cxx
-/home/stefan/Documents/EVOSIM_for_students/CONTROLLERS/myController.h
+/home/stefan/ClionProjects/Master_Project/build/CONTROLLERS/moc_myController.cxx
+/home/stefan/ClionProjects/Master_Project/CONTROLLERS/myController.h

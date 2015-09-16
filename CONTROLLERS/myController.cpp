@@ -1,46 +1,26 @@
 #include "myController.h"
 
-double MyController::inputlayer[];
-double MyController::hiddenlayer[];
-double MyController::outputlayer[];
-
 /*Contructor*/
 MyController::MyController() {
     compute_genotype_length();
 }
 
-
 void MyController::compute_genotype_length ( void ){
     /*Input and hiddenlayer each have a BIAS node therefor + 1 */
     genotype_length = (((num_input+1) * hiddenlayer_size) + ((hiddenlayer_size + 1) * num_output));
-
 
 }
 
 /* -------------------------------------------------------------------------------------- */
 
 void MyController::init ( const vector <chromosome_type> &genes ){
-//    vector <double> new_gene;//vector to hold the scaled gene values
-    double new_gene[genes.size()];
+    vector <double> new_gene;//vector to hold the scaled gene values
     /*initalize the layers*/
-    for(int i = 0;i < num_input+1;i++){
-        inputlayer[i] = 0.0;
-    }
+    inputlayer.assign(num_input+1, 0.0);
+    hiddenlayer.assign(hiddenlayer_size+1, 0.0);
+    outputlayer.assign(num_output, 0.0);
 
-    for(int i = 0;i < num_output;i++){
-        hiddenlayer[i] = 0.0;
-    }
-
-    for(int i = 0;i < hiddenlayer_size+1;i++){
-        outputlayer[i] = 0.0;
-    }
-
-
-//    new_gene.resize(genes.size());
-    /*Set new_genes to 0.0*/
-    for(int i = 0;i < genes.size();i++){
-        new_gene[i] = 0.0;
-    }
+    new_gene.resize(genes.size());
 
     /*initialise the input-to-hiddenlayer weights*/
     for(int i = 0;i < num_input+1;i++){
