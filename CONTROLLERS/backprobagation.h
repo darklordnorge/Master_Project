@@ -12,6 +12,10 @@ class Backprobagation: public Controller {
 
 private:
     static const int hiddenlayersize = 3;
+    static const double high_bound = 5.0;
+    static const double low_bound = -5.0;
+    static const double learningrate = 0.9; //eta
+    static const double momentum = 0.04;    //alpha
     vector<double> inputlayer;
     vector<double> hiddenlayer;
     vector<double> outputlayer;
@@ -30,6 +34,8 @@ public:
     void read_from_file                ( void );
     int get_num_input                   (void);
     int get_num_output                  (void);
+
+    double calc_random(void);
     /* -------------------------------------------------------------------------------------------------- */
     /* -------------------------------------------------------------------------------------------------- */
 
