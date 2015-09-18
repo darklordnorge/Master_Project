@@ -108,7 +108,9 @@ void EXP_Class::set_agent_position(){
 //         pos[2] = 0.20;   //orig. position
         pos[0] = 0.0;
         pos[2] = 0.02  + gsl_rng_uniform_pos( GSL_randon_generator::r_rand ); //0.2
+//        pos[2] = 0.04;
         rot[1] = -0.48 * PI + gsl_rng_uniform_pos( GSL_randon_generator::r_rand )*PI/2 - (PI/4);
+//        pos[1] = 180;
         param->agent[r]->set_robot_pos_rot( pos, rot );
     }
 }
@@ -226,10 +228,18 @@ void EXP_Class::update_sensors( void ){
 
             // read the infra-red value for every iteration
             param->agent[r]->get_IR_reading(ir_readings);
+//            for(int i = 0;i < param->agent[r]->num_IR_sensors;i++){
+//                cout << "Clean: " << ir_readings[i]<< endl;
+//            }
             param->agent[r]->add_noise(ir_readings);
+//            for(int i = 0;i < param->agent[r]->num_IR_sensors;i++){
+//                cout << "Noise :" <<  ir_readings[i]<< endl;
+//            }
+
 
             for( int i = 0; i < param->agent[r]->num_IR_sensors; i++){
                 agent_interface[r].inputs[i] = ir_readings[i];
+//                cout << i << " : " << ir_readings[i] << endl;
 //               printf("Robot%d ir%d reading= %f\n",r,i,agent_interface[r].inputs[i]);
             }
 
@@ -277,16 +287,23 @@ void EXP_Class::update_controllers( void ){
 void EXP_Class::update_Actuators( void ){
 //  vector <double> outputs;
 //  outputs.resize(4);
-//  outputs[0] = 1.0;
+//  outputs[0] = param->agent[0]->get_max_vel();
 //  outputs[1] = 0.0;
-//  outputs[2] = 1.0;
+//  outputs[2] = param->agent[0]->get_max_vel();
 //  outputs[3] = 0.0;
 
 
     for(int r=0; r < param->num_agents; r++){
         //update robot wheels velocity
         param->agent[r]->set_vel(agent_interface[r].outputs);
+//        param->agent[r]->set_vel(outputs);
     }
+//    cout << "Set output: " << param->agent[0]->get_max_vel() << endl;
+//    cout << "Get set vel: " << param->agent[0]->get_vel()[0] << endl;
+//    double vl = ((param->agent[0]->get_vel()[0] / param->agent[0]->get_max_vel()) + 1) * 0.5;
+//
+//    cout << "Normalised vel: " << vl << endl;
+//    double vr = ((param->agent[0]->get_vel()[1] / param->agent[0]->get_max_vel()) + 1) * 0.5;
 }
 
 /* ---------------------------------------------------------------------------------------- */
@@ -331,6 +348,11 @@ void EXP_Class::compute_fitness( void ){
 
 /*-------------------------------------------------------------------------------------------------------------*/
 /*fitness = mean(leftSpeed, rightSpeed) * (1 - sqrt(abs(speedLeft) - abs(speedRight))*(1 - highest IR reading )*/
+/*fitness = (fabs(leftSpeed) + fabs(rightSpeed))/2.0 * (1.0 - sqrt(fabs( (leftSpeed - rightSpeed)/2.0 ) ) ) * (1.0 - highestIR/maxIRreading);*/
+/*2.0 and maxIRreading are the maximum values for speed and the IR readings*/
+/*MaxIRreading = 1(collision with object) min value = 0*/
+/*Velocity is normalised to be 1.0 at maximum. 0 would be full speed backwards, stand still is 0.5*/
+
 /*-------------------------------------------------------------------------------------------------------------*/
 void EXP_Class::compute_fitness_each_step( void ){
     vector <double> randB_reading;
@@ -339,15 +361,15 @@ void EXP_Class::compute_fitness_each_step( void ){
     for(int r=0; r < param->num_agents; r++) {
         double vl = ((param->agent[r]->get_vel()[0] / param->agent[r]->get_max_vel()) + 1) * 0.5;
         double vr = ((param->agent[r]->get_vel()[1] / param->agent[r]->get_max_vel()) + 1) * 0.5;
-        double comp_1 = (vl + vr) * 0.5;
-        double comp_2 = 1.0 - sqrt(fabs(vl - vr));
+        double comp_1 = (fabs(vl) + fabs(vr)) / 2.0;
+        double comp_2 = 1.0 - sqrt(fabs((vl - vr)/2.0));
         double comp_3 = 0.0;
         for (int i = 0; i < agent_interface[r].inputs.size(); i++) {
             if (comp_3 < agent_interface[r].inputs[i])
                 comp_3 = agent_interface[r].inputs[i];
         }
 
-        comp_3 = (1.0 - comp_3);
+        comp_3 = (1.0 - (comp_3/1.0));
 //        double comp_4 = 0.0;
 //        if (param->num_agents != 1) {
 //            if (r == param->num_agents-1) {
@@ -365,7 +387,8 @@ void EXP_Class::compute_fitness_each_step( void ){
 //
 ////        cout << "Range for robot " << r << comp_4 << endl;
 //        partial_fitness[r] += comp_1 * comp_2 * comp_3 * comp_4 * param->agent[r]->get_pos()[2];
-        partial_fitness[r] += comp_1 * comp_2 *comp_3 * param->agent[r]->get_pos()[2];
+//        partial_fitness[r] += comp_1 * comp_2 *comp_3 * param->agent[r]->get_pos()[2];
+        partial_fitness[r] += comp_1 * comp_2 * comp_3;
     }
 //    partial_fitness += comp_1 *comp_2 *comp_3 * param->agent[0]->get_pos()[2];
 //    partial_fitness += comp_1 * comp_2 * comp_3;
