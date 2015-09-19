@@ -1,2 +1,55 @@
 \chapter{Third-Party Code and Libraries}
 
+\section{Range and Bearing reading}
+\label{code:erandB}
+This code was written by Muhanad Hayder Mohammed(mhm1@aber.ac.uk).\\
+This code is used to calculate the distance and bearing between 2 robots and return the results as an array. The first member of the array is the distance between 2 robots, and the second member is the bearing. \\
+The code only returns when a result when the distance between the robots is below a user defined maximum distance. This distance can be changed by modifying the \textit{work\_range} variable(in this code snipped set to 0.4 = 40 cm).
+\begin{lstlisting}[caption = {Code of the Range and Bearing function}]
+double SIMPLE_Agents::get_randb_reading( vector <double> _to_robot_pos, vector <double> &_reading){
+    double work_range = 0.4;
+    randb_from = btVector3(0.0,0.0,0.0);
+    randb_to   = btVector3(0.0,0.0,0.0);
+    this->pos = this->get_pos();
+    // get the distance between your robot and to destination robot "_to_robot_pos"
+    double range = sqrt(((_to_robot_pos[0]-pos[0])*(_to_robot_pos[0]-pos[0]) + (_to_robot_pos[2]-pos[2])*(_to_robot_pos[2]-pos[2])));
+    if(range < work_range){
+        _reading[0] = range;
+
+        // get the robot orienation
+        btMatrix3x3 m = btMatrix3x3(body->getWorldTransform().getRotation());
+        double rfPAngle = btAsin(-m[1][2]);
+        if(rfPAngle < SIMD_HALF_PI){
+            if(rfPAngle > -SIMD_HALF_PI) this->rotation = btAtan2(m[0][2],m[2][2]);
+            else this->rotation = -btAtan2(-m[0][1],m[0][0]);
+        }
+        else this->rotation = btAtan2(-m[0][1],m[0][0]);
+        // check the collision accross the distance between your robot and destination robot
+        randb_from = btVector3(_to_robot_pos[0],_to_robot_pos[1]+0.025,_to_robot_pos[2]);
+        randb_to   = btVector3(pos[0], pos[1]+0.025, pos[2]);
+        btCollisionWorld::ClosestRayResultCallback res(randb_from, randb_to);
+        this->world->rayTest(randb_from, randb_to, res);
+        if(res.hasHit()){
+            World_Entity* object = (World_Entity*) res.m_collisionObject->getUserPointer();
+            if(object->get_type_id() == ROBOT && object->get_index() == this->index){
+
+                double bearing,nest_angle,robot_angle;
+                robot_angle =rotation;
+                if(robot_angle<0.0)
+                    robot_angle = TWO_PI + robot_angle;
+                nest_angle = -atan2(_to_robot_pos[2]-pos[2], _to_robot_pos[0]-pos[0]);
+                if(nest_angle <0.0)
+                    nest_angle = TWO_PI + nest_angle;
+                bearing = nest_angle - robot_angle;
+                if(bearing < 0.0)
+                    bearing = TWO_PI + bearing;
+                //if you want to add noise bearing
+                bearing += (gsl_rng_uniform_pos( GSL_randon_generator::r_rand )*0.30 - 0.15);
+                _reading[1] = bearing;
+
+            }
+            randb_to =res.m_hitPointWorld;
+        }
+    }
+}
+\end{lstlisting}

@@ -98,6 +98,15 @@ F.~Mondada, M.~Bonani, X.~Raemy, J.~Pugh, C.~Cianci, A.~Klaptocz, S.~Magnenat,
   Polit{\'e}cnico de Castelo Branco, 2009, pp. 59--65.
 
 
+\bibitem{Nelson2009Fitness}
+\BIBentryALTinterwordspacing
+A.~L. Nelson, G.~J. Barlow, and L.~Doitsidis, ``{Fitness functions in
+  evolutionary robotics: A survey and analysis},'' \emph{Robotics and
+  Autonomous Systems}, vol.~57, no.~4, pp. 345--370, Apr. 2009. [Online].
+  Available: \url{http://dx.doi.org/10.1016/j.robot.2008.09.009}
+\BIBentrySTDinterwordspacing
+
+
 \bibitem{Thrun2003Learning}
 \BIBentryALTinterwordspacing
 S.~Thrun, ``{Learning Occupancy Grid Maps with Forward Sensor Models},''

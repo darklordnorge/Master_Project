@@ -100,6 +100,7 @@ As can be seen in figure \ref{fig:selection} individuals with a higher fitness o
 \subsection{Fitness Function}
 A fitness function is used to guide the evolution of the neural network and the GA. It is used to rate the performance of a neural network based on a predefined formulae or criterion.\\
 The baseline for the fitness function implemented in this project was proposed by Floreano \textit{et al.}\cite{499791}. \\
+The proposed fitness function is a behavioural fitness function. This means it measures the quality of different features while a robot is performing it's allocated task. It does not measure directly how well the robot does its allocated task, but rather measures various aspects of the robots behaviour and rates it \cite{Nelson2009Fitness}.
 This fitness function is a good baseline as it prevents the robot from stopping, spinning on the spot, and crashing into obstacles, but still being close enough to an obstacle to get a positive return(obstacle found) from at least 1 sensor reading. \\
 This fitness function was expanded upon as new features where implemented to lead to more complex behaviour of the robot.\\
 The final fitness function is shown and explained in Chapter \ref{chap2:fitness_function} on page \pageref{chap2:fitness_function}.

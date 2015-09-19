@@ -1,11 +1,454 @@
 \chapter{Code samples}
-\newpage
+
 \section{Environment Design}
 \begin{figure}[h]
 \begin{center}
-\includegraphics[scale=0.6]{Chapter1/images/environment.png} 
+\includegraphics[scale=0.45]{Chapter1/images/environment.png} 
 \caption{Environment Design}
 \label{appendix2:environment}
 \end{center}
 \end{figure}
+\newpage 
 
+\section{GA assisted Artificial Neural Network}
+\subsection{Constructor and genotype length computation}
+\label{code:ga_ann_constructor}
+Here the constructor of the neural network is shown as well as the function that calculates the genotype length. \\
+It also shows how the arrays that hold the nodes for the layers are declared. More information can be found in chapter 3 section \ref{chap3:ga_ann_constructor} on page \pageref{chap3:ga_ann_constructor}.
+
+
+\begin{lstlisting}[caption = {GA assisted Artificial Neural Network constructor and genotype length computation}]
+#include "myController.h"
+
+double MyController::inputlayer[];
+double MyController::hiddenlayer[];
+double MyController::outputlayer[];
+
+/*Contructor*/
+MyController::MyController() {
+    compute_genotype_length();
+}
+
+void MyController::compute_genotype_length ( void ){
+    /*Input and hiddenlayer each have a BIAS node therefor + 1 */
+    genotype_length = (((num_input+1) * hiddenlayer_size) + ((hiddenlayer_size + 1) * num_output));
+}
+\end{lstlisting}
+
+\subsection{Initialisation}
+\label{code:ga_ann_init}
+This function initialises the arrays needed for the neural network,  scales the genes and assigns the scaled values to the \textit{weight} arrays. A more detailed explanation of this code can be found in chapter 3 section \ref{chap3:ga_ann_init} on page \pageref{chap3:ga_ann_init}.
+\begin{lstlisting}[caption = {GA assisted Artificial Neural Network initialisation}]
+void MyController::init ( const vector <chromosome_type> &genes ){
+//    vector <double> new_gene;//vector to hold the scaled gene values
+    double new_gene[genes.size()];
+    /*initalize the layers*/
+    for(int i = 0;i < num_input+1;i++){
+        inputlayer[i] = 0.0;
+    }
+
+    for(int i = 0;i < num_output;i++){
+        hiddenlayer[i] = 0.0;
+    }
+
+    for(int i = 0;i < hiddenlayer_size+1;i++){
+        outputlayer[i] = 0.0;
+    }
+
+    /*Set new_genes to 0.0*/
+    for(int i = 0;i < genes.size();i++){
+        new_gene[i] = 0.0;
+    }
+
+    /*initialise the input-to-hiddenlayer weights*/
+    for(int i = 0;i < num_input+1;i++){
+        for(int j = 0;j < hiddenlayer_size;j++){
+            weights1[i][j] = 0.0;
+        }
+    }
+    /*initialise the hidden-to-outputlayer weights*/
+    for(int m = 0;m < hiddenlayer_size+1;m++){
+        for(int n = 0;n < num_output;n++){
+            weights2[m][n] = 0.0;
+        }
+    }
+
+    /*scale the genes from -5 to 5*/
+    for(int i = 0;i < genes.size();i++){
+        new_gene[i] = ((high_bound - low_bound) * get_value(genes, i)) + low_bound;
+    }
+
+    /*set the weights*/
+    int counter = 0;
+    for(int i = 0;i < num_input+1;i++){
+        for(int j = 0;j < hiddenlayer_size;j++){
+            weights1[i][j] = new_gene[counter];
+            counter++;
+        }
+    }
+    for(int m = 0;m < hiddenlayer_size+1;m++){
+        for(int n = 0;n < num_output;n++){
+            weights2[m][n] = new_gene[counter];
+            counter++;
+        }
+    }
+}
+\end{lstlisting}
+
+\subsection{Step function}
+\label{code:ga_ann_step}
+In this function the neural network calculates the outputs based on its inputs, the evolved weights, as well as the calculations done in the hidden and output layer.\\
+More details on this function can be found in chapter 3 section \ref{chap3:ga_ann_step} on page \pageref{chap3:ga_ann_step}.
+
+\begin{lstlisting}[caption = GA assisted Artificial Neural Network step function]
+void MyController::step ( const vector <double> &input, vector <double> &output){
+    /*set values for the inputlayer*/
+    for(int i = 0;i < input.size();i++){
+        inputlayer[i] = get_value(input, i);
+    }
+
+    /*set Bias for the hiddenlayer*/
+    inputlayer[num_input] = 1.0;
+
+    /*reset the outputlayer*/
+    for(int i = 0;i < num_output;i++){
+        outputlayer[i] = 0.0;
+    }
+
+    /*add the weights from input to hiddenlayer*/
+    for(int i = 0;i < hiddenlayer_size;i++){
+        for(int j = 0;j < num_input+1;j++){
+            hiddenlayer[i] +=(inputlayer[j] * (weights1[j][i]));
+        }
+    }
+
+    /*calculate the sigmoid for the hiddenlayer*/
+    for(int i = 0;i < hiddenlayer_size;i++){
+        hiddenlayer[i] = f_sigmoid(hiddenlayer[i]);
+    }
+
+    /*add the bias for the outputlayer*/
+    hiddenlayer[hiddenlayer_size] = 1.0;
+
+    /*add the weights from the hidden-to-outputlayer*/
+    for(int i = 0;i < num_output;i++){
+        for(int j = 0;j < hiddenlayer_size+1;j++){
+            outputlayer[i] +=(hiddenlayer[j] * (weights2[j][i]));
+        }
+    }
+
+    /*calculate the sigmoid for the outputlayer*/
+    for(int i = 0;i < num_output;i++){
+        output[i] = f_sigmoid(outputlayer[i]);
+    }
+}
+\end{lstlisting}
+\newpage
+\section{Test Environment for first fitness function}
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.6]{Chapter3/images/first_fitness_environment.png}
+\caption{Representation of the test environment for the first fitness function}
+\label{appendixb:first_fitness}
+\end{figure}
+
+\section{Map}
+
+\subsection{Initialisation}
+\label{code:map_init}
+In this function the map is initialised.\\
+All cells in the map are set to 0 and returns a pointer to a pointer to the array. 
+Further explanation the code can be found in chapter 3 section \ref{chap3:map_init} on page \pageref{chap3:map_init}. 
+\begin{lstlisting}[caption = {Map initialisation}]
+int** Occupancy_Map::init() {
+    map = new int *[map_height];       //initialise array of pointers
+    for(int i = 0;i < map_height;i++){ //add array pointers to the array
+        map[i] = new int[map_width];
+    }
+
+    for(int i = 0;i < map_height;i++){
+        for(int j = 0;j < map_width;j++){
+            map[i][j] = 0;
+        }
+    }
+
+    return map;
+}
+\end{lstlisting}
+
+\subsection{Calculate Heading}
+\label{code:calc_heading}
+
+\begin{lstlisting}[caption = {Calculate the robots heading}]
+/*  0: north, 1:east, 2:south, 3:west, 4:northeast, 5:southeast, 6:southwest, 7:northwest
+ * +/- 10 spread for main headings(north, south, east, west)
+ * +/- 5 spread for secondary headings(northeast, southeast, etc)*/
+int Occupancy_Map::calc_heading(double rotation) {
+    int heading;
+    if(rotation <= 10 && rotation >= -10){
+        heading = 1;
+    }
+    else if(rotation <= 100 && rotation >= 80){
+        heading = 0;
+    }
+    else if(rotation >= -170 && rotation >= 170){
+        heading = 3;
+    }
+    else if(rotation <= -80 && rotation >= -100){
+        heading = 2;
+    }
+    else if(rotation <= 50 && rotation >= 40){
+        heading = 4;
+    }
+    else if(rotation <= -40 && rotation >= -50){
+        heading = 5;
+    }
+    else if(rotation <= - 130 && rotation >= -140){
+        heading = 6;
+    }
+    else if(rotation <= 140 && rotation >= 130){
+        heading = 7;
+    }
+    else{
+        heading  = -1;
+    }
+    return heading;
+}
+\end{lstlisting}
+
+\subsection{Calculation of robot position on the map}
+\label{code:calc_robot_pos}
+This function calculates robots coordinates on the map. \\
+Further explanation of this function can be found in chapter 3 section \ref{chap3:calc_robot_pos} on page \pageref{chap3:calc_robot_pos}.
+
+\begin{lstlisting}[caption = {Calculate the robot position on the map}]
+int* Occupancy_Map::calc_robot_pos(double x_coord, double y_coord){
+    int matrix_x = 0;
+    int matrix_y = 0;
+    int *array = new int[2];
+    double integral, fractal ;
+
+    if(x_coord > 0.0 ){
+        x_coord = x_coord * 1000;
+        fractal = modf(x_coord, &integral);
+        if(fractal < 0.5){
+            x_coord = integral;
+        }
+        else if(fractal > 0.5){
+            x_coord = integral + 1;
+        }
+        matrix_x = (map_width/2) + x_coord;
+        matrix_y = y_coord * 1000;
+
+    }else if(x_coord < 0.0){
+        x_coord -= x_coord*2;
+        x_coord = x_coord * 1000;
+
+        fractal = modf(x_coord, &integral);
+        if(fractal < 0.5){
+            x_coord = integral;
+        }
+        else if(fractal > 0.5){
+            x_coord = integral + 1;
+        }
+
+
+        matrix_x = (map_width/2) - x_coord;
+        matrix_y = y_coord * 1000;
+    }
+
+    array[0] = matrix_x;
+    array[1] = matrix_y;
+
+    return array;
+}
+\end{lstlisting}
+
+\subsection{Return the correct Sensor number}
+\label{code:calc_sensor}
+This function is used to return the correct sensor number. The reason this function was needed was because in the array returned by the IR reading function the cells of the array do not correspond to the same sensor number.\\
+More information on this method can be found in chapter 3 section \ref{chap3:calc_sensor} on page \pageref{chap3:calc_sensor}
+
+\begin{lstlisting}[caption = {Calculate sensor number}]
+int Occupancy_Map::calc_sensor(int array_num) {
+    int sensor_num;
+
+    if(array_num == 0){
+        sensor_num = 0;
+    }
+    else if(array_num == 1){
+        sensor_num == 7;
+    }
+    else if(array_num == 2){
+        sensor_num == 1;
+    }
+    else if(array_num == 3){
+        sensor_num == 6;
+    }
+    else if(array_num == 4){
+        sensor_num == 2;
+    }
+    else if(array_num == 5){
+        sensor_num == 5;
+    }
+    else if(array_num == 6){
+        sensor_num == 3;
+    }
+    else if(array_num == 7){
+        sensor_num == 4;
+    }
+
+    return sensor_num;
+}
+\end{lstlisting}
+
+\subsection{Decide which cells to mark}
+\label{code:calc_matrix_values}
+This function is used to analyse which mapping function to call based on the activated sensor number. \\
+Further analysis of this function can be found in chapter 3 section \ref{chap3:calc_matrix_value} on page \pageref{chap3:calc_matrix_value}.
+\begin{lstlisting}[caption = {calculate which cells to mark}]
+void Occupancy_Map::calc_matrix_values(vector <double> &ir_reading, int heading, int robot_x, int robot_y, int **matrix){
+    double sensor_value;
+    int sensor_num;
+    for(int i = 0;i < ir_reading.size();i++){
+        sensor_value = ir_reading[i];
+        if(sensor_value != -1){
+            sensor_num = calc_sensor(i);
+            if(heading == 0 || heading == 1 || heading == 2 || heading == 3){
+                if(sensor_num == 0 || sensor_num == 7){
+                    set_front_cells(heading, sensor_num, robot_x, robot_y, matrix);
+                }
+                else if(sensor_num == 6 || sensor_num == 1){
+                    set_front_side_cells(heading, sensor_num, robot_x, robot_y, matrix);
+                }
+                else if(sensor_num == 5 || sensor_num == 2){
+                    set_side_cells(heading, sensor_num, robot_x, robot_y, matrix);
+                }
+                else if(sensor_num == 3 || sensor_num == 4){
+                    set_aft_cells(heading, sensor_num, robot_x, robot_y, matrix);
+                }
+            }else if(heading == 4 || heading == 5 || heading == 6 || heading == 7){
+                set_angeld_cells(heading, sensor_num, robot_x, robot_y, matrix);
+            }
+        }
+    }
+}
+\end{lstlisting}
+
+\subsection{Map cells in the direct front of the robot}
+\label{code:set_front}
+The robot
+
+\begin{lstlisting}[caption = {Code to set cells in front of the robot}]
+/*Sensors set on a 15 degree angle to the front of the robot. Sensor 7 and 0 on the robot*/
+void Occupancy_Map::set_front_cells(int heading, int sensor, int robot_x, int robot_y, int **matrix) {
+    if(heading == 0){
+        mark_cell(robot_x, robot_y-1, 1, matrix);
+    }
+    else if(heading == 1){
+        mark_cell(robot_x+1, robot_y, 1, matrix);
+    }
+    else if(heading == 2){
+        mark_cell(robot_x, robot_y+1, 1, matrix);
+    }
+    else if(heading == 3){
+        mark_cell(robot_x-1, robot_y, 1, matrix);
+    }
+}
+\end{lstlisting}
+
+\subsection{Map cells off the bow of the robot}
+\label{code:set_bow}
+
+\begin{lstlisting}[caption = {Code to set cells off the bow of the robot}]
+/*Sensors placed in a 45 degree angle on the front of the robot. sensor 1 and 6 on the robot*/
+void Occupancy_Map::set_front_side_cells(int heading, int sensor, int robot_x, int robot_y, int **matrix) {
+    if(sensor == 1){
+        if(heading == 0){
+            mark_cell(robot_x+1, robot_y-1, 1, matrix);
+        }
+        else if(heading == 1){
+            mark_cell(robot_x+1, robot_y+1, 1, matrix);
+        }
+        else if(heading == 2){
+            mark_cell(robot_x-1, robot_y+1, 1, matrix);
+        }
+        else if(heading == 3){
+            mark_cell(robot_x-1, robot_y-1, 1, matrix);
+        }
+    }
+    else if(sensor == 6){
+        if(heading == 0){
+            mark_cell(robot_x-1, robot_y-1, 1, matrix);
+        }
+        else if(heading == 1){
+            mark_cell(robot_x+1, robot_y-1, 1, matrix);
+        }
+        else if(heading == 2){
+            mark_cell(robot_x+1, robot_y+1, 1, matrix);
+        }
+        else if(heading == 3){
+            mark_cell(robot_x-1, robot_y+1, 1, matrix);
+        }
+    }
+}
+\end{lstlisting}
+
+\subsection{Map cells to the side of the robot}
+\label{code:set_side}
+
+\begin{lstlisting}[caption = {Code to set cells of the sides of the robot}]
+/*Side sensors placed at a 90 degree angle. 2 and 5 on the epuck  */
+void Occupancy_Map:: set_side_cells(int heading, int sensor, int robot_x, int robot_y, int **matrix) {
+      if(sensor == 2){
+         if(heading == 0){
+            mark_cell(robot_x+1, robot_y, 1, matrix);
+        }
+        else if(heading == 1){
+            mark_cell(robot_x, robot_y+1, 1, matrix);
+        }
+        else if(heading == 2){
+            mark_cell(robot_x-1, robot_y, 1, matrix);
+        }
+        else if(heading == 3){
+            mark_cell(robot_x, robot_y-1, 1, matrix);
+        }
+    }
+    else if(sensor == 5){
+        if(heading == 0){
+            mark_cell(robot_x-1, robot_y, 1, matrix);
+        }
+        else if(heading == 1){
+            mark_cell(robot_x, robot_y-1, 1, matrix);
+        }
+        else if(heading == 2){
+            mark_cell(robot_x+1, robot_y, 1, matrix);
+        }
+        else if(heading == 3){
+            mark_cell(robot_x, robot_y+1, 1, matrix);
+        }
+    }
+}
+\end{lstlisting}
+
+\subsection{Set Aft cells of the robot}
+\label{code:set_aft}
+
+\begin{lstlisting}[caption = {Code to set cells to the aft of the robot}]
+/*Sensors placed at a 25 degree angle to the back of the robot. Sensors 3 and 4 on the epuck*/
+void Occupancy_Map::set_aft_cells(int heading, int sensor, int robot_x, int robot_y, int **matrix) {
+    if(heading == 0){
+        mark_cell(robot_x, robot_y+1, 1, matrix);
+    }
+    else if(heading == 1){
+        mark_cell(robot_x-1, robot_y, 1, matrix);
+    }
+    else if(heading == 2){
+        mark_cell(robot_x, robot_y-1, 1, matrix);
+    }
+    else if(heading == 3){
+        mark_cell(robot_x+1, robot_y, 1, matrix);
+    }
+}
+\end{lstlisting}

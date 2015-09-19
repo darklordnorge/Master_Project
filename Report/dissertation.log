@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.2.24)  10 SEP 2015 22:20
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.2.24)  19 SEP 2015 11:32
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -188,43 +188,104 @@ Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 LaTeX Info: Redefining \cite on input line 302.
 LaTeX Info: Redefining \nocite on input line 373.
 Package: cite 2010/09/10  v 5.3
-) (./dissertation.aux
-(./cover.aux) (./declaration.aux) (./acknowledgements.aux) (./abstract.aux)
-(./Chapter1/chapter1.aux) (./Chapter2/chapter2.aux) (./Chapter3/chapter3.aux)
-(./Chapter4/chapter4.aux) (./Chapter5/chapter5.aux) (./Appendix1/appendix1.aux)
-(./Appendix2/appendix2.aux))
+)
+(/usr/share/texlive/texmf-dist/tex/latex/listings/listings.sty
+\lst@mode=\count106
+\lst@gtempboxa=\box33
+\lst@token=\toks22
+\lst@length=\count107
+\lst@currlwidth=\dimen116
+\lst@column=\count108
+\lst@pos=\count109
+\lst@lostspace=\dimen117
+\lst@width=\dimen118
+\lst@newlines=\count110
+\lst@lineno=\count111
+\lst@maxwidth=\dimen119
+
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2013/08/26 1.5b (Carsten Heinz)
+\c@lstnumber=\count112
+\lst@skipnumbers=\count113
+\lst@framebox=\box34
+)
+(/usr/share/texlive/texmf-dist/tex/latex/listings/listings.cfg
+File: listings.cfg 2013/08/26 1.5b listings configuration
+))
+Package: listings 2013/08/26 1.5b (Carsten Heinz)
+
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2013/05/02 v3.3-89 Customizing captions (AR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2013/05/02 v1.6-88 caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 57.
+\captionmargin=\dimen120
+\captionmargin@=\dimen121
+\captionwidth=\dimen122
+\caption@tempdima=\dimen123
+\caption@indent=\dimen124
+\caption@parindent=\dimen125
+\caption@hangindent=\dimen126
+)
+\c@ContinuedFloat=\count114
+Package caption Info: float package is loaded.
+Package caption Info: listings package is loaded.
+Package caption Info: subfigure package is loaded.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/color.sty
+Package: color 2005/11/14 v1.0j Standard LaTeX Color (DPC)
+
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/color.cfg
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+)
+Package color Info: Driver file: pdftex.def on input line 130.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/was/gensymb.sty
+Package: gensymb 2003/07/02 v1.0 (WaS)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2013/08/26 1.5b listings language file
+)
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2013/08/26 1.5b (Carsten Heinz)
+)
+(./dissertation.aux (./cover.aux) (./declaration.aux) (./acknowledgements.aux)
+(./abstract.aux) (./Chapter1/chapter1.aux) (./Chapter2/chapter2.aux)
+(./Chapter3/chapter3.aux) (./Chapter4/chapter4.aux) (./Chapter5/chapter5.aux)
+(./Appendix1/appendix1.aux) (./Appendix2/appendix2.aux))
 \openout1 = `dissertation.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Try loading font information for OT1+ptm on input line 34.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
+LaTeX Font Info:    Try loading font information for OT1+ptm on input line 60.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count106
-\scratchdimen=\dimen116
-\scratchbox=\box33
-\nofMPsegments=\count107
-\nofMParguments=\count108
-\everyMPshowfont=\toks22
-\MPscratchCnt=\count109
-\MPscratchDim=\dimen117
-\MPnumerator=\count110
-\makeMPintoPDFobject=\count111
-\everyMPtoPDFconversion=\toks23
+\scratchcounter=\count115
+\scratchdimen=\dimen127
+\scratchbox=\box35
+\nofMPsegments=\count116
+\nofMParguments=\count117
+\everyMPshowfont=\toks23
+\MPscratchCnt=\count118
+\MPscratchDim=\dimen128
+\MPnumerator=\count119
+\makeMPintoPDFobject=\count120
+\everyMPtoPDFconversion=\toks24
 ) (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
 Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
 )
@@ -279,9 +340,23 @@ Package lastpage Info: Please have a look at the pageslts package at
 (lastpage)             or
 (lastpage)             http://www.ctan.org/tex-archive/ 
 (lastpage)             install/macros/latex/contrib/pageslts.tds.zip
-(lastpage)             ! on input line 34.
-\openout2 = `cover.aux'.
+(lastpage)             ! on input line 60.
+\c@lstlisting=\count121
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: End \AtBeginDocument code.
+LaTeX Info: Redefining \celsius on input line 60.
+Package gensymb Info: Faking symbols for \degree and \celsius on input line 60.
 
+
+
+Package gensymb Warning: Not defining \perthousand.
+
+LaTeX Info: Redefining \ohm on input line 60.
+Package gensymb Info: Using \Omega for \ohm on input line 60.
+
+Package gensymb Warning: Not defining \micro.
+
+\openout2 = `cover.aux'.
 
 (./cover.tex
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
@@ -341,29 +416,36 @@ Underfull \hbox (badness 10000) in paragraph at lines 56--57
 ] (./dissertation.toc
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10.95> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1.
-)
-\tf@toc=\write3
-\openout3 = `dissertation.toc'.
-
 
 [1
 
-] (./dissertation.lof)
+])
+\tf@toc=\write3
+\openout3 = `dissertation.toc'.
+
+ [2] (./dissertation.lof)
 \tf@lof=\write4
 \openout4 = `dissertation.lof'.
 
- [2] (./dissertation.lot)
+ [3] (./dissertation.lot)
 \tf@lot=\write5
 \openout5 = `dissertation.lot'.
 
- [3]
+ [4]
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <24.88> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 93.
+ (./dissertation.lol)
+\tf@lol=\write6
+\openout6 = `dissertation.lol'.
+
+[5
+
+]
 \openout2 = `Chapter1/chapter1.aux'.
 
  (./Chapter1/chapter1.tex
 Chapter 1.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <20.74> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <24.88> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 13.
@@ -416,7 +498,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 75--77
 
  []
 
-<Chapter1/images/roulette_wheel.png, id=40, 573.14125pt x 460.72125pt>
+<Chapter1/images/roulette_wheel.png, id=46, 573.14125pt x 460.72125pt>
 File: Chapter1/images/roulette_wheel.png Graphic file (type png)
 
 <use Chapter1/images/roulette_wheel.png>
@@ -429,39 +511,39 @@ Underfull \hbox (badness 10000) in paragraph at lines 98--99
  []
 
 [4 <./Chapter1/images/roulette_wheel.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 108--110
+Underfull \hbox (badness 10000) in paragraph at lines 109--111
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 111--114
+Underfull \hbox (badness 10000) in paragraph at lines 112--115
 
  []
 
 [5]
-Underfull \hbox (badness 10000) in paragraph at lines 129--131
+Underfull \hbox (badness 10000) in paragraph at lines 130--132
 
  []
 
-<Chapter1/images/e_puck_sensor.png, id=47, 683.55376pt x 599.23875pt>
+<Chapter1/images/e_puck_sensor.png, id=54, 683.55376pt x 599.23875pt>
 File: Chapter1/images/e_puck_sensor.png Graphic file (type png)
 
 <use Chapter1/images/e_puck_sensor.png>
 Package pdftex.def Info: Chapter1/images/e_puck_sensor.png used on input line 1
-34.
+35.
 (pdftex.def)             Requested size: 273.41666pt x 239.69125pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 140--142
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 147--150
+Underfull \hbox (badness 10000) in paragraph at lines 141--143
 
  []
 
 [6 <./Chapter1/images/e_puck_sensor.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 151--152
+Underfull \hbox (badness 10000) in paragraph at lines 148--151
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 152--153
 
  []
 
@@ -480,7 +562,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 17--21
 
  []
 
-<Chapter2/images/bias.png, id=55, 662.475pt x 490.83376pt>
+<Chapter2/images/bias.png, id=61, 662.475pt x 490.83376pt>
 File: Chapter2/images/bias.png Graphic file (type png)
 
 <use Chapter2/images/bias.png>
@@ -490,7 +572,7 @@ Package pdftex.def Info: Chapter2/images/bias.png used on input line 30.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<Chapter2/images/network.png, id=56, 393.47pt x 529.98pt>
+<Chapter2/images/network.png, id=62, 393.47pt x 529.98pt>
 File: Chapter2/images/network.png Graphic file (type png)
 
 <use Chapter2/images/network.png>
@@ -509,7 +591,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 48--49
 
 
 
-] <Chapter2/images/Selection_002.png, id=60, 567.11874pt x 391.4625pt>
+] <Chapter2/images/Selection_002.png, id=66, 567.11874pt x 391.4625pt>
 File: Chapter2/images/Selection_002.png Graphic file (type png)
 
 <use Chapter2/images/Selection_002.png>
@@ -535,14 +617,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 74--76
 
  []
 
-<Chapter2/images/unscaled.PNG, id=64, 767.2665pt x 172.84575pt>
+<Chapter2/images/unscaled.PNG, id=70, 767.2665pt x 172.84575pt>
 File: Chapter2/images/unscaled.PNG Graphic file (type png)
 
 <use Chapter2/images/unscaled.PNG>
 Package pdftex.def Info: Chapter2/images/unscaled.PNG used on input line 82.
 (pdftex.def)             Requested size: 306.90115pt x 69.13705pt.
 
-<Chapter2/images/scaled.PNG, id=66, 770.88pt x 182.48175pt>
+<Chapter2/images/scaled.PNG, id=72, 770.88pt x 182.48175pt>
 File: Chapter2/images/scaled.PNG Graphic file (type png)
 
 <use Chapter2/images/scaled.PNG>
@@ -573,21 +655,145 @@ Underfull \hbox (badness 10000) in paragraph at lines 158--159
 
  []
 
-) [12]
+
+Underfull \hbox (badness 10000) in paragraph at lines 162--164
+
+ []
+
+[12]
+Underfull \hbox (badness 10000) in paragraph at lines 175--177
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 178--182
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 196--199
+
+ []
+
+) [13] [14]
 \openout2 = `Chapter3/chapter3.aux'.
 
  (./Chapter3/chapter3.tex
 Chapter 3.
-) [13
+
+Underfull \hbox (badness 10000) in paragraph at lines 2--6
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 21--26
+
+ []
+
+[15
 
 
 
 ]
+Underfull \hbox (badness 10000) in paragraph at lines 35--37
+
+ []
+
+Missing character: There is no â in font cmr6!
+Missing character: There is no € in font cmr6!
+Missing character: There is no ¢ in font cmr6!
+
+Underfull \hbox (badness 10000) in paragraph at lines 42--47
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 48--51
+
+ []
+
+[16]
+Underfull \hbox (badness 10000) in paragraph at lines 52--53
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 54--55
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 57--59
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 60--63
+
+ []
+
+Missing character: There is no â in font cmr6!
+Missing character: There is no € in font cmr6!
+Missing character: There is no ¢ in font cmr6!
+[17]
+Underfull \hbox (badness 10000) in paragraph at lines 87--90
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 92--93
+
+ []
+
+[18]
+Underfull \hbox (badness 10000) in paragraph at lines 109--111
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 114--117
+
+ []
+
+<Chapter3/images/heading.png, id=109, 419.31656pt x 322.95656pt>
+File: Chapter3/images/heading.png Graphic file (type png)
+
+<use Chapter3/images/heading.png>
+Package pdftex.def Info: Chapter3/images/heading.png used on input line 120.
+(pdftex.def)             Requested size: 209.65776pt x 161.47787pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 125--132
+
+ []
+
+[19 <./Chapter3/images/heading.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 133--136
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 139--141
+
+ []
+
+<Chapter3/images/robot_terminology.png, id=114, 496.85625pt x 352.31625pt>
+File: Chapter3/images/robot_terminology.png Graphic file (type png)
+
+<use Chapter3/images/robot_terminology.png>
+Package pdftex.def Info: Chapter3/images/robot_terminology.png used on input li
+ne 144.
+(pdftex.def)             Requested size: 248.4275pt x 176.15768pt.
+ [20 <./Chapter3/images/robot_terminology.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 165--167
+
+ []
+
+[21]) [22]
 \openout2 = `Chapter4/chapter4.aux'.
 
  (./Chapter4/chapter4.tex
 Chapter 4.
-) [14
+) [23
 
 
 
@@ -596,11 +802,11 @@ Chapter 4.
 
  (./Chapter5/chapter5.tex
 Chapter 5.
-) [15
+) [24
 
 
 
-] [16
+] [25
 
 
 ]
@@ -608,42 +814,58 @@ Chapter 5.
 
  (./Appendix1/appendix1.tex
 Appendix A.
-) [17
+[26
 
 
 ]
+Overfull \hbox (37.20842pt too wide) in paragraph at lines 28--29
+[][][][][][][][][][]  
+ []
+
+) [27]
 \openout2 = `Appendix2/appendix2.aux'.
 
  (./Appendix2/appendix2.tex
 Appendix B.
-[18
-
-
-
-] <Chapter1/images/environment.png, id=103, 472.76625pt x 716.6775pt>
+<Chapter1/images/environment.png, id=141, 472.76625pt x 716.6775pt>
 File: Chapter1/images/environment.png Graphic file (type png)
 
 <use Chapter1/images/environment.png>
 Package pdftex.def Info: Chapter1/images/environment.png used on input line 6.
-(pdftex.def)             Requested size: 283.66193pt x 430.00983pt.
-) [19 <./Chapter1/images/environment.png>] (./dissertation.bbl [20
+(pdftex.def)             Requested size: 212.74284pt x 322.5019pt.
+ [28
+
+
+
+ <./Chapter1/images/environment.png>]
+[29] [30] [31]
+<Chapter3/images/first_fitness_environment.png, id=156, 327.47343pt x 709.14937
+pt>
+File: Chapter3/images/first_fitness_environment.png Graphic file (type png)
+ <use Chapter3/images/first_fitness_environment.png>
+Package pdftex.def Info: Chapter3/images/first_fitness_environment.png used on 
+input line 151.
+(pdftex.def)             Requested size: 196.48558pt x 425.4929pt.
+ [32 <./Chapter3/images/first_fitness_environment.png>] [33] [34] [35] [36] [37
+]) [38]
+(./dissertation.bbl [39
 
 
 ]) 
 AED: lastpage setting LastPage
-[21] (./dissertation.aux (./cover.aux) (./declaration.aux)
+[40] (./dissertation.aux (./cover.aux) (./declaration.aux)
 (./acknowledgements.aux) (./abstract.aux) (./Chapter1/chapter1.aux)
 (./Chapter2/chapter2.aux) (./Chapter3/chapter3.aux) (./Chapter4/chapter4.aux)
 (./Chapter5/chapter5.aux) (./Appendix1/appendix1.aux)
 (./Appendix2/appendix2.aux)) ) 
 Here is how much of TeX's memory you used:
- 3362 strings out of 493304
- 45220 string characters out of 6139871
- 110021 words of memory out of 5000000
- 6628 multiletter control sequences out of 15000+600000
- 32950 words of font info for 72 fonts, out of 8000000 for 9000
+ 6054 strings out of 493304
+ 88681 string characters out of 6139871
+ 211824 words of memory out of 5000000
+ 9280 multiletter control sequences out of 15000+600000
+ 33972 words of font info for 75 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 38i,10n,45p,700b,354s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 38i,12n,49p,700b,1677s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/ba
 se/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.
 pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></
@@ -655,10 +877,10 @@ t/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1
 /urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr
 8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/sh
 are/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on dissertation.pdf (28 pages, 588667 bytes).
+Output written on dissertation.pdf (49 pages, 707675 bytes).
 PDF statistics:
- 151 PDF objects out of 1000 (max. 8388607)
- 98 compressed objects within 1 object stream
+ 227 PDF objects out of 1000 (max. 8388607)
+ 146 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 41 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 56 words of extra memory for PDF output out of 10000 (max. 10000000)
 

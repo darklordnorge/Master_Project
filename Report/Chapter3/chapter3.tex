@@ -1,2 +1,191 @@
 \chapter{Implementation}
+This chapter is divided into multiple smaller sections. \\
+The first sections will describe how the neural network was implemented, and cover the evolution of the fitness function and the test done using the neural network. \\
+Following the implementation of the mapping, communication and visualisation algorithms will be covered in detail. Throughout the chapter updated fitness functions will be shown and the changes made to both the fitness function and the algorithm reflected upon and explained why they were done. \\
+This structure is meant to show the reader how the program \textit{evolved} and why changes were made in the order they where implemented. \\
+
+\section{Implementation of the GA assisted Artificial Neural Network}
+The artificial neural network(ANN) inherits the simulators controller framework, and uses the inbuilt genetic algorithm to evolve the weights used in the neural network.\\
+The network implementation in itself was swift and easy as different neural networks had been implemented during different assignments in one of this years modules. \\
+The following subsections will explain what the different functions in the neural network do.
+
+\subsection{Constructor and genotype length computation}
+\label{chap3:ga_ann_constructor}
+The code for this can be found in Appendix B \ref{code:ga_ann_constructor} on page \pageref{code:ga_ann_constructor}.\\
+The constructor is used to initialise the neural network. Upon initialisation it calls a function to calculate the genotype length, the amount of genes needed for all weights in the network. This number is passed to the genetic algorithm so that the required number of genes can be created.\\
+The number of required genes is calculated by multiplying the number of nodes of the different layer with each other and than summing the results of that calculation. 
+
+
+\subsection{Initialisation}
+\label{chap3:ga_ann_init}
+The code for this function can be seen in Appendix B \ref{code:ga_ann_init} on page \pageref{code:ga_ann_init}.\\
+This function initialised the arrays needed for the neural network.
+It also takes a vector of \textit{genes} as a parameter, this vector holds the genes as they have been evolved by the genetic algorithm.\\
+The genes are scaled according to be in a range of -5 to 5, refer to section: \ref{sec:hiddenlayer} on page \pageref{sec:hiddenlayer} for more information as to why gene scaling is important.\\
+The scaled genes are assigned to a 2D array representing the weights of the neural network. \\
+
+\subsection{Step function}
+\label{chap3:ga_ann_step}
+In the step function is called every iteration. The network calculates the outputs based on the inputs, the evolved weights and the calculations done in the hidden and output layer of the network.\\
+The code for this function can be seen in Appendix B \ref{code:ga_ann_step} on page \pageref{code:ga_ann_step}
+
+After the neural network was implemented work on the fitness function was started in order to test the performance of the neural network. 
+
+\section{First fitness function and neural network performance test}
+The first fitness function was a behavioural fitness function as proposed by Floreano \textit{et al.}\cite{499791}.\\
+This builds the basis for all following changes to the fitness function. \\
+
+\begin{equation}\label{chap3eq:base_fittness}
+f = mean(V_l, V_r) \times ( 1 - \sqrt[•]{|V_l - V_r|}) \times (1 - S_{ir}) \times pos_y
+\end{equation}
+
+Equation \ref{chap3eq:base_fittness} shows the base fitness function that was implemented at this point. \\
+A thorough analysis and explanation of the base fitness function can be found in chapter 2 section \ref{chap2:fitness_function} on page \pageref{chap2:fitness_function}. 
+First tests had shown that the standard fitness function is not able to move the robot, as the robot never started moving. To counter this problem the $pos_y$ was added to the function. $Pos_y$ represents the robots position on the y axis, so the robot is rewarded for increasing its \textit{y} position, by moving downwards in the environment.\\
+The reason that the standard fitness function alone was not able to move the robot was that the robot spawned to far away from an obstacle so $1 - S_{ir}$ was not able to return any number. In their papers Floreano \textit{et al.}\cite{499791} as well as Nelson \textit{et al.}\cite{Nelson2009Fitness}, which implemented Floreano's fitness function, the environment was designed so that the robot always had a positive sensor return. As this was not the case in this test environment the fitness function needed to be modified. \\
+With the modified fitness function the robot was able to traverse most of the environment, only the small cap in the between the 2 boxes at the end of the environment proved to be a problem.\\
+
+Code for this specific fitness function will not be shown, as its components are still included in later fitness functions. It has therefore been deemed unnecessary to duplicate the code multiple times. 
+The code will be shown in and explained in a later part of this chapter when the final fitness function is discussed. \\
+The test environment in which the neural network and this fitness function was tested can be seen in figure \ref{appendixb:first_fitness} on page \pageref{appendixb:first_fitness}. \\
+
+It was not deemed necessary that the robot would need to finish the test environment, the test was meant to show if the neural network is able to evolve and guide the robot as well setting up a base level fitness function which could move a robot while avoiding obstacles. \\
+
+After this the environment which can be seen in figure \ref{appendix2:environment} on page \pageref{appendix2:environment} was implemented, and work on the next milestone began: multi-robot movement.\\
+
+\section{Multi Robot movement}
+After the simple movement algorithm was implemented work on coordinated multi-robot movement was started.\\
+Minor changes needed to be to the experiment class, while it was designed to work with multiple agents(robots) some functions only called the first element of the vector of agents by default. These were easily changed to iterate over the vector. \\
+
+An algorithm which is able to measure and return the distance and bearing information between 2 robots was needed in order to be able to move the robots in any form of formation. After talking with Muhanad about it, he said that he has code for that already written and has allowed the usage of said code in this project. The code can be seen in appendix A section \ref{code:erandB} on page \pageref{code:erandB}.\\
+The code needs the location of a robot to measure too. It only needs this one location as it's locates the robot the function is called from on its own using the simulators inbuilt functions.  The second parameter passed to the function is a pointer to an vector, which the algorithm will save its results too. \\
+The function only returns when the distance between the robots is less than a user defined distance. After integrating this function into the program this distance value was set the 0.4, which equals 40cm for testing purposes. \\
+
+In order to test the the algorithm another computation was added to the fitness function, the new computation added the distance between 2 robots into the calculation.
+
+\begin{equation}
+f = mean(V_l, V_r) \times ( 1 - \sqrt[•]{|V_l - V_r|}) \times (1 - S_{ir}) \times pos_y \times dist
+\end{equation}
+Where $dist$ is the distance between 2 robots. Using this calculation the robot will try to reach the maximum extend of the maximum distance value defined by the user.
+As larger distance between directly increases the fitness value. \\
+The code that was added for this calculation can be seen in listing \ref{chap3:comp4_code}.
+
+\begin{lstlisting}[caption = {Fitness function calculation to consider the distance between 2 robots}]
+  double comp_4 = 0.0;
+        if (param->num_agents != 1) {
+            if (r == param->num_agents) {
+                param->agent[r]->get_randb_reading(param->agent[r - 1]->get_pos(), randB_reading);
+                comp_4 = randB_reading[0];
+            }
+            else {
+                param->agent[r]->get_randb_reading(param->agent[r + 1]->get_pos(), randB_reading);
+                comp_4 = randB_reading[0];
+            }
+        }
+\end{lstlisting}\label{chap3:comp4_code}
+
+Note that this is the code is a snipped of the fitness function as it was used at this point in the development and there are some problems with this approach. \\
+There were a couple of problems with this approach at the time. Note that the code is designed to only use either the robot next or previous in the array of the robots, which lead to that robots would always form groups of 2 and stick together, while ignoring all other robots.\\
+A problem with the design in itself was that the robot always tried to drive close to the maximum extend of the user defined range in order to get the maximum fitness value. This is problematic as even the slightest turn of one of the robots might lead to them losing \textit{sight} of each other. Once this is happened the robots generally where not able to find back together. Once the robots are out of \textit{sight} this part of their fitness calculation would be set to 0. \\
+
+\section{Mapping}
+After the basic where able to move in formation and the fitness function was able to navigate them through the environment working on the mapping algorithm was started. \\
+\subsection{Map initialisation}
+\label{chap3:map_init}
+The initialisation function is shown in appendix B section \ref{code:map_init} on page \pageref{code:map_init}. \\
+The method initialised a 2d array. In order to keep the array in memory it is an array of pointers which holds pointers to arrays rather than a simple 2d integer array.\\
+All cells in the map are set to 0 after it has been initialised, and the pointer to an pointer to an array is returned to the experiment class, from where this method is called.\\
+The map height and width are user defined in the class header file.
+
+\subsection{Calculate robot position on the map}
+\label{chap3:calc_robot_pos}
+The code for this function can be found in appendix b section \ref{code:calc_robot_pos} on page \pageref{code:calc_robot_pos}, \\
+This function is used to calculate the robots position on the map based.\\
+The reason the coordinates can not be taken directly from the simulator is that different coordinate systems are used. In the simulator the the coordinate '0' of the \textit{x} coordinate is in the middle of the map, everything to the right of is positive anything the the left of the center is negative \textit{x}. The \textit{y} coordinate starts at the top of the environment and increases as its goes downwards. \\
+The coordinate system of the map is that of an standard 2 dimensional array, with both '0' for both \textit{x} and \textit{y} at the top left corner, in an graphical representation. \\
+The fact that the simulator is very likely to return negative \textit{x} values based on its coordinate system has been countered by \textit{simulating} the same coordinate system in the map by defining a map width and height value, which is user defined and also defines the dimensions of the map array.\\
+The value of the map width is divided by 2, given the exact center of the map, which would correspond to '0.0' in the simulator. Any positive \textit{x} values are added to this value to place it on the \textit{right} side of the center, any negative values are subtracted so that they will be displayed on the left side of the center line. 
+
+As the robot might be located in between 2 cells of the map this function also handles the rounding of coordinates as needed. To do so the c++ math.h library is used to split the coordinate values of type \textit{double} into integral and fractal parts, which allows for the rounding to happen. \\
+Note that all the coordinates are timed by 1000. The reason for that is to scale them from the comparative small coordinates used for the development environment, where \textit{x} can be a value between -0.6 and 0.6 and \textit{y} a value between 0 and 2.0 to a value which could be used in the gui program. The gui handles the coordinates by pixels, so large numbers are needed in order to display them in any form that can be visualized.\\
+
+\subsection{Calculate the robots heading}
+\label{chap3:calc_heading}
+The heading of a robot is calculated based on its movement direction. \\
+This is needed in order to map the correct cells based on the robots directions. 
+The code for this function can be found in appendix B section \ref{code:calc_heading} on page \pageref{code:calc_heading}.\\
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.5]{Chapter3/images/heading.png}
+\caption{Graphical representation of the headings and the corresponding degrees}
+\label{fig:heading}
+\end{figure}
+
+The heading is calculated based on the robots rotation, which is returned from the simulator. \\
+Rather than returning degrees from 0 to 360, the simulator returns degrees from 0 to 180 and -180 respectively.\\
+The decision fell to handle the robots directions based on compass directions as it is very easy to interpret in which direction the robot is moving on a map.\\
+There are some restrictions to when a heading is assigned. For the 4 main directions: north, east, south, west a selection threshold of +/- 10 degrees is chosen. 
+For the \textit{side} directions north east, south east, south west and north west a threshold of +/- 5 degrees is chosen. \\
+The reason for the threshold is it is unlikely for the robot to for example drive exactly 90 degrees. \\
+The threshold of +/- 10 degrees was chosen as this gave the best results while mapping. Other thresholds such as +/- 5, 15, 20 were tried, but either gave a too large error or almost no mapping at all, in the case of 5, since the threshold was too small so a heading was never selected.\\
+
+The threshold for the side directions was chosen to be less than for the main direction since moving at an angle increased the error rate already. \\
+Here as well different thresholds where chosen, again increasing in steps of 5.\\
+Results showed that the mapping error increased drastically when thresholds larger than 5 degrees where selected. \\
+
+
+\subsection{Deciding which cell of the map to mark}
+To algorithm to mark a cell in the map is divided into multiple smaller functions.\\
+Note that to make describing the direction a sensor is mapping naval terms are borrowed. \\
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.5]{Chapter3/images/robot_terminology.png}
+\caption{Representation of the terminology used to describe the robot}
+\label{fig:robot_terminology}
+\end{figure}
+
+Figure \ref{fig:robot_terminology} shows a representation of the naval terms borrowed and how they apply to the robot. 
+
+\subsubsection{Return the correct sensor number}
+\label{chap3:calc_sensor}
+The IR reading function the robots does return an array, however the cells of that array do not correspond to the IR sensor with the same number. When the mapping function is called this function is used to determine which sensor was activated.\\
+The code for this function can be found in appendix B section \ref{code:calc_sensor} on page \pageref{code:calc_sensor}. In each function the sensors which are used for the mapping are mentioned, refer to figure \ref{fig:sensor_placement} on page \pageref{fig:sensor_placement} to see where the sensors are placed on the robot. 
+
+\subsubsection{Control function of the mapping algorithm}
+\label{chap3:calc_matrix_value}
+As the mapping algorithm is split into multiple smaller functions the program requires a control function which decides which of those functions to call. 
+The control algorithm receives a number of parameters, such as an vector holding the sensor readings, the heading of the robot, the robots \textit{x} and \textit{y} coordinates, and a pointer to the map.\\
+It uses the previously explained function to return the correct sensor number and than calls one of the following functions accordingly to the information it was given. 
+The code for this function can be found in appendix B section \ref{code:calc_matrix_values} on page \pageref{code:calc_matrix_values}.
+
+\subsubsection{Set cells in front of the robot}
+\label{chap3:set_front}
+The code for this function can be found in appendix B section \ref{code:set_front} on page \pageref{code:set_front}. 
+This function is used to set the cells directly in front of the robot, using sensor 0 and 7 on the robot. This function takes the heading, the sensor number, the robots \textit{x} and \textit{y} coordinates as well as a pointer to the map as the parameters, the same goes for all other functions in this section. \\
+
+\subsubsection{Set cells off the bow of the robot}
+The code for this function can be found in appendix B section \ref{code:set_bow} on page \pageref{code:set_bow}. \\
+This function is used to map cell to the front left and front right of the robot. This sensors used for this function are sensor 1 \& 6 on the robot.  
+
+\subsubsection{Set cells to the sides of the robot}
+This function used to set the cells to side of the robot, the corresponding robot sensors are 2 and 5. The code for this function can be seen in appendix B section \ref{code:set_side} on page \pageref{code:set_side}. 
+
+\subsubsection{Set cells in the back of the robot}
+The code for this function can be found in appendix B section \ref{code:set_aft} on page \pageref{code:set_aft}. 
+This code is used to map cells directly behind the robot, the corresponding robot sensors are 4 and 3. \\
+Since a single cell is the size of the robot sensor 4 \& 3 are only able to map a cell right behind the robot. The reason for that being that while sensor 1 \& 6 are placed at a 45 degree angle and therefore are able to map cells to the front left and front right sensor 4 \& 3 and placed at a much smaller angle. 
+
+\subsubsection{Marking a cell in the map}
+This function is is used to mark a cell in the map. The other functions in this section calculate which cell to mark and than call this function in order to mark it on the map.
+
+\begin{lstlisting}[caption = {Mark a cell on the map}]
+void Occupancy_Map::mark_cell(int x_coord, int y_coord, int mark, int** matrix) {
+
+      matrix[x_coord][y_coord] = mark;
+}
+\end{lstlisting}
+
+\section{Displaying the map}
 

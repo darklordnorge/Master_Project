@@ -1,15 +1,18 @@
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {1.1}{\ignorespaces Roulette Wheel Selection}}{4}
-\contentsline {figure}{\numberline {1.2}{\ignorespaces E-Puck sensor placement}}{6}
+\contentsline {figure}{\numberline {1.2}{\ignorespaces E-Puck sensor placement\relax }}{6}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {2.1}{\ignorespaces Representation of a shifting sigmoid function}}{9}
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Representation of the Neural Network}}{9}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Representation of the Neural Network\relax }}{9}
 \contentsline {figure}{\numberline {2.3}{\ignorespaces IR sensor response against distance}}{10}
-\contentsline {figure}{\numberline {2.4}{\ignorespaces Activation range for unscaled inputs}}{10}
-\contentsline {figure}{\numberline {2.5}{\ignorespaces Activation range for scaled inputs}}{11}
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Activation range for unscaled inputs\relax }}{10}
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Activation range for scaled inputs\relax }}{11}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Graphical representation of the headings and the corresponding degrees\relax }}{19}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Representation of the terminology used to describe the robot\relax }}{20}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\addvspace {10\p@ }
-\contentsline {figure}{\numberline {B.1}{\ignorespaces Environment Design}}{19}
+\contentsline {figure}{\numberline {B.1}{\ignorespaces Environment Design\relax }}{28}
+\contentsline {figure}{\numberline {B.2}{\ignorespaces Representation of the test environment for the first fitness function\relax }}{32}

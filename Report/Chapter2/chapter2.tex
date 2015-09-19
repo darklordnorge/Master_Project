@@ -157,8 +157,46 @@ All genes have also a 5\% change to be mutated.
 \section{Program set up}
 The user specifies the user environment and other simulator parameters, such as how many robots to use, how many generations to evolve, iteration length per generation, where and how often to save genomes. \\
 
-
-
 \section{Mapping algorithm}
+\subsection{Mapping procedure}
+The mapping algorithm works by locating the robot, using the simulators inbuilt functions. \\
+The robots share a global map, the map itself is a 2D occupancy grid. Where each cell can have one of 3 possible values:\\
 
-\section{Other relevant sections}
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{l c r}
+0 & = & Unexplored \\
+1 & = & Occupied \\
+2 & = & Robot's Position \\
+\end{tabular}
+\end{center}
+\end{table}
+
+The entire map is initialised to be 0 in the beginning. For this project each cell is defined as a space a robot can move through. \\
+If a robot is located only partially between 2 cells, its location will be rounded or down, depending on its coordinates, so that at it is always assumed that the complete robot is inside a cell.\\
+
+To map the right cells it is important about to know the heading of the robot. This is done by taken the robots rotation and assigning one of pre-defined headings to it based on it. \\
+The possible headings are inspired by compass direction and are: North, East, South, West, North-East, South-East, South-West, North-West.\\
+Once the robots position and heading are known surrounding cells can be marked based on the IR sensors readings. Since a cell has a the same dimensions as a robot(which has a diameter of 70 mm, and the IR sensor has a range of about 4cm(where an obstacle can still be located with any form of certainty, see figure \ref{fig:ir_distance} on page \pageref{fig:ir_distance} for more information, the robot is only able to map any cells adjacent to the cell occupied by the robot. \\
+Knowledge of the robot's sensor placement allows for easy determinate which cell to mark as occupied based on the IR sensor activation value. \\
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{c | c | c}
+PS6 & PS7 \& PS0 & PS1 \\\hline
+ & $\uparrow$ & \\
+PS5 & Robot Heading & PS2 \\\hline
+ & PS4 \& PS3 & 
+\end{tabular}
+\caption{Correlation between map cells and Robot sensors}
+\label{tab:cells}
+\end{center}
+\end{table}
+
+Table \ref{tab:cells} shows a representation of how robot sensors correlate to to the adjacent cells of where the robot is located. Here \textit{PS} stands for \textit{proximity sensor} followed by the sensor number. See figure \ref{fig:sensor_placement} on page \pageref{fig:sensor_placement} for a graphical representation of the E-Puck robot and its sensors.  \\
+Knowing the robots location, heading, and sensor activation a cell is easily modified using by taken the robots X and Y coordinates and increasing or decreasing both of them to correspond with the cell which needs to be marked. This is done using the above representation as guideline. \\
+Every iteration each robot marks its position on the map with '2' and each found occupied cell as '1'.\\
+
+\subsection{Map visualisation}
+In order do visualize the map, the X and Y coordinates of all cells marked with '1' are saved to a text file.\\
+This file can be loaded into a different program and be visualized using the C++ SDL2 library.
