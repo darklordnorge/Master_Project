@@ -107,8 +107,8 @@ void EXP_Class::set_agent_position(){
     for(int r = 0;r < param->num_agents;r++){
 //         pos[2] = 0.20;   //orig. position
         pos[0] = 0.0;
-        pos[2] = 0.02  + gsl_rng_uniform_pos( GSL_randon_generator::r_rand ); //0.2
-//        pos[2] = 0.04;
+//        pos[2] = 0.02  + gsl_rng_uniform_pos( GSL_randon_generator::r_rand ); //0.2
+        pos[2] = 0.2;
         rot[1] = -0.48 * PI + gsl_rng_uniform_pos( GSL_randon_generator::r_rand )*PI/2 - (PI/4);
 //        pos[1] = 180;
         param->agent[r]->set_robot_pos_rot( pos, rot );
@@ -361,15 +361,15 @@ void EXP_Class::compute_fitness_each_step( void ){
     for(int r=0; r < param->num_agents; r++) {
         double vl = ((param->agent[r]->get_vel()[0] / param->agent[r]->get_max_vel()) + 1) * 0.5;
         double vr = ((param->agent[r]->get_vel()[1] / param->agent[r]->get_max_vel()) + 1) * 0.5;
-        double comp_1 = (fabs(vl) + fabs(vr)) / 2.0;
-        double comp_2 = 1.0 - sqrt(fabs((vl - vr)/2.0));
+        double comp_1 = ((fabs(vl) + fabs(vr)) / 2.0);//2.0
+        double comp_2 = (1.0 - sqrt(fabs((vl - vr)/2.0)));//2.0
         double comp_3 = 0.0;
         for (int i = 0; i < agent_interface[r].inputs.size(); i++) {
             if (comp_3 < agent_interface[r].inputs[i])
                 comp_3 = agent_interface[r].inputs[i];
         }
 
-        comp_3 = (1.0 - (comp_3/1.0));
+        comp_3 = (1.0 - comp_3/1.0);
 //        double comp_4 = 0.0;
 //        if (param->num_agents != 1) {
 //            if (r == param->num_agents-1) {
@@ -388,7 +388,7 @@ void EXP_Class::compute_fitness_each_step( void ){
 ////        cout << "Range for robot " << r << comp_4 << endl;
 //        partial_fitness[r] += comp_1 * comp_2 * comp_3 * comp_4 * param->agent[r]->get_pos()[2];
 //        partial_fitness[r] += comp_1 * comp_2 *comp_3 * param->agent[r]->get_pos()[2];
-        partial_fitness[r] += comp_1 * comp_2 * comp_3;
+        partial_fitness[r] += comp_1 * comp_2 * comp_3 * param->agent[r]->get_pos()[2];
     }
 //    partial_fitness += comp_1 *comp_2 *comp_3 * param->agent[0]->get_pos()[2];
 //    partial_fitness += comp_1 * comp_2 * comp_3;
