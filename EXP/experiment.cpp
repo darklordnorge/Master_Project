@@ -324,8 +324,8 @@ void EXP_Class::update_world( void ){
 // the function is just to capture collision of the robot with another robot or object
 void EXP_Class::manage_collisions (void ){
     for(int r = 0;r < param->num_agents;r++){
-        if(param->agent[0]->is_crashed()){
-            param->agent[0]->set_crashed(false);
+        if(param->agent[r]->is_crashed()){
+            param->agent[r]->set_crashed(false);
             iter = param->num_iterations;
         }
     }
@@ -384,7 +384,7 @@ void EXP_Class::compute_fitness_each_step( void ){
 //
 //
 //
-//
+
 ////        cout << "Range for robot " << r << comp_4 << endl;
 //        partial_fitness[r] += comp_1 * comp_2 * comp_3 * comp_4 * param->agent[r]->get_pos()[2];
 //        partial_fitness[r] += comp_1 * comp_2 *comp_3 * param->agent[r]->get_pos()[2];
