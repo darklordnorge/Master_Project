@@ -107,6 +107,12 @@ A.~L. Nelson, G.~J. Barlow, and L.~Doitsidis, ``{Fitness functions in
 \BIBentrySTDinterwordspacing
 
 
+\bibitem{nolfi2000evolutionary}
+S.~Nolfi and D.~Floreano, \emph{Evolutionary robotics: The biology,
+  intelligence, and technology of self-organizing machines}.\hskip 1em plus
+  0.5em minus 0.4em\relax MIT press, 2000.
+
+
 \bibitem{Thrun2003Learning}
 \BIBentryALTinterwordspacing
 S.~Thrun, ``{Learning Occupancy Grid Maps with Forward Sensor Models},''

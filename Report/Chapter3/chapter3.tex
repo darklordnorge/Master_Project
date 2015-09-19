@@ -188,4 +188,17 @@ void Occupancy_Map::mark_cell(int x_coord, int y_coord, int mark, int** matrix) 
 \end{lstlisting}
 
 \section{Displaying the map}
+A separate program was developed in order to display the map data gathered by the robots. The main program can save the coordinates of the marked cells to a file at the end of a evolutionary run, if the user chooses so. \\
+This file can be loaded into the visualisation program, all that is needed is that the user is aware of the map dimensions. 
+The program will than generate another, empty, 2d map, and mark the occupied cells on is based on the coordinates saved in the file. 
+The map will be visualised afterwards.\\
+This program uses the C++ SDL2 graphics library. 
+
+% add code of the program
+
+\section{Non-evolution bug}
+After the mapping programs were implemented work went into refining the fitness function. \\
+The problem with previous versions of the fitness function were that the robots would always choose the next in line, or if a robot is the last in the line the one before it, in the array that holds the robots. Therefore they would always form the  same groups and stick together within those groups and not work together with other robot groups.\\
+During the process of modifying the fitness function to loop through all robots and check which of them are in communication range a bug occurred that prevented the network from evolving in following experiments. \\
+Debug methods where tried and even resetting the state of the project to previous points using version control did not fix the the problems encountered due to the bug. \\
 

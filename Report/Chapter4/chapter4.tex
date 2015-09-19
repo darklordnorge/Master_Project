@@ -1,19 +1,19 @@
 \chapter{Testing}
-
-
+This chapter holds the overall approach to testing. \\
+This includes the test and experiments which have been performed during the development phase, as well as a limited number of experiments. 
+The number of experiments is unfortunately limited based on the still existing bug which prevents the program to evolve further. \\
 
 \section{Overall Approach to Testing}
+As the program requires a simulator to run in and controllers are needed to be evolved the only possible way to test changes made to the program, i.e. a new fitness function, refinement of some parameters, implementation of a new function, etc. can only be done by running the program in evolution mode over multiple generations in order to see the effect of the changes made on the robot behaviour and performance.\\
+That is one of the problems encountered when working with evolutionary algorithms, the evolution itself can be seen as a black box and only testing a change multiple times can give a correct view of the behaviour changes created by chancing part of the code. To run major changes multiple times in order to get an understanding of the change in behaviour is needed as evolution in itself is has a very random element.\\
+It might be that the user gives a good, or bad, seed for evolution which causes the behaviour to be better than other instances or be much worse. \\
+Examples for this which were encountered during this development were that running the same, unchanged, code multiple times with a different seed every time were as different as: Controller not evolving at all(the robot did not move), the robot only spinning around, however the average of runs evolved normally. \\
+One of the more rare evolutions caused the robot to drive only backwards. \\
 
-\section{Automated Testing}
+The nature of needing an evolution over multiple generations limits testing possibilities in a way that the only way to test and document a controllers behaviour and performance is by evolving it and than running the program using the simulators viewing mode and document it. \\
+This makes automated unit testing impossible.\\
 
-\subsection{Unit Tests}
+\section{Development Environment}
+During development(apart from the test environment for the first fitness function) only a single environment was used for evolution and testing.\\
+A representation of this environment can be seen in appendix B figure \ref{appendix2:environment} on page \pageref{appendix2:environment}. 
 
-\subsection{User Interface Testing}
-
-\subsection{Stress Testing}
-
-\subsection{Other types of testing}
-
-\section{Integration Testing}
-
-\section{User Testing}
