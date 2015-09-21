@@ -49,26 +49,28 @@
 \contentsline {section}{\numberline {3.6}Non-evolution bug}{22}
 \contentsline {chapter}{\numberline {4}Testing}{23}
 \contentsline {section}{\numberline {4.1}Overall Approach to Testing}{23}
-\contentsline {section}{\numberline {4.2}Multi robot movement}{24}
-\contentsline {chapter}{\numberline {5}Evaluation}{25}
-\contentsline {chapter}{Appendices}{26}
-\contentsline {chapter}{\numberline {A}Third-Party Code and Libraries}{27}
-\contentsline {section}{\numberline {1.1}Range and Bearing reading}{27}
-\contentsline {chapter}{\numberline {B}Code samples}{29}
-\contentsline {section}{\numberline {2.1}Environment Design}{29}
-\contentsline {section}{\numberline {2.2}GA assisted Artificial Neural Network}{30}
-\contentsline {subsection}{\numberline {2.2.1}Constructor and genotype length computation}{30}
-\contentsline {subsection}{\numberline {2.2.2}Initialisation}{30}
-\contentsline {subsection}{\numberline {2.2.3}Step function}{31}
-\contentsline {section}{\numberline {2.3}Test Environment for first fitness function}{33}
-\contentsline {section}{\numberline {2.4}Map}{33}
-\contentsline {subsection}{\numberline {2.4.1}Initialisation}{33}
-\contentsline {subsection}{\numberline {2.4.2}Calculate Heading}{34}
-\contentsline {subsection}{\numberline {2.4.3}Calculation of robot position on the map}{35}
-\contentsline {subsection}{\numberline {2.4.4}Return the correct Sensor number}{36}
-\contentsline {subsection}{\numberline {2.4.5}Decide which cells to mark}{36}
-\contentsline {subsection}{\numberline {2.4.6}Map cells in the direct front of the robot}{37}
-\contentsline {subsection}{\numberline {2.4.7}Map cells off the bow of the robot}{38}
-\contentsline {subsection}{\numberline {2.4.8}Map cells to the side of the robot}{38}
-\contentsline {subsection}{\numberline {2.4.9}Set Aft cells of the robot}{39}
-\contentsline {chapter}{Annotated Bibliography}{40}
+\contentsline {section}{\numberline {4.2}Experiment A: Multi-robot movement}{24}
+\contentsline {section}{\numberline {4.3}Experiment B: Mapping}{26}
+\contentsline {chapter}{\numberline {5}Evaluation}{29}
+\contentsline {chapter}{Appendices}{30}
+\contentsline {chapter}{\numberline {A}Third-Party Code and Libraries}{31}
+\contentsline {section}{\numberline {1.1}Range and Bearing reading}{31}
+\contentsline {chapter}{\numberline {B}Code samples}{33}
+\contentsline {section}{\numberline {2.1}Environment Design}{33}
+\contentsline {section}{\numberline {2.2}GA assisted Artificial Neural Network}{34}
+\contentsline {subsection}{\numberline {2.2.1}Constructor and genotype length computation}{34}
+\contentsline {subsection}{\numberline {2.2.2}Initialisation}{34}
+\contentsline {subsection}{\numberline {2.2.3}Step function}{35}
+\contentsline {section}{\numberline {2.3}Test Environment for first fitness function}{37}
+\contentsline {section}{\numberline {2.4}Map}{37}
+\contentsline {subsection}{\numberline {2.4.1}Initialisation}{37}
+\contentsline {subsection}{\numberline {2.4.2}Calculate Heading}{38}
+\contentsline {subsection}{\numberline {2.4.3}Calculation of robot position on the map}{39}
+\contentsline {subsection}{\numberline {2.4.4}Return the correct Sensor number}{40}
+\contentsline {subsection}{\numberline {2.4.5}Decide which cells to mark}{40}
+\contentsline {subsection}{\numberline {2.4.6}Map cells in the direct front of the robot}{41}
+\contentsline {subsection}{\numberline {2.4.7}Map cells off the bow of the robot}{42}
+\contentsline {subsection}{\numberline {2.4.8}Map cells to the side of the robot}{42}
+\contentsline {subsection}{\numberline {2.4.9}Set Aft cells of the robot}{43}
+\contentsline {section}{\numberline {2.5}SDL program for map visualisation}{44}
+\contentsline {chapter}{Annotated Bibliography}{46}

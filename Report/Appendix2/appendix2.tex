@@ -452,3 +452,87 @@ void Occupancy_Map::set_aft_cells(int heading, int sensor, int robot_x, int robo
     }
 }
 \end{lstlisting}
+
+\section{SDL program for map visualisation}
+\label{code:sdl}
+This program is used to draw the map data on the screen.\\
+For more information see chapter 3 section \ref{chap3:sdl} on page \pageref{chap3:sdl}.
+
+\begin{lstlisting}[caption = {SDL program for map visualisation}]
+#include <SDL2/SDL.h>
+#include <stdio.h>
+#include <iostream>
+#include <fstream>
+#include <vector>
+
+#define map_height 2500
+#define map_width 2500
+
+SDL_Rect newSDL_Rect(int xs, int ys, int widths, int heights) {
+    SDL_Rect rectangular;
+    rectangular.x = xs;
+    rectangular.y = ys;
+    rectangular.w = widths;
+    rectangular.h = heights;
+    return rectangular;
+}
+
+int main(int argc, char* args[]) {
+    SDL_Window* window = NULL;
+    SDL_Surface* surface = NULL;
+
+    int y = 0;
+    int x = 0;
+
+    std::vector<int> y_value;
+    std::vector<int> x_value;
+
+    std::ifstream in;
+    in.open("map.txt");
+    while(in >> y >> x){
+
+        y_value.push_back(y);
+        x_value.push_back(x);
+    }
+
+
+    if (SDL_Init(SDL_INIT_VIDEO) < 0) //Init the video driver
+    {
+        printf("SDL_Error: %s\n", SDL_GetError());
+    }
+    else
+    {
+        window = SDL_CreateWindow("SDL 2", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 640,420, SDL_WINDOW_SHOWN); //Creates the window
+        if (window == NULL)
+        {
+            printf("SDL_Error: %s\n", SDL_GetError());
+        }
+        else
+        {
+            SDL_Renderer* renderer = NULL;
+            renderer = SDL_CreateRenderer(window, 0, SDL_RENDERER_ACCELERATED); //renderer used to color rects
+
+            SDL_SetRenderDrawColor(renderer, 51, 102, 153, 255);
+            SDL_RenderClear(renderer);
+
+            SDL_Rect rects[y_value.size()];
+            printf("Y: %lu\n X: %lu\n",y_value.size(), x_value.size());
+            for (int i = 0; i < y_value.size(); i++){
+                int x = 0;
+                int y = 0;
+
+                rects[i] = newSDL_Rect(y_value[i]/5, x_value[i]/5, 1, 1);
+                SDL_SetRenderDrawColor(renderer, 255, 102, 0, 255);
+
+                SDL_RenderFillRect(renderer, &rects[i]);
+            }
+            SDL_RenderPresent(renderer);
+            SDL_UpdateWindowSurface(window);
+            SDL_Delay(15000);
+        }
+    }
+    SDL_DestroyWindow(window);
+    SDL_Quit();
+    return 0;
+}
+\end{lstlisting}

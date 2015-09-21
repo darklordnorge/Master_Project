@@ -188,13 +188,17 @@ void Occupancy_Map::mark_cell(int x_coord, int y_coord, int mark, int** matrix) 
 \end{lstlisting}
 
 \section{Displaying the map}
+\label{chap3:sdl}
 A separate program was developed in order to display the map data gathered by the robots. The main program can save the coordinates of the marked cells to a file at the end of a evolutionary run, if the user chooses so. \\
 This file can be loaded into the visualisation program, all that is needed is that the user is aware of the map dimensions. 
 The program will than generate another, empty, 2d map, and mark the occupied cells on is based on the coordinates saved in the file. 
 The map will be visualised afterwards.\\
-This program uses the C++ SDL2 graphics library. 
+This program uses the C++ SDL2 graphics library. \\
+The code for this program can be seen in appendix B section \ref{code:sdl} on page \pageref{code:sdl}.\\
 
-% add code of the program
+The code reads a file of coordinates, where the coordinates represent a cell in the map that has been marked as '1'.\\
+The file is read into 2 different vectors, one for \textit{x} and one for \textit{y} coordinates. These coordinates are read from the vectors to create new objects of a self defined \textit{newSDL\_Rect} struct, the structs are drawn on the screen using standard SDL operations. \\
+Note that the coordinates are scaled down by a factor of 5, this is done in order to represent maps which large dimensions(the one used for this is $2500 x 2500$) in an window that is $640 x 420$. 
 
 \section{Non-evolution bug}
 After the mapping programs were implemented work went into refining the fitness function. \\
