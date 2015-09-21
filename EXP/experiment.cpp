@@ -356,7 +356,6 @@ void EXP_Class::compute_fitness( void ){
 void EXP_Class::compute_fitness_each_step( void ){
     vector <double> randB_reading;
     randB_reading.assign(2, 0.0);
-    int r = 0;
 
     /*---------------------------------------------------------------------------------------------------------------*/
     /*                                          New Fitness Function*/
