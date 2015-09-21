@@ -107,8 +107,8 @@ void EXP_Class::set_agent_position(){
     for(int r = 0;r < param->num_agents;r++){
 //         pos[2] = 0.20;   //orig. position
         pos[0] = 0.0;
-//        pos[2] = 0.02  + gsl_rng_uniform_pos( GSL_randon_generator::r_rand ); //0.2
-        pos[2] = 0.2;
+        pos[2] = 0.02  + gsl_rng_uniform_pos( GSL_randon_generator::r_rand ); //0.2
+//        pos[2] = 0.2;
         rot[1] = -0.48 * PI + gsl_rng_uniform_pos( GSL_randon_generator::r_rand )*PI/2 - (PI/4);
 //        pos[1] = 180;
         param->agent[r]->set_robot_pos_rot( pos, rot );
@@ -203,7 +203,6 @@ void EXP_Class::adv ( void ){
     update_controllers ( );
     update_Actuators();
 
-
     for(int i=0;i < 6;i++){
         update_world();
         param->world->stepSimulation( param->physics_step);
@@ -265,7 +264,7 @@ void EXP_Class::update_controllers( void ){
     //use the following functions:
     //param->nets[r]->get_num_input()
     for(int r=0; r < param->num_agents; r++){
-        agent_interface[r].outputs.assign(param->nets[0]->get_num_output(),0.0);
+        agent_interface[r].outputs.assign(param->nets[r]->get_num_output(),0.0);
     }
 
     //update robot controllers
@@ -358,6 +357,10 @@ void EXP_Class::compute_fitness_each_step( void ){
     vector <double> randB_reading;
     randB_reading.assign(2, 0.0);
     int r = 0;
+
+    /*---------------------------------------------------------------------------------------------------------------*/
+    /*                                          New Fitness Function*/
+    /*---------------------------------------------------------------------------------------------------------------*/
     for(int r=0; r < param->num_agents; r++) {
         double vl = ((param->agent[r]->get_vel()[0] / param->agent[r]->get_max_vel()) + 1) * 0.5;
         double vr = ((param->agent[r]->get_vel()[1] / param->agent[r]->get_max_vel()) + 1) * 0.5;
@@ -370,6 +373,53 @@ void EXP_Class::compute_fitness_each_step( void ){
         }
 
         comp_3 = (1.0 - comp_3/1.0);
+        double comp_4 = 0.0;
+        if (param->num_agents != 1) {
+            if (r == param->num_agents-1) {
+                param->agent[r]->get_randb_reading(param->agent[r - 1]->get_pos(), randB_reading);
+                comp_4 = randB_reading[0];
+            }
+            else {
+                param->agent[r]->get_randb_reading(param->agent[r + 1]->get_pos(), randB_reading);
+                comp_4 = randB_reading[0];
+            }
+        }
+
+        partial_fitness[r] += comp_1 * comp_2 * comp_3 * comp_4 * param->agent[r]->get_pos()[2];
+
+//        if(comp_4 > 0.6){
+//            partial_fitness[r] = 0;
+//        }
+//        else{
+//            partial_fitness[r] += comp_1 * comp_2 * comp_3 * comp_4 * param->agent[r]->get_pos()[2];
+//        }
+
+
+
+////        cout << "Range for robot " << r << comp_4 << endl;
+//        partial_fitness[r] += comp_1 * comp_2 * comp_3 * comp_4 * param->agent[r]->get_pos()[2];
+//        partial_fitness[r] += comp_1 * comp_2 *comp_3 * param->agent[r]->get_pos()[2];
+//        partial_fitness[r] += comp_1 * comp_2 * comp_3 * param->agent[r]->get_pos()[2];
+    }
+
+    /*-----------------------------------------------------------------------------------------------------*/
+    /*-----------------------------------------------------------------------------------------------------*/
+
+    /*------------------------------------------------------------------------------------------------------*/
+    /*                             Old Fitness function for experiment purposes                             */
+    /*------------------------------------------------------------------------------------------------------*/
+//    for(int r=0; r < param->num_agents; r++) {
+//        double vl = ((param->agent[r]->get_vel()[0] / param->agent[r]->get_max_vel()) + 1) * 0.5;
+//        double vr = ((param->agent[r]->get_vel()[1] / param->agent[r]->get_max_vel()) + 1) * 0.5;
+//        double comp_1 = (vl + vr) * 0.5;
+//        double comp_2 = 1.0 - sqrt(fabs(vl - vr));
+//        double comp_3 = 0.0;
+//        for (int i = 0; i < agent_interface[r].inputs.size(); i++) {
+//            if (comp_3 < agent_interface[r].inputs[i])
+//                comp_3 = agent_interface[r].inputs[i];
+//        }
+//
+//        comp_3 = (1.0 - comp_3);
 //        double comp_4 = 0.0;
 //        if (param->num_agents != 1) {
 //            if (r == param->num_agents-1) {
@@ -382,16 +432,15 @@ void EXP_Class::compute_fitness_each_step( void ){
 //            }
 //        }
 //
+//        if(comp_4 > 0.6){
+//            partial_fitness[r] = 0;
+//        }
+//        else{
+//            partial_fitness[r] += comp_1 * comp_2 * comp_3 * comp_4 * param->agent[r]->get_pos()[2];
+//        }
+////        cout << "Range" << comp_4 << endl;
 //
-//
-
-////        cout << "Range for robot " << r << comp_4 << endl;
-//        partial_fitness[r] += comp_1 * comp_2 * comp_3 * comp_4 * param->agent[r]->get_pos()[2];
-//        partial_fitness[r] += comp_1 * comp_2 *comp_3 * param->agent[r]->get_pos()[2];
-        partial_fitness[r] += comp_1 * comp_2 * comp_3 * param->agent[r]->get_pos()[2];
-    }
-//    partial_fitness += comp_1 *comp_2 *comp_3 * param->agent[0]->get_pos()[2];
-//    partial_fitness += comp_1 * comp_2 * comp_3;
+//    }
 }
 
 /* ---------------------------------------------------------------------------------------- */

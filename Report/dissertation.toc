@@ -49,7 +49,7 @@
 \contentsline {section}{\numberline {3.6}Non-evolution bug}{22}
 \contentsline {chapter}{\numberline {4}Testing}{23}
 \contentsline {section}{\numberline {4.1}Overall Approach to Testing}{23}
-\contentsline {section}{\numberline {4.2}Development Environment}{24}
+\contentsline {section}{\numberline {4.2}Multi robot movement}{24}
 \contentsline {chapter}{\numberline {5}Evaluation}{25}
 \contentsline {chapter}{Appendices}{26}
 \contentsline {chapter}{\numberline {A}Third-Party Code and Libraries}{27}
