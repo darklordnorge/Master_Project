@@ -372,19 +372,19 @@ void EXP_Class::compute_fitness_each_step( void ){
         }
 
         comp_3 = (1.0 - comp_3/1.0);
-        double comp_4 = 0.0;
-        if (param->num_agents != 1) {
-            if (r == param->num_agents-1) {
-                param->agent[r]->get_randb_reading(param->agent[r - 1]->get_pos(), randB_reading);
-                comp_4 = randB_reading[0];
-            }
-            else {
-                param->agent[r]->get_randb_reading(param->agent[r + 1]->get_pos(), randB_reading);
-                comp_4 = randB_reading[0];
-            }
-        }
-
-        partial_fitness[r] += comp_1 * comp_2 * comp_3 * comp_4 * param->agent[r]->get_pos()[2];
+//        double comp_4 = 0.0;
+//        if (param->num_agents != 1) {
+//            if (r == param->num_agents-1) {
+//                param->agent[r]->get_randb_reading(param->agent[r - 1]->get_pos(), randB_reading);
+//                comp_4 = randB_reading[0];
+//            }
+//            else {
+//                param->agent[r]->get_randb_reading(param->agent[r + 1]->get_pos(), randB_reading);
+//                comp_4 = randB_reading[0];
+//            }
+//        }
+//
+//        partial_fitness[r] += comp_1 * comp_2 * comp_3 * comp_4 * param->agent[r]->get_pos()[2];
 
 //        if(comp_4 > 0.6){
 //            partial_fitness[r] = 0;
@@ -397,7 +397,7 @@ void EXP_Class::compute_fitness_each_step( void ){
 
 ////        cout << "Range for robot " << r << comp_4 << endl;
 //        partial_fitness[r] += comp_1 * comp_2 * comp_3 * comp_4 * param->agent[r]->get_pos()[2];
-//        partial_fitness[r] += comp_1 * comp_2 *comp_3 * param->agent[r]->get_pos()[2];
+        partial_fitness[r] += comp_1 * comp_2 *comp_3 * param->agent[r]->get_pos()[2];
 //        partial_fitness[r] += comp_1 * comp_2 * comp_3 * param->agent[r]->get_pos()[2];
     }
 
