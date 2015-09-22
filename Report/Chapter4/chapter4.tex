@@ -99,3 +99,58 @@ The main reason for the inaccurate map creation in the way the mapping algorithm
 The way this could have been improved is by implementing an probability approach which will only mark a cells as occupied if it has a certain probability of being occupied. This involves marking a cell as \textit{scanned} and when another robot, or the same robot, scan the same cell again the probability that this cell really is occupied increases. 
 
 \section{Different Environments}
+In order to test the performance of the evolved neural network, different test environments were implemented and the robots where set to perform the mapping task in them. 
+Neural networks are very able to perform in different environments to those they have been trained in. The reason for that is that even if the environment changes, the network is trained to react to inputs from it's sensors in real time and a very specific way and will continue doing so. \\
+To test the performance of the mapping and communication algorithm in different environments 3 test environments have been created. They will be introduced and their results analysed in this section.\\
+
+\subsection{Experiment environment A}
+Environment A has been created to test how the trained neural network reacts to strongly angled obstacles. To increase the difficulty other obstacles where added to the environment.\\
+Figure \ref{fig:experiment_a} shows a representation of the environment, while figure \ref{fig:experiment_a_map} shows the map that has been generated for this environment.  
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.4]{Chapter4/images/experiment_1.png}
+\caption{Environment A: Angled obstacles}
+\label{fig:experiment_a}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.4]{Chapter4/images/experiment_1_map.png}
+\caption{Map for environment A}
+\label{fig:experiment_a_map}
+\end{figure}
+
+While 2 of the robots managed to bypass the large obstacle and move into the rest of the environment, 2 robots got \textit{stuck}
+
+\subsection{Experiment environment B}
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.4]{Chapter4/images/experiment_2.png}
+\caption{Environment B: Corridor situation}
+\label{fig:experiment_b}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.4]{Chapter4/images/experiment_2_map.png}
+\caption{Map for environment B}
+\label{fig:experiment_b_map}
+\end{figure}
+
+\subsection{Experiment environment C}
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.4]{Chapter4/images/experiment_3.png}
+\caption{Environment C: empty room with large obstacle at the center}
+\label{fig:experiment_c}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.4]{Chapter4/images/experiment_3_map.png}
+\caption{Map for environment C}
+\label{fig:experiment_c_map}
+\end{figure}
