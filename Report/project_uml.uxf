@@ -1,12 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?><diagram program="umlet" version="11.3">
-  <zoom_level>5</zoom_level>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="13.3">
+  <zoom_level>4</zoom_level>
   <element>
-    <type>com.umlet.element.Class</type>
+    <type>com.baselet.element.old.element.Class</type>
     <coordinates>
-      <x>0</x>
-      <y>265</y>
-      <w>200</w>
-      <h>485</h>
+      <x>332</x>
+      <y>276</y>
+      <w>160</w>
+      <h>388</h>
     </coordinates>
     <panel_attributes>EXP_Class
 --
@@ -75,12 +76,12 @@
     <additional_attributes/>
   </element>
   <element>
-    <type>com.umlet.element.Class</type>
+    <type>com.baselet.element.old.element.Class</type>
     <coordinates>
-      <x>660</x>
-      <y>265</y>
-      <w>305</w>
-      <h>140</h>
+      <x>860</x>
+      <y>276</y>
+      <w>244</w>
+      <h>116</h>
     </coordinates>
     <panel_attributes>MyController
 --
@@ -104,12 +105,12 @@ _- low_bound : const static double_
     <additional_attributes/>
   </element>
   <element>
-    <type>com.umlet.element.Class</type>
+    <type>com.baselet.element.old.element.Class</type>
     <coordinates>
-      <x>655</x>
-      <y>0</y>
-      <w>300</w>
-      <h>150</h>
+      <x>864</x>
+      <y>84</y>
+      <w>240</w>
+      <h>120</h>
     </coordinates>
     <panel_attributes>Controller
 --
@@ -136,23 +137,23 @@ _# num_output :  const int_
     <additional_attributes/>
   </element>
   <element>
-    <type>com.umlet.element.Relation</type>
+    <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>800</x>
-      <y>135</y>
-      <w>24</w>
-      <h>139</h>
+      <x>972</x>
+      <y>192</y>
+      <w>20</w>
+      <h>92</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>15;15;15;130</additional_attributes>
+    <additional_attributes>12;12;12;84</additional_attributes>
   </element>
   <element>
-    <type>com.umlet.element.Class</type>
+    <type>com.baselet.element.old.element.Class</type>
     <coordinates>
-      <x>320</x>
-      <y>265</y>
-      <w>280</w>
-      <h>485</h>
+      <x>580</x>
+      <y>276</y>
+      <w>224</w>
+      <h>388</h>
     </coordinates>
     <panel_attributes>Parameters
 --
@@ -226,36 +227,36 @@ _# num_output :  const int_
     <additional_attributes/>
   </element>
   <element>
-    <type>com.umlet.element.Relation</type>
+    <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>185</x>
-      <y>260</y>
-      <w>144</w>
-      <h>24</h>
+      <x>480</x>
+      <y>272</y>
+      <w>108</w>
+      <h>20</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-
 r2=1</panel_attributes>
-    <additional_attributes>15;15;135;15</additional_attributes>
+    <additional_attributes>12;12;100;12</additional_attributes>
   </element>
   <element>
-    <type>com.umlet.element.Relation</type>
+    <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>585</x>
-      <y>260</y>
-      <w>84</w>
-      <h>24</h>
+      <x>792</x>
+      <y>272</y>
+      <w>76</w>
+      <h>20</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-
 r2=1..*</panel_attributes>
-    <additional_attributes>15;15;75;15</additional_attributes>
+    <additional_attributes>12;12;68;12</additional_attributes>
   </element>
   <element>
-    <type>com.umlet.element.Class</type>
+    <type>com.baselet.element.old.element.Class</type>
     <coordinates>
-      <x>760</x>
-      <y>490</y>
-      <w>105</w>
-      <h>360</h>
+      <x>952</x>
+      <y>400</y>
+      <w>236</w>
+      <h>480</h>
     </coordinates>
     <panel_attributes>SIMPLE_agent
 --
@@ -304,12 +305,95 @@ _+ num_camera_sectors : const int_
 + *right_hinge : btHingeConstraint
 
 --
-#Operation(i: int): int
-+AbstractOperation()
++ SIMPLE_Agents()
++ SIMPLE_Agents(ind:int, simulation_time_step:double, *world:btDynamicsWorld)
++ get_rotation() : double
++ get_heading() : int
++ addRobotPhysics(&amp;_pos:const vector&lt;double&gt;, &amp;_rot:const vector&lt;double&gt;) : void
++ get_IR_reading(&amp;_reading:vector&lt;double&gt;) : void
++ get_camera_reading(&amp;_reading:vector&lt;double&gt;) : void
++ add_noise(&amp;reading:vector&lt;double&gt;) : void
++ set_pos(&amp;_pos:const vector&lt;double&gt;) : void
++ set_robot_pos_rot(&amp;_pos:const vector&lt;double&gt;, &amp;_rot:const vector&lt;double&gt;) : void
++ set_rot(&amp;_rot:const vector&lt;double&gt;) : void
++ set_vel(&amp;_vel:const vector&lt;double&gt;) : void
++ get_randb_reading(_to_robot_pos:vector&lt;double&gt;, &amp;_reading:vector&lt;double&gt;) : double
++ get_pos() : const vector&lt;double&gt;
++ get_rot() : const vector&lt;double&gt;
++ get_dim() : const vector&lt;double&gt;
++ get_colour() : const vector&lt;double&gt;
++ set_colour(c:const vector&lt;double&gt;) : void
++ get_vel() : const vector&lt;double&gt;
+_+ get_max_vel() : const double_
+_+ get_min_vel() : const double_
+_+ get_radius() : const double_
++ get_right_out() : const double
++ get_left_lout() : const double
++ set_frozen(flag:bool) : void
++ is_frozen() : const bool
++ update_pos_ros() : void
++ pinkq(gen:int) : double
++ render() : void
 --
-Responsibilities
--- Resp1
-*-- Resp2*</panel_attributes>
+</panel_attributes>
     <additional_attributes/>
+  </element>
+  <element>
+    <type>com.baselet.element.old.element.Relation</type>
+    <coordinates>
+      <x>792</x>
+      <y>432</y>
+      <w>168</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+
+r2=1..*</panel_attributes>
+    <additional_attributes>12;12;160;12</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>560</x>
+      <y>760</y>
+      <w>232</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>Occupancy_Map
+--
+_- map_width : const int_
+_- map_height : const int_
+- **map : int
+--
++ Occupancy_Map()
++ init : int**
++ calc_robot_pos(x_coord:double, y_coord:double) : int*
++ calc_matrix_values(&amp;ir_reading:vector&lt;double&gt;, heading:int,
+          	robot_x:int, robot_y:int, **matrix:int) : void
++ set_front_cells(heading:int, sensor:int, robot_x:int, robot_y:int, **matrix:int) : void
++ set_front_side_cells(heading:int, sensor:int, robot_x:int, robot_y:int, **matrix:int) : void
++ set_side_cells(heading:int, sensor:int, robot_x:int, robot_y:int, **matrix:int) : void
++ set_aft_cells(heading:int, sensor:int, robot_x:int, robot_y:int, **matrix:int) : void
++ set_angeld_cells(heading:int, sensor:int, robot_x:int, robot_y:int, **matrix:int) : void
++ mark_cells(x_coord:int, y_coord:int, mark:int, **matrix:int) : void
++ calc_sensor(array_num:int) : int
++ calc_heading(rotation:double) : int
++ save_map(**matrix:int) : void
+
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.baselet.element.old.element.Relation</type>
+    <coordinates>
+      <x>388</x>
+      <y>652</y>
+      <w>180</w>
+      <h>128</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+r2=1</panel_attributes>
+    <additional_attributes>12;12;12;120;172;120</additional_attributes>
   </element>
 </diagram>

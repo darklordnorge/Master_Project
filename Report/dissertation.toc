@@ -23,9 +23,9 @@
 \contentsline {subsection}{\numberline {2.1.3}Fitness Function}{11}
 \contentsline {subsection}{\numberline {2.1.4}Genetic Algorithm}{12}
 \contentsline {section}{\numberline {2.2}Program set up}{12}
-\contentsline {section}{\numberline {2.3}Mapping algorithm}{12}
-\contentsline {subsection}{\numberline {2.3.1}Mapping procedure}{12}
-\contentsline {subsection}{\numberline {2.3.2}Map visualisation}{13}
+\contentsline {section}{\numberline {2.3}Mapping algorithm}{13}
+\contentsline {subsection}{\numberline {2.3.1}Mapping procedure}{13}
+\contentsline {subsection}{\numberline {2.3.2}Map visualisation}{14}
 \contentsline {chapter}{\numberline {3}Implementation}{15}
 \contentsline {section}{\numberline {3.1}Implementation of the GA assisted Artificial Neural Network}{15}
 \contentsline {subsection}{\numberline {3.1.1}Constructor and genotype length computation}{15}
@@ -51,6 +51,7 @@
 \contentsline {section}{\numberline {4.1}Overall Approach to Testing}{23}
 \contentsline {section}{\numberline {4.2}Experiment A: Multi-robot movement}{24}
 \contentsline {section}{\numberline {4.3}Experiment B: Mapping}{26}
+\contentsline {section}{\numberline {4.4}Different Environments}{28}
 \contentsline {chapter}{\numberline {5}Evaluation}{29}
 \contentsline {chapter}{Appendices}{30}
 \contentsline {chapter}{\numberline {A}Third-Party Code and Libraries}{31}
@@ -73,4 +74,5 @@
 \contentsline {subsection}{\numberline {2.4.8}Map cells to the side of the robot}{42}
 \contentsline {subsection}{\numberline {2.4.9}Set Aft cells of the robot}{43}
 \contentsline {section}{\numberline {2.5}SDL program for map visualisation}{44}
-\contentsline {chapter}{Annotated Bibliography}{46}
+\contentsline {section}{\numberline {2.6}UML}{45}
+\contentsline {chapter}{Annotated Bibliography}{51}

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="13.3">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>270</x>
+      <y>180</y>
+      <w>580</w>
+      <h>350</h>
+    </coordinates>
+    <panel_attributes>Occupancy_Map
+--
+_- map_width : const int_
+_- map_height : const int_
+- **map : int
+--
++ Occupancy_Map()
++ init : int**
++ calc_robot_pos(x_coord:double, y_coord:double) : int*
++ calc_matrix_values(&amp;ir_reading:vector&lt;double&gt;, heading:int,
+          	robot_x:int, robot_y:int, **matrix:int) : void
++ set_front_cells(heading:int, sensor:int, robot_x:int, robot_y:int, **matrix:int) : void
++ set_front_side_cells(heading:int, sensor:int, robot_x:int, robot_y:int, **matrix:int) : void
++ set_side_cells(heading:int, sensor:int, robot_x:int, robot_y:int, **matrix:int) : void
++ set_aft_cells(heading:int, sensor:int, robot_x:int, robot_y:int, **matrix:int) : void
++ set_angeld_cells(heading:int, sensor:int, robot_x:int, robot_y:int, **matrix:int) : void
++ mark_cells(x_coord:int, y_coord:int, mark:int, **matrix:int) : void
++ calc_sensor(array_num:int) : int
++ calc_heading(rotation:double) : int
++ save_map(**matrix:int) : void
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

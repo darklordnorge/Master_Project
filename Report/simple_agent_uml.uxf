@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="13.3">
+  <zoom_level>8</zoom_level>
+  <element>
+    <type>com.baselet.element.old.element.Class</type>
+    <coordinates>
+      <x>480</x>
+      <y>0</y>
+      <w>472</w>
+      <h>960</h>
+    </coordinates>
+    <panel_attributes>SIMPLE_agent
+--
+# right_out : double
+# left_out : double
+# rotation : double
+# simulation_time_step : double
+# pos : vector&lt;double&gt;
+# dim : vector&lt;double&gt;
+# rot : vector&lt;double&gt;
+# long_term : vector &lt;double&gt;
+# medium_term : vector &lt;double&gt;
+# frozen : bool
+_# robot_slices : const int_
+_# wheel_distance : const double_
+_# half_wheel_distance : const double_
+_# wheel_radius : const double_
+_# robot_radius : const double_
+_# robot_height : const double_
+_# IR_range : const double_
+_# max_IR_range : const double_
+_# camera_ray : const double_
+_# pos_noise : const double_
+_# rot_noise : const double_
+_# vel_noise : const double_
+_# max_vel : const double_
+_# min_vel : const double_
+_# prob_long_term_change : const double_
+_# prob_medium_term_change : const double_
+_+ num_IR_sensors : const int_
+_+ num_camera_rays_per_sectors : const int_
+_+ num_camera_sectors : const int_
++ start_pos : vector&lt;double&gt;
++ vel : vector&lt;double&gt;
++ to1 : vector&lt;btVector3&gt;
++ from1 : vector&lt;btVecto3&gt;
++ to2 : vector&lt;btVector3&gt;
++ from2 : btVector3
++ randb_from : btVector3
++ randb_to : btVector3
++ *world : btDynamicsWorld
++ *body : btRigidBody
++ *right_wheel : btRigidBody
++ *left_wheel : btRigidBody
++ *left_hinge : btHingeConstraint
++ *right_hinge : btHingeConstraint
+
+--
++ SIMPLE_Agents()
++ SIMPLE_Agents(ind:int, simulation_time_step:double, *world:btDynamicsWorld)
++ get_rotation() : double
++ get_heading() : int
++ addRobotPhysics(&amp;_pos:const vector&lt;double&gt;, &amp;_rot:const vector&lt;double&gt;) : void
++ get_IR_reading(&amp;_reading:vector&lt;double&gt;) : void
++ get_camera_reading(&amp;_reading:vector&lt;double&gt;) : void
++ add_noise(&amp;reading:vector&lt;double&gt;) : void
++ set_pos(&amp;_pos:const vector&lt;double&gt;) : void
++ set_robot_pos_rot(&amp;_pos:const vector&lt;double&gt;, &amp;_rot:const vector&lt;double&gt;) : void
++ set_rot(&amp;_rot:const vector&lt;double&gt;) : void
++ set_vel(&amp;_vel:const vector&lt;double&gt;) : void
++ get_randb_reading(_to_robot_pos:vector&lt;double&gt;, &amp;_reading:vector&lt;double&gt;) : double
++ get_pos() : const vector&lt;double&gt;
++ get_rot() : const vector&lt;double&gt;
++ get_dim() : const vector&lt;double&gt;
++ get_colour() : const vector&lt;double&gt;
++ set_colour(c:const vector&lt;double&gt;) : void
++ get_vel() : const vector&lt;double&gt;
+_+ get_max_vel() : const double_
+_+ get_min_vel() : const double_
+_+ get_radius() : const double_
++ get_right_out() : const double
++ get_left_lout() : const double
++ set_frozen(flag:bool) : void
++ is_frozen() : const bool
++ update_pos_ros() : void
++ pinkq(gen:int) : double
++ render() : void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

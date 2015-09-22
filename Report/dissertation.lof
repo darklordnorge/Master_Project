@@ -20,3 +20,8 @@
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {B.1}{\ignorespaces Environment Design\relax }}{33}
 \contentsline {figure}{\numberline {B.2}{\ignorespaces Representation of the test environment for the first fitness function\relax }}{37}
+\contentsline {figure}{\numberline {B.3}{\ignorespaces A simplified diagram that shows the relationships between the classes\relax }}{46}
+\contentsline {figure}{\numberline {B.4}{\ignorespaces UML diagram for the experiment class\relax }}{47}
+\contentsline {figure}{\numberline {B.5}{\ignorespaces UML diagram for the parameters class\relax }}{48}
+\contentsline {figure}{\numberline {B.6}{\ignorespaces UML diagram for the SIMPLE\_Agent class\relax }}{49}
+\contentsline {figure}{\numberline {B.7}{\ignorespaces UML diagram of the MyController class and it's superclass\relax }}{50}

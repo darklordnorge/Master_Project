@@ -97,3 +97,5 @@ While the robot will map obstacles less frequent with a threshold set to +/- 5, 
 
 The main reason for the inaccurate map creation in the way the mapping algorithm marks cells. As described in chapter 3 the algorithm marks cells in a specific area around the robot, the problem with that is that something will be marked when the sensor give a high enough reading. \\
 The way this could have been improved is by implementing an probability approach which will only mark a cells as occupied if it has a certain probability of being occupied. This involves marking a cell as \textit{scanned} and when another robot, or the same robot, scan the same cell again the probability that this cell really is occupied increases. 
+
+\section{Different Environments}

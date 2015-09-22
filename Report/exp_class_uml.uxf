@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="13.3">
+  <zoom_level>9</zoom_level>
+  <element>
+    <type>com.baselet.element.old.element.Class</type>
+    <coordinates>
+      <x>423</x>
+      <y>18</y>
+      <w>360</w>
+      <h>891</h>
+    </coordinates>
+    <panel_attributes>EXP_Class
+--
+- generatio : int
+- from_gen : int
+- to_gen : int
+- genotype : int
+- eval : int
+- num_collision : int
+- iter : int
+- AGGREGATE_FITNESS : double
+- fitnesses_mult : double
+- evaluatoinal_min_fitness : vector&lt;double&gt;
+- generational_avg_fitness : double
+- generational_max_fitness : double
+- generational_min_fitness : double
+- FINAL_FITNESS : vector&lt;double&gt;
+- centre: vector&lt;double&gt;
+- Sensors_inputs : vector&lt;double&gt;
+- motor_outputs : vector&lt;double&gt;
+- ir_reading : vector&lt;double&gt;
+- camera_sensor_readings : vector&lt;double&gt;
+- evolution : bool
+- matrix : int**
++ partial_fitness[] : double
++ *map : Occupancy_Map
+
+--
++ EXP_Class(*run_name:const char, 
+   _evolution:bool, _viewing:bool,
+    _re_evaluation:bool, _seed:unsigned long, 
+    _from_gen:int, _to_gen:int, _num_cores:int)
+
++ find_distance(&amp;_pos1:const vector&lt;double&gt;, 
+    &amp;_pos2:const vector&lt;double&gt;) : double
++ init_local_variables() : void
++ init_evolutionary_run() : void
++ init_genotype_loop() : void
++ init_evaluations_loop() : void
++ init_single_evaluation() : void
++ set_agent_position() : void
++ from_genome_to_controllers(*str_source:const char, 
+    which_genotype:const int) : void
++ adv() : void
++ assign_fitness_to_genotype() : void 
++ finalise_single_evaluation() : void
++ finalise_evaluations_loop() : void
++ finalise_genotypes_loop() : void
++ finalise_evolutionary_run() : void
++ stop_iterations_loop() : bool
++ stop_evaluations_loop() : bool
++ stop_genotypes_loop() : bool
++ stop_generations_loop() : bool
++ update_sensors() : void
++ update_controllers() : void
++ update_Actuators() : void
++ update_world() : void
++ manage_collisions() : void
++ compute_fitness() ; void
++ dump_statistics(*locationOfFileToDump:const char,
+   *filename:const char, generation:int   ) : void
++ compute_fitness_each_step() : void
++ occupancy_reading() : void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

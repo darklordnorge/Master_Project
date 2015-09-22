@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="13.3">
+  <zoom_level>10</zoom_level>
+  <element>
+    <type>com.baselet.element.old.element.Class</type>
+    <coordinates>
+      <x>330</x>
+      <y>70</y>
+      <w>600</w>
+      <h>310</h>
+    </coordinates>
+    <panel_attributes>Controller
+--
+# delta_t : double
+_# num_input : const int_
+_# num_output :  const int_
+# genotype_length : int
+--
++ Controller()
++ get_num_input() : int
++ get_num_output() : int
++ get_genotype_length() : int
++ set_genotype_length() : void
+/+ init(&amp;genes:const vector&lt;chromosome_type&gt;) : void/
+/+ step(&amp;input_array:const vector&lt;double&gt;, &amp;output_array:vector&lt;double) : void/
+
+/+ reset() : void/
+/+ read_from_file() : void/
+/+ compute_genotype_length() : void/
++ get_value(&amp;genes:const vector&lt;double&gt;, counter : const int) : void 
++ get_value(&amp;genes:const vector&lt;int&gt;, counter:const int) : void
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.baselet.element.old.element.Class</type>
+    <coordinates>
+      <x>320</x>
+      <y>550</y>
+      <w>610</w>
+      <h>290</h>
+    </coordinates>
+    <panel_attributes>MyController
+--
+_- hiddenlayer_size : const static int_
+_- high_bound : const static double_
+_- low_bound : const static double_
+- weights1[num_input+1:const static int][hiddenlayer_size:const static int] : double
+- weights2[hiddenlayer_size+1:const static int][num_output:const static int] : double
+- inputlayer : vector&lt;double&gt;
+- outputlayer : vector&lt;double&gt;
+- hiddenlayer : vector&lt;double&gt;
+--
++ MyController()
++ init(&amp;genes:const vector&lt;chromosome_type&gt;) : void
++ step(&amp;input_array:const vector&lt;double&gt;, &amp;output_array:vector&lt;double&gt;) : double
++ compute_genotype_length() : void
++ read_from_file() : void
++ get_num_input() : void
++ get_num_output() : void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.baselet.element.old.element.Relation</type>
+    <coordinates>
+      <x>600</x>
+      <y>340</y>
+      <w>50</w>
+      <h>230</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>30;30;30;210</additional_attributes>
+  </element>
+</diagram>

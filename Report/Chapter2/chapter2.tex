@@ -157,6 +157,24 @@ All genes have also a 5\% change to be mutated.
 \section{Program set up}
 The user specifies the user environment and other simulator parameters, such as how many robots to use, how many generations to evolve, iteration length per generation, where and how often to save genomes. \\
 
+A UML representation of the program can be seen in appendix B section \ref{appendixB:uml} from page \pageref{appendixB:uml} and onward. \\
+Note that due the size of the classes it was not able to represent all of them in one large figure, and still be able to read them.\\
+Therefore the UML diagram has been split up into multiple figures. 
+Figure \ref{fig:simple_uml} represents a very simplified class diagram without functions or member variables, it only shows the relationship between the different classes.\\
+The classes shown in this representation are not all classes used in the simulator, they are however all classes that have been actively used or been modified by the author in the course of this project.\\
+As the other classes of the simulator have not been modified or accessed they are treated as an blackbox and excluded from this report.\\
+Figures \ref{fig:exp_uml}, \ref{fig:param_uml}, \ref{fig:agent_uml} and \ref{fig:controller_uml} represent the UML diagrams for the experiment, parameter, simple\_agent, and mycontroller classes.\\
+
+The parameter class reads the parameter file in which the user specifies program parameters such as how many generations should been run, how many evaluations and iterations per generation, as well as defining the environment.\\
+This class also handles the genetic algorithm and the neural network, and the agents.\\
+The SIMPLE\_Agent class represents the variables and functions available to the robots. The parameter class creates as many agents as specified by the user.\\
+
+MyController class holds the neural network and inherits variables and methods from the Controller superclass.\\
+The user can change the number of hidden nodes in the MyController header file. \\
+The EXP\_Class is the class where a user set's up the experiment, and from where the experiment is handled. In this class the fitness function is defined.\\
+Occupancy\_Map class holds the variables and function needed to create and manipulate the map.\\
+EXP\_Class holds a single occupancy\_map object, the map.
+
 \section{Mapping algorithm}
 \subsection{Mapping procedure}
 The mapping algorithm works by locating the robot, using the simulators inbuilt functions. \\

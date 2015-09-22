@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="13.3">
+  <zoom_level>9</zoom_level>
+  <element>
+    <type>com.baselet.element.old.element.Class</type>
+    <coordinates>
+      <x>333</x>
+      <y>9</y>
+      <w>504</w>
+      <h>891</h>
+    </coordinates>
+    <panel_attributes>Parameters
+--
++ count : int
++ **collision_peer : int
++ num_collision_peet : int
++ num_bricks : int
++ num_cylinders : int
++ num_spheres : int
++ num_objects : int
++ num_lights : int
++ num_generations : int
++ num_evaluations : int
++ num_iterations : int
++ num_agents : int
++ dump_stats_every : int
++ dump_genome_every : int
++ simulation_time_step : double
++ physics_step : double
++ **objects_data : double
++ m_time : double
++ *run_name : char
++ statsFileDir[] : char
++ statsFileName[] : char
++ revalFileDir[] : char
++ genomeFileDir[] : char
++ genomeFileName[] : char
++ rootSeedFileDir[] : char
++ rootSeedFileName[] : char
++ genomeFileName_for_reval[] : char
++ type_of_ga[] : char
++ type_of_controller[] : char
++ m_clock : btClock
++ *collisionConfig : btCollisionConfiguration
++ *dispatcher : btDispatcher
++ *broadphase : btBroadphaseInterface
++ *world btDynamicsWorld 
+
++ **nets : MyController
++ **agent : SIMPLE_Agents
++ **object : SIMPLE_Objects
++ root_seed : unsigned long
+
+
+
++ *plane : SIMPLE_Objects
+--
++ Parameters(*run_name:const char)
+
+
++ init_physics_param() : void
++ resetPhysicsState() : void
++ getDeltaTimeMicroseconds() : void
++ setDeltaTime(deltaTime btScalar) : void
++ myProcessCallback(timeStep:btScalar) : void
++ read_run_parameter_file(*run_name:const char) : void
++ init_random_generator() : void
++ init_controllers() : void
++ init_ga(num_allele_per_solution:const int, 
+    num_bases_per_allele:const int) : void
++ init_objects() : void
++ init_agents() : void
++ dump_simulation_seed() : void
++ reset_seed() : void
++ set_random_root_seed(_seed:unsigned long) : void
++ get_random_root_seed() : void
++ get_run_name() : char*
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
