@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.3.6)  23 SEP 2015 16:56
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.3.6)  23 SEP 2015 19:03
 entering extended mode
 **dissertation.tex
 (D:\Github\Master_Project\Report\dissertation.tex
@@ -437,12 +437,22 @@ Underfull \hbox (badness 10000) in paragraph at lines 5--6
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 7--13
+Underfull \hbox (badness 10000) in paragraph at lines 7--10
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 14--17
+Underfull \hbox (badness 10000) in paragraph at lines 11--13
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 14--15
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 16--17
 
  []
 
@@ -451,6 +461,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 14--17
 
 ]
 Underfull \hbox (badness 10000) in paragraph at lines 18--20
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 21--22
 
  []
 
@@ -481,50 +496,51 @@ Underfull \hbox (badness 10000) in paragraph at lines 49--51
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 59--61
+Underfull \hbox (badness 10000) in paragraph at lines 56--58
 
  []
 
-Missing character: There is no Ã in font ptmr7t!
 [3]
-Underfull \hbox (badness 10000) in paragraph at lines 87--92
+Missing character: There is no Ã in font ptmr7t!
+
+Underfull \hbox (badness 10000) in paragraph at lines 84--89
+
+ []
+
+[4]
+Underfull \hbox (badness 10000) in paragraph at lines 90--91
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 93--94
+Underfull \hbox (badness 10000) in paragraph at lines 92--94
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 95--97
-
- []
-
-[4] <Chapter1/images/roulette_wheel.png, id=49, 573.14125pt x 460.72125pt>
+<Chapter1/images/roulette_wheel.png, id=49, 573.14125pt x 460.72125pt>
 File: Chapter1/images/roulette_wheel.png Graphic file (type png)
 
 <use Chapter1/images/roulette_wheel.png>
 Package pdftex.def Info: Chapter1/images/roulette_wheel.png used on input line 
-110.
+107.
 (pdftex.def)             Requested size: 229.25243pt x 184.28523pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 118--119
+Underfull \hbox (badness 10000) in paragraph at lines 115--116
 
  []
 
 [5 <D:/Github/Master_Project/Report/Chapter1/images/roulette_wheel.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 129--131
+Underfull \hbox (badness 10000) in paragraph at lines 126--128
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 132--135
+Underfull \hbox (badness 10000) in paragraph at lines 129--132
 
  []
 
 [6]
-Underfull \hbox (badness 10000) in paragraph at lines 150--152
+Underfull \hbox (badness 10000) in paragraph at lines 147--149
 
  []
 
@@ -533,20 +549,20 @@ File: Chapter1/images/e_puck_sensor.png Graphic file (type png)
 
 <use Chapter1/images/e_puck_sensor.png>
 Package pdftex.def Info: Chapter1/images/e_puck_sensor.png used on input line 1
-55.
+52.
 (pdftex.def)             Requested size: 273.41666pt x 239.69125pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 161--163
+Underfull \hbox (badness 10000) in paragraph at lines 158--160
 
  []
 
 [7 <D:/Github/Master_Project/Report/Chapter1/images/e_puck_sensor.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 168--171
+Underfull \hbox (badness 10000) in paragraph at lines 165--168
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 172--173
+Underfull \hbox (badness 10000) in paragraph at lines 169--170
 
  []
 
@@ -1199,7 +1215,7 @@ iKTeX 2.9/fonts/type1/urw/courier/ucrr8a.pfb><C:/Program Files (x86)/MiKTeX 2.9
 1/urw/times/utmr8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/times
 /utmr8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pf
 b>
-Output written on dissertation.pdf (68 pages, 1132901 bytes).
+Output written on dissertation.pdf (68 pages, 1133277 bytes).
 PDF statistics:
  301 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

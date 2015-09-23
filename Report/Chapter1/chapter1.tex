@@ -2,55 +2,52 @@
 
 %write about evolutionary robotics
 \section{Introduction}
-Autonomous robots must be able to create and maintain a models of their environment. Such would allow autonomous robots to be used in a wide variety of task, reaching from cartography of buildings, over the exploration of hazardous environments,such as encountered in many search-and-rescue operations after natural disasters, to the autonomous exploration of other planets like Mars, where even the most minimal human input needs to be carefully planned and executed using a , small, predefined time window. \\
+Autonomous robots must be able to create and maintain a model of their environment. Doing so allows autonomous robots to be used in a wide variety of tasks, ranging from cartography of buildings; the exploration of hazardous environments, such as encountered in many search-and-rescue operations after natural disasters; to the autonomous exploration of other planets like Mars, where even the most minimal human input needs to be carefully planned and executed using a small predefined time window. \\
 
-Scientist and engineers face a couple of problems trying to tackle those tasks, how to create an autonomous robot that can react to a wide variety of different environments, and how do ensure that they communicated with other robots and how to handle the exploration itself.\\
-One of the key approaches to these tasks is the research into evolutionary robotics. \\
+Scientists and engineers face a couple of problems when trying to tackle these tasks; how to create an autonomous robot that can react to a wide variety of different environments, and how to ensure that they are able  communicate with other robots and handle the exploration itself.
+One of the key approaches to these tasks is the research into evolutionary robotics. 
 Evolutionary robotics is a technique for the automated training of autonomous robots. \\
+
 This approach views robots as autonomous, artificial organisms which develop their own skills in interaction with the environment, without any human interaction.
 The training or evolution of a robot is inspired by the Darwinian principle of selective reproduction of the fittest individuals inside a population. Evolutionary robotics uses natural sciences like biology and ethology and makes use of techniques like neural networks, genetic algorithms, dynamic systems and biomorphic engineering \cite{nolfi2000evolutionary}.\\
-Research has gone into different approaches. Some approaches, like Silva \textit{et al.}\cite{Silva2008}, concentrate of the navigation and mapping in an unknown environment, using a single robot with a variety of sensors and an  artificial neural networks for classification of detected objects. Others such as Costanzo \textit{et al.}\cite{Costanzo20121047} have done research into the exploration and communication between a swarm of mobile robots.\\
 
-The inspiration of this work was to demonstrate how an evolutionary robotics approach could be implemented as well as exploring the challenges given by implementing different aspects into a single work, effectively creating a system for autonomous exploration of multiple mobile robots using limited communication possibilities with the task of mapping comparative simple environments, such as buildings. \\
-The evolutionary algorithm to guide the exploration has been implemented as well as communication and mapping algorithms. \\
-Some results have been gathered and the system has been tested in different environments, however due to a bug in the system with the author was not able to remove, covered in a latter part of this document,  this work has not been entirely finished. \\
+Research has gone into different approaches. Some approaches, like Silva \textit{et al.}\cite{Silva2008}, concentrate on navigation and mapping in an unknown environment, using a single robot with a variety of sensors and an  artificial neural networks for classification of detected objects. Others, such as Costanzo \textit{et al.}\cite{Costanzo20121047}, have done research into exploration and communication between a swarm of mobile robots.\\
 
-The following chapters will explore the background and analysis of the key parts of the project, explain their design, their implementation, as well as explaining the testing procedures and experiments which were performed. 
-The archived work is summarised and analyst in a conclusion at the end of this document.\\
+The inspiration for this project was to demonstrate how an evolutionary robotics approach could be implemented, as well as to explore the challenges presented by implementing different aspects into a single work, effectively creating a system for autonomous exploration of multiple mobile robots using limited communication possibilities, with the task of mapping comparative simple environments such as buildings. \\
 
+The evolutionary algorithm to guide the exploration has been implemented alongside communication and mapping algorithms. 
+Some results have been gathered and the system has been tested in different environments. However, due to a bug in the system that the author was not able to remove (covered in a latter part of this document), this work has not been entirely finished. \\
 
+The following chapters will explore the background of and analysis the key parts of the project, explain their design, their implementation, as well as explain the testing procedures and experiments which were performed. The achieved work is summarised and analysed in a conclusion at the end of this document.\\
 
-\section{Aim of this project}
-The goal of this project is to create a program that controls a swarm of E-Puck robots using evolutionary methods in order to explore and  map an environment. \\
-The E-Pucks always need to stay in communication, as they share a global map. \\
-The control algorithm is an Artificial Neural Network, a evolutionary algorithm. \\
+\section{Aim of this Project}
+The goal of this project is to create a program that can control a swarm of E-Puck robots using evolutionary methods to explore and  map an environment. 
+The E-Pucks must always remain in communication, as they share a global map. 
+The control algorithm is an Artificial Neural Network, an evolutionary algorithm. 
 The neural network is trained so that it will learn to develop a solution on its own.
-The benefit of neural networks are that they are extremely versatile. A trained neural network will perform very good even in an different environment. Neural networks also allow for quick reactions of robots with very little processing time once they are fully evolved.  
+The benefit of neural networks is that they are extremely versatile. A trained neural network will perform very well, even in an different environment. Neural networks also allow for quick reactions from robots with very little processing time once they are fully evolved.  
 
-\section{Information about the project}
-\subsection{Choice of development environment and programming language}
-Since the control algorithm for the robots is an artificial neural network its needs to be trained before it can be tested. Therefore a simulator is needed.
-The simulator chosen for this project has been created by Elio Tuci(elt7@aber.ac.uk) and Muhanad Hayder Mohammed(mhm4@aber.ac.uk) at Aberystwyth University. \\
-The other candidate was Cyberbotics Webots\footnote{\url{http://goo.gl/BrPK98}}. \\
-The simulator by Elio Tuci was chosen since I worked with it throughout the second semester of this master course and therefore know it well. Other reasons include that simulator is build for the creation of evolutionary algorithms and already posses an implemented genetic algorithm. \\
-At the beginning of the project it was deemed ambitious to create a working genetic algorithm as well as artificial neural network and train it to perform the tasks explained in this chapter. \\
-The programming language chosen for this project is C++ as the simulator is written in it. 
+\section{Information about the Project}
+\subsection{Choice of Development Environment and Programming Language}
+Since the control algorithm for the robots is an artificial neural network, it needs to be trained before it can be tested. Therefore, a simulator is needed.
+The simulator chosen for this project has been created by Elio Tuci(elt7@aber.ac.uk) and Muhanad Hayder Mohammed(mhm4@aber.ac.uk) at Aberystwyth University. 
+The other candidate I considered was Cyberbotics Webots\footnote{\url{http://goo.gl/BrPK98}}. 
+The simulator by Elio Tuci was chosen because I worked with it throughout the second semester of this Masters course and therefore know it well. Other reasons include that the simulator was build for the creation of evolutionary algorithms, and as such already possesses an implemented genetic algorithm. 
+At the beginning of the project it was deemed ambitious to create a working genetic algorithm as well as an Artificial Neural Network and train it to perform the tasks explained in this chapter. 
+The programming language chosen for this project was C++ as the simulator is written in it. 
 
-\subsection{Choice of robot}
-The E-Puck\footnote{\url{http://www.e-puck.org/index.php}} robot was chosen for this project as it is commercially available and versatile. \\
-The \textit{standard} robot comes with 8 IR proximity sensors placed at different intervals around the robot. It is powered by lithium-ion battery that is easily chargeable. 2 stepper motors allows it too move\cite{mondada2009puck}. \\
+\subsection{Choice of Robot}
+The E-Puck\footnote{\url{http://www.e-puck.org/index.php}} robot was chosen for this project as it is commercially available and versatile. 
+The \textit{standard} robot comes with 8 IR proximity sensors placed at different intervals around the robot. It is powered by a lithium-ion battery that is easily chargeable. 2 stepper motors allow it too move\cite{mondada2009puck}. \\
 
-Since the project is done in an simulator no direct worries need to be done for battery life, though such could be simulated by calculating battery usage. This is however not done for the sake of this project. \\
+Since the project is done in a simulator no direct considerations need to be taken into account for battery life. However, battery life could be simulated by calculating battery usage. But this was not done because the primary objective of this project took precedence.\\
 
-The E-Puck is also useful as there is a wide range of extensions boards available to it, and its bus interface makes it possible and easy to design and add extension boards. \\
-For this project the official Range and Bearing Board is used, more info about that can be found in section \ref{chap1:communication}\cite{Gutierrez}.
+The E-Puck is also useful because there are s a wide range of extension boards available for it, and its bus interface makes it possible and easy to design and add extension boards. 
+For this project the official Range and Bearing Board is used. More info about that can be found in section \ref{chap1:communication}\cite{Gutierrez}.
 
-\subsection{Choice of environment design}
-An environment was designed to train the artificial neural network.\\
-The environment represents a large room through which the robot swarm moves. There are multiple obstacles placed throughout the room to train and test the swarms communication and mapping abilities. A representation of the created environment can be found in Appendix  \ref{appendix2:environment} on page \pageref{appendix2:environment}. \\
-
-
-
+\subsection{Choice of Environment Design}
+An environment was designed to train the Artificial Neural Network.
+The environment represents a large room through which the robot swarm can move. There are multiple obstacles placed throughout the room to train and test the swarm's communication and mapping abilities. A representation of the created environment can be found in Appendix  \ref{appendix2:environment} on page \pageref{appendix2:environment}. \\
 
 \section{Analysis}
 
