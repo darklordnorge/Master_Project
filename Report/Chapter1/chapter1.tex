@@ -1,9 +1,27 @@
-\chapter{Background \& Objectives}
+\chapter{Introduction \& Background}
 
 %write about evolutionary robotics
+\section{Introduction}
+Autonomous robots must be able to create and maintain a models of their environment. Such would allow autonomous robots to be used in a wide variety of task, reaching from cartography of buildings, over the exploration of hazardous environments,such as encountered in many search-and-rescue operations after natural disasters, to the autonomous exploration of other planets like Mars, where even the most minimal human input needs to be carefully planned and executed using a , small, predefined time window. \\
+
+Scientist and engineers face a couple of problems trying to tackle those tasks, how to create an autonomous robot that can react to a wide variety of different environments, and how do ensure that they communicated with other robots and how to handle the exploration itself.\\
+One of the key approaches to these tasks is the research into evolutionary robotics. \\
+Evolutionary robotics is a technique for the automated training of autonomous robots. \\
+This approach views robots as autonomous, artificial organisms which develop their own skills in interaction with the environment, without any human interaction.
+The training or evolution of a robot is inspired by the Darwinian principle of selective reproduction of the fittest individuals inside a population. Evolutionary robotics uses natural sciences like biology and ethology and makes use of techniques like neural networks, genetic algorithms, dynamic systems and biomorphic engineering \cite{nolfi2000evolutionary}.\\
+Research has gone into different approaches. Some approaches, like Silva \textit{et al.}\cite{Silva2008}, concentrate of the navigation and mapping in an unknown environment, using a single robot with a variety of sensors and an  artificial neural networks for classification of detected objects. Others such as Costanzo \textit{et al.}\cite{Costanzo20121047} have done research into the exploration and communication between a swarm of mobile robots.\\
+
+The inspiration of this work was to demonstrate how an evolutionary robotics approach could be implemented as well as exploring the challenges given by implementing different aspects into a single work, effectively creating a system for autonomous exploration of multiple mobile robots using limited communication possibilities with the task of mapping comparative simple environments, such as buildings. \\
+The evolutionary algorithm to guide the exploration has been implemented as well as communication and mapping algorithms. \\
+Some results have been gathered and the system has been tested in different environments, however due to a bug in the system with the author was not able to remove, covered in a latter part of this document,  this work has not been entirely finished. \\
+
+The following chapters will explore the background and analysis of the key parts of the project, explain their design, their implementation, as well as explaining the testing procedures and experiments which were performed. 
+The archived work is summarised and analyst in a conclusion at the end of this document.\\
+
+
 
 \section{Aim of this project}
-The goal of this project is to create a program that controls a swarm of E-Puck robots in order to map an environment. \\
+The goal of this project is to create a program that controls a swarm of E-Puck robots using evolutionary methods in order to explore and  map an environment. \\
 The E-Pucks always need to stay in communication, as they share a global map. \\
 The control algorithm is an Artificial Neural Network, a evolutionary algorithm. \\
 The neural network is trained so that it will learn to develop a solution on its own.
@@ -52,13 +70,11 @@ The range and bearing board is an extension board for the E-Puck which allows fo
 The board is powered by its own processor and consists of 12 sets of IR emission/reception modules. 
 The board was first designed and build by Guiêrrez \textit{et al.}\cite{Gutierrez}. 
 
-\subsection{Evolutionary Robotics}
-Evolutionary robotics is a technique for the automated training of autonomous robots. \\
-This approach views robots as autonomous, artificial organisms which develip their own skills in interaction with the environment, without any human interaction.
-The training or evolution of a robot is inspired by the Darwinian principle of selective reproduction of the fittest individuals inside a population. Evolutionary robotics uses natural sciences like biology and ethology and makes use of techniques like neural networks, genetic algorithms, dynamic systems and biomorphic engineering \cite{nolfi2000evolutionary}.
-
+\subsection{Evolutionary Algorithm}
 The control algorithm for this project is an artificial neural network assisted by an genetic algorithm.\\
-The background and use of those will be explain in further detail in this section.
+The purpose of the neural network is to handle the control of the robots and asses it's own performance using a predefined fitness function. 
+The genetic algorithm is used to evolve the neural network using the fitness assessment done by the neural network. \\
+This section will explore and explain the background of this approach.
 
 \subsubsection{Artificial Neural Network}
 The control algorithm used for this project is an artificial neural network(ANN).
@@ -148,7 +164,7 @@ With the knowledge of where a particular sensor is placed on the robot combined 
 The robots all share a single global map, which is updated with the position of all robots, as well as the position of any encountered obstacles, at each iteration. \\
 The map it self a standard occupancy grid map: a 2 dimensional grid where each cell can have 1 of 3 possible values: 0 = unexplored, 1 = obstacle, 2 = robot position.  
 
-\section{Process}
+\section{Methodology}
 The life cycle model used for this project is "Feature Driven Development" (FDD) as it seems the more appropriate for this project than other models, such as extreme programming or test driven development. \\
 The reason FDD is more appropriate is that this is a single person project, as well as the requirements allowed for easy distinguish in which order features need to be implemented.  \\
 For example: the controller(neural network) needs to be implemented to be able to train it. Once the it is implemented and the robots are able to move based on its control, the communication between the robots can be implemented. Only once this is done and tested the mapping algorithm can be started to be developed, as the features build on each other.\\

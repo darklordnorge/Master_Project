@@ -1,8 +1,6 @@
 %\addcontentsline{toc}{chapter}{Development Process}
 \chapter{Design}
 
-
-
 \section{Overall Architecture}
 \subsection{Control Algorithm}
 In this section the design of the control algorithm will be explained.
@@ -80,19 +78,20 @@ Figure  \ref{fig:unscaled} shows a graphical representation of  this sigmoid fun
 \begin{figure}[h]
 \begin{center}
 \includegraphics[scale=0.4]{Chapter2/images/unscaled.PNG}
-\caption{Activation range for unscaled inputs}
+\caption[Activation range for unscaled inputs]{Activation range for unscaled inputs\footnotemark}
 \label{fig:unscaled}
 \end{center}
 \end{figure}
-
+\footnotetext{Created by the author of this document using geogebra \url{https://www.geogebra.org/}}
 \begin{figure}[h]
 \begin{center}
 \includegraphics[scale=0.4]{Chapter2/images/scaled.PNG}
-\caption{Activation range for scaled inputs}
+\caption[Activation range for scaled inputs]{Activation range for scaled inputs\footnotemark}
 \label{fig:scaled}
 \end{center}
 \end{figure}
 
+\footnotetext{Created by the author of this document using geogebra \url{https://www.geogebra.org/}}
 \subsubsection{Output Layer}
 In the outputlayer the outputs from the hiddenlayer are multiplied with their respective weights, and than passed to a sigmoid function again.\\
 The output of the layer are than send back to the experiment class.\\
@@ -135,7 +134,7 @@ $coms$ represents the the distance between it and another robot. The higher the 
 
 \subsection{Genetic Algorithm}
 The genetic algorithm was not implemented for the sake of this project, it is build into the simulator. Therefore only the parameters used for the GA and their effect on the evolution process will be covered here \\
-The GA parameters used for this:\\
+The GA parameters used for this project are the same as has have been used in previous course work for this MSc course. They have been found to be sufficient in guiding the evolution. The GA parameters are:\\
 
 \begin{table}[h]
 \begin{center}
@@ -153,9 +152,26 @@ The number of chromosomes defines the size of the gene pool. \\
 A number of 100 chromosomes are generated each generation. Of those an elite of 20 chromosomes with the best assigned fitness function is chosen using the roulette wheel selection method to be taken to the next generation.\\
 A gene has a 30\% change to be selected to be part of a crossover operation.
 All genes have also a 5\% change to be mutated. 
+The selection of how much chance a cell has to be selected for crossover or mutation has a big influence on the evolutionary properties of a genetic algorithm. While a too high crossover rate at the beginning of a evolution can prevent good evolution results.\\
+It is very important that ,good, genetic material is maintained during the early generations in order to guide the evolution forwards, having a too high crossover rate  increases the change that crossover happens to good genes, eventually making them worse.\\
+At the other hand the crossover rate can not be to low either as that would lead to premature convergence of the evolution, leading to local minima. \\
+Some authors propose \textit{dynamic} crossover rates, low rates at the start of an evolution and increasing the rate at a later part of the evolution process, this has however not been explored in this work as the genetic algorithm was already implemented in the algorithm and has not been modified by the author of this paper.\\
+The mutation rate is important throughout the evolutionary process, however is conventionally kept low as a too high mutation rate can stop / damage a evolution by having a too high chance to change good genes into bad.
 
 \section{Program set up}
-The user specifies the user environment and other simulator parameters, such as how many robots to use, how many generations to evolve, iteration length per generation, where and how often to save genomes. \\
+The user specifies the  environment and other simulator parameters, such as how many robots to use, how many generations to evolve, iteration length per generation, where and how often to save genomes, in the \textit{init\_run.txt} file located in the \textit{MISC} folder. \\
+This file directly set's up the environment, and once compiled the program can be executed by going to the \textit{build} folder and typing:\\
+
+$./EVOSIM -e -n name_of_the_run -s random_seed$ \\
+
+Where $random_seed$ is a simple string of numbers between 0 and 9. \\
+This method is used to execute the program in \textit{evolution mode} which will evolve it using the parameters defined by the user in the \textit{init\_run.txt.} file.
+
+After the evolution is finished, the result can be shown by executing:\\
+
+$./EVOSIM -v$\\
+
+which will execute the program in \textit{viewing mode}, the genome files saved by the simulator during the \textit{evolution mode} can be found in the \textit{EXP/GENOME/} folder. Generally the last genome is the furthest developed genome, chromosome 0 of the genome file is the chromosome with the highest fitness. For more information about how to execute the program and which packages to install to run the code on your system, please refer to the installation guide, which has been delivered electronically with this submission.\\
 
 A UML representation of the program can be seen in appendix B section \ref{appendixB:uml} from page \pageref{appendixB:uml} and onward. \\
 Note that due the size of the classes it was not able to represent all of them in one large figure, and still be able to read them.\\
@@ -174,6 +190,13 @@ The user can change the number of hidden nodes in the MyController header file. 
 The EXP\_Class is the class where a user set's up the experiment, and from where the experiment is handled. In this class the fitness function is defined.\\
 Occupancy\_Map class holds the variables and function needed to create and manipulate the map.\\
 EXP\_Class holds a single occupancy\_map object, the map.
+
+\section{Communication}
+The communication between robots aspect of this project has been simplified due the limited time available. \\
+What that means is that rather than implementing and simulating full network protocols the communication has been simplified to simple distance. A maximum communications distance is defined based on the background information which can be found in chapter 1 section \ref{chap1:communication} on page \pageref{chap1:communication}. 
+Should a robot move outside this maximum communications range the it is assumed that said robot is out of range. This corresponds to a real-world implementation in that different communication systems(wifi, bluetooth, IR pulse) have a limited maximum range, and in case of IR methods a inaccuracy which increase over distance needs also to be considered.\\
+While the \textit{baseline} project did only aim to simulate communications inside a maximum distance, thought and work went into the implementation of a more accurate communication model, which is explained in chapter 4 section \ref{chap4:movement} from page \pageref{chap4:movement} and onward.\\
+Based on the background information available for the used communication approach, the range and bearing sensor, a maximum communication range of 0.6 or 60cm has been defined. While the range and bearing sensor is able to locate and submit other robots up to a range of 6 meters the error rate increase drastically after 60 cm, to a degree that the exact distance and location between robots has been deaned unsuitable for this project, which entire multi robot movement and communication is based upon knowing the distance between 2 robots.\\
 
 \section{Mapping algorithm}
 \subsection{Mapping procedure}
@@ -218,3 +241,4 @@ Every iteration each robot marks its position on the map with '2' and each found
 \subsection{Map visualisation}
 In order do visualize the map, the X and Y coordinates of all cells marked with '1' are saved to a text file.\\
 This file can be loaded into a different program and be visualized using the C++ SDL2 library.
+A map that has been created by the mapping algorithm and been displayed by visualisation program can be seen in figure \ref{fig:map1} on page \pageref{fig:map1}. 

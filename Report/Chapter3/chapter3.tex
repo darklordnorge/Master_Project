@@ -14,6 +14,7 @@ The following subsections will explain what the different functions in the neura
 The code for this can be found in Appendix B \ref{code:ga_ann_constructor} on page \pageref{code:ga_ann_constructor}.\\
 The constructor is used to initialise the neural network. Upon initialisation it calls a function to calculate the genotype length, the amount of genes needed for all weights in the network. This number is passed to the genetic algorithm so that the required number of genes can be created.\\
 The number of required genes is calculated by multiplying the number of nodes of the different layer with each other and than summing the results of that calculation. 
+It has been decided to implement a neural network with 3 hidden nodes to add computational complexity compared to a simple 2 layer perceptron network.
 
 
 \subsection{Initialisation}
@@ -60,6 +61,7 @@ Minor changes needed to be to the experiment class, while it was designed to wor
 An algorithm which is able to measure and return the distance and bearing information between 2 robots was needed in order to be able to move the robots in any form of formation. After talking with Muhanad about it, he said that he has code for that already written and has allowed the usage of said code in this project. The code can be seen in appendix A section \ref{code:erandB} on page \pageref{code:erandB}.\\
 The code needs the location of a robot to measure too. It only needs this one location as it's locates the robot the function is called from on its own using the simulators inbuilt functions.  The second parameter passed to the function is a pointer to an vector, which the algorithm will save its results too. \\
 The function only returns when the distance between the robots is less than a user defined distance. After integrating this function into the program this distance value was set the 0.4, which equals 40cm for testing purposes. \\
+The max distance was later increased to 0.6 or 60cm, based on the information that has been covered in chapter 2. \\
 
 In order to test the the algorithm another computation was added to the fitness function, the new computation added the distance between 2 robots into the calculation.
 
@@ -204,5 +206,53 @@ Note that the coordinates are scaled down by a factor of 5, this is done in orde
 After the mapping programs were implemented work went into refining the fitness function. \\
 The problem with previous versions of the fitness function were that the robots would always choose the next in line, or if a robot is the last in the line the one before it, in the array that holds the robots. Therefore they would always form the  same groups and stick together within those groups and not work together with other robot groups.\\
 During the process of modifying the fitness function to loop through all robots and check which of them are in communication range a bug occurred that prevented the network from evolving in following experiments. \\
+The only behaviour that was able to be evolved from this was that the robots would start off, drive between 5 and 10 cm and than just make a full stop.\\
 Debug methods where tried and even resetting the state of the project to previous points using version control did not fix the the problems encountered due to the bug. \\
 
+The program was tried to be debugged using standard debugging procedure: setting breaking points, checking that all objects have been correctly initialized, that there are no NULL pointers and that information is correctly assigned to variables and parsed between functions.\\
+As those techniques did not show that anything was wrong with the evolution other methods were tried to test if there existed a problem within the simulator.\\
+The actuator speed of the robot was manually set to test the kinematics of the robot model, the robot was able to move with the changes, which hints that there is an problem with the evolution as the actuator speed is taken right from the output of the neural network.\\
+The outputs of the neural network were checked, they showed that the robot should be able, though slowly, to move. \\
+Robots were placed close to obstacles and rotated in order to check IR readings for any discrepancies, this turned up nothing all read outs were as expected.\\
+Every declaration and initialisation of the neural network, experiment class, simple\_agent(robot) class and map was checked for NULL pointers, faulty pointers or other discrepancies. None of which turned up any information.\\
+Checking the installed versions of the packages required to run the simulator did not show any obvious problems as all were installed, to be sure that nothing was overlooked all packages and files needed for the simulator were removed from the system and reinstalled.\\
+Testing the program on 4 different machines showed the same problems. 
+
+At this point it has been deaned that resetting the state of the project to a previous, working state using version control software(github) should be tried.\\
+However even this did not turn up any anything, since even after hard-resetting the state of the files to previous commits did not fix this problem.\\
+At which point it was assumed that it might have something to do with cache of the IDE used, that the version of the code cached and executed might differ from the actual code on the hard drive. 
+Checking this proved this to be true, the files hold in the  IDE's\footnote{CLion from Jetbrain \url{https://www.jetbrains.com/}}  cache differed from the files on the file system.\\
+But even after cleaning the cache did problem still prevailed. It was tested if cloning the github repository to another folder where the code was observed and manipulated directly using text editors and compiling it using the command line would fix the bug, however the bug prevailed. \\
+
+Even discussing the problem with both creators of the simulator, elio and muhannad and going through the code with them did not turn up anything, no obvious piece of code the author simply overlooked was found.\\
+Elio Tuci proposed the use of a different fitness function in order to test if this approach would fix the problem.\\
+
+\subsubsection{Different fitness function}
+The new fitness function is taken from a paper by Trianni \textit{et al.}\cite{Trianni}.\\
+
+\begin{equation}
+f = \frac{|V_l| + |V_r|}{2V_{max}} \times ( 1 - \sqrt{\frac{|V_l - V_r|}{2V_{max}}}) \times (1 - \frac{S_{ir}}{IR_{max}})
+\end{equation}
+
+Where $V_l$ and $V_R$ represent the speed of the left and right wheel and $V_{max}$ represents the maximum possible speed for a wheel.\\
+$S_{ir}$ represents the maximum IR sensor activation at that time step, and $IR_{max}$ represent the maximum possible IR sensor value. \\
+All values need to be normalised, for this approach and have been normalised to :
+
+\begin{align*}
+	0  &\leq V \leq 1 \\  
+	0  &\leq \Delta V  \leq 1 \\
+	0  &\leq S_{ir} \leq 1
+\end{align*}
+
+This approach is very similar to the original fitness function implemented in this system, which is shown in equation \ref{eq:base_fittness} on page \pageref{eq:base_fittness}. The difference being that the original fitness does not divide it's single segments by the maximum possible value for either the actuators or the IR sensors.\\
+The changed fitness function itself was not able to get any response from the robots, which based on previous experience from working with a similar fitness function, is based on the reason that the robots starting position is far enough away from obstacles to not get any IR reading.\\
+The environment the Trianni \textit{et al.} used was a corridor which led to constant IR sensor returns.\\
+To fix this problem another segment, rewarding the robot to move towards the lower part, south, of the map. \\
+
+\begin{equation}
+f = \frac{|V_l| + |V_r|}{2V_{max}} \times ( 1 - \sqrt{\frac{|V_l - V_r|}{2V_{max}}}) \times (1 - \frac{S_{ir}}{IR_{max}}) * pos_y
+\end{equation}
+
+Where $pos_z$ represents the robots current y position. \\
+With this change it is possible to evolve a single robot to move towards the south of the environment while avoiding obstacles, however the same no-evolution bug occurred when trying to evolve a controller using multiple robots.\\
+It is as of this moment this document is written unclear what caused this bug and how it can be fixed.  

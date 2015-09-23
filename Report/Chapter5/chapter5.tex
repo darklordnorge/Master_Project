@@ -1,3 +1,15 @@
-\chapter{Evaluation}
+\chapter{Conclusion \& Future work}
+\section{Conclusion}
+While there have been problems during the development of this program which led to a standstill in the implementation and testing of further improvements, a clear \textit{baseline} has been reached.\\
+
+Multi robot movement and communication algorithms were implemented, with the help of third party code, and a fitness function, based on research, has been developed.\\
+The communication algorithm allows the robots to move in formation and explore the environment while staying within the communication range. \\
+The fitness function manages to evolve robots which spread out to maximise exploration ratio and guide the evolution of their movement and obstacle avoidance behaviour. \\
+A mapping algorithm has been implemented which is able to map cells fairly accurate within the capabilities of the IR proximity sensors.\\
+
+There are problems with the developed program, as has been discussed in detail in chapter 3 \& 4. There is the problem with the communications bit of the fitness function, with the current one the robots are forming groups of 2s and ignore other robots. The accuracy of the mapping could be increased by increasing the resolution of the map as well as implementing a mapping algorithm based on probability rather than simply on measurements. \\
+However a good basis has been developed during this project, giving a good baseline on which future work can be developed.\\
+
+The largest problem encountered in the development was the non-evolution bug, which was a major setback and stalled all further development and progress in the last 2 weeks of the project. \\
 
 

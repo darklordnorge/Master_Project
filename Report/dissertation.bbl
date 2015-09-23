@@ -38,6 +38,17 @@ C.~Cianci, X.~Raemy, J.~Pugh, and A.~Martinoli, ``{Communication in a Swarm of
 \BIBentrySTDinterwordspacing
 
 
+\bibitem{Costanzo20121047}
+\BIBentryALTinterwordspacing
+C.~Costanzo, V.~Loscrí, E.~Natalizio, and T.~Razafindralambo, ``Nodes
+  self-deployment for coverage maximization in mobile robot networks using an
+  evolving neural network,'' \emph{Computer Communications}, vol.~35, no.~9,
+  pp. 1047 -- 1055, 2012, special Issue: Wireless Sensor and Robot Networks:
+  Algorithms and Experiments. [Online]. Available:
+  \url{http://www.sciencedirect.com/science/article/pii/S014036641100274X}
+\BIBentrySTDinterwordspacing
+
+
 \bibitem{499791}
 D.~Floreano and F.~Mondada, ``Evolution of homing navigation in a real mobile
   robot,'' \emph{Systems, Man, and Cybernetics, Part B: Cybernetics, IEEE
@@ -113,11 +124,28 @@ S.~Nolfi and D.~Floreano, \emph{Evolutionary robotics: The biology,
   0.5em minus 0.4em\relax MIT press, 2000.
 
 
+\bibitem{Silva2008}
+L.~Silva, M.~Tronco, H.~Vian, G.~Pellinson, and A.~Porto, ``Environment mapping
+  for mobile robots navigation using hierarchical neural network and
+  omnivision,'' in \emph{Neural Networks, 2008. IJCNN 2008. (IEEE World
+  Congress on Computational Intelligence). IEEE International Joint Conference
+  on}, June 2008, pp. 3292--3297.
+
+
 \bibitem{Thrun2003Learning}
 \BIBentryALTinterwordspacing
 S.~Thrun, ``{Learning Occupancy Grid Maps with Forward Sensor Models},''
   \emph{Autonomous Robots}, vol.~15, no.~2, pp. 111--127, Sept. 2003. [Online].
   Available: \url{http://dx.doi.org/10.1023/a:1025584807625}
+\BIBentrySTDinterwordspacing
+
+
+\bibitem{Trianni}
+\BIBentryALTinterwordspacing
+V.~Trianni and M.~López-Ibáñez, ``Advantages of task-specific
+  multi-objective optimisation in evolutionary robotics,'' \emph{PLoS ONE},
+  vol.~10, no.~8, p. e0136406, 08 2015. [Online]. Available:
+  \url{http://dx.doi.org/10.1371%2Fjournal.pone.0136406}
 \BIBentrySTDinterwordspacing
 
 
