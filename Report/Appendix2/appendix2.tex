@@ -10,14 +10,14 @@
 \end{figure}
 \newpage 
 
-\section{GA assisted Artificial Neural Network}
-\subsection{Constructor and genotype length computation}
+\section{GA Assisted Artificial Neural Network}
+\subsection{Constructor and Genotype Length Computation}
 \label{code:ga_ann_constructor}
-Here the constructor of the neural network is shown as well as the function that calculates the genotype length. \\
+Here the constructor of the neural network is shown as well as the function that calculates the genotype length. 
 It also shows how the arrays that hold the nodes for the layers are declared. More information can be found in chapter 3 section \ref{chap3:ga_ann_constructor} on page \pageref{chap3:ga_ann_constructor}.
 
 
-\begin{lstlisting}[caption = {GA assisted Artificial Neural Network constructor and genotype length computation}]
+\begin{lstlisting}[caption = {GA Assisted Artificial Neural Network Constructor and Genotype Length Computation}]
 #include "myController.h"
 
 double MyController::inputlayer[];
@@ -38,7 +38,7 @@ void MyController::compute_genotype_length ( void ){
 \subsection{Initialisation}
 \label{code:ga_ann_init}
 This function initialises the arrays needed for the neural network,  scales the genes and assigns the scaled values to the \textit{weight} arrays. A more detailed explanation of this code can be found in chapter 3 section \ref{chap3:ga_ann_init} on page \pageref{chap3:ga_ann_init}.
-\begin{lstlisting}[caption = {GA assisted Artificial Neural Network initialisation}]
+\begin{lstlisting}[caption = {GA Assisted Artificial Neural Network Initialisation}]
 void MyController::init ( const vector <chromosome_type> &genes ){
 //    vector <double> new_gene;//vector to hold the scaled gene values
     double new_gene[genes.size()];
@@ -95,12 +95,12 @@ void MyController::init ( const vector <chromosome_type> &genes ){
 }
 \end{lstlisting}
 
-\subsection{Step function}
+\subsection{Step Function}
 \label{code:ga_ann_step}
-In this function the neural network calculates the outputs based on its inputs, the evolved weights, as well as the calculations done in the hidden and output layer.\\
+In this function the neural network calculates the outputs based on its inputs, the evolved weights, as well as the calculations done in the hidden and output layer.
 More details on this function can be found in chapter 3 section \ref{chap3:ga_ann_step} on page \pageref{chap3:ga_ann_step}.
 
-\begin{lstlisting}[caption = GA assisted Artificial Neural Network step function]
+\begin{lstlisting}[caption = GA Assisted Artificial Neural Network Step function]
 void MyController::step ( const vector <double> &input, vector <double> &output){
     /*set values for the inputlayer*/
     for(int i = 0;i < input.size();i++){
@@ -144,12 +144,12 @@ void MyController::step ( const vector <double> &input, vector <double> &output)
 }
 \end{lstlisting}
 \newpage
-\section{Test Environment for first fitness function}
+\section{Test Environment for First Fitness Function}
 
 \begin{figure}[h]
 \centering
 \includegraphics[scale=0.6]{Chapter3/images/first_fitness_environment.png}
-\caption{Representation of the test environment for the first fitness function}
+\caption{Representation of the Test Environment for the First Fitness Function}
 \label{appendixb:first_fitness}
 \end{figure}
 
@@ -160,7 +160,7 @@ void MyController::step ( const vector <double> &input, vector <double> &output)
 In this function the map is initialised.\\
 All cells in the map are set to 0 and returns a pointer to a pointer to the array. 
 Further explanation the code can be found in chapter 3 section \ref{chap3:map_init} on page \pageref{chap3:map_init}. 
-\begin{lstlisting}[caption = {Map initialisation}]
+\begin{lstlisting}[caption = {Map Initialisation}]
 int** Occupancy_Map::init() {
     map = new int *[map_height];       //initialise array of pointers
     for(int i = 0;i < map_height;i++){ //add array pointers to the array
@@ -180,7 +180,7 @@ int** Occupancy_Map::init() {
 \subsection{Calculate Heading}
 \label{code:calc_heading}
 
-\begin{lstlisting}[caption = {Calculate the robots heading}]
+\begin{lstlisting}[caption = {Calculate the Robots Heading}]
 /*  0: north, 1:east, 2:south, 3:west, 4:northeast, 5:southeast, 6:southwest, 7:northwest
  * +/- 10 spread for main headings(north, south, east, west)
  * +/- 5 spread for secondary headings(northeast, southeast, etc)*/
@@ -217,12 +217,12 @@ int Occupancy_Map::calc_heading(double rotation) {
 }
 \end{lstlisting}
 
-\subsection{Calculation of robot position on the map}
+\subsection{Calculation of Robots Position on the Map}
 \label{code:calc_robot_pos}
-This function calculates robots coordinates on the map. \\
+This function calculates robots coordinates on the map. 
 Further explanation of this function can be found in chapter 3 section \ref{chap3:calc_robot_pos} on page \pageref{chap3:calc_robot_pos}.
 
-\begin{lstlisting}[caption = {Calculate the robot position on the map}]
+\begin{lstlisting}[caption = {Calculate the Robots Position on the Map}]
 int* Occupancy_Map::calc_robot_pos(double x_coord, double y_coord){
     int matrix_x = 0;
     int matrix_y = 0;
@@ -265,12 +265,12 @@ int* Occupancy_Map::calc_robot_pos(double x_coord, double y_coord){
 }
 \end{lstlisting}
 
-\subsection{Return the correct Sensor number}
+\subsection{Return the Correct Sensor number}
 \label{code:calc_sensor}
-This function is used to return the correct sensor number. The reason this function was needed was because in the array returned by the IR reading function the cells of the array do not correspond to the same sensor number.\\
+This function is used to return the correct sensor number. The reason this function was needed was because in the array returned by the IR reading function the cells of the array do not correspond to the same sensor number.
 More information on this method can be found in chapter 3 section \ref{chap3:calc_sensor} on page \pageref{chap3:calc_sensor}
 
-\begin{lstlisting}[caption = {Calculate sensor number}]
+\begin{lstlisting}[caption = {Calculate Sensor Number}]
 int Occupancy_Map::calc_sensor(int array_num) {
     int sensor_num;
 
@@ -303,11 +303,11 @@ int Occupancy_Map::calc_sensor(int array_num) {
 }
 \end{lstlisting}
 
-\subsection{Decide which cells to mark}
+\subsection{Decide Which Cells to Mark}
 \label{code:calc_matrix_values}
-This function is used to analyse which mapping function to call based on the activated sensor number. \\
+This function is used to analyse which mapping function to call based on the activated sensor number. 
 Further analysis of this function can be found in chapter 3 section \ref{chap3:calc_matrix_value} on page \pageref{chap3:calc_matrix_value}.
-\begin{lstlisting}[caption = {calculate which cells to mark}]
+\begin{lstlisting}[caption = {Calculate Which Cells to Mark}]
 void Occupancy_Map::calc_matrix_values(vector <double> &ir_reading, int heading, int robot_x, int robot_y, int **matrix){
     double sensor_value;
     int sensor_num;
@@ -336,11 +336,10 @@ void Occupancy_Map::calc_matrix_values(vector <double> &ir_reading, int heading,
 }
 \end{lstlisting}
 
-\subsection{Map cells in the direct front of the robot}
+\subsection{Map Cells in the Direct Rront of the Robot}
 \label{code:set_front}
-The robot
 
-\begin{lstlisting}[caption = {Code to set cells in front of the robot}]
+\begin{lstlisting}[caption = {Code to Set Cells in Front of the Robot}]
 /*Sensors set on a 15 degree angle to the front of the robot. Sensor 7 and 0 on the robot*/
 void Occupancy_Map::set_front_cells(int heading, int sensor, int robot_x, int robot_y, int **matrix) {
     if(heading == 0){
@@ -358,10 +357,10 @@ void Occupancy_Map::set_front_cells(int heading, int sensor, int robot_x, int ro
 }
 \end{lstlisting}
 
-\subsection{Map cells off the bow of the robot}
+\subsection{Map Cells off the Bow of the Robot}
 \label{code:set_bow}
 
-\begin{lstlisting}[caption = {Code to set cells off the bow of the robot}]
+\begin{lstlisting}[caption = {Code to Set Cells off the Bow of the Robot}]
 /*Sensors placed in a 45 degree angle on the front of the robot. sensor 1 and 6 on the robot*/
 void Occupancy_Map::set_front_side_cells(int heading, int sensor, int robot_x, int robot_y, int **matrix) {
     if(sensor == 1){
@@ -395,10 +394,10 @@ void Occupancy_Map::set_front_side_cells(int heading, int sensor, int robot_x, i
 }
 \end{lstlisting}
 
-\subsection{Map cells to the side of the robot}
+\subsection{Map Cells to the Side of the Robot}
 \label{code:set_side}
 
-\begin{lstlisting}[caption = {Code to set cells of the sides of the robot}]
+\begin{lstlisting}[caption = {Code to Set Cells to the Sides of the Robot}]
 /*Side sensors placed at a 90 degree angle. 2 and 5 on the epuck  */
 void Occupancy_Map:: set_side_cells(int heading, int sensor, int robot_x, int robot_y, int **matrix) {
       if(sensor == 2){
@@ -432,10 +431,10 @@ void Occupancy_Map:: set_side_cells(int heading, int sensor, int robot_x, int ro
 }
 \end{lstlisting}
 
-\subsection{Set Aft cells of the robot}
+\subsection{Set Aft Cells of the Robot}
 \label{code:set_aft}
 
-\begin{lstlisting}[caption = {Code to set cells to the aft of the robot}]
+\begin{lstlisting}[caption = {Code to set Cells to the Aft of the Robot}]
 /*Sensors placed at a 25 degree angle to the back of the robot. Sensors 3 and 4 on the epuck*/
 void Occupancy_Map::set_aft_cells(int heading, int sensor, int robot_x, int robot_y, int **matrix) {
     if(heading == 0){
@@ -453,12 +452,12 @@ void Occupancy_Map::set_aft_cells(int heading, int sensor, int robot_x, int robo
 }
 \end{lstlisting}
 
-\section{SDL program for map visualisation}
+\section{SDL Program for Map Visualisation}
 \label{code:sdl}
 This program is used to draw the map data on the screen.\\
 For more information see chapter 3 section \ref{chap3:sdl} on page \pageref{chap3:sdl}.
 
-\begin{lstlisting}[caption = {SDL program for map visualisation}]
+\begin{lstlisting}[caption = {SDL Program for Map Visualisation}]
 #include <SDL2/SDL.h>
 #include <stdio.h>
 #include <iostream>
@@ -543,7 +542,7 @@ int main(int argc, char* args[]) {
 \begin{figure}[h]
 \centering
 \includegraphics[scale=0.6]{Chapter2/images/uml_simple.png}
-\caption{A simplified diagram that shows the relationships between the classes}
+\caption{A Simplified Diagram That Shows the Relationships Between the Classes}
 \label{fig:simple_uml}
 \end{figure}
 
@@ -552,7 +551,7 @@ int main(int argc, char* args[]) {
 \begin{figure}[h]
 \centering
 \includegraphics[scale=0.6]{Chapter2/images/exp_class_uml.png}
-\caption{UML diagram for the experiment class}
+\caption{UML Diagram for the Experiment Class}
 \label{fig:exp_uml}
 \end{figure}
 
@@ -560,7 +559,7 @@ int main(int argc, char* args[]) {
 \begin{figure}[h]
 \centering
 \includegraphics[scale=0.5]{Chapter2/images/parameters_uml.png}
-\caption{UML diagram for the parameters class}
+\caption{UML Diagram for the Parameters Class}
 \label{fig:param_uml}
 \end{figure}
 
@@ -568,7 +567,7 @@ int main(int argc, char* args[]) {
 \begin{figure}[h]
 \centering
 \includegraphics[scale=0.5]{Chapter2/images/simple_agent_uml.png}
-\caption{UML diagram for the SIMPLE\_Agent class}
+\caption{UML Diagram for the SIMPLE\_Agent Class}
 \label{fig:agent_uml}
 \end{figure}
 
@@ -576,7 +575,7 @@ int main(int argc, char* args[]) {
 \begin{figure}[h]
 \centering
 \includegraphics[scale=0.6]{Chapter2/images/controlle_uml.png}
-\caption{UML diagram of the MyController class and its superclass}
+\caption{UML Diagram of the MyController Class and its Superclass}
 \label{fig:controller_uml}
 \end{figure}
 

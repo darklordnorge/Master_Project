@@ -65,21 +65,21 @@
 \contentsline {chapter}{Appendices}{40}
 \contentsline {chapter}{\numberline {B}Code samples}{42}
 \contentsline {section}{\numberline {2.1}Environment Design}{42}
-\contentsline {section}{\numberline {2.2}GA assisted Artificial Neural Network}{43}
-\contentsline {subsection}{\numberline {2.2.1}Constructor and genotype length computation}{43}
+\contentsline {section}{\numberline {2.2}GA Assisted Artificial Neural Network}{43}
+\contentsline {subsection}{\numberline {2.2.1}Constructor and Genotype Length Computation}{43}
 \contentsline {subsection}{\numberline {2.2.2}Initialisation}{43}
-\contentsline {subsection}{\numberline {2.2.3}Step function}{44}
-\contentsline {section}{\numberline {2.3}Test Environment for first fitness function}{46}
+\contentsline {subsection}{\numberline {2.2.3}Step Function}{44}
+\contentsline {section}{\numberline {2.3}Test Environment for First Fitness Function}{46}
 \contentsline {section}{\numberline {2.4}Map}{46}
 \contentsline {subsection}{\numberline {2.4.1}Initialisation}{46}
 \contentsline {subsection}{\numberline {2.4.2}Calculate Heading}{47}
-\contentsline {subsection}{\numberline {2.4.3}Calculation of robot position on the map}{48}
-\contentsline {subsection}{\numberline {2.4.4}Return the correct Sensor number}{49}
-\contentsline {subsection}{\numberline {2.4.5}Decide which cells to mark}{49}
-\contentsline {subsection}{\numberline {2.4.6}Map cells in the direct front of the robot}{50}
-\contentsline {subsection}{\numberline {2.4.7}Map cells off the bow of the robot}{51}
-\contentsline {subsection}{\numberline {2.4.8}Map cells to the side of the robot}{51}
-\contentsline {subsection}{\numberline {2.4.9}Set Aft cells of the robot}{52}
-\contentsline {section}{\numberline {2.5}SDL program for map visualisation}{53}
+\contentsline {subsection}{\numberline {2.4.3}Calculation of Robots Position on the Map}{48}
+\contentsline {subsection}{\numberline {2.4.4}Return the Correct Sensor number}{49}
+\contentsline {subsection}{\numberline {2.4.5}Decide Which Cells to Mark}{49}
+\contentsline {subsection}{\numberline {2.4.6}Map Cells in the Direct Rront of the Robot}{50}
+\contentsline {subsection}{\numberline {2.4.7}Map Cells off the Bow of the Robot}{51}
+\contentsline {subsection}{\numberline {2.4.8}Map Cells to the Side of the Robot}{51}
+\contentsline {subsection}{\numberline {2.4.9}Set Aft Cells of the Robot}{52}
+\contentsline {section}{\numberline {2.5}SDL Program for Map Visualisation}{52}
 \contentsline {section}{\numberline {2.6}UML}{54}
-\contentsline {chapter}{Annotated Bibliography}{60}
+\contentsline {chapter}{Annotated Bibliography}{59}

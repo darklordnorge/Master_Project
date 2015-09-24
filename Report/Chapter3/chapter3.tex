@@ -57,7 +57,7 @@ After this the environment which can be seen in figure \ref{appendix2:environmen
 After the simple movement algorithm was implemented work on coordinated multi-robot movement was started.
 Minor changes needed to be to the experiment class, while it was designed to work with multiple agents(robots) some functions only called the first element of the vector of agents by default. These were easily changed to iterate over the vector. \\
 
-An algorithm which is able to measure and return the distance and bearing information between 2 robots was needed in order to be able to move the robots in any form of formation. After talking with one of my lecturers(and creator of the simulator), Muhanad,  about it, he said that he has code for that already written and has allowed the usage of said code in this project. The code can be seen in Appendix A section \ref{code:erandB} on page \pageref{code:erandB}.
+An algorithm which is able to measure and return the distance and bearing information between 2 robots was needed in order to be able to move the robots in any form of formation. After talking with one of the lecturers(and creator of the simulator), Muhanad,  about it, he said that he has code for that already written and has allowed the usage of said code in this project. The code can be seen in Appendix A section \ref{code:erandB} on page \pageref{code:erandB}.
 The code needs the location of a robot to measure to. It only needs this one location as it locates the robot the function is called from on its own using the simulators inbuilt functions.  The second parameter passed to the function is a pointer to an vector, which the algorithm will save its results too. 
 The function only returns when the distance between the robots is less than a user defined distance. After integrating this function into the program this distance value was set the 0.4, which equals 40cm for testing purposes. 
 The max distance was later increased to 0.6 or 60cm, based on the information that has been covered in chapter 2. \\
@@ -71,7 +71,7 @@ Where $dist$ is the distance between 2 robots. Using this calculation the robot 
 As larger distance between directly increases the fitness value. \\
 The code that was added for this calculation can be seen in listing \ref{chap3:comp4_code}.
 
-\begin{lstlisting}[caption = {Fitness function calculation to consider the distance between 2 robots}]
+\begin{lstlisting}[caption = {Fitness Function Calculation to Consider the Distance Between 2 Robots}]
   double comp_4 = 0.0;
         if (param->num_agents != 1) {
             if (r == param->num_agents) {
@@ -163,25 +163,25 @@ The code for this function can be found in Appendix B section \ref{code:calc_mat
 
 \subsubsection{Set Cells in Front of the Robot}
 \label{chap3:set_front}
-The code for this function can be found in appendix B section \ref{code:set_front} on page \pageref{code:set_front}. 
+The code for this function can be found in Appendix B section \ref{code:set_front} on page \pageref{code:set_front}. 
 This function is used to set the cells directly in front of the robot, using sensor 0 and 7 on the robot. This function takes the heading, the sensor number, the robots \textit{x} and \textit{y} coordinates as well as a pointer to the map as the parameters, the same goes for all other functions in this section. \\
 
 \subsubsection{Set Cells off the Bow of the Robot}
-The code for this function can be found in appendix B section \ref{code:set_bow} on page \pageref{code:set_bow}. \\
+The code for this function can be found in Appendix B section \ref{code:set_bow} on page \pageref{code:set_bow}. \\
 This function is used to map cell to the front left and front right of the robot. This sensors used for this function are sensor 1 \& 6 on the robot.  
 
 \subsubsection{Set Cells to the Sides of the Robot}
-This function used to set the cells to side of the robot, the corresponding robot sensors are 2 and 5. The code for this function can be seen in appendix B section \ref{code:set_side} on page \pageref{code:set_side}. 
+This function used to set the cells to side of the robot, the corresponding robot sensors are 2 and 5. The code for this function can be seen in Appendix B section \ref{code:set_side} on page \pageref{code:set_side}. 
 
 \subsubsection{Set Cells in the Back of the Robot}
-The code for this function can be found in appendix B section \ref{code:set_aft} on page \pageref{code:set_aft}. 
+The code for this function can be found in Appendix B section \ref{code:set_aft} on page \pageref{code:set_aft}. 
 This code is used to map cells directly behind the robot, the corresponding robot sensors are 4 and 3. 
 Since a single cell is the size of the robot sensor 4 \& 3 are only able to map a cell right behind the robot. The reason for that being that while sensor 1 \& 6 are placed at a 45 degree angle and therefore are able to map cells to the front left and front right sensor 4 \& 3 and placed at a much smaller angle. 
 
 \subsubsection{Marking a Cell in the Map}
 This function is is used to mark a cell in the map. The other functions in this section calculate which cell to mark and than call this function in order to mark it on the map.
 
-\begin{lstlisting}[caption = {Mark a cell on the map}]
+\begin{lstlisting}[caption = {Mark a Cell on the Map}]
 void Occupancy_Map::mark_cell(int x_coord, int y_coord, int mark, int** matrix) {
 
       matrix[x_coord][y_coord] = mark;
@@ -195,7 +195,7 @@ This file can be loaded into the visualisation program, all that is needed is th
 The program will than generate another, empty, 2d map, and mark the occupied cells on is based on the coordinates saved in the file. 
 The map will be visualised afterwards.
 This program uses the C++ SDL2 graphics library. 
-The code for this program can be seen in appendix B section \ref{code:sdl} on page \pageref{code:sdl}.\\
+The code for this program can be seen in Appendix B section \ref{code:sdl} on page \pageref{code:sdl}.\\
 
 The code reads a file of coordinates, where the coordinates represent a cell in the map that has been marked as '1'.
 The file is read into 2 different vectors, one for \textit{x} and one for \textit{y} coordinates. These coordinates are read from the vectors to create new objects of a self defined \textit{newSDL\_Rect} struct, the structs are drawn on the screen using standard SDL operations. 
@@ -213,14 +213,13 @@ As those techniques did not show that anything was wrong with the evolution othe
 The actuator speed of the robot was manually set to test the kinematics of the robot model, the robot was able to move with the changes, which hints that there is an problem with the evolution as the actuator speed is taken right from the output of the neural network.
 The outputs of the neural network were checked, they showed that the robot should be able, though slowly, to move. 
 Robots were placed close to obstacles and rotated in order to check IR readings for any discrepancies, this turned up nothing all read outs were as expected.
-Every declaration and initialisation of the neural network, experiment class, simple\_agent(robot) class and map was checked for NULL pointers, faulty pointers or other discrepancies. None of which turned up any information.
+Every declaration and initialisation of the neural network, experiment class, SIMPLE\_Agent(robot) class and map was checked for NULL pointers, faulty pointers or other discrepancies. None of which turned up any information.
 Checking the installed versions of the packages required to run the simulator did not show any obvious problems as all were installed, to be sure that nothing was overlooked all packages and files needed for the simulator were removed from the system and reinstalled.
 Testing the program on 4 different machines showed the same problems. \\
 
 At this point it has been deaned that resetting the state of the project to a previous, working state using version control software(github) should be tried.
 However even this did not turn up any anything, since even after hard-resetting the state of the files to previous commits did not fix this problem.
-At which point it was assumed that it might have something to do with cache of the IDE used, that the version of the code cached and executed might differ from the actual code on the hard drive. 
-Checking this proved this to be true, the files hold in the  IDE's\footnote{CLion from Jetbrain \url{https://www.jetbrains.com/}}  cache differed from the files on the file system.
+At which point it was assumed that it might have something to do with cache of the IDE used, that the version of the code cached and executed might differ from the actual code on the hard drive. This proved this to be true, the files hold in the  IDE's\footnote{CLion from Jetbrain \url{https://www.jetbrains.com/}}  cache differed from the files on the file system.
 But even after cleaning the cache did problem still prevailed. It was tested if cloning the github repository to another folder where the code was observed and manipulated directly using text editors and compiling it using the command line would fix the bug, however the bug prevailed. \\
 
 Even discussing the problem with both creators of the simulator, Elio and Muhannad and going through the code with them did not turn up anything, no obvious piece of code the author simply overlooked was found.

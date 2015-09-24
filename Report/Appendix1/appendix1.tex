@@ -3,9 +3,9 @@
 \section{Range and Bearing reading}
 \label{code:erandB}
 This code was written by Muhanad Hayder Mohammed(mhm1@aber.ac.uk).\\
-This code is used to calculate the distance and bearing between 2 robots and return the results as an array. The first member of the array is the distance between 2 robots, and the second member is the bearing. \\
+This code is used to calculate the distance and bearing between 2 robots and return the results as an array. The first member of the array is the distance between 2 robots, and the second member is the bearing. 
 The code only returns when a result when the distance between the robots is below a user defined maximum distance. This distance can be changed by modifying the \textit{work\_range} variable(in this code snipped set to 0.4 = 40 cm).
-\begin{lstlisting}[caption = {Code of the Range and Bearing function}]
+\begin{lstlisting}[caption = {Code of the Range and Bearing Function}]
 double SIMPLE_Agents::get_randb_reading( vector <double> _to_robot_pos, vector <double> &_reading){
     double work_range = 0.4;
     randb_from = btVector3(0.0,0.0,0.0);
