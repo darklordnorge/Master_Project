@@ -1,21 +1,14 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.3.6)  23 SEP 2015 19:03
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.2.24)  24 SEP 2015 02:39
 entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
 **dissertation.tex
-(D:\Github\Master_Project\Report\dissertation.tex
+(./dissertation.tex
 LaTeX2e <2011/06/27>
-Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, ar
-abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
-croatian, czech, danish, dutch, esperanto, estonian, farsi, finnish, french, ga
-lician, german, german-x-2013-05-26, greek, gujarati, hindi, hungarian, iceland
-ic, indonesian, interlingua, irish, italian, kannada, kurmanji, latin, latvian,
- lithuanian, malayalam, marathi, mongolian, mongolianlmc, monogreek, ngerman, n
-german-x-2013-05-26, nynorsk, oriya, panjabi, pinyin, polish, portuguese, roman
-ian, russian, sanskrit, serbian, slovak, slovenian, spanish, swedish, swissgerm
-an, tamil, telugu, turkish, turkmen, ukenglish, ukrainian, uppersorbian, usengl
-ishmax, welsh, loaded.
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\report.cls"
+Babel <3.9h> and hyphenation patterns for 78 languages loaded.
+(/usr/share/texlive/texmf-dist/tex/latex/base/report.cls
 Document Class: report 2007/10/19 v1.4h Standard LaTeX document class
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\size11.clo"
+(/usr/share/texlive/texmf-dist/tex/latex/base/size11.clo
 File: size11.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 )
 \c@part=\count79
@@ -30,35 +23,34 @@ File: size11.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 \abovecaptionskip=\skip41
 \belowcaptionskip=\skip42
 \bibindent=\dimen102
-)
-(D:\Github\Master_Project\Report\mmp.sty
+) (./mmp.sty
 Package: mmp 
 
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\graphicx.sty"
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
 
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\keyval.sty"
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
 \KV@toks@=\toks14
 )
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\graphics.sty"
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
 Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
 
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\trig.sty"
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
 Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
 )
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\00miktex\graphics.cfg"
-File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/graphics.cfg
+File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
 )
 Package graphics Info: Driver file: pdftex.def on input line 91.
 
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\pdftex-def\pdftex.def"
+(/usr/share/texlive/texmf-dist/tex/latex/pdftex-def/pdftex.def
 File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
 
-("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\infwarerr.sty"
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/infwarerr.sty
 Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
 )
-("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\ltxcmds.sty"
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
 Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
 )
 \Gread@gobject=\count88
@@ -66,33 +58,33 @@ Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
 \Gin@req@height=\dimen103
 \Gin@req@width=\dimen104
 )
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\psnfss\palatino.sty"
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/palatino.sty
 Package: palatino 2005/04/12 PSNFSS-v9.2a (SPQR) 
 )
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\carlisle\plain.sty"
+(/usr/share/texlive/texmf-dist/tex/latex/carlisle/plain.sty
 Package: plain 1996/04/22 Plain TeX emulation (DPC)
 \tabs@latex=\box26
 \tabsyet@latex=\box27
 \tabsdone@latex=\box28
 )
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsmath\amsmath.sty"
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
 Package: amsmath 2013/01/14 v2.14 AMS math features
 \@mathmargin=\skip43
 
 For additional information on amsmath, use the `?' option.
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsmath\amstext.sty"
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
 Package: amstext 2000/06/29 v2.01
 
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsmath\amsgen.sty"
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0
 \@emptytoks=\toks15
 \ex@=\dimen105
 ))
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsmath\amsbsy.sty"
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d
 \pmbraise@=\dimen106
 )
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsmath\amsopn.sty"
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 1999/12/14 v2.01 operator names
 )
 \inf@bad=\count89
@@ -133,18 +125,18 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 567.
 LaTeX Info: Redefining \[ on input line 2665.
 LaTeX Info: Redefining \] on input line 2666.
 )
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\amsfonts.sty"
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 \symAMSa=\mathgroup4
 \symAMSb=\mathgroup5
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
 )
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\amssymb.sty"
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
 )
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\subfigure\subfigure.sty"
-Package: subfigure 2002/07/30 v2.1.4 subfigure package
+(/usr/share/texlive/texmf-dist/tex/latex/subfigure/subfigure.sty
+Package: subfigure 2002/03/15 v2.1.5 subfigure package
 \subfigtopskip=\skip46
 \subfigcapskip=\skip47
 \subfigcaptopadj=\dimen114
@@ -159,11 +151,11 @@ Package: subfigure 2002/07/30 v2.1.4 subfigure package
 ****************************************
 * Local config file subfigure.cfg used *
 ****************************************
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\subfigure\subfigure.cfg")
+(/usr/share/texlive/texmf-dist/tex/latex/subfigure/subfigure.cfg)
 \subfig@top=\skip50
 \subfig@bottom=\skip51
 )
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\float\float.sty"
+(/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \c@float@type=\count105
 \float@exts=\toks20
@@ -171,10 +163,10 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \@float@everytoks=\toks21
 \@floatcapt=\box32
 )
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\psnfss\times.sty"
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/times.sty
 Package: times 2005/04/12 PSNFSS-v9.2a (SPQR) 
 )
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\fancyhdr\fancyhdr.sty"
+(/usr/share/texlive/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
 \fancy@headwidth=\skip52
 \f@ncyO@elh=\skip53
 \f@ncyO@erh=\skip54
@@ -185,19 +177,19 @@ Package: times 2005/04/12 PSNFSS-v9.2a (SPQR)
 \f@ncyO@olf=\skip59
 \f@ncyO@orf=\skip60
 )
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\lastpage\lastpage.sty"
+(/usr/share/texlive/texmf-dist/tex/latex/lastpage/lastpage.sty
 Package: lastpage 2013/01/28 v1.2l Refers to last page's name (HMM; JPG)
 )
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\url\url.sty"
+(/usr/share/texlive/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip11
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 ))
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\cite\cite.sty"
+(/usr/share/texlive/texmf-dist/tex/latex/cite/cite.sty
 LaTeX Info: Redefining \cite on input line 302.
 LaTeX Info: Redefining \nocite on input line 373.
 Package: cite 2010/09/10  v 5.3
 )
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\listings\listings.sty"
+(/usr/share/texlive/texmf-dist/tex/latex/listings/listings.sty
 \lst@mode=\count106
 \lst@gtempboxa=\box33
 \lst@token=\toks22
@@ -211,21 +203,21 @@ Package: cite 2010/09/10  v 5.3
 \lst@lineno=\count111
 \lst@maxwidth=\dimen119
 
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\listings\lstmisc.sty"
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2013/08/26 1.5b (Carsten Heinz)
 \c@lstnumber=\count112
 \lst@skipnumbers=\count113
 \lst@framebox=\box34
 )
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\listings\listings.cfg"
+(/usr/share/texlive/texmf-dist/tex/latex/listings/listings.cfg
 File: listings.cfg 2013/08/26 1.5b listings configuration
 ))
 Package: listings 2013/08/26 1.5b (Carsten Heinz)
 
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\caption\caption.sty"
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
 Package: caption 2013/05/02 v3.3-89 Customizing captions (AR)
 
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\caption\caption3.sty"
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
 Package: caption3 2013/05/02 v1.6-88 caption3 kernel (AR)
 Package caption3 Info: TeX engine: e-TeX on input line 57.
 \captionmargin=\dimen120
@@ -241,38 +233,33 @@ Package caption Info: float package is loaded.
 Package caption Info: listings package is loaded.
 Package caption Info: subfigure package is loaded.
 )
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\color.sty"
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/color.sty
 Package: color 2005/11/14 v1.0j Standard LaTeX Color (DPC)
 
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\00miktex\color.cfg"
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/color.cfg
 File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
 )
 Package color Info: Driver file: pdftex.def on input line 130.
 )
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\was\gensymb.sty"
+(/usr/share/texlive/texmf-dist/tex/latex/was/gensymb.sty
 Package: gensymb 2003/07/02 v1.0 (WaS)
 )
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\listings\lstlang1.sty"
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2013/08/26 1.5b listings language file
 )
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\listings\lstmisc.sty"
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2013/08/26 1.5b (Carsten Heinz)
 )
-(D:\Github\Master_Project\Report\dissertation.aux
-(D:\Github\Master_Project\Report\cover.aux)
-(D:\Github\Master_Project\Report\declaration.aux)
-(D:\Github\Master_Project\Report\acknowledgements.aux)
-(D:\Github\Master_Project\Report\abstract.aux)
-(D:\Github\Master_Project\Report\Chapter1/chapter1.aux)
-(D:\Github\Master_Project\Report\Chapter2/chapter2.aux)
-(D:\Github\Master_Project\Report\Chapter3/chapter3.aux)
-(D:\Github\Master_Project\Report\Chapter4/chapter4.aux
+(./dissertation.aux (./cover.aux) (./declaration.aux) (./acknowledgements.aux)
+(./abstract.aux) (./Chapter1/chapter1.aux) (./Chapter2/chapter2.aux)
+(./Chapter3/chapter3.aux) (./Chapter4/chapter4.aux
 
 LaTeX Warning: Label `fig:experiment_a' multiply defined.
 
-) (D:\Github\Master_Project\Report\Chapter5/chapter5.aux)
-(D:\Github\Master_Project\Report\Appendix1/appendix1.aux)
-(D:\Github\Master_Project\Report\Appendix2/appendix2.aux))
+) (./Chapter5/chapter5.aux) (./Appendix1/appendix1.aux)
+(./Appendix2/appendix2.aux))
+\openout1 = `dissertation.aux'.
+
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 63.
 LaTeX Font Info:    ... okay on input line 63.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 63.
@@ -287,10 +274,10 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 63.
 LaTeX Font Info:    ... okay on input line 63.
 LaTeX Font Info:    Try loading font information for OT1+ptm on input line 63.
 
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\psnfss\ot1ptm.fd"
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
-("C:\Program Files (x86)\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
+(/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count115
 \scratchdimen=\dimen127
@@ -303,7 +290,54 @@ File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 \MPnumerator=\count119
 \makeMPintoPDFobject=\count120
 \everyMPtoPDFconversion=\toks24
+) (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
+Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
 )
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifluatex.sty
+Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+)
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
+Package ifpdf Info: pdfTeX in PDF mode is detected.
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
+
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/grfext.sty
+Package: grfext 2010/08/19 v1.1 Manage graphics extensions (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
+Package: kvdefinekeys 2011/04/07 v1.3 Define keys (HO)
+))
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2011/06/30 v3.11 Key value format for package options (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
+Package: kvsetkeys 2012/04/25 v1.16 Key value parser (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/etexcmds.sty
+Package: etexcmds 2011/02/16 v1.5 Avoid name clashes with e-TeX commands (HO)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+)))
+Package grfext Info: Graphics extension search list:
+(grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 452.
+
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
 Package lastpage Info: Please have a look at the pageslts package at
 (lastpage)             http://www.ctan.org/tex-archive/ 
 (lastpage)             macros/latex/contrib/pageslts/ 
@@ -326,23 +360,26 @@ Package gensymb Info: Using \Omega for \ohm on input line 63.
 
 Package gensymb Warning: Not defining \micro.
 
-(D:\Github\Master_Project\Report\cover.tex
+\openout2 = `cover.aux'.
+
+(./cover.tex
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 28.
 LaTeX Font Info:    Try loading font information for U+msa on input line 28.
-
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
+ (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
 LaTeX Font Info:    Try loading font information for U+msb on input line 28.
 
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [0
 
 
-{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}])
-(D:\Github\Master_Project\Report\declaration.tex
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}])
+\openout2 = `declaration.aux'.
+
+ (./declaration.tex
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <17.28> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 7.
 
@@ -356,14 +393,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 16--17
  []
 
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10.95> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 22.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 23.
 
-Underfull \hbox (badness 10000) in paragraph at lines 21--23
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--26
+Underfull \hbox (badness 10000) in paragraph at lines 22--26
 
  []
 
@@ -400,34 +432,46 @@ Underfull \hbox (badness 10000) in paragraph at lines 44--45
 ) [1
 
 
-] (D:\Github\Master_Project\Report\acknowledgements.tex) [2
+]
+\openout2 = `acknowledgements.aux'.
+
+ (./acknowledgements.tex) [2
 
 
 ]
-(D:\Github\Master_Project\Report\abstract.tex) [3
+\openout2 = `abstract.aux'.
+
+ (./abstract.tex) [3
 
 
-]
-(D:\Github\Master_Project\Report\dissertation.toc [1
+] (./dissertation.toc
+[1
 
 ])
 \tf@toc=\write3
- [2]
-(D:\Github\Master_Project\Report\dissertation.lof)
+\openout3 = `dissertation.toc'.
+
+ [2] (./dissertation.lof)
 \tf@lof=\write4
- [3]
-(D:\Github\Master_Project\Report\dissertation.lot)
+\openout4 = `dissertation.lof'.
+
+ [3] (./dissertation.lot)
 \tf@lot=\write5
+\openout5 = `dissertation.lot'.
+
  [4]
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <24.88> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 96.
-
-(D:\Github\Master_Project\Report\dissertation.lol)
+ (./dissertation.lol)
 \tf@lol=\write6
- [5
+\openout6 = `dissertation.lol'.
+
+[5
 
 ]
-(D:\Github\Master_Project\Report\Chapter1/chapter1.tex
+\openout2 = `Chapter1/chapter1.aux'.
+
+ (./Chapter1/chapter1.tex
 Chapter 1.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <20.74> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1.
@@ -460,240 +504,110 @@ Underfull \hbox (badness 10000) in paragraph at lines 16--17
 
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 18--20
+Underfull \hbox (badness 10000) in paragraph at lines 18--24
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 21--22
+Underfull \hbox (badness 10000) in paragraph at lines 25--26
 
  []
 
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 31.
-LaTeX Font Info:    Try loading font information for OT1+pcr on input line 34.
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\psnfss\ot1pcr.fd"
-File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
-)
-Overfull \hbox (1.1857pt too wide) in paragraph at lines 32--38
-\OT1/ptm/m/n/10.95 been cre-ated by Elio Tuci(elt7@aber.ac.uk) and Muhanad Hay-
-der Mo-hammed(mhm4@aber.ac.uk)
+
+Underfull \hbox (badness 10000) in paragraph at lines 28--33
+
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 40--42
+Underfull \hbox (badness 10000) in paragraph at lines 34--35
 
  []
 
 [2]
-Underfull \hbox (badness 10000) in paragraph at lines 43--44
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 39.
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 42.
+ (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1pcr.fd
+File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
+)
+Underfull \hbox (badness 10000) in paragraph at lines 48--50
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 49--51
+Underfull \hbox (badness 10000) in paragraph at lines 51--52
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 56--58
+Underfull \hbox (badness 10000) in paragraph at lines 57--59
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 64--66
 
  []
 
 [3]
 Missing character: There is no Ã in font ptmr7t!
+Missing character: There is no Ã in font ptmr7t!
 
-Underfull \hbox (badness 10000) in paragraph at lines 84--89
+Underfull \hbox (badness 10000) in paragraph at lines 87--92
 
  []
 
 [4]
-Underfull \hbox (badness 10000) in paragraph at lines 90--91
+Underfull \hbox (badness 10000) in paragraph at lines 103--108
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 92--94
+Underfull \hbox (badness 10000) in paragraph at lines 109--110
 
  []
 
-<Chapter1/images/roulette_wheel.png, id=49, 573.14125pt x 460.72125pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 111--113
+
+ []
+
+[5] <Chapter1/images/roulette_wheel.png, id=53, 573.14125pt x 460.72125pt>
 File: Chapter1/images/roulette_wheel.png Graphic file (type png)
 
 <use Chapter1/images/roulette_wheel.png>
 Package pdftex.def Info: Chapter1/images/roulette_wheel.png used on input line 
-107.
+126.
 (pdftex.def)             Requested size: 229.25243pt x 184.28523pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 115--116
+Underfull \hbox (badness 10000) in paragraph at lines 134--135
 
  []
 
-[5 <D:/Github/Master_Project/Report/Chapter1/images/roulette_wheel.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 126--128
+[6 <./Chapter1/images/roulette_wheel.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 145--147
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 129--132
+Underfull \hbox (badness 10000) in paragraph at lines 148--151
 
  []
 
-[6]
-Underfull \hbox (badness 10000) in paragraph at lines 147--149
+[7]
+Underfull \hbox (badness 10000) in paragraph at lines 166--168
 
  []
 
-<Chapter1/images/e_puck_sensor.png, id=56, 683.55376pt x 599.23875pt>
+<Chapter1/images/e_puck_sensor.png, id=60, 683.55376pt x 599.23875pt>
 File: Chapter1/images/e_puck_sensor.png Graphic file (type png)
 
 <use Chapter1/images/e_puck_sensor.png>
 Package pdftex.def Info: Chapter1/images/e_puck_sensor.png used on input line 1
-52.
+71.
 (pdftex.def)             Requested size: 273.41666pt x 239.69125pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 158--160
-
- []
-
-[7 <D:/Github/Master_Project/Report/Chapter1/images/e_puck_sensor.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 165--168
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 169--170
-
- []
-
-) [8] (D:\Github\Master_Project\Report\Chapter2/chapter2.tex
-Chapter 2.
-
-Underfull \hbox (badness 10000) in paragraph at lines 9--14
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 15--19
-
- []
-
-<Chapter2/images/bias.png, id=63, 662.475pt x 490.83376pt>
-File: Chapter2/images/bias.png Graphic file (type png)
-
-<use Chapter2/images/bias.png>
-Package pdftex.def Info: Chapter2/images/bias.png used on input line 28.
-(pdftex.def)             Requested size: 198.74403pt x 147.25125pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-<Chapter2/images/network.png, id=64, 393.47pt x 529.98pt>
-File: Chapter2/images/network.png Graphic file (type png)
-
-<use Chapter2/images/network.png>
-Package pdftex.def Info: Chapter2/images/network.png used on input line 38.
-(pdftex.def)             Requested size: 118.0419pt x 158.99521pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 46--47
-
- []
-
-[9
-
-
-
-] <Chapter2/images/Selection_002.png, id=68, 567.11874pt x 391.4625pt>
-File: Chapter2/images/Selection_002.png Graphic file (type png)
-
-<use Chapter2/images/Selection_002.png>
-Package pdftex.def Info: Chapter2/images/Selection_002.png used on input line 5
-0.
-(pdftex.def)             Requested size: 170.13693pt x 117.43965pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 58--59
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 62--63
-
- []
-
-[10 <D:/Github/Master_Project/Report/Chapter2/images/bias.png> <D:/Github/Maste
-r_Project/Report/Chapter2/images/network.png (PNG copy)>]
-Underfull \hbox (badness 10000) in paragraph at lines 72--74
-
- []
-
-<Chapter2/images/unscaled.PNG, id=73, 767.2665pt x 172.84575pt>
-File: Chapter2/images/unscaled.PNG Graphic file (type png)
-
-<use Chapter2/images/unscaled.PNG>
-Package pdftex.def Info: Chapter2/images/unscaled.PNG used on input line 80.
-(pdftex.def)             Requested size: 306.90115pt x 69.13705pt.
-
-<Chapter2/images/scaled.PNG, id=75, 770.88pt x 182.48175pt>
-File: Chapter2/images/scaled.PNG Graphic file (type png)
-
-<use Chapter2/images/scaled.PNG>
-Package pdftex.def Info: Chapter2/images/scaled.PNG used on input line 88.
-(pdftex.def)             Requested size: 308.34654pt x 72.9914pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[11 <D:/Github/Master_Project/Report/Chapter2/images/Selection_002.png> <D:/Git
-hub/Master_Project/Report/Chapter2/images/unscaled.PNG>]
-Missing character: There is no â in font cmr6!
-Missing character: There is no € in font cmr6!
-Missing character: There is no ¢ in font cmr6!
-Missing character: There is no â in font cmr6!
-Missing character: There is no € in font cmr6!
-Missing character: There is no ¢ in font cmr6!
-Missing character: There is no â in font cmr6!
-Missing character: There is no € in font cmr6!
-Missing character: There is no ¢ in font cmr6!
- [12 <D:/Github/Master_Project/Report/Chapter2/images/scaled.PNG>]
-Underfull \hbox (badness 10000) in paragraph at lines 136--138
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 162--164
-
- []
-
-[13]
-Underfull \hbox (badness 10000) in paragraph at lines 165--166
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 170--171
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 172--173
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 174--175
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 176--183
+Underfull \hbox (badness 10000) in paragraph at lines 177--179
 
  []
 
@@ -702,32 +616,163 @@ Underfull \hbox (badness 10000) in paragraph at lines 184--187
 
  []
 
+[8 <./Chapter1/images/e_puck_sensor.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 188--189
+
+ []
+
+) [9]
+\openout2 = `Chapter2/chapter2.aux'.
+
+ (./Chapter2/chapter2.tex
+Chapter 2.
+
+Underfull \hbox (badness 10000) in paragraph at lines 7--12
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 13--17
+
+ []
+
+<Chapter2/images/bias.png, id=67, 662.475pt x 490.83376pt>
+File: Chapter2/images/bias.png Graphic file (type png)
+
+<use Chapter2/images/bias.png>
+Package pdftex.def Info: Chapter2/images/bias.png used on input line 26.
+(pdftex.def)             Requested size: 198.74403pt x 147.25125pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<Chapter2/images/network.png, id=68, 393.47pt x 529.98pt>
+File: Chapter2/images/network.png Graphic file (type png)
+
+<use Chapter2/images/network.png>
+Package pdftex.def Info: Chapter2/images/network.png used on input line 36.
+(pdftex.def)             Requested size: 118.0419pt x 158.99521pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<Chapter2/images/Selection_002.png, id=69, 567.11874pt x 391.4625pt>
+File: Chapter2/images/Selection_002.png Graphic file (type png)
+
+<use Chapter2/images/Selection_002.png>
+Package pdftex.def Info: Chapter2/images/Selection_002.png used on input line 4
+8.
+(pdftex.def)             Requested size: 170.13693pt x 117.43965pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 60--61
+
+ []
+
+[10
+
+
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 70--72
+
+ []
+
+[11 <./Chapter2/images/bias.png> <./Chapter2/images/network.png (PNG copy)>]
+<Chapter2/images/unscaled.PNG, id=81, 767.2665pt x 172.84575pt>
+File: Chapter2/images/unscaled.PNG Graphic file (type png)
+
+<use Chapter2/images/unscaled.PNG>
+Package pdftex.def Info: Chapter2/images/unscaled.PNG used on input line 78.
+(pdftex.def)             Requested size: 306.90115pt x 69.13705pt.
+
+<Chapter2/images/scaled.PNG, id=83, 770.88pt x 182.48175pt>
+File: Chapter2/images/scaled.PNG Graphic file (type png)
+
+<use Chapter2/images/scaled.PNG>
+Package pdftex.def Info: Chapter2/images/scaled.PNG used on input line 86.
+(pdftex.def)             Requested size: 308.34654pt x 72.9914pt.
+ [12 <./Chapter2/images/Selection_002.png> <./Chapter2/images/unscaled.PNG> <./
+Chapter2/images/scaled.PNG>]
+Missing character: There is no â in font cmr6!
+Missing character: There is no € in font cmr6!
+Missing character: There is no ¢ in font cmr6!
+Missing character: There is no â in font cmr6!
+Missing character: There is no € in font cmr6!
+Missing character: There is no ¢ in font cmr6!
+Missing character: There is no â in font cmr6!
+Missing character: There is no € in font cmr6!
+Missing character: There is no ¢ in font cmr6!
+ [13]
+Underfull \hbox (badness 10000) in paragraph at lines 137--139
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 163--165
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 166--167
+
+ []
+
 [14]
-Underfull \hbox (badness 10000) in paragraph at lines 195--200
+Underfull \hbox (badness 10000) in paragraph at lines 171--172
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 203--205
+Underfull \hbox (badness 10000) in paragraph at lines 173--174
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 216--218
+Underfull \hbox (badness 10000) in paragraph at lines 175--176
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 177--184
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 185--188
 
  []
 
 [15]
-Underfull \hbox (badness 10000) in paragraph at lines 219--223
+Underfull \hbox (badness 10000) in paragraph at lines 204--206
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 237--240
+Underfull \hbox (badness 10000) in paragraph at lines 217--219
 
  []
 
-) [16] (D:\Github\Master_Project\Report\Chapter3/chapter3.tex
+
+Underfull \hbox (badness 10000) in paragraph at lines 220--224
+
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 238--241
+
+ []
+
+[16]) [17]
+\openout2 = `Chapter3/chapter3.aux'.
+
+ (./Chapter3/chapter3.tex
 Chapter 3.
 
 Underfull \hbox (badness 10000) in paragraph at lines 2--6
@@ -735,16 +780,16 @@ Underfull \hbox (badness 10000) in paragraph at lines 2--6
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 22--27
+Underfull \hbox (badness 10000) in paragraph at lines 21--26
 
  []
 
-[17
+[18
 
 
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 36--38
+Underfull \hbox (badness 10000) in paragraph at lines 35--37
 
  []
 
@@ -752,152 +797,155 @@ Missing character: There is no â in font cmr6!
 Missing character: There is no € in font cmr6!
 Missing character: There is no ¢ in font cmr6!
 
-Underfull \hbox (badness 10000) in paragraph at lines 43--48
+Underfull \hbox (badness 10000) in paragraph at lines 42--47
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 49--52
-
- []
-
-[18]
-Underfull \hbox (badness 10000) in paragraph at lines 53--54
+Underfull \hbox (badness 10000) in paragraph at lines 48--51
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 55--56
+Underfull \hbox (badness 10000) in paragraph at lines 52--53
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 58--60
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 61--65
-
- []
-
-Missing character: There is no â in font cmr6!
-Missing character: There is no € in font cmr6!
-Missing character: There is no ¢ in font cmr6!
 [19]
-Underfull \hbox (badness 10000) in paragraph at lines 89--92
+Underfull \hbox (badness 10000) in paragraph at lines 54--55
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 94--95
+Underfull \hbox (badness 10000) in paragraph at lines 57--59
 
  []
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 60--64
+
+ []
+
+Missing character: There is no â in font cmr6!
+Missing character: There is no € in font cmr6!
+Missing character: There is no ¢ in font cmr6!
 [20]
-Underfull \hbox (badness 10000) in paragraph at lines 111--113
+Underfull \hbox (badness 10000) in paragraph at lines 88--91
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 116--119
+Underfull \hbox (badness 10000) in paragraph at lines 93--94
 
  []
 
-<Chapter3/images/heading.png, id=114, 419.31656pt x 322.95656pt>
+[21]
+Underfull \hbox (badness 10000) in paragraph at lines 110--112
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 115--118
+
+ []
+
+<Chapter3/images/heading.png, id=118, 419.31656pt x 322.95656pt>
 File: Chapter3/images/heading.png Graphic file (type png)
 
 <use Chapter3/images/heading.png>
-Package pdftex.def Info: Chapter3/images/heading.png used on input line 122.
+Package pdftex.def Info: Chapter3/images/heading.png used on input line 121.
 (pdftex.def)             Requested size: 209.65776pt x 161.47787pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 127--134
-
- []
-
-[21 <D:/Github/Master_Project/Report/Chapter3/images/heading.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 135--138
+Underfull \hbox (badness 10000) in paragraph at lines 126--133
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 141--143
+Underfull \hbox (badness 10000) in paragraph at lines 134--137
 
  []
 
-<Chapter3/images/robot_terminology.png, id=119, 496.85625pt x 352.31625pt>
+[22 <./Chapter3/images/heading.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 140--142
+
+ []
+
+<Chapter3/images/robot_terminology.png, id=124, 496.85625pt x 352.31625pt>
 File: Chapter3/images/robot_terminology.png Graphic file (type png)
 
 <use Chapter3/images/robot_terminology.png>
 Package pdftex.def Info: Chapter3/images/robot_terminology.png used on input li
-ne 146.
+ne 145.
 (pdftex.def)             Requested size: 248.4275pt x 176.15768pt.
- [22 <D:/Github/Master_Project/Report/Chapter3/images/robot_terminology.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 167--169
+
+Underfull \hbox (badness 10000) in paragraph at lines 166--168
 
  []
 
-[23]
-Underfull \hbox (badness 10000) in paragraph at lines 194--200
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 206--211
+[23 <./Chapter3/images/robot_terminology.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 193--199
 
  []
 
 [24]
-Underfull \hbox (badness 10000) in paragraph at lines 221--226
+Underfull \hbox (badness 10000) in paragraph at lines 205--210
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 227--229
+Underfull \hbox (badness 10000) in paragraph at lines 211--219
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 231--232
+Underfull \hbox (badness 10000) in paragraph at lines 220--225
 
  []
 
 [25]
-Underfull \hbox (badness 10000) in paragraph at lines 247--251
+Underfull \hbox (badness 10000) in paragraph at lines 226--228
 
  []
 
-) [26] (D:\Github\Master_Project\Report\Chapter4/chapter4.tex
+
+Underfull \hbox (badness 10000) in paragraph at lines 230--231
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 246--250
+
+ []
+
+) [26] [27]
+\openout2 = `Chapter4/chapter4.aux'.
+
+ (./Chapter4/chapter4.tex
 Chapter 4.
-
-Underfull \hbox (badness 10000) in paragraph at lines 2--5
-
- []
-
 
 Underfull \hbox (badness 10000) in paragraph at lines 7--12
 
  []
 
-[27
+
+Underfull \hbox (badness 10000) in paragraph at lines 13--20
+
+ []
+
+[28
 
 
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 21--24
+Underfull \hbox (badness 10000) in paragraph at lines 28--29
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 29--30
-
- []
-
-<Chapter4/images/experiment_A.png, id=140, 465.74pt x 662.475pt>
+<Chapter4/images/experiment_A.png, id=145, 465.74pt x 662.475pt>
 File: Chapter4/images/experiment_A.png Graphic file (type png)
 
 <use Chapter4/images/experiment_A.png>
-Package pdftex.def Info: Chapter4/images/experiment_A.png used on input line 33
+Package pdftex.def Info: Chapter4/images/experiment_A.png used on input line 32
 .
 (pdftex.def)             Requested size: 232.86943pt x 331.2367pt.
 
@@ -905,101 +953,95 @@ Package pdftex.def Info: Chapter4/images/experiment_A.png used on input line 33
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 38--43
+Underfull \hbox (badness 10000) in paragraph at lines 37--42
 
  []
 
-<Chapter4/images/comms.png, id=141, 552.8655pt x 602.25pt>
+<Chapter4/images/comms.png, id=146, 552.8655pt x 602.25pt>
 File: Chapter4/images/comms.png Graphic file (type png)
 
 <use Chapter4/images/comms.png>
-Package pdftex.def Info: Chapter4/images/comms.png used on input line 48.
+Package pdftex.def Info: Chapter4/images/comms.png used on input line 47.
 (pdftex.def)             Requested size: 276.43207pt x 301.12425pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 53--54
+Underfull \hbox (badness 10000) in paragraph at lines 52--53
 
  []
 
-[28]
-Underfull \hbox (badness 10000) in paragraph at lines 62--63
+
+Underfull \hbox (badness 10000) in paragraph at lines 54--56
 
  []
 
-[29 <D:/Github/Master_Project/Report/Chapter4/images/experiment_A.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 64--65
+[29]
+Underfull \hbox (badness 10000) in paragraph at lines 61--62
 
  []
 
-<Chapter4/images/map1.png, id=149, 639.38875pt x 417.56pt>
+<Chapter4/images/map1.png, id=150, 639.38875pt x 417.56pt>
 File: Chapter4/images/map1.png Graphic file (type png)
 
 <use Chapter4/images/map1.png>
-Package pdftex.def Info: Chapter4/images/map1.png used on input line 68.
+Package pdftex.def Info: Chapter4/images/map1.png used on input line 67.
 (pdftex.def)             Requested size: 319.69359pt x 208.77948pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 73--75
+Underfull \hbox (badness 10000) in paragraph at lines 72--74
 
  []
 
-[30 <D:/Github/Master_Project/Report/Chapter4/images/comms.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 82--83
-
- []
-
+[30 <./Chapter4/images/experiment_A.png>]
 <Chapter4/images/environment_marked1.png, id=154, 502.2765pt x 726.3135pt>
 File: Chapter4/images/environment_marked1.png Graphic file (type png)
 
 <use Chapter4/images/environment_marked1.png>
 Package pdftex.def Info: Chapter4/images/environment_marked1.png used on input 
-line 86.
+line 85.
 (pdftex.def)             Requested size: 200.90704pt x 290.52025pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 91--95
+Underfull \hbox (badness 10000) in paragraph at lines 95--99
+
+ []
+
+[31 <./Chapter4/images/comms.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 100--104
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 96--100
+Underfull \hbox (badness 10000) in paragraph at lines 109--112
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 101--105
-
- []
-
-[31 <D:/Github/Master_Project/Report/Chapter4/images/map1.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 110--113
-
- []
-
-[32 <D:/Github/Master_Project/Report/Chapter4/images/environment_marked1.png>]
+[32 <./Chapter4/images/map1.png>]
 <Chapter4/images/experiment_1.png, id=162, 487.06969pt x 691.08188pt>
 File: Chapter4/images/experiment_1.png Graphic file (type png)
 
 <use Chapter4/images/experiment_1.png>
-Package pdftex.def Info: Chapter4/images/experiment_1.png used on input line 12
-0.
+Package pdftex.def Info: Chapter4/images/experiment_1.png used on input line 11
+9.
 (pdftex.def)             Requested size: 194.82442pt x 276.42784pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
 
 <Chapter4/images/experiment_1_map.png, id=163, 643.40375pt x 425.59pt>
 File: Chapter4/images/experiment_1_map.png Graphic file (type png)
 
 <use Chapter4/images/experiment_1_map.png>
 Package pdftex.def Info: Chapter4/images/experiment_1_map.png used on input lin
-e 127.
+e 126.
 (pdftex.def)             Requested size: 257.35693pt x 170.23297pt.
 
 
@@ -1010,9 +1052,9 @@ File: Chapter4/images/experiment_2.png Graphic file (type png)
 
 <use Chapter4/images/experiment_2.png>
 Package pdftex.def Info: Chapter4/images/experiment_2.png used on input line 14
-2.
+1.
 (pdftex.def)             Requested size: 188.19978pt x 284.25696pt.
- [33 <D:/Github/Master_Project/Report/Chapter4/images/experiment_1.png>]
+ [33 <./Chapter4/images/environment_marked1.png>]
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
@@ -1021,52 +1063,92 @@ File: Chapter4/images/experiment_2_map.png Graphic file (type png)
 
 <use Chapter4/images/experiment_2_map.png>
 Package pdftex.def Info: Chapter4/images/experiment_2_map.png used on input lin
-e 151.
+e 150.
 (pdftex.def)             Requested size: 256.95544pt x 169.0285pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 )
-Underfull \hbox (badness 10000) in paragraph at lines 156--108
+Underfull \hbox (badness 10000) in paragraph at lines 155--108
 
  []
 
-[34 <D:/Github/Master_Project/Report/Chapter4/images/experiment_1_map.png>]
-[35 <D:/Github/Master_Project/Report/Chapter4/images/experiment_2.png> <D:/Gith
-ub/Master_Project/Report/Chapter4/images/experiment_2_map.png>]
-(D:\Github\Master_Project\Report\Chapter5/chapter5.tex
+[34 <./Chapter4/images/experiment_1.png>] [35 <./Chapter4/images/experiment_1_m
+ap.png> <./Chapter4/images/experiment_2.png>] [36 <./Chapter4/images/experiment
+_2_map.png>]
+\openout2 = `Chapter5/chapter5.aux'.
+
+ (./Chapter5/chapter5.tex
 Chapter 5.
 
-Underfull \hbox (badness 10000) in paragraph at lines 3--4
+Underfull \hbox (badness 10000) in paragraph at lines 4--7
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 5--9
+Underfull \hbox (badness 10000) in paragraph at lines 8--10
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 10--12
+Underfull \hbox (badness 10000) in paragraph at lines 11--15
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13--14
+Underfull \hbox (badness 10000) in paragraph at lines 16--23
 
  []
 
-) [36
+[37
 
 
 
-] [37
+] <Chapter5/images/comm_example_room.png, id=185, 463.7325pt x 284.262pt>
+File: Chapter5/images/comm_example_room.png Graphic file (type png)
+
+<use Chapter5/images/comm_example_room.png>
+Package pdftex.def Info: Chapter5/images/comm_example_room.png used on input li
+ne 30.
+(pdftex.def)             Requested size: 370.9865pt x 227.4099pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 43--44
+
+ []
 
 
-] (D:\Github\Master_Project\Report\Appendix1/appendix1.tex
+Underfull \hbox (badness 10000) in paragraph at lines 45--49
+
+ []
+
+[38 <./Chapter5/images/comm_example_room.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 50--52
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 53--59
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 60--63
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 64--65
+
+ []
+
+) [39]
+\openout2 = `Appendix1/appendix1.aux'.
+
+ (./Appendix1/appendix1.tex
 Appendix A.
-[38
+[40
+
 
 
 ]
@@ -1074,31 +1156,33 @@ Overfull \hbox (37.20842pt too wide) in paragraph at lines 28--29
 [][][][][][][][][][]  
  []
 
-) [39] (D:\Github\Master_Project\Report\Appendix2/appendix2.tex
+) [41]
+\openout2 = `Appendix2/appendix2.aux'.
+
+ (./Appendix2/appendix2.tex
 Appendix B.
-<Chapter1/images/environment.png, id=190, 472.76625pt x 716.6775pt>
+<Chapter1/images/environment.png, id=200, 472.76625pt x 716.6775pt>
 File: Chapter1/images/environment.png Graphic file (type png)
 
 <use Chapter1/images/environment.png>
 Package pdftex.def Info: Chapter1/images/environment.png used on input line 6.
 (pdftex.def)             Requested size: 212.74284pt x 322.5019pt.
- [40
+ [42
 
 
 
- <D:/Github/Master_Project/Report/Chapter1/images/environment.png>] [41] [42] [
-43]
-<Chapter3/images/first_fitness_environment.png, id=205, 327.47343pt x 709.14937
+ <./Chapter1/images/environment.png>]
+[43] [44] [45]
+<Chapter3/images/first_fitness_environment.png, id=214, 327.47343pt x 709.14937
 pt>
 File: Chapter3/images/first_fitness_environment.png Graphic file (type png)
  <use Chapter3/images/first_fitness_environment.png>
 Package pdftex.def Info: Chapter3/images/first_fitness_environment.png used on 
 input line 151.
 (pdftex.def)             Requested size: 196.48558pt x 425.4929pt.
- [44 <D:/Github/Master_Project/Report/Chapter3/images/first_fitness_environment
-.png>] [45] [46]
-[47] [48] [49] [50] [51]
-<Chapter2/images/uml_simple.png, id=232, 742.775pt x 381.425pt>
+ [46 <./Chapter3/images/first_fitness_environment.png>] [47] [48] [49] [50] [51
+] [52] [53]
+<Chapter2/images/uml_simple.png, id=242, 742.775pt x 381.425pt>
 File: Chapter2/images/uml_simple.png Graphic file (type png)
 
 <use Chapter2/images/uml_simple.png>
@@ -1113,7 +1197,7 @@ Overfull \hbox (18.87709pt too wide) in paragraph at lines 545--546
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<Chapter2/images/exp_class_uml.png, id=233, 441.65pt x 1033.8625pt>
+<Chapter2/images/exp_class_uml.png, id=243, 441.65pt x 1033.8625pt>
 File: Chapter2/images/exp_class_uml.png Graphic file (type png)
 
 <use Chapter2/images/exp_class_uml.png>
@@ -1124,7 +1208,7 @@ Package pdftex.def Info: Chapter2/images/exp_class_uml.png used on input line 5
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<Chapter2/images/parameters_uml.png, id=234, 602.25pt x 1033.8625pt>
+<Chapter2/images/parameters_uml.png, id=244, 602.25pt x 1033.8625pt>
 File: Chapter2/images/parameters_uml.png Graphic file (type png)
 
 <use Chapter2/images/parameters_uml.png>
@@ -1135,7 +1219,7 @@ Package pdftex.def Info: Chapter2/images/parameters_uml.png used on input line
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<Chapter2/images/simple_agent_uml.png, id=235, 632.3625pt x 1244.65pt>
+<Chapter2/images/simple_agent_uml.png, id=245, 632.3625pt x 1244.65pt>
 File: Chapter2/images/simple_agent_uml.png Graphic file (type png)
 
 <use Chapter2/images/simple_agent_uml.png>
@@ -1146,7 +1230,7 @@ e 570.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<Chapter2/images/controlle_uml.png, id=236, 652.4375pt x 813.0375pt>
+<Chapter2/images/controlle_uml.png, id=246, 652.4375pt x 813.0375pt>
 File: Chapter2/images/controlle_uml.png Graphic file (type png)
 
 <use Chapter2/images/controlle_uml.png>
@@ -1157,16 +1241,13 @@ Package pdftex.def Info: Chapter2/images/controlle_uml.png used on input line 5
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-) [52] [53 <D:/Github/Master_Project/Report/Chapter2/images/uml_simple.png (PNG
- copy)>] [54 <D:/Github/Master_Project/Report/Chapter2/images/exp_class_uml.png
- (PNG copy)>] [55 <D:/Github/Master_Project/Report/Chapter2/images/parameters_u
-ml.png (PNG copy)>] [56 <D:/Github/Master_Project/Report/Chapter2/images/simple
-_agent_uml.png (PNG copy)>] [57 <D:/Github/Master_Project/Report/Chapter2/image
-s/controlle_uml.png (PNG copy)>]
-(D:\Github\Master_Project\Report\dissertation.bbl
+) [54] [55 <./Chapter2/images/uml_simple.png (PNG copy)>] [56 <./Chapter2/image
+s/exp_class_uml.png (PNG copy)>] [57 <./Chapter2/images/parameters_uml.png (PNG
+ copy)>] [58 <./Chapter2/images/simple_agent_uml.png (PNG copy)>] [59 <./Chapte
+r2/images/controlle_uml.png (PNG copy)>] (./dissertation.bbl
 Missing character: There is no Ã in font ptmr7t!
 Missing character: There is no ­ in font ptmr7t!
- [58
+ [60
 
 
 ]
@@ -1179,45 +1260,38 @@ Missing character: There is no ± in font ptmr7t!
 )
 
 AED: lastpage setting LastPage
-[59] (D:\Github\Master_Project\Report\dissertation.aux
-(D:\Github\Master_Project\Report\cover.aux)
-(D:\Github\Master_Project\Report\declaration.aux)
-(D:\Github\Master_Project\Report\acknowledgements.aux)
-(D:\Github\Master_Project\Report\abstract.aux)
-(D:\Github\Master_Project\Report\Chapter1/chapter1.aux)
-(D:\Github\Master_Project\Report\Chapter2/chapter2.aux)
-(D:\Github\Master_Project\Report\Chapter3/chapter3.aux)
-(D:\Github\Master_Project\Report\Chapter4/chapter4.aux)
-(D:\Github\Master_Project\Report\Chapter5/chapter5.aux)
-(D:\Github\Master_Project\Report\Appendix1/appendix1.aux)
-(D:\Github\Master_Project\Report\Appendix2/appendix2.aux))
+[61] (./dissertation.aux (./cover.aux) (./declaration.aux)
+(./acknowledgements.aux) (./abstract.aux) (./Chapter1/chapter1.aux)
+(./Chapter2/chapter2.aux) (./Chapter3/chapter3.aux) (./Chapter4/chapter4.aux)
+(./Chapter5/chapter5.aux) (./Appendix1/appendix1.aux)
+(./Appendix2/appendix2.aux))
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 5894 strings out of 493921
- 89358 string characters out of 3144874
- 208017 words of memory out of 3000000
- 8965 multiletter control sequences out of 15000+200000
- 33972 words of font info for 75 fonts, out of 3000000 for 9000
- 841 hyphenation exceptions out of 8191
- 36i,12n,49p,700b,1677s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Progra
-m Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program 
-Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Fi
-les (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files
- (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files (x
-86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files (x86
-)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files (x86)/M
-iKTeX 2.9/fonts/type1/urw/courier/ucrr8a.pfb><C:/Program Files (x86)/MiKTeX 2.9
-/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type
-1/urw/times/utmr8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/times
-/utmr8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pf
-b>
-Output written on dissertation.pdf (68 pages, 1133277 bytes).
+ 6252 strings out of 493304
+ 92839 string characters out of 6139871
+ 211824 words of memory out of 5000000
+ 9462 multiletter control sequences out of 15000+600000
+ 33972 words of font info for 75 fonts, out of 8000000 for 9000
+ 957 hyphenation exceptions out of 8191
+ 38i,12n,49p,699b,1677s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/uc
+rr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/
+share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/t
+exmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts
+/type1/urw/times/utmri8a.pfb>
+Output written on dissertation.pdf (70 pages, 1127552 bytes).
 PDF statistics:
- 301 PDF objects out of 1000 (max. 8388607)
+ 311 PDF objects out of 1000 (max. 8388607)
+ 191 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 121 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 126 words of extra memory for PDF output out of 10000 (max. 10000000)
 

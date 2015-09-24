@@ -1,15 +1,66 @@
-\chapter{Conclusion \& Future work}
+\chapter{Conclusion \& Future Work}
+
+\section{Future Work}
+The developed program is a good baseline on which future work can be done to extend the capabilities it. 
+Possible future work include improving on the communication and mapping algorithm and fitness function to fix the limitations created by the current implementation of those functions. 
+What those limitations are and how they can be improved has been extensively covered in chapter 4 of this report.\\
+
+Further work the author would like to perform is the implementation of different Neural Networks and also the testing of different Neural Networks of the same type.
+It would be very interesting to test and document the performance of different Neural Networks in the same environment and with the same tasks.\\
+
+Other improvements that could be done is to make the implementation more realistic.
+This can be done by calculating battery usage and connecting the this to the movement and communication algorithms. Both movement and communication require power and implementing this would reduce the amount of movement a robot could perform. 
+Based on this different roles could be developed for the swarm, while some robots do the movement and mapping, others could act as stationary communication nodes and thereby reduce their battery usage. 
+Out of this more advanced deployment methods can be created assigning different \textit{"classes"} to the robots such as \textit{explorer} and \textit{communication node}. \\
+
+Also can the localisation algorithm be modified to make it more realistic. 
+At this current state of the program the localisation is handled by build in functions in the simulator, which is not doable in a real world application. 
+There are different methods which can be implemented and tested in order to find the accurate localisation algorithms. As it can be assume that GPS information for the environment is not available other methods need to be implemented. 
+One such method is odometry. In odometry the robots location and rotation can be calculated using information about the dimensions of the robot, the wheels, the wheelbase, the stepper motors. 
+One problem with odometry is that there always is a slight error in the calculation. This error is due to influences like friction between the wheels and the floor, faulty dimensions of the robot used in the calculation, etc.
+This error is increasing over time unless it can be \textit{reset}. In previous work the author has worked with odometry using a single e-puck robot. In that project the odometry error grew to big and influenced the performance of the robot.
+However, using a multi robot system the odometry knowledge of one robot combined with the range and bearing information gathered by the \textit{range and bearing} board could possibly be used to adjust the odometry error of another robot.\\
+
+The communication algorithm implemented in the system is a good baseline on which improvements can be made to make the communication behaviour more realistic. 
+In a real world application it is required that the robots maintain a communication link back to a \textit{base station} where the map data collected by the robots is presented to a human operator.
+As the robots posses limited communication range robots would need to stop and form \textit{"lines"} along which information can be transmitted from the robots furthest into the environment.
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.8]{Chapter5/images/comm_example_room.png}
+\caption[Example of a communication link needed for an environment]{Example of a communication link needed for an environment\footnotemark}
+\label{fig:comms_example}
+\end{figure}
+
+\footnotetext{Image taken from the Authors own BSc Major Project "Odometry based map building", submitted May 2014}
+
+Figure \ref{fig:comms_example} shows how such an communication link could look like for a more advanced environment. The black circle represents the stationary \textit{base station} to which all data must be send, the red circle represent robots which moved to their location as part of the exploration but than became \textit{stationary} to act as communication nodes for the rest of the swarm.
+The blue circle represents a robot still in \textit{exploration} mode mapping the environment. 
+The robots communication range is represented by the large black circles.
+This method could be combined with the improvements to the communication algorithm suggest in chapter 4. 
+
 \section{Conclusion}
 While there have been problems during the development of this program which led to a standstill in the implementation and testing of further improvements, a clear \textit{baseline} has been reached.\\
 
-Multi robot movement and communication algorithms were implemented, with the help of third party code, and a fitness function, based on research, has been developed.\\
-The communication algorithm allows the robots to move in formation and explore the environment while staying within the communication range. \\
-The fitness function manages to evolve robots which spread out to maximise exploration ratio and guide the evolution of their movement and obstacle avoidance behaviour. \\
-A mapping algorithm has been implemented which is able to map cells fairly accurate within the capabilities of the IR proximity sensors.\\
+Multi robot movement and communication algorithms have been implemented, with some third party code; a fitness function, based on research, has been developed.
+The communication algorithm allows the robots to move in formation and explore the environment while staying within the communication range. 
+The fitness function does evolve robot controllers which spread the robots out to maximise exploration area, and guide the evolution of their movement and obstacle avoidance behaviour. 
+A mapping algorithm has been implemented which is able to map cells fairly accurate using the capabilities of the IR proximity sensors.\\
 
-There are problems with the developed program, as has been discussed in detail in chapter 3 \& 4. There is the problem with the communications bit of the fitness function, with the current one the robots are forming groups of 2s and ignore other robots. The accuracy of the mapping could be increased by increasing the resolution of the map as well as implementing a mapping algorithm based on probability rather than simply on measurements. \\
+There are problems with the developed program, as has been discussed in detail in chapter 3 \& 4. There is the problem with the communication segment of the fitness function. This segment causes the robots to form groups of 2s and ignore other robots. The accuracy of the mapping could be increased by increasing the resolution of the map or implement a mapping algorithm based on probability rather than simply on measurements. 
 However a good basis has been developed during this project, giving a good baseline on which future work can be developed.\\
 
-The largest problem encountered in the development was the non-evolution bug, which was a major setback and stalled all further development and progress in the last 2 weeks of the project. \\
+The largest problem encountered in the development was the non-evolution bug, which was a major setback and stalled all further development and progress in the last 2 weeks of the project.
+However, all previous evolutions have been saved and experiments have been performed. 
+The experiments, performed in different environments, show the possibilities of the program. Analysing the results of these experiments also gives some idea of what needs to be done to train more advanced Neural Networks. 
+Other than further developing the communication and mapping algorithm works needs to be done on the design of the training environment. 
+The results have demonstrated that the robots have problems with angular walls, presumably because they are not exposed to them enough in the training environment.
+Increasing the difficulty of the training environment could train more advanced robot controllers given that more work would be done on the fitness function and the limitations of the communication and mapping algorithms are remedied.\\
+
+I think the right tools and methods have been chosen for this project.
+The use of the Evolutionary Simulator was wise as it is easy to work with and gives a very good platform from which evolutionary algorithms can be developed. 
+Using the C++ programming language allows to access and use all standard C++ libraries and the language is easy to work with.\\
+
+Overall the work achieved in the course of the project and the results gained are satisfactory. A solid baseline has been achieved; communication and mapping implemented. Where the progress not halted by the non-evolution bug more progress could have done, but this can be done in a future implementation of this work.\\
 
 

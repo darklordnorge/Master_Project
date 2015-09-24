@@ -16,22 +16,30 @@ Research has gone into different approaches. Some approaches, like Silva \textit
 The inspiration for this project was to demonstrate how an evolutionary robotics approach could be implemented, as well as to explore the challenges presented by implementing different aspects into a single work, effectively creating a system for autonomous exploration of multiple mobile robots using limited communication possibilities, with the task of mapping comparative simple environments such as buildings. \\
 
 The evolutionary algorithm to guide the exploration has been implemented alongside communication and mapping algorithms. 
-Some results have been gathered and the system has been tested in different environments. However, due to a bug in the system that the author was not able to remove (covered in a latter part of this document), this work has not been entirely finished. \\
+Some results have been gathered and the system has been tested in different environments. However, due to a bug in the system that the author was not able to remove (covered in a latter part of this document), this work has not been entirely finished.
+With the implemented communication algorithms the robots are able to move in formation, limited by the communication range. However, in the current implementation they aim to drive at maximum extent of the communication range which can cause problems, as any sudden change in movement by a robot(e.g. when an obstacle is detected) can lead to a loss of communication as they move outside the maximum range.
+The current implementation is also not optimal as robot build pairs and stick together, ignoring other robots.
+The current implementation of the mapping algorithm is able to map any obstacle encountered by a robot. The limitations of the implementation is that the algorithm maps anything triggering the IR sensors, even other robots. At this moment each cell of the map (a standard occupancy grid map) is assumed to be the same size as the robot. This leads can lead to inaccurate readings.
+While the project in its current state has not full filled all goals that have been set at the beginning of it, a well functioning baseline has been established from which further work in future implementations can be done.\\ 
 
 The following chapters will explore the background of and analysis the key parts of the project, explain their design, their implementation, as well as explain the testing procedures and experiments which were performed. The achieved work is summarised and analysed in a conclusion at the end of this document.\\
 
 \section{Aim of this Project}
-The goal of this project is to create a program that can control a swarm of E-Puck robots using evolutionary methods to explore and  map an environment. 
+The goal of this project is to create a program that can control a swarm of E-Puck robots using evolutionary methods to explore and map an environment. 
 The E-Pucks must always remain in communication, as they share a global map. 
 The control algorithm is an Artificial Neural Network, an evolutionary algorithm. 
 The neural network is trained so that it will learn to develop a solution on its own.
-The benefit of neural networks is that they are extremely versatile. A trained neural network will perform very well, even in an different environment. Neural networks also allow for quick reactions from robots with very little processing time once they are fully evolved.  
+The benefit of neural networks is that they are extremely versatile. A trained neural network will perform very well, even in an different environment. Neural networks also allow for quick reactions from robots with very little processing time once they are fully evolved.\\
+
+The communication algorithm must ensure that all robots are within a maximum communication range to each other. In a real world application communication ranges are limited, and robots who move outside this communication range can not be located any more. The goal for the communication algorithm of this project is to ensure that all robots are always staying within their communication range, and follow the restrictions given by the communication method: line of sight is needed.\\
+
+The mapping algorithm must be able to map any obstacle encountered in the environment as accurate as possible. To do this localisation algorithms need to be implemented that are able to pinpoint the robots location and rotation in the environment. 
 
 \section{Information about the Project}
 \subsection{Choice of Development Environment and Programming Language}
 Since the control algorithm for the robots is an artificial neural network, it needs to be trained before it can be tested. Therefore, a simulator is needed.
-The simulator chosen for this project has been created by Elio Tuci(elt7@aber.ac.uk) and Muhanad Hayder Mohammed(mhm4@aber.ac.uk) at Aberystwyth University. 
-The other candidate I considered was Cyberbotics Webots\footnote{\url{http://goo.gl/BrPK98}}. 
+The simulator chosen for this project is the evolutionary simulator which has been created by Elio Tuci(elt7@aber.ac.uk) and Muhanad Hayder Mohammed(mhm4@aber.ac.uk) at Aberystwyth University. 
+The other candidate I considered was Cyberbotics Webots\footnote{\url{http://goo.gl/BrPK98}}, which was dismissed as the evolutionary simulator posses some probabilities(e.g. implemented Genetic Algorithm) that Webots is lacking. 
 The simulator by Elio Tuci was chosen because I worked with it throughout the second semester of this Masters course and therefore know it well. Other reasons include that the simulator was build for the creation of evolutionary algorithms, and as such already possesses an implemented genetic algorithm. 
 At the beginning of the project it was deemed ambitious to create a working genetic algorithm as well as an Artificial Neural Network and train it to perform the tasks explained in this chapter. 
 The programming language chosen for this project was C++ as the simulator is written in it. 
@@ -57,48 +65,59 @@ The Communication capabilities of the E-Puck where analysed. The Standard E-Puck
 Bluetooth  communication for this project has been deemed infeasible as Bluetooth communications can take somewhere around 19.5 $\pm$ 4 seconds. A multi robot exploration and mapping project such as this requires almost constant communication, in which case bluetooth connection times of \~19 seconds are too long.\\
 
 There are a few proposed ways to implement WiFi communications on the e-puck robot. 
-One of the methods was proposed by Christopher M. Cianci \textit{et al.}\cite{Cianci2007Communication} is the creation and implementation of a WiFi extension board for the e-puck, enabling communication between ZigBee and other IEEE 802.15.4 compliant transceivers. \\
-There designed communication board is based on the MSP430 Microcontroller\footnote{\url{http://www.ti.com/product/msp430f169}} and the Chipcon CC2420\footnote{http://www.ti.com/product/cc2420} radio.\\
-Allowing the e-puck a communication range between 15cm and 5 meters. \\
+One of the methods was proposed by Christopher M. Cianci \textit{et al.}\cite{Cianci2007Communication} is the creation and implementation of a WiFi extension board for the e-puck, enabling communication between ZigBee and other IEEE 802.15.4 compliant transceivers. 
+There designed communication board is based on the MSP430 Microcontroller\footnote{\url{http://www.ti.com/product/msp430f169}} and the Chipcon CC2420\footnote{http://www.ti.com/product/cc2420} radio.
+Allowing the e-puck a communication range between 15cm and 5 meters. 
 However such an board is not commercially available and would need to be custom designed and build, which is outside the spectrum of this project.
 
-For the purposes of this project the use of the official e-puck range and bearing board has been deemed appropriate, as it is would be commercially available.\\
+For the purposes of this project the use of the official e-puck range and bearing board has been deemed appropriate, as it is would be commercially available.
 The range and bearing board is an extension board for the E-Puck which allows for localisation and local communication between E-Pucks using infra-red transmission. 
 The board is powered by its own processor and consists of 12 sets of IR emission/reception modules. 
 The board was first designed and build by Guiêrrez \textit{et al.}\cite{Gutierrez}. 
-
+The performance of the range and bearing board is very good, the only limitation being that direct line of sight between robots is needed. As documented in the paper by Guiêrrez \textit{et al.} the board has an effective range of up to 6 meter. With less than 1cm in distance and less than 2 degrees in bearing error for distance bellow 1 meter. 
+For the sake of scaling and to simulate limited communication possibilities the maximum range for the range and bearing sensors are reduced to 60 cm.
+ 
 \subsection{Evolutionary Algorithm}
 The control algorithm for this project is an artificial neural network assisted by an genetic algorithm.\\
 The purpose of the neural network is to handle the control of the robots and asses it's own performance using a predefined fitness function. 
-The genetic algorithm is used to evolve the neural network using the fitness assessment done by the neural network. \\
+The genetic algorithm is used to evolve the neural network using the fitness assessment done by the Neural Network. \\
 This section will explore and explain the background of this approach.
 
 \subsubsection{Artificial Neural Network}
 The control algorithm used for this project is an artificial neural network(ANN).
-Artificial neural networks are inspired by the brain. \\
-A biological brain functions by passing electrical signals through nodes, so called neurons. Neurons of the brain can be compared to simple Input/Output connectors which transmit pulse coded analogue information. The relation between a the inputs and outputs can be displayed a simple sigmoid function\cite{Hopfield}.\\
-To a neuron not all inputs are the same however, different inputs(i.e. outputs from other neurons) have stronger influence on it than others, in neuroscience this is defined as synaptic weights. \\
-This influence can be trained, in the course of a life a neuron \textit{learns} to trust some inputs more than others, the same training is done in an artificial neural network. The synaptic weights are represented by the \textit{weight} value each link between 2 nodes holds. This weight value is calculated and evolved using a genetic algorithm. 
+Artificial Neural Networks are inspired by the brain. 
+A biological brain functions by passing electrical signals through nodes, so called neurons. Neurons of the brain can be compared to simple Input/Output connectors which transmit pulse coded analogue information. The relation between a the inputs and outputs can be displayed a simple sigmoid function\cite{Hopfield}.
+To a neuron not all inputs are the same however, different inputs(i.e. outputs from other neurons) have stronger influence on it than others, in neuroscience this is defined as synaptic weights. 
+This influence can be trained, in the course of a life a neuron \textit{learns} to trust some inputs more than others, the same training is done in an artificial neural network. The synaptic weights are represented by the \textit{weight} value each link between 2 nodes holds. This weight value is calculated and evolved using a genetic algorithm. \\
+
+Artificial Neural Networks have been used in similar projects. 
+One such project by Silva \textit{et al.}\cite{Silva2008} used a hierarchical Neural Network to classify data gathered by ultrasound sensors and image data from a camera. The classification was used to determine if a object detected by the ultrasound sensors and the camera is an obstacle or not. 
+Costanzo \textit{et al.}\cite{Costanzo20121047} propose an approach for the self-deployment of a swarm of mobile robots. In their approach a Neural Network is is used to control the robots while a Genetic Algorithm is used to train the neural network. 
+Their work is very similar to the program created in this project. 
+The aim of the paper by Costanzo \textit{et al.} was to create a neural network capable of deploying mobile robots to cover as much as possible of an environment. 
+Every robots has a given communication range which is seen as the area \textit{covered} by that robot. In their work the robots, controlled by a Neural Network, would deploy and explore the environment and stop once they find a suitable position.
+The difference between the work proposed by Costanzo \textit{et al.} and this project is that the goal of this project is to map an environment. While this still means that the robots need to have covered the entirety of the environment of the map at least once to map all obstacles the aim is to work with a swarm limited in size so that the robots always need to move. In future work this could be extend to research into how many robots are needed to cover a environment of a given size fully.
+On the other hand the work by Costanzo aims at effectively deploying a network a mobile sensors which can act as communication and wireless sensor network. In their experiments Costanzo \textit{et al.} used up to 64 robots in order to cover their experiment environments. The size of the robot swarm used in this work is more limited, increasing the responsibilities every robot has while at the same time forcing the swarm to always be moving in order to cover an entire environment.  
 
 \subsubsection{Genetic Algorithm}
-Genetic Algorithms(GA) are a evolutionary algorithm inspired by the genetics of living organism. \\
-An GA works by having a population  of genes, which make out an chromosome. The genes in regard to this GA represent the weights used in the neural network. \\
-A chromosome is constructed as followed, the first 1 gene holds a number representing the genotype length, in other words the number of genes in this chromosome and thereby the number of weights in the neural network. This number is calculated when the neural network is created at the start of the program and passed along to the GA.\\
-The following genes represent each a weight for a specific link between 2 nodes in the neural network. The value is a number between 0 and 1. \\
+Genetic Algorithms(GA) are a evolutionary algorithm inspired by the genetics of living organism. 
+An GA works by having a population  of genes, which make out an chromosome. The genes in regard to this GA represent the weights used in the neural network. 
+A chromosome is constructed as followed, the first 1 gene holds a number representing the genotype length, in other words the number of genes in this chromosome and thereby the number of weights in the neural network. This number is calculated when the neural network is created at the start of the program and passed along to the GA.
+The following genes represent each a weight for a specific link between 2 nodes in the neural network. The value is a number between 0 and 1. 
 The last gene in the chromosome holds the fitness assigned to this chromosome, which is calculated using the fitness function.\\
 
 An genetic algorithms modifies the genes using operators which mimic their biological counterpart. \\
 
-The genetic modifier described as \textit{crossover} switches genes in chromosome to vary the genetic pool between generations. \\
+The genetic modifier described as \textit{crossover} switches genes in chromosome to vary the genetic pool between generations. 
 This crossover can be done with either single genes, or groups of genes depending on the implementation, and of course any restrictions based on the nature of the data. \\
 
-The other operator is mutation, which is the possibility that a random gene switches its value to another random value.\\
-Which genes are chosen for crossover is based on the selection method implemented in the algorithm. \\
-The third major part of an GA is the selection method, the method that is used to choose which chromosomes of the gene pool should carried over into the next generation.\\
+The other operator is mutation, which is the possibility that a random gene switches its value to another random value.
+Which genes are chosen for crossover is based on the selection method implemented in the algorithm. 
+The third major part of an GA is the selection method, the method that is used to choose which chromosomes of the gene pool should carried over into the next generation.
 The selection method implemented in this simulator is \textit{Roulette Wheel Selection}. 
 This selection method is part of the \textit{Proportionate Reproduction} scheme this reproduction scheme chooses individuals to be carried over into the next generation based on their objective fitness function \cite{goldberg1991comparative}. 
 
-The basic part of the selection process is that the fittest individuals have the highest change to be carried over. This replicated nature in a way that a fitter individual tends to have a higher change of survival and will go forward to the mating pool of the next generation.\\
+The basic part of the selection process is that the fittest individuals have the highest change to be carried over. This replicated nature in a way that a fitter individual tends to have a higher change of survival and will go forward to the mating pool of the next generation.
 However weaker individuals(chromosomes) are not without a probabilistic change to get selected. 
 It is called roulette wheel selection because its graphical representation is similar to a roulette wheel, as figure \ref{fig:selection} shows\cite{1631619}.
 
@@ -123,20 +142,20 @@ This fitness function was expanded upon as new features where implemented to lea
 The final fitness function is shown and explained in Chapter \ref{chap2:fitness_function} on page \pageref{chap2:fitness_function}.
 
 \subsection{Localisation}
-In real life scenarios GPS information is not always available, especially when mapping the insight of buildings. \\
+In real life scenarios GPS information is not always available, especially when mapping the insight of buildings. 
 For the sake of this project the localisation and rotation readings are taken from the simulator. \\
 
-While not realistic a time shortage prevented further development of a localisation algorithm.\\
-Thought went into to question of localisation and there are a couple of approaches which could be taken in future work to incorporate them. \\
-One of the approaches is to use odometry, in which the robots position and location is calculated using the knowledge of how many steps the stepper motors did between readings and the wheel diameter of the robots wheels. Knowing how many \textit{steps} equal a full rotation, in case of the E-Pucks motors this is 20 steps\footnote{e-puck.org webside, accessed 8th of September, 2015,, \url{http://goo.gl/YpQ2nf}}, and the diameter of the robots wheels, around 41mm\footnote{e-puck.org webside, accessed 8th of September, 2015, \url{http://goo.gl/YpQ2nf}}, allows to calculate what distance the robot has driven in a straight line. \\
+While not realistic, a time shortage prevented further development of a localisation algorithm.
+Thought went into to question of localisation and there are a couple of approaches which could be taken in future work to incorporate them. 
+One of the approaches is to use odometry, in which the robots position and location is calculated using the knowledge of how many steps the stepper motors did between readings and the wheel diameter of the robots wheels. Knowing how many \textit{steps} equal a full rotation, in case of the E-Pucks motors this is 20 steps\footnote{e-puck.org webside, accessed 8th of September, 2015, \url{http://goo.gl/YpQ2nf}}, and the diameter of the robots wheels, around 41mm\footnote{e-puck.org webside, accessed 8th of September, 2015, \url{http://goo.gl/YpQ2nf}}, allows to calculate what distance the robot has driven in a straight line. \\
 
-The rotation of a robot can be calculated using the same data combined with the knowledge of the robots wheelbase.\\
-However odometry is not a perfect localisation method. Uncertainty about for example the robots wheel diameter, or a wrongly calibrated stepper motor can throw of the location and rotation calculation completely. In real world applications, or simulators which simulate real world properties such as friction between the wheels and the floor, can cause additional problems. \\
-This \textit{error} in the calculation and movement get bigger overtime unless the localisation and rotation values stored in the robots memory are reset at certain intervals. In order to be able to reset it however exact knowledge of the location in the world is needed, not something possible in all environments.\\
+The rotation of a robot can be calculated using the same data combined with the knowledge of the robots wheelbase.
+However odometry is not a perfect localisation method. Uncertainty about for example the robots wheel diameter, or a wrongly calibrated stepper motor can throw of the location and rotation calculation completely. In real world applications, or simulators which simulate real world properties such as friction between the wheels and the floor, can cause additional problems. 
+This \textit{error} in the calculation and movement get bigger overtime unless the localisation and rotation values stored in the robots memory are reset at certain intervals. In order to be able to reset it however exact knowledge of the location in the world is needed, not something possible in all environments.
 Therefore odometry can be at best be seen as an estimate of the robots location and rotation. 
 
-Another possible approach is to locate a robot using another robots sensor, such as the IR sensors on the range and bearing board. \\
-However without prior knowledge of where the \textit{searching} robot is in the world it is impossible to calculate the location of the \textit{searched after} robot, only it distance and bearing from the \textit{searching} robot. \\
+Another possible approach is to locate a robot using another robots sensor, such as the IR sensors on the range and bearing board. 
+However without prior knowledge of where the \textit{searching} robot is in the world it is impossible to calculate the location of the \textit{searched after} robot, only it distance and bearing from the \textit{searching} robot. 
 This knowledge might be enough for some applications, however there are also limits to the localisation possibilities using this approach.
 IR sensors beams widen over distance, meaning the error of an bearings reading increases over distance. Therefore there is a a limit to over how large distances a robots location can be calculated using this. 
 
@@ -144,26 +163,26 @@ Thoughts went also in to combining both the odometry calculations with the range
 
 
 \subsection{Mapping}
-To map the environment the E-Pucks IR sensors are used. \\
+To map the environment the E-Pucks IR sensors are used. 
 Using the knowledge of the robots position as well as the sensor read out it is possible to calculate the position of an obstacle in regard to the robot. \\
 
 \begin{figure}[h]
 \begin{center}
 \includegraphics[scale=0.4]{Chapter1/images/e_puck_sensor.png}
-\caption{E-Puck sensor placement}
+\caption[E-Puck Sensor Placement]{E-Puck Sensor Placement\footnotemark}
 \label{fig:sensor_placement} 
 \end{center}
 \end{figure}
-
-Figure \ref{fig:sensor_placement} shows the placement of the robots IR sensors, labelled \textit{ps0} through \textit{ps7}.\\
+\footnotetext{Image credit: Webots User Guide, accessed: 8th of September, 2015, \url{http://goo.gl/pTmp45}}
+Figure \ref{fig:sensor_placement} shows the placement of the robots IR sensors, labelled \textit{ps0} through \textit{ps7}.
 With the knowledge of where a particular sensor is placed on the robot combined with the knowledge of the robots position, rotation and the return of the IR reading, it is possible to calculate the placement of a obstacle in the environment.\\
 
-The robots all share a single global map, which is updated with the position of all robots, as well as the position of any encountered obstacles, at each iteration. \\
+The robots all share a single global map, which is updated with the position of all robots, as well as the position of any encountered obstacles, at each iteration. 
 The map it self a standard occupancy grid map: a 2 dimensional grid where each cell can have 1 of 3 possible values: 0 = unexplored, 1 = obstacle, 2 = robot position.  
 
 \section{Methodology}
-The life cycle model used for this project is "Feature Driven Development" (FDD) as it seems the more appropriate for this project than other models, such as extreme programming or test driven development. \\
-The reason FDD is more appropriate is that this is a single person project, as well as the requirements allowed for easy distinguish in which order features need to be implemented.  \\
+The life cycle model used for this project is "Feature Driven Development" (FDD) as it seems the be more appropriate for this project than other models, such as Extreme Programming or Test Driven Development. 
+The reason FDD is more appropriate is that this is a single person project, as well as the requirements allowed for easy distinguish in which order features need to be implemented.  
 For example: the controller(neural network) needs to be implemented to be able to train it. Once the it is implemented and the robots are able to move based on its control, the communication between the robots can be implemented. Only once this is done and tested the mapping algorithm can be started to be developed, as the features build on each other.\\
 
 The milestones of the project rather small and incremental "upgrades" on each other. For example the fitness function went from "move in certain direction" to "move in a certain direction and avoid obstacles" to much later "move throughout the environment, don't spin at the same spot, avoid crashing into obstacles but be close enough to map them and stay in communication range with other robots". \\

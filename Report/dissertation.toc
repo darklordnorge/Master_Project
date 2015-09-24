@@ -1,85 +1,85 @@
 \contentsline {chapter}{\numberline {1}Introduction \& Background}{1}
 \contentsline {section}{\numberline {1.1}Introduction}{1}
 \contentsline {section}{\numberline {1.2}Aim of this Project}{2}
-\contentsline {section}{\numberline {1.3}Information about the Project}{2}
-\contentsline {subsection}{\numberline {1.3.1}Choice of Development Environment and Programming Language}{2}
+\contentsline {section}{\numberline {1.3}Information about the Project}{3}
+\contentsline {subsection}{\numberline {1.3.1}Choice of Development Environment and Programming Language}{3}
 \contentsline {subsection}{\numberline {1.3.2}Choice of Robot}{3}
 \contentsline {subsection}{\numberline {1.3.3}Choice of Environment Design}{3}
-\contentsline {section}{\numberline {1.4}Analysis}{3}
-\contentsline {subsection}{\numberline {1.4.1}Communications}{3}
+\contentsline {section}{\numberline {1.4}Analysis}{4}
+\contentsline {subsection}{\numberline {1.4.1}Communications}{4}
 \contentsline {subsection}{\numberline {1.4.2}Evolutionary Algorithm}{4}
 \contentsline {subsubsection}{\numberline {1.4.2.1}Artificial Neural Network}{4}
-\contentsline {subsubsection}{\numberline {1.4.2.2}Genetic Algorithm}{4}
+\contentsline {subsubsection}{\numberline {1.4.2.2}Genetic Algorithm}{5}
 \contentsline {subsection}{\numberline {1.4.3}Fitness Function}{6}
-\contentsline {subsection}{\numberline {1.4.4}Localisation}{6}
-\contentsline {subsection}{\numberline {1.4.5}Mapping}{7}
-\contentsline {section}{\numberline {1.5}Methodology}{8}
-\contentsline {chapter}{\numberline {2}Design}{9}
-\contentsline {section}{\numberline {2.1}Overall Architecture}{9}
-\contentsline {subsection}{\numberline {2.1.1}Control Algorithm}{9}
-\contentsline {subsection}{\numberline {2.1.2}Artificial Neural Network}{9}
-\contentsline {subsubsection}{\numberline {2.1.2.1}Input Layer}{10}
-\contentsline {subsubsection}{\numberline {2.1.2.2}Hidden Layer \& Sigmoid Function}{10}
-\contentsline {subsubsection}{\numberline {2.1.2.3}Output Layer}{11}
-\contentsline {subsection}{\numberline {2.1.3}Fitness Function}{12}
-\contentsline {subsection}{\numberline {2.1.4}Genetic Algorithm}{13}
+\contentsline {subsection}{\numberline {1.4.4}Localisation}{7}
+\contentsline {subsection}{\numberline {1.4.5}Mapping}{8}
+\contentsline {section}{\numberline {1.5}Methodology}{9}
+\contentsline {chapter}{\numberline {2}Design}{10}
+\contentsline {section}{\numberline {2.1}Overall Architecture}{10}
+\contentsline {subsection}{\numberline {2.1.1}Artificial Neural Network}{10}
+\contentsline {subsubsection}{\numberline {2.1.1.1}Input Layer}{10}
+\contentsline {subsubsection}{\numberline {2.1.1.2}Hidden Layer \& Sigmoid Function}{11}
+\contentsline {subsubsection}{\numberline {2.1.1.3}Output Layer}{12}
+\contentsline {subsection}{\numberline {2.1.2}Fitness Function}{13}
+\contentsline {subsection}{\numberline {2.1.3}Genetic Algorithm}{14}
 \contentsline {section}{\numberline {2.2}Program set up}{14}
-\contentsline {section}{\numberline {2.3}Communication}{15}
-\contentsline {section}{\numberline {2.4}Mapping algorithm}{15}
-\contentsline {subsection}{\numberline {2.4.1}Mapping procedure}{15}
-\contentsline {subsection}{\numberline {2.4.2}Map visualisation}{16}
-\contentsline {chapter}{\numberline {3}Implementation}{17}
-\contentsline {section}{\numberline {3.1}Implementation of the GA assisted Artificial Neural Network}{17}
-\contentsline {subsection}{\numberline {3.1.1}Constructor and genotype length computation}{17}
+\contentsline {section}{\numberline {2.3}Communication}{16}
+\contentsline {section}{\numberline {2.4}Mapping Algorithm}{16}
+\contentsline {subsection}{\numberline {2.4.1}Mapping Procedure}{16}
+\contentsline {subsection}{\numberline {2.4.2}Map Visualisation}{17}
+\contentsline {chapter}{\numberline {3}Implementation}{18}
+\contentsline {section}{\numberline {3.1}Implementation of the GA Assisted Artificial Neural Network}{18}
+\contentsline {subsection}{\numberline {3.1.1}Constructor and Genotype Length Computation}{18}
 \contentsline {subsection}{\numberline {3.1.2}Initialisation}{18}
-\contentsline {subsection}{\numberline {3.1.3}Step function}{18}
-\contentsline {section}{\numberline {3.2}First fitness function and neural network performance test}{18}
-\contentsline {section}{\numberline {3.3}Multi Robot movement}{19}
-\contentsline {section}{\numberline {3.4}Mapping}{20}
-\contentsline {subsection}{\numberline {3.4.1}Map initialisation}{20}
-\contentsline {subsection}{\numberline {3.4.2}Calculate robot position on the map}{20}
-\contentsline {subsection}{\numberline {3.4.3}Calculate the robots heading}{21}
-\contentsline {subsection}{\numberline {3.4.4}Deciding which cell of the map to mark}{22}
-\contentsline {subsubsection}{\numberline {3.4.4.1}Return the correct sensor number}{22}
+\contentsline {subsection}{\numberline {3.1.3}Step function}{19}
+\contentsline {section}{\numberline {3.2}First Fitness Function and Neural Network Performance Test}{19}
+\contentsline {section}{\numberline {3.3}Multi Robot Movement}{20}
+\contentsline {section}{\numberline {3.4}Mapping}{21}
+\contentsline {subsection}{\numberline {3.4.1}Map initialisation}{21}
+\contentsline {subsection}{\numberline {3.4.2}Calculate the Robot Position on the Map}{21}
+\contentsline {subsection}{\numberline {3.4.3}Calculate the Robots Heading}{22}
+\contentsline {subsection}{\numberline {3.4.4}Deciding Which Cell of the Map to Mark}{23}
+\contentsline {subsubsection}{\numberline {3.4.4.1}Return the Correct Sensor Number}{23}
 \contentsline {subsubsection}{\numberline {3.4.4.2}Control function of the mapping algorithm}{23}
-\contentsline {subsubsection}{\numberline {3.4.4.3}Set cells in front of the robot}{23}
-\contentsline {subsubsection}{\numberline {3.4.4.4}Set cells off the bow of the robot}{23}
-\contentsline {subsubsection}{\numberline {3.4.4.5}Set cells to the sides of the robot}{23}
-\contentsline {subsubsection}{\numberline {3.4.4.6}Set cells in the back of the robot}{23}
-\contentsline {subsubsection}{\numberline {3.4.4.7}Marking a cell in the map}{23}
-\contentsline {section}{\numberline {3.5}Displaying the map}{24}
-\contentsline {section}{\numberline {3.6}Non-evolution bug}{24}
-\contentsline {subsubsection}{\numberline {3.6.0.8}Different fitness function}{25}
-\contentsline {chapter}{\numberline {4}Testing \& Experiments}{27}
-\contentsline {section}{\numberline {4.1}Overall Approach to Testing}{27}
-\contentsline {section}{\numberline {4.2}Experiments}{28}
-\contentsline {subsection}{\numberline {4.2.1}Experiment A: Multi-robot movement}{28}
+\contentsline {subsubsection}{\numberline {3.4.4.3}Set Cells in Front of the Robot}{24}
+\contentsline {subsubsection}{\numberline {3.4.4.4}Set Cells off the Bow of the Robot}{24}
+\contentsline {subsubsection}{\numberline {3.4.4.5}Set Cells to the Sides of the Robot}{24}
+\contentsline {subsubsection}{\numberline {3.4.4.6}Set Cells in the Back of the Robot}{24}
+\contentsline {subsubsection}{\numberline {3.4.4.7}Marking a Cell in the Map}{24}
+\contentsline {section}{\numberline {3.5}Displaying the Map}{24}
+\contentsline {section}{\numberline {3.6}Non-Evolution Bug}{25}
+\contentsline {subsubsection}{\numberline {3.6.0.8}Different Fitness Function}{26}
+\contentsline {chapter}{\numberline {4}Testing \& Experiments}{28}
+\contentsline {section}{\numberline {4.1}Overall Approach to Testing}{28}
+\contentsline {section}{\numberline {4.2}Experiments}{29}
+\contentsline {subsection}{\numberline {4.2.1}Experiment A: Multi Robot Movement}{29}
 \contentsline {subsection}{\numberline {4.2.2}Experiment B: Mapping}{30}
 \contentsline {subsection}{\numberline {4.2.3}Different Environments}{32}
-\contentsline {subsubsection}{\numberline {4.2.3.1}Experiment environment A}{33}
-\contentsline {subsubsection}{\numberline {4.2.3.2}Experiment environment B}{34}
-\contentsline {chapter}{\numberline {5}Conclusion \& Future work}{36}
-\contentsline {section}{\numberline {5.1}Conclusion}{36}
-\contentsline {chapter}{Appendices}{37}
-\contentsline {chapter}{\numberline {A}Third-Party Code and Libraries}{38}
-\contentsline {section}{\numberline {1.1}Range and Bearing reading}{38}
-\contentsline {chapter}{\numberline {B}Code samples}{40}
-\contentsline {section}{\numberline {2.1}Environment Design}{40}
-\contentsline {section}{\numberline {2.2}GA assisted Artificial Neural Network}{41}
-\contentsline {subsection}{\numberline {2.2.1}Constructor and genotype length computation}{41}
-\contentsline {subsection}{\numberline {2.2.2}Initialisation}{41}
-\contentsline {subsection}{\numberline {2.2.3}Step function}{42}
-\contentsline {section}{\numberline {2.3}Test Environment for first fitness function}{44}
-\contentsline {section}{\numberline {2.4}Map}{44}
-\contentsline {subsection}{\numberline {2.4.1}Initialisation}{44}
-\contentsline {subsection}{\numberline {2.4.2}Calculate Heading}{45}
-\contentsline {subsection}{\numberline {2.4.3}Calculation of robot position on the map}{46}
-\contentsline {subsection}{\numberline {2.4.4}Return the correct Sensor number}{47}
-\contentsline {subsection}{\numberline {2.4.5}Decide which cells to mark}{47}
-\contentsline {subsection}{\numberline {2.4.6}Map cells in the direct front of the robot}{48}
-\contentsline {subsection}{\numberline {2.4.7}Map cells off the bow of the robot}{49}
-\contentsline {subsection}{\numberline {2.4.8}Map cells to the side of the robot}{49}
-\contentsline {subsection}{\numberline {2.4.9}Set Aft cells of the robot}{50}
-\contentsline {section}{\numberline {2.5}SDL program for map visualisation}{51}
-\contentsline {section}{\numberline {2.6}UML}{52}
-\contentsline {chapter}{Annotated Bibliography}{58}
+\contentsline {subsubsection}{\numberline {4.2.3.1}Experiment Environment A}{33}
+\contentsline {subsubsection}{\numberline {4.2.3.2}Experiment Environment B}{34}
+\contentsline {chapter}{\numberline {5}Conclusion \& Future Work}{37}
+\contentsline {section}{\numberline {5.1}Future Work}{37}
+\contentsline {section}{\numberline {5.2}Conclusion}{38}
+\contentsline {chapter}{\numberline {A}Third-Party Code and Libraries}{40}
+\contentsline {section}{\numberline {1.1}Range and Bearing reading}{40}
+\contentsline {chapter}{Appendices}{40}
+\contentsline {chapter}{\numberline {B}Code samples}{42}
+\contentsline {section}{\numberline {2.1}Environment Design}{42}
+\contentsline {section}{\numberline {2.2}GA assisted Artificial Neural Network}{43}
+\contentsline {subsection}{\numberline {2.2.1}Constructor and genotype length computation}{43}
+\contentsline {subsection}{\numberline {2.2.2}Initialisation}{43}
+\contentsline {subsection}{\numberline {2.2.3}Step function}{44}
+\contentsline {section}{\numberline {2.3}Test Environment for first fitness function}{46}
+\contentsline {section}{\numberline {2.4}Map}{46}
+\contentsline {subsection}{\numberline {2.4.1}Initialisation}{46}
+\contentsline {subsection}{\numberline {2.4.2}Calculate Heading}{47}
+\contentsline {subsection}{\numberline {2.4.3}Calculation of robot position on the map}{48}
+\contentsline {subsection}{\numberline {2.4.4}Return the correct Sensor number}{49}
+\contentsline {subsection}{\numberline {2.4.5}Decide which cells to mark}{49}
+\contentsline {subsection}{\numberline {2.4.6}Map cells in the direct front of the robot}{50}
+\contentsline {subsection}{\numberline {2.4.7}Map cells off the bow of the robot}{51}
+\contentsline {subsection}{\numberline {2.4.8}Map cells to the side of the robot}{51}
+\contentsline {subsection}{\numberline {2.4.9}Set Aft cells of the robot}{52}
+\contentsline {section}{\numberline {2.5}SDL program for map visualisation}{53}
+\contentsline {section}{\numberline {2.6}UML}{54}
+\contentsline {chapter}{Annotated Bibliography}{60}

@@ -1,30 +1,29 @@
 \chapter{Testing \& Experiments}
-This chapter holds the overall approach to testing. \\
+This chapter holds the overall approach to testing. 
 This includes the test and experiments which have been performed during the development phase, as well as a limited number of experiments. 
-The number of experiments is unfortunately limited based on the still existing bug which prevents the program to evolve further. \\
+The number of experiments is unfortunately limited based on the still existing bug which prevents the program to evolve further. 
 
 \section{Overall Approach to Testing}
-As the program requires a simulator to run in and controllers are needed to be evolved the only possible way to test changes made to the program, i.e. a new fitness function, refinement of some parameters, implementation of a new function, etc. can only be done by running the program in evolution mode over multiple generations in order to see the effect of the changes made on the robot behaviour and performance.\\
-That is one of the problems encountered when working with evolutionary algorithms, the evolution itself can be seen as a black box and only testing a change multiple times can give a correct view of the behaviour changes created by chancing part of the code. To run major changes multiple times in order to get an understanding of the change in behaviour is needed as evolution in itself is has a very random element.\\
-It might be that the user gives a good, or bad, seed for evolution which causes the behaviour to be better than other instances or be much worse. \\
-Examples for this which were encountered during this development were that running the same, unchanged, code multiple times with a different seed every time were as different as: Controller not evolving at all(the robot did not move), the robot only spinning around, however the average of runs evolved normally. \\
+As the program requires a simulator to run in and controllers are needed to be evolved the only possible way to test changes made to the program, i.e. a new fitness function, refinement of some parameters, implementation of a new function, etc. can only be done by running the program in evolution mode over multiple generations in order to see the effect of the changes made on the robot behaviour and performance.
+That is one of the problems encountered when working with evolutionary algorithms, the evolution itself can be seen as a black box and only testing a change multiple times can give a correct view of the behaviour changes created by chancing part of the code. To run major changes multiple times in order to get an understanding of the change in behaviour is needed as evolution in itself is has a very random element.
+It might be that the user gives a good, or bad, seed for evolution which causes the behaviour to be better than other instances or be much worse. 
+Examples for this which were encountered during this development were that running the same, unchanged, code multiple times with a different seed every time were as different as: Controller not evolving at all(the robot did not move), the robot only spinning around, however the average of runs evolved normally. 
 One of the more rare evolutions caused the robot to drive only backwards. \\
 
-The nature of needing an evolution over multiple generations limits testing possibilities in a way that the only way to test and document their function beyond integration testing is by evolving a controller and document it's behaviour and performance by using the simulators viewing mode after it has been evolved.\\
-This makes automated unit testing impossible.\\
-New pieces of code that where added to the program have been tested before they have been used in complete evolutions.\\
-This was done by checking, using the used IDE's debug methods  if they have been integrated correctly. This was done by setting breakpoints at key points of the the program and checking that all objects have been correctly initialised, that pointers point to the correct objects and information is passed correctly between functions.\\
-In another case, when the implementation of the range and bearing sensor was tested, the function to update the actuators of one of the robots was disabled and a short evolutionary run of 25 generations was performed.\\
-This showed that the robot with working actuators evolved to move to the maximum extend of the defined communication range before stopping. \\
-This showed that defining the maximum communication range worked as intended and that the fitness function, which is designed to set the fitness value to 0 if they move outside their communication range, also worked.
+The nature of needing an evolution over multiple generations limits testing possibilities in a way that the only way to test and document their function beyond integration testing is by evolving a controller and document it's behaviour and performance by using the simulators viewing mode after it has been evolved.
+This makes automated unit testing impossible.
+New pieces of code that where added to the program have been tested before they have been used in complete evolutions.
+This was done by checking, using the used IDE's debug methods  if they have been integrated correctly. This was done by setting breakpoints at key points of the the program and checking that all objects have been correctly initialised, that pointers point to the correct objects and information is passed correctly between functions.
+In another case, when the implementation of the range and bearing sensor was tested, the function to update the actuators of one of the robots was disabled and a short evolutionary run of 25 generations was performed.
+This showed that the robot with working actuators evolved to move to the maximum extend of the defined communication range before stopping. 
+This showed that defining the maximum communication range worked as intended and that the fitness function, which is designed to set the fitness value to 0 if they move outside their communication range, also worked.\\
 
-During development(apart from the test environment for the first fitness function) only a single environment was used for evolution and testing.\\
-A representation of this environment can be seen in appendix B figure \ref{appendix2:environment} on page \pageref{appendix2:environment}.\\
-While all changes to the program have been tested multiple times only the milestones will be documented in this paper. \\
-
+During development(apart from the test environment for the first fitness function) only a single environment was used for evolution and testing.
+A representation of this environment can be seen in appendix B figure \ref{appendix2:environment} on page \pageref{appendix2:environment}.
+While all changes to the program have been tested multiple times only the milestones will be documented in this paper. 
 
 \section{Experiments}
-\subsection{Experiment A: Multi-robot movement}
+\subsection{Experiment A: Multi Robot Movement}
 \label{chap4:movement}
 This experiment was performed after the range and bearing algorithm was implemented. It simulates the communication of the robot where the needs to be within a certain distance to each other in order to stay in contact.\\
 
@@ -36,9 +35,9 @@ This experiment was performed after the range and bearing algorithm was implemen
 \end{figure}
 
 Figure \ref{fig:experiment_a} shows the result of that experiment. 
-Here the communication range has been set to a maximum distance of 0.6. \\
-The fitness function at the time of this experiment defined that the higher distance value between 2 robots the better, however after a distance of 0.6 the fitness would be set to 0.\\
-This creates some problems: the robots aim to stay at the full extend of their communication range as they receive the highest possible fitness, therefore even a small change of movement from on of the robots(e.g. avoiding an obstacle) might be enough to bring them outside their communication threshold. \\
+Here the communication range has been set to a maximum distance of 0.6. 
+The fitness function at the time of this experiment defined that the higher distance value between 2 robots the better, however after a distance of 0.6 the fitness would be set to 0.
+This creates some problems: the robots aim to stay at the full extend of their communication range as they receive the highest possible fitness, therefore even a small change of movement from on of the robots(e.g. avoiding an obstacle) might be enough to bring them outside their communication threshold. 
 Another problem with the fitness function at this point is that robots only check the distance to the next robot in the array of robots, this leads to the forming of groups which can be observed in figure \ref{fig:experiment_a}. \\
 
 As this is not optimal a plan was made to implement a function would would reduce the fitness gradually after a certain point. 
@@ -52,16 +51,16 @@ As this is not optimal a plan was made to implement a function would would reduc
 
 Figure \ref{fig:coms} shows a representation of the communication range of the robots. After a certain distance the signal strength would start getting weaker, this is true for all available communication methods. Wifi and Bluetooth communication ranges vary though at a certain point signal strength begin to drop, the same goes for communication using the range and bearing board, at a certain point the error rate starts increasing. See chapter 1 section \ref{chap1:communication} on page \pageref{chap1:communication} for more information on the different considered communication methods. \\
 
-The plan was to reward the robot for staying close to the point where signal strength starts reducing, and gradually receive a lower fitness value the further they are away from that point. Should a robot go beyond the maximum communication range the fitness would be set to 0. \\
-The function was to be designed in such a way that the robot would always stay behind the point where the communication range starts decreasing, this is to ensure that the robot spread sufficiently throughout the environment. 
+The plan was to reward the robot for staying close to the point where signal strength starts reducing, and gradually receive a lower fitness value the further they are away from that point. Should a robot go beyond the maximum communication range the fitness would be set to 0. 
+The function was to be designed in such a way that the robot would always stay behind the point where the communication range starts decreasing, this is to ensure that the robot spread sufficiently throughout the environment. \\
 
-The aim at that time of the development process was to first get a baseline of all feature implemented into the system.\\
+The aim at that time of the development process was to first get a baseline of all feature implemented into the system.
 Therefore the function to gradually decrease the fitness value after a certain point was not implemented at this point and work on the mapping algorithm began.
 
 \subsection{Experiment B: Mapping}
 After the base  communication algorithm was implemented and the robots were able to drive in \textit{formation} the work on the mapping algorithm began, refer to chapter 3 for more information. \\
 
-This experiment was performed with the same communication parameters than experiment A. \\
+This experiment was performed with the same communication parameters than experiment A. 
 
 \begin{figure}[h]
 \centering
@@ -70,16 +69,16 @@ This experiment was performed with the same communication parameters than experi
 \label{fig:map1}
 \end{figure}
 
-Figure \ref{fig:map1} shows map generated by the mapping algorithm.\\
+Figure \ref{fig:map1} shows map generated by the mapping algorithm.
 Note that the while the map is not very accurate, or complete, it manages to create a ruff outline of the environment, which can be seen in appendix B section \ref{appendix2:environment} on page \pageref{appendix2:environment}. \\
 
-Examining this map visualisation gives insight of the limitations of the program at this point in the project.\\
+Examining this map visualisation gives insight of the limitations of the program at this point in the project.
 That the map is not fully completed because the robots do not cover the entire map. This is due a few limitations. At this moment in the development process the robots moved to slow, which led to them running out of time. 
-A user defines the number of iterations, time steps,  the network should evolve with, once the maximum number of iterations is done the next evolution / generation is started.\\
-The robot speed can be influenced by reducing the number of iterations which leads the robot to drive faster in order to reach the highest fitness fastest. At the same time if the number of iterations is set to low the network does not evolve fully. \\
+A user defines the number of iterations, time steps,  the network should evolve with, once the maximum number of iterations is done the next evolution / generation is started.
+The robot speed can be influenced by reducing the number of iterations which leads the robot to drive faster in order to reach the highest fitness fastest. At the same time if the number of iterations is set to low the network does not evolve fully. 
 At this time in the project the network was evolved with 1000 iterations and 5 evaluations per iteration.  The number of iterations should have been decreased in order to force the robots to move faster 
 
-However the robot speed is not the only short coming. The robots do not cover the entire map because of how they are deployed. \\
+However the robot speed is not the only short coming. The robots do not cover the entire map because of how they are deployed. 
 
 \begin{figure}[h]
 \centering
@@ -88,31 +87,31 @@ However the robot speed is not the only short coming. The robots do not cover th
 \label{fig:enviro_marked1}
 \end{figure}
 
-Figure \ref{fig:enviro_marked1} shows environment 1, the red circle shows a  problematic area on the map which the robot have problems with traversing.\\
-The angled between the obstacles encircled is to high, so the robots will turn away from the obstacle and will drive upwards again. \\
+Figure \ref{fig:enviro_marked1} shows environment 1, the red circle shows a  problematic area on the map which the robot have problems with traversing.
+The angled between the obstacles encircled is to high, so the robots will turn away from the obstacle and will drive upwards again. 
 On the other side of the environment the robots are following the left outer border of the environment. This is because of the fitness function, which rewards the robots to drive close enough to an obstacle to get a definitive sensor return. 
-This leads the robots on this side of the environment to follow the wall downwards and pass through the gap between the small block and the outer wall in the lower left corner of the environment, and not exploring towards the middle of the environment.\\
+This leads the robots on this side of the environment to follow the wall downwards and pass through the gap between the small block and the outer wall in the lower left corner of the environment, and not exploring towards the middle of the environment.
 
-There are problems which are rooted in the behaviour of the IR sensors and the mapping algorithm itself as well.\\
+There are problems which are rooted in the behaviour of the IR sensors and the mapping algorithm itself as well.
 The simulator introduces noise to the IR sensors which influences the reading accuracy and might lead to cells being wrongly marked as occupied. 
 The IR sensors do not differentiate between any obstacles or other robots, 
 which will lead to a robot marking a cell as occupied another robot triggers its sensors. This is a flaw in the mapping algorithm which was realised but was categorized as not program breaking. It was planed to fix this bug bug after the baseline was implemented fully. \\ 
 
-This experiment was performed multiple times in order to refine the parameters used in the mapping algorithm. In the first experiment the thresholds for the heading calculation were set to +/- 10 degrees for both \textit{main} and \textit{secondary} headings, see chapter 3 section \ref{chap3:calc_heading} on page \pageref{chap3:calc_heading} for more information. \\
+This experiment was performed multiple times in order to refine the parameters used in the mapping algorithm. In the first experiment the thresholds for the heading calculation were set to +/- 10 degrees for both \textit{main} and \textit{secondary} headings, see chapter 3 section \ref{chap3:calc_heading} on page \pageref{chap3:calc_heading} for more information. 
 The experiment was than re-run with different thresholds to see the performance and the results in the map representation. 
-During the experiments it was shown that setting the thresholds for the \textit{main} headings(north, east, south, west) to +/- 10 degrees is the most accurate as well as setting it to +/- 5 degrees for the \textit{secondary} headings(north-east, south-east, south-west, north-west).\\
+During the experiments it was shown that setting the thresholds for the \textit{main} headings(north, east, south, west) to +/- 10 degrees is the most accurate as well as setting it to +/- 5 degrees for the \textit{secondary} headings(north-east, south-east, south-west, north-west).
 While the robot will map obstacles less frequent with a threshold set to +/- 5, the resulting map will be more accurate. \\
 
-The main reason for the inaccurate map creation in the way the mapping algorithm marks cells. As described in chapter 3 the algorithm marks cells in a specific area around the robot, the problem with that is that something will be marked when the sensor give a high enough reading. \\
+The main reason for the inaccurate map creation in the way the mapping algorithm marks cells. As described in chapter 3 the algorithm marks cells in a specific area around the robot, the problem with that is that something will be marked when the sensor give a high enough reading. 
 The way this could have been improved is by implementing an probability approach which will only mark a cells as occupied if it has a certain probability of being occupied. This involves marking a cell as \textit{scanned} and when another robot, or the same robot, scan the same cell again the probability that this cell really is occupied increases. 
 
 \subsection{Different Environments}
 In order to test the performance of the evolved neural network, different test environments were implemented and the robots where set to perform the mapping task in them. 
-Neural networks are very able to perform in different environments to those they have been trained in. The reason for that is that even if the environment changes, the network is trained to react to inputs from it's sensors in real time and a very specific way and will continue doing so. \\
+Neural networks are very able to perform in different environments to those they have been trained in. The reason for that is that even if the environment changes, the network is trained to react to inputs from it's sensors in real time and a very specific way and will continue doing so. 
 To test the performance of the mapping and communication algorithm in different environments 3 test environments have been created. They will be introduced and their results analysed in this section.\\
 
-\subsubsection{Experiment environment A}
-Environment A has been created to test how the trained neural network reacts to strongly angled obstacles. To increase the difficulty other obstacles where added to the environment.\\
+\subsubsection{Experiment Environment A}
+Environment A has been created to test how the trained neural network reacts to strongly angled obstacles. To increase the difficulty other obstacles where added to the environment.
 Figure \ref{fig:experiment_a} shows a representation of the environment, while figure \ref{fig:experiment_a_map} shows the map that has been generated for this environment.  
 
 \begin{figure}[h]
@@ -129,12 +128,12 @@ Figure \ref{fig:experiment_a} shows a representation of the environment, while f
 \label{fig:experiment_a_map}
 \end{figure}
 
-While 2 of the robots managed to bypass the large obstacle and move into the rest of the environment, 2 robots got \textit{stuck} close to their start position at the top of the map. \\
-Figure \ref{fig:experiment_a_map} shows the generated map, as it can be seen the barely anything has been mapped. That hints at the behaviour of the robot to turn to sharply away from angled walls as barely anything of the major wall obstacle in the room has been mapped. \\
-At this moment this is assumed to be caused by the fact that the development environment, figure \ref{appendix2:environment} page \pageref{appendix2:environment} only has walls that stand either at large angle to the robots starting position in the top of the map or at a 90 degree angle to them.\\
+While 2 of the robots managed to bypass the large obstacle and move into the rest of the environment, 2 robots got \textit{stuck} close to their start position at the top of the map. 
+Figure \ref{fig:experiment_a_map} shows the generated map, as it can be seen the barely anything has been mapped. That hints at the behaviour of the robot to turn to sharply away from angled walls as barely anything of the major wall obstacle in the room has been mapped. 
+At this moment this is assumed to be caused by the fact that the development environment, figure \ref{appendix2:environment} page \pageref{appendix2:environment} only has walls that stand either at large angle to the robots starting position in the top of the map or at a 90 degree angle to them.
 One possible way to improve on that is to add more walls with different angles to the development environment. 
 
-\subsubsection{Experiment environment B}
+\subsubsection{Experiment Environment B}
 Experiment environment B was designed to represent a cross intersection between 2 corridors. As usual the robots would start at the top center of the map. 
 
 \begin{figure}[h]
@@ -153,7 +152,7 @@ After the problems encountered with angled walls in experiment A the aim of this
 \label{fig:experiment_b_map}
 \end{figure}
 
-Figure \ref{fig:experiment_b_map} shows the map generated for this environment. \\
-As can be seen large parts of the corridor they start it have been mapped, however some problems were encountered when it came to the intersection, and some robots drove close enough by each other to map themselves.\\
-This reinforces the limitations of the mapping algorithm observed in experiment B, that at this point all cells that are observed to be a obstacle are marked, even if it as another robot that caused the sensor return. \\
+Figure \ref{fig:experiment_b_map} shows the map generated for this environment. 
+As can be seen large parts of the corridor they start it have been mapped, however some problems were encountered when it came to the intersection, and some robots drove close enough by each other to map themselves.
+This reinforces the limitations of the mapping algorithm observed in experiment B, that at this point all cells that are observed to be a obstacle are marked, even if it as another robot that caused the sensor return. 
 As discussed this can be prevented by implementing a probability based mapping algorithm.\\
